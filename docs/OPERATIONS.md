@@ -32,6 +32,8 @@ Atualizar: consultar release/tag estável, resolver digest, revisar diff, regist
 
 Cada tentativa tem run próprio. Se existir `.runtime/promotion-pending.json`, conferir intenção, estágio, backup e base antes de recuperação explícita. Não apagar a barreira para tentar novamente. DNS/TLS não autorizam desligar HTTPS nem mudar domínio por inferência. Reverter somente delta próprio, preservando histórico e posses alheias.
 
+Recuperação de promoção: interromper novos escritores; preservar uma cópia da intenção e inventariar os hashes da base, do candidato, do estágio e do backup. Se não houver intenção, um estágio órfão não prova promoção: arquivá-lo com registro, sem substituir a base. Com intenção, comparar cada árvore com os hashes nela registrados. Base íntegra anterior significa promoção não concluída; base íntegra candidata significa concluir somente o recibo após conferir o backup. Base ausente exige restaurar o backup anterior comprovado; árvore divergente exige diagnóstico, sem sobrepor dados. Só depois registrar a decisão e arquivar a barreira e os estágios, preservando evidências. Os controles exercitam falha durante staging, barreira pendente e ciclos distintos; não simulam corte de energia em cada instrução nem certificam essa recuperação manual de ponta a ponta.
+
 ## Rotina completa registrada
 
 `python scripts/ingest.py --blog ../lars-rabelus/blog` cria um run novo, registra intenção/etapas/falhas com horárioUTC e fsync, vistoria o Blog, gera candidato separado e executa admissão mais controles negativos. `--promote` instala apenas a base local depois desses gates; publicação ainda exige QA, revisão e selo. As evidências ficam em docs/runs e o candidato em .runtime.
@@ -39,3 +41,5 @@ Cada tentativa tem run próprio. Se existir `.runtime/promotion-pending.json`, c
 A edição0.1.0 tem373 fontes; futuras edições usam o tamanho declarado no contrato de entrada, não um contador produzido pela saída. Novo corte exige revisão versionada de contrato/corpus/manifesto e recibos dos artigos afetados. O workflow de Pages rejeita objeto diferente do manifesto revisado e recibos nãoPASS. Não há cron de publicação nem chamada automática a modelos.
 
 O servidor usa um worker NGINX para a cota de 0,5 CPU. A imagem declara versão do aplicativo0.1.0; revisão Git não é inferida de labels da base. Identidade do runtime é conferida por imagem e hashes de conteúdo nos recibos.
+
+O selo exige quatro camadas distintas vinculadas aos arquivos pertinentes. Browser e Docker incluem todos os corpos lazy, ativos, página404 e documentos empacotados. O ensaio Docker confere cada arquivo servido; no browser a captura de hashes delimita o objeto do ensaio, sem alegar inspeção visual individual de373 fontes. Alterar esses arquivos invalida o recibo da camada, mesmo após nova revisão. Deploy é restrito explicitamente à main, inclusive disparo manual.

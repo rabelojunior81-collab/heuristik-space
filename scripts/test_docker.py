@@ -52,7 +52,10 @@ def main(output, exercise_restart):
         need(host['RestartPolicy']['Name'] == 'unless-stopped', 'Restart policy')
         need(host['Memory'] == 128 * 1024 ** 2 and host['PidsLimit'] == 64, 'Resource bounds')
         need(run('docker', 'compose', 'exec', '-T', 'web', 'id', '-u') == '101', 'Effective process UID')
-        for name in ['index.html', 'app.js', 'styles.css', 'data/knowledge.json', 'data/context.txt', 'assets/brand/heuristik-mark.svg']:
+        runtime_names = [name for name in initial_inputs
+                         if name.startswith(('assets/', 'data/', 'docs/'))
+                         or name in ('index.html', 'app.js', 'styles.css', '404.html')]
+        for name in sorted(runtime_names):
             with urlopen('http://127.0.0.1:4173/' + name, timeout=5) as response:
                 body = response.read()
                 need(response.status == 200 and body == (ROOT / name).read_bytes(), 'HTTP / bytes ' + name)

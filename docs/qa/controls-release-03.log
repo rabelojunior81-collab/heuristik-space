@@ -1,0 +1,31 @@
+PROMOTED 1 files; prior data preserved in <project>\.runtime\promotion-test-a4647f5d5e204a259acbb1965d4a088a\.runtime\backup-7c1a2d43f8131294
+PROMOTED 1 files; prior data preserved in <project>\.runtime\promotion-test-a4647f5d5e204a259acbb1965d4a088a\.runtime\backup-21455d8b853ead20
+PASS release object c72a1e65bfaa262255664aa813a6b9add9845197e71d338dd2979aeb160f114b 27 files
+
+test_asset_without_provenance (test_admission.AdmissionControls.test_asset_without_provenance) ... ok
+test_bus_is_not_busca (test_admission.AdmissionControls.test_bus_is_not_busca) ... ok
+test_changed_source_hash (test_admission.AdmissionControls.test_changed_source_hash) ... ok
+test_current_edition (test_admission.AdmissionControls.test_current_edition) ... ok
+test_extractor_nested_inline_and_tail (test_admission.AdmissionControls.test_extractor_nested_inline_and_tail) ... ok
+test_failed_source_survey (test_admission.AdmissionControls.test_failed_source_survey) ... ok
+test_missing_reader_receipt (test_admission.AdmissionControls.test_missing_reader_receipt) ... ok
+test_missing_reference (test_admission.AdmissionControls.test_missing_reference) ... ok
+test_missing_source_even_with_reduced_count (test_admission.AdmissionControls.test_missing_source_even_with_reduced_count) ... ok
+test_orphan_and_forged_relation (test_admission.AdmissionControls.test_orphan_and_forged_relation) ... ok
+test_retired_source_domain (test_admission.AdmissionControls.test_retired_source_domain) ... ok
+test_truncated_article (test_admission.AdmissionControls.test_truncated_article) ... ok
+test_unlocatable_quote (test_admission.AdmissionControls.test_unlocatable_quote) ... ok
+test_unread_source (test_admission.AdmissionControls.test_unread_source) ... ok
+test_candidate_changes_during_staging_are_rejected (test_promotion.PromotionControls.test_candidate_changes_during_staging_are_rejected) ... ok
+test_pending_interruption_preserves_current_data (test_promotion.PromotionControls.test_pending_interruption_preserves_current_data) ... ok
+test_two_cycles_with_same_final_directory_name (test_promotion.PromotionControls.test_two_cycles_with_same_final_directory_name) ... ok
+test_all_bound_layers_pass (test_release.ReleaseControls.test_all_bound_layers_pass) ... ok
+test_changed_lazy_body_requires_new_browser_qa (test_release.ReleaseControls.test_changed_lazy_body_requires_new_browser_qa) ... ok
+test_changed_packaged_document_requires_new_docker_qa (test_release.ReleaseControls.test_changed_packaged_document_requires_new_docker_qa) ... ok
+test_empty_qa_does_not_pass (test_release.ReleaseControls.test_empty_qa_does_not_pass) ... ok
+test_rehashed_stale_browser_receipt_does_not_pass (test_release.ReleaseControls.test_rehashed_stale_browser_receipt_does_not_pass) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 9.286s
+
+OK

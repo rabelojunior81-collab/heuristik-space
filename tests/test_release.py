@@ -16,6 +16,9 @@ class ReleaseControls(unittest.TestCase):
         self.root=PROJECT/'.runtime'/('release-test-'+uuid.uuid4().hex)
         (self.root/'docs/qa').mkdir(parents=True)
         names=['app.js','styles.css','index.html','data/knowledge.json','data/context.txt',
+               'data/articles/example.json','404.html','CNAME','.nojekyll','.dockerignore',
+               'docs/GOVERNANCE.md','docs/ASSETS.md','docs/RESEARCH.md',
+               'docs/ARCHITECTURE.md','docs/OPERATIONS.md','scripts/package_site.py','scripts/test_docker.py',
                'Dockerfile','compose.yaml','deploy/nginx.conf','assets/brand/heuristik-mark.svg',
                'scripts/validate.py','scripts/build_data.py','docs/ingestion-contract.json',
                'docs/research/relations.json','docs/research/frozen-manifest.json','docs/ASSETS.json']
@@ -58,6 +61,36 @@ class ReleaseControls(unittest.TestCase):
             if receipt['kind']=='browser':receipt['sha256']=gate.sha(self.root/name)
         self.save()
         with self.assertRaisesRegex(ValueError,'changed inputs: browser'):
+            self.invoke()
+
+    def mutate_reviewed_file(self, name):
+        self.current[name]='new-reviewed-version'
+        self.release['object_files']=self.current
+        review=json.loads((self.root/'docs/review.json').read_text())
+        review['object_sha256']=gate.fingerprint(self.current)
+        self.write('docs/review.json',review)
+        self.release['review_sha256']=gate.sha(self.root/'docs/review.json')
+        # Rebind other layers so the named layer must detect its own stale input.
+        for receipt in self.release['qa_receipts']:
+            if receipt['kind'] in ('admission','controls'):
+                self.write(receipt['file'],{'status':'PASS','tested_files':{
+                    key:self.current[key] for key in gate.required_inputs(receipt['kind'],self.current)}})
+                receipt['sha256']=gate.sha(self.root/receipt['file'])
+        self.save()
+
+    def test_changed_lazy_body_requires_new_browser_qa(self):
+        self.mutate_reviewed_file('data/articles/example.json')
+        with self.assertRaisesRegex(ValueError,'changed inputs: browser'):
+            self.invoke()
+
+    def test_changed_packaged_document_requires_new_docker_qa(self):
+        self.mutate_reviewed_file('docs/OPERATIONS.md')
+        browser=self.release['qa_receipts'][2]
+        self.write(browser['file'],{'status':'PASS','tested_files':{
+            key:self.current[key] for key in gate.required_inputs('browser',self.current)}})
+        browser['sha256']=gate.sha(self.root/browser['file'])
+        self.save()
+        with self.assertRaisesRegex(ValueError,'changed inputs: docker'):
             self.invoke()
 
 

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "negative_control": "Missing release seal rejected locally",
+  "exit_code": 1,
+  "scope": "Local guard; remote CI still queued, not claimed as observed remote rejection"
+}

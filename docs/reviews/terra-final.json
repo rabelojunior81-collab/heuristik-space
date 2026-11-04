@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-11-04T16:21:27.158979+00:00",
+  "object_sha256": "5b413a0331f89969e90a407bd237e872d58757129da3c37df7308a43a31ca3a3",
+  "executor_model": "gpt-6.1-sol",
+  "reviewer_model": "gpt-6.1-terra",
+  "reasoning": "medium",
+  "route": "Codex native collaboration, included use",
+  "context": "CONTEXTUALIZADO / NAO INDEPENDENTE, nominally authorized for this project",
+  "tool_limits": "No tools/shell/browser/subagents/persistence requested; no mechanically enforced deny-list or isolated CWD claimed; returned review reports no execution",
+  "scope": "Strategic public inline excerpts/descriptions; limited follow-up on three findings, not all475files or full373post comprehension",
+  "packets": [
+    {
+      "file": "docs/reviews/terra-final-package.md",
+      "sha256": "107a95edb4e017abfe0aa9ebc92dc8d252214814e24d1a109764bf150aa5acdc"
+    },
+    {
+      "file": "docs/reviews/terra-final-followup.md",
+      "sha256": "228e0d360eee618f5d6e1b73e83b0e74b75a5227a0ca7637f5d556b41b51ad40"
+    }
+  ],
+  "initial_object_sha256": "c959c686edd9bad9604433ed5e434cd5d0733af4f9b42117f2350be10e76307c",
+  "unresolved_high": 0,
+  "findings": [
+    {
+      "severity": "high",
+      "finding": "QA inputs omitted lazy bodies and packaged runtime documents",
+      "treatment": "Expanded browser/Docker required inputs; all runtime bytes checked by Docker; fresh bound receipts and two negative controls",
+      "state": "closed in limited follow-up"
+    },
+    {
+      "severity": "medium",
+      "finding": "Manual deploy could target another ref",
+      "treatment": "Deploy condition explicitly main and non-PR",
+      "state": "closed in limited follow-up"
+    },
+    {
+      "severity": "low",
+      "finding": "Promotion recovery procedure needed operational detail",
+      "treatment": "Documented preservation/hash-based states and untested power-loss/manual recovery limits",
+      "state": "documented; manual recovery E2E not tested"
+    }
+  ],
+  "verdict": "Treatment closes HIGH and MEDIUM in presented object, subject to seal/gates; LOW documented",
+  "not_proven": [
+    "Full independent audit",
+    "Native browser file-save completion",
+    "Markdown rendering in IAB",
+    "Host reboot or frozen-process auto-heal",
+    "Human acceptance"
+  ],
+  "verdict_file": "docs/reviews/terra-final-verdict.md",
+  "verdict_sha256": "b43abcf9c5362919812aad98315be918ffbaa22aa64da54f41e3ef357cdb1055"
+}

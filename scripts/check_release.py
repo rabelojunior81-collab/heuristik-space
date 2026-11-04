@@ -12,7 +12,7 @@ def sha(path):
 
 
 def object_manifest():
-    names = ['index.html', 'app.js', 'styles.css', '404.html', 'CNAME', 'Dockerfile',
+    names = ['index.html', 'app.js', 'styles.css', '404.html', 'CNAME', '.nojekyll', 'Dockerfile',
              'compose.yaml', '.dockerignore', '.gitattributes', 'README.md', 'LICENSE', 'package.json',
              'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md', 'CHANGELOG.md',
              'docs/ingestion-contract.json', 'docs/research/frozen-manifest.json',
@@ -34,14 +34,19 @@ def fingerprint(manifest):
 
 
 def required_inputs(kind, current):
+    runtime = {k for k in current if k.startswith(('data/', 'assets/'))}
+    runtime |= {'index.html', 'app.js', 'styles.css', '404.html'}
+    runtime |= {'docs/' + name for name in ['GOVERNANCE.md', 'ASSETS.md', 'ASSETS.json',
+                                           'RESEARCH.md', 'ARCHITECTURE.md', 'OPERATIONS.md']}
     if kind=='admission':
         return {k for k in current if k.startswith('data/')}|{'scripts/validate.py','scripts/build_data.py','docs/ingestion-contract.json','docs/research/relations.json','docs/research/frozen-manifest.json','docs/ASSETS.json'}
     if kind=='controls':
         return {k for k in current if k.startswith(('scripts/','tests/','data/'))}
     if kind=='browser':
-        return {k for k in current if k.startswith('assets/')}|{'app.js','styles.css','index.html','data/knowledge.json','data/context.txt'}
+        return runtime | {'CNAME', '.nojekyll', 'scripts/package_site.py'}
     if kind=='docker':
-        return {'Dockerfile','compose.yaml','deploy/nginx.conf','index.html','app.js','styles.css','data/knowledge.json','data/context.txt','assets/brand/heuristik-mark.svg'}
+        return runtime | {'Dockerfile', 'compose.yaml', '.dockerignore', 'deploy/nginx.conf',
+                          'scripts/test_docker.py'}
     raise ValueError('Unknown QA kind')
 
 
