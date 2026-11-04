@@ -1,6 +1,6 @@
 # SPEC0.1 — Heuristik Space
 
-Estado: proposta aguardando aprovação do Pai. Fonte: direção aprovada na conversa e briefing de criação do projeto em03/11/2026, com correção posterior de domínio. Esta revisão materializa o contrato antes da implementação.
+Estado: APROVADA pelo Pai, resposta nominal “Aprovar SPEC0.1” na conversa Codex em03/11/2026. Fonte: direção aprovada na conversa e briefing de criação do projeto em03/11/2026, com correção posterior de domínio. Esta revisão materializa o contrato antes da implementação.
 
 ## Resultado e escopo
 
