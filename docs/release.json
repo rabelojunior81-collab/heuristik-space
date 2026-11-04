@@ -478,7 +478,7 @@
     "tests/test_release.py": "34e0fbfdf3618c0bc20a15dc57f6315476bd75e60319abefc63287239c10c901"
   },
   "review_file": "docs/reviews/terra-final.json",
-  "review_sha256": "ae7f9151b2521326ad488f1128d77e76b5377d3306966704a3c1fe04938c9138",
+  "review_sha256": "e8501b9d708e43d261a004647a0c6fc55bd7b9f6c70cf7c5d397787f718a264c",
   "qa_receipts": [
     {
       "kind": "admission",

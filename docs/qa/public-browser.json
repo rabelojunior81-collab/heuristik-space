@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-04T16:36:48.032991-03:00",
+  "release_commit": "9d1716f5357bd14dec07ab59fc2b63210b67cc73",
+  "url": "https://heuristik.space/",
+  "surface": "Codex in-app browser only",
+  "checks": [
+    "Public edition373sources/55relations/39references/24entries loaded",
+    "voz search produced13matches and clear restored24",
+    "VoiceForge/nested source/fullbody7820characters loaded",
+    "Context copy completed with1325884chars, DATA_ONLY header, current product domain and VoiceForge content"
+  ],
+  "viewports": [
+    {
+      "width": 375,
+      "height": 812,
+      "scroll_width": 360,
+      "main_width": 360
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scroll_width": 1425,
+      "main_width": 1178.888916015625
+    }
+  ],
+  "limits": [
+    "Browser-scoped viewport initially affected another open tab; initial1224measurement not accepted as375. Corrected through documented tab-scoped CDP; final measurements above; overrides cleared.",
+    "Native screenshot showed skip-link artifact despite DOM fixedtop-80/unfocused; no product CSS defect inferred or change applied.",
+    "Snapshots and screenshots displayed natively; no persisted PNG path claimed.",
+    "Clipboard was read once before async completion; fresh toast confirmed completion before final exact-size/header check.",
+    "Native file-save and Markdown rendering remain unobserved; no bypass or external browser used."
+  ],
+  "human_acceptance": "NOT_INFERRED"
+}

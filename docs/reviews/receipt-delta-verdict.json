@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-04T16:41:01.018742-03:00",
+  "model": "gpt-6.1-terra",
+  "packet_file": "docs/reviews/receipt-delta-packet.md",
+  "packet_sha256": "8c6b5d53d612ca0c13030af1fe73973adf431f51ff27b2b9eab29118dc04a549",
+  "context": "CONTEXTUALIZADO/NAO INDEPENDENTE",
+  "response": "Não identifiquei contradição material no delta apresentado. O tratamento é adequado desde que o recibo mantenha explícita a distinção entre a reconstituição legível e o prompt histórico: o hash identifica o arquivo local conferido, mas não prova igualdade com o texto transportado. A atualização de review_sha256 preserva a vinculação ao recibo corrigido; os QAs anteriores continuam vinculados aos mesmos arquivos do objeto, conforme descrito. Este parecer é contextualizado, não independente e limitado ao material fornecido. Não atesta o transporte nem constitui aceite humano."
+}

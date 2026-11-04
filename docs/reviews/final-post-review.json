@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-04T16:38:38.817089-03:00",
+  "reviewer_model": "gpt-6.1-terra",
+  "context": "CONTEXTUALIZADO/NAO INDEPENDENTE",
+  "scope": "Selected public factual claims and paragraphs, not complete HTML; no tools or acceptance",
+  "packet_sha256": "7673ef3675294580913ddf69e28a325136ef1acb1a84eb4c877339d3a142df21",
+  "packet_provenance": "Readable reconstruction; native plaintext transport not captured",
+  "verdict": "No material contradiction in supplied excerpts. Next-ingestion additions must be future, and live Pages claim requires real deploy/bytes/IAB evidence.",
+  "treatment": "Next edition explicitly pending; CI9d1716f success,400HTTPbytesPASS and public IAB observed before final proof paragraph."
+}

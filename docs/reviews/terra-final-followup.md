@@ -1,1 +1,354 @@
-gAAAAABq61tcOLL6OXJQC1xP0CafkK2UD8Z2n8e1S9xxbfZuXQkJFxz78dkuPhqGtLaifCnKXRbOgf_jKYnjjwQmJrfOuB_7f_xhBlNuVcasIkpSKXFNRFbocDXGb5cSEZx3k3416vXhYC7tvbWeOFp8GNm78bzenDysMr5Z65pVA0b6ODfbHeorwrrJS93Ct2NTEG0NRyQZOy-ZqnU7ECfk9uZ3KC_oGLO9lWC-veqepcJpNdQMoazqufOZC1x8CcPY-mAV3uQGKgBbDpBwWX7pcykZnwkAELjPb87azqwTYMMxny3Q4Um49F44MpuOI3CISFl9rIfI3--M5GSXOYpacO_6ciigteqOQOJRz1vanB9EKA5-Tnf3F4xRoCfr6HPsCs6vm0J3zlNLIGy3za871dJuSUBiFEKqi2QF3Pedn1RB9xocoRIEif-avb5vbxfOSjULXGyJIOXxLQGW69Mjkg036PevUTg1K3ptoolgXdCNz5KRg4MXYhTC5ezgJ5PKwdxeW3YiMbmH6wVXu6Sc35qIRm_eWWuAdbLSAte4VxOJXvOjYpcOHzcKDXDgz7cebM_FCoh3h9YVKdS52xDgiDssmHSwt82DM3CE-rDALKAd_mrOS5UJyeFW54aki2exwRAb78kJfCtLsMtDA6cVv7IQOsdELApF4eh35qKzztVHZD5zztHC9p7dbZ4MQ0KjE3q8a9sMlZEJm9H-gBU0sImY87UOWBA6sTaqmZTTOmAsXxHQPQbOWrzTwmwXtzg53_lkzddHoUa0xr9nqfaYQNUIDq5unDC67chqDST3awU0-IyknjsZL0ZqsrMrJFkubkyzwreo_6u9hmzYUva5JXpACq4kMEdwKsBMIJbM_4ge0SAEJg5EepghxPscAckr036-hJ2-K1_lJyWU8-03Eguauxi4A1iRsX84FypRzWQKtUOvQrZXUKAvaSi8qa-uVSo0GzedZI1Bl6e5TPzo0wun1KwtgWf1Bv1_HSIjbFEif27iSxGOmESGWKfuCbWJg5nqk03H8u3AbClL3tkqmz6eA-1U4z1vC63cXEY9VV5cw6rKyAsU4E8Ak3c8Cbc_FI1QPM-w6hNAIRmMnrSIqURlJf6Y59Nj4sytegTKNCOkQU4ID0HklsycMw3rOHypf2aFxwdYihE-aKgKEdxTf5jjqauSKEgOvIlZA1gvJ6gVefKuKNXnQ2OZ4Zw-Q8iwd_D5mCsE5Fc32aIrEYeB_uOf4oOxgZxd4B7b7QOLDNP9UvrvpcnViW-jEyDXUzKXDwOfaVeyHHD3eqdYsUf1qIYdGpl6oXS1DP-9o_ylWwPHXol_iTyVV1jw8b47E3IpZtGEZGhz7RISmYNin79RSEJvg8ii4AgfBPsctstE-2Xe4L5kfIQa8WxFVRtWGSLHSpPW0Zkgrv4p5HML1yxZxwcOlDqnZxQdraqDTnnZamy2kTCuuWf-dbro2bApOCwLBw0h-rAm7URhi-QLS-7-pmkIBb_lVzevEX9nlMSe6wAKsPy5nbB5yXH41RPNZymg8CP2AcJRV8nKqAgS_9x1wB-LIvT0fvN1RpaG5KjMa9rh6g_hCZrxRV0lAPSMoYwBEQJRnLs6HsUUesNzyT4V-4Wwks0iS8zV0BX35xDwXdNX4ZilDDVqUTHA9_RvQootiQbJstNUMZoAWEmOIG6MLE0OmPcibwia35xKhqKska1R-eTKlvl9dE6HQ15ZdorAQflq3FucEvXyp_L4VHTP0-o0edft_bhrXB84vveAOtBe7DNpGtAbSDpqDnoAxqjOoIIzHheF91Be5n_GXjwNuku7euZVqFEwLa95a5ZzWzuEJEDGTlAL4T1KDao2JWB2Yn8ZLSP5x9FBukggp8K0Bxoz0fJV5VtkyQXKys8A4yOYmQB5EClcksfxSy5IvU7QxnayKYpDNTKkztAXh-KYlXjzC7uZAllUXkB9aKEOkQZYJTA0d8NZ7smK0-slmjrh0trIzzNmf5k3QCtvR5crsKj1hdiA4rtPB6GB868tW6wDfC0OP99rKkXFa8QPb6CIz6zJMnJ_3AoMZn1YMC_61fi9xGCiyefVDkWASv_CNBIuDDYKy1qiAwipjJKvd5kFpExb79mxZIlFpOsesz2_GzKvifeRN1cUOK6IOXrWeI7Qp6I63N5GbyrSdbys1Zh8J02uSEInR5wqAQQPfaflAnoGEFP2oUZjrRPiyhlfK-ULq75tv5ugBIodJOiEfUur4gsDmO_GNClvJcQqyDyU3rLzjO9tsiLgevDLgksbmN49qYAXqRfZqWMTONAnF8tnvVReaAIrMgWX7P3CR_aJZVy7LuCdzJaa-g0gQTDPLhI-0KHInqqJ3D_Rwz3l60StAG8ArAxFnfWdzW-swEFUJgpcdfg_TMXXyls24LyKqX_UD12uVQ0XZnyaR2kWDp8on--I7lKQEoDuB7OI_Lg1KmV_c5qVtKSJaF9yvSzF3Nm-YWr_du1bwcPeMw8FjWE6KKbzCWztYRjZ4qic3r2uqWVFbOGW33HM95JM7VDFqf2jgAC-CbbSrw5td2diykZC5-dtkkbl8Eux95OK3gFZUHvW4MHcKNuyE6jS716fInmvzKdNleN-eWkoDs1kW_zNPJBMzpbxfV1E5JsoNGNtci4rISfNyKKPhVBIGQ-4e-NYDydC3nDIGToM-jt5p9KlH98LBK7EOiXiJq_UeAPantCxMrClDsg3I11fwzTrJxRtU12QFrIcPIvdtj7hKm9KmfubNyRd1MuNQQko7Oa_B9GYPjH8MaFcd0ID98LSFLel9lb0owA8B54OKYnGgTUt52q92soGsyjcD7_4uaWw1qvQC78-SuXTJuzMJfKFa4jNy9_GZpYYtr3-8o1bvtFMAMFvwtS9wXQFZnzzaPFwaPhhvpYgxzRysWJ5LlMdB6tt2s3H6RbeQ_ax5Rzz4hgmKhErWtzwXyreL6RulA1wZe0oATxjYI-56F4s3d3w7HWgM_kohvJKses6K4psDtx4oni7uTf5GVNgSTWkGkC1LZWeZ__hy7mZDaKkCyJhBF1SKNt_Eg0Qp0KL-JBZj7zgunKGTkU4sMGn5BBpk_TwCN9sR4Y62oloTzB9ufo3Dwy-qzpXaDzVYYet1ELOa-2X8IXIv77nCC4WMFmBB0qEfOrF6116oGr3pyy2xV5mmfO0iZR_K46p7duWJzubf0ozSNwGt7oQd2OOJ9Sbc_1psVXwpf049pcHZENQvXdrYe8r-h_aXiUQVSkN8I5xh6MG5WqWHKnBlXMKMmT6Mds54qFJSw5r9pDVbI0xBvtgrNOF2SmfuFEijBEWC5-RNVhOiqiKPJHnLE2y2dzzbr9yXr282pFVbzkxJtWeA3al2wlTQdOb3Vi8w3PpnkZnoK_TVnWiZOn8_ZUmGxWUciwmByeaN2BNR3UHZQgK2scvRpzQBsrFYWNmQmZaasTHmlbYa9_cHzlr0i49d0xy4oGA1VGjl36N8t3FRCL61jwHZfWfpA531mbGUkxTwE2SNnwLwjIYVOj1lY-iV54ubAjA7coqk6jPQahMLkNKvpTqk4oxLAUnrSoH9b0YE0udMpPInhn9Yd6FYLMt6PM-rmEqUA-1KsyRHTey5zBBpWupYSmMoAPBoh9Pt2Pf2_djRYXjuarCNNJLAiZRlK4p80CTvaECi9ajRElHqnchxiOd8t-QLCLHxm1Uo2XC8eSLSATm_JZsRjEcUlklWb07eRhYIu5_cXvrph2KC2v8XSTsMnSx7t0Oo6zFyEGE1rKyNZlzW9AZ21h21A3s0kIfsR1eujKcheW5J0qH_KsdFZr1Hc_5X0xnkeDH2j_OaJSMzYy9DRL5-UmlDfIUYyadOJmHUpz72sfxajygFtHBLkrobTjx5TJ7lIb7fROGqB5ey77a2XcT9tBUSSFl2Xr5CUcNsn7zKvaPMqzcOgQIJg2W4OVgzNhe1GJ-3AGFGLOw2DR4-7iolcO2l4GezjX6SOkGcCI-5N-4IH7-JSMpy_gxqCkn_H0IXl_V8sWwLEY0vSopirrW9_CQBwmgWHDD3Al3IgmhMhcP2n3YVbEDrn-FARh78fR2EIQ7tvfMi_5l3URHS12bwoz1B9-jzcF5pySvqtsISTgixPa80AeqBIl21TflYPqcmdBtPl0f1NDhck8YX7Pd_lyYTKmW5tuLllHoufb31Zr6B2IjfqT7ELliRnRhAZditiGOBe8waE3WCFmDMiskv8HwkVbJRX3TpU3SjdeGqfmjTiJErORM4XW_fLmA6zTt1GSJlZ5_UtiBRJCcuMQ8_Rcj1xdJO5wCURp_2w-hCR3vVkKC5V0eqXA8sf0er4IrZ3vcCu1VVXvXALvZYtKz_wBiyFi7yMOh7pt_5XnOptfWhuzr8fy27A2DY6mqN1Oqrr1AcmbTD7mo7lhPiXPsSa387cFOFg54nBAI4an73MGTTqbG7vM31W9Kp8m72bo-G_PuCVCe1cFZX7l7jSUssixMjXubL6SeOqE9Kn0IBsQSVSsTtHKnKezB_aUqzEzJ1kNRMyZewv5ckQr184lQarENHP8da5rmBN2Zs6CqNNpDtWRhBb-cVngjdldhdwqh4iW9oBvSbkIIumxvNPe8axoPSlGRPCQ672lr9_vCUH6PpfjlzSqlczkV5FAgc9yoJ7mSxbcIZ2ZxkwdQ-Z5sCUKJJU1DZxMaEhY_6k57MJU2DTKTO_Bk7iCV_BMyOW3l5F7drK80R2oo3IJycywHUqMLA2jcriGANcGebVPa46GBZFQHZlBHWXbcrcyjtPUxW7WnHdzNWELwvBvoXrzvL3Z3laH1NGyO6ynJdJA9h4D3yMjng7pX8Mx3_aVK27n3G86Ovkf-beYkkighMJVChKCHHdtaGZD75FKdCLDOZphJHrRGNc9sd2boWeses8y5R_GMjI5rCVwGCLl43FIAAdYd8x0XAu8j9yrVkT7PNd-TQbwi9L5nEBzLCeo9_qPpSzmyW9bFvFgm-_TzO7w1fHxcwEo3DIaHGnCRAdis-KX7F9APHU-z9JFdgZ7IqgaiLOUh8Eba2VQz1tWLYu9SDMn2rKwIzDDIp9B3elx61pdDB9eZcCw7KddcVMBCJE_mAWcuw5wS4gKmPSYLNs3jeeJFdsj3bhzRrmBHY0JyZsoWKAIxzsrH_fVbXVFqNR7id_k8J1XtHd3a2neWkNqIVV3_4xL5XMmoDs9TFGJFrHGBxmPbYcwIJeNBNirwFTKB_CIs8JNDmgRLqhwjxXR5D4ODmiSFyPEpANrCg4mok4YLyQdwvRXJzOSsqzxajHrbkzAEtNP4YsdsMs-1n3CM_fhaaRYa9sOBPPZyjAJYWoGSjw9Wnm5_yigR1QFEkpHSbONiA4WB47H6FhNbUoB0PusWwKTP1AJ1lKJIjIWqB52tVYA2PjIzHCWn59CaXAAVQq0H1Sg2jUqtxtm_FbuXYUdBUIfkx39_bS9HOpa2cb8wjL1q4KZo55Lz3sYi7s6ItfpFKf9xvns0J76LqhoyZAGwg-3-U1ZfsTHb3WEMwEiVkU4auZJ7upUTeKvtxCPmyrQUcG5afdO0k3ooZfKY2bc7OmY-BarKox3GVgHVrhttT8kdtkSjgr2mTWSkHNqQ-FcoPq4Vu05UPAi-ZhIFnputs3PIqU5lWqQP5kcjWvjYZhDxO5bVWwYd29ZDfwHNY1lMI0Ep1Mz9JQ2-OcaoGmfmQvXOlmXpSJuhSYVtmudYG31pWWAAm_ENIVJtNKtKwBCGgeTKE1UUzwMBYA8nK1K9Fp3LGqhYCEzu1fCqaEXThSH4ek5yrwPE_7m43XjXCA3Dz-OCW7Vh-j0yOqgBFnCOgiv1DNjEnspRaVvamz6BkAYVn7t4MTcENfRgKc4lnJe1xaFB7WJP8bcGay5Q6hV-h8r_v38dFXR_e8u9eisIX1rPNjWV_SczlDYfHxfRRtFR2uq03a1NyQ5LAprwGvtn2PM6ZkSa28oCA3cls67W5ufEov5rlv87hKcaKf5EHpWz20GsWUrOPUWxj13GcyDbdlYsJIK3aJiykIhHsd8z2dgb01wxtmHAYHLABPoj3aFzujQ346chgrzEu2f1V9VIRK-kVHLeTLzl8UVxiXfs4m0IiYlG0m3pCuJk_c9rk3WxyiuTvT1VumUO2tyqrOiV7UO8bEK95M8h6zA0BUvyrPii3YR6ajWcUfnvlrrZeKEQTHrcMr0yVDXcVb2jGvJNi7MgkFiydYKxqDKbUIfleZlXaF1-gC078nYT865cI6cWCLK0C03HyyXXAIhSRHJ1U5LeO5GGDrQydFcxAgVhWTu8dMooAm4_vL0v93bnhMgYyKvOPBGcrvRG2_GG1ucE21JiTqR3SElM7Hu8X5GrsNX-P9tEpgXxKSgXoSmekwDkFw3EVBmy9Fcv7gN7G7Z1Jdk6J2Af1ozvx-VnBC91dAV-BM68uA65QcCUVstpNdyB3OGCJSzfVPwyKvoQHFc0_bAGZA0xhaA0rY0nDzDImAxEthSRHFjYJYQQhLBFUlhjoceAyhclMI1PbUKA3v6yV0qiZXnRLn0nYnVLWXYdv5RuM9BNwt_q14PppF59ncSm4rtkO3svoWQV13y68KWF721gwXSlzqjRslD7kZoSA6LyVKLVd3baIcPR4V8BmnR0nUTrOrb5d_K5hvoCJAw1Kg7UE18Uff2vDG3Ec3Vd4Gev3LeDUEk2curjYabM-8wuleEotONTmzdu8ErFU74Nep0SbItXW1gq7XAw-26-BqLEL0lZi_9mQVa9G1CGDVphgngQjHaOWzLVvUcACszF0WqA3MskCm5rAxS4HbNhSUKGwY2kf-TYnt8tlLsaV5W-1XUlTVKNHNsWnXSjtt4rX7VmXZnpF9juzU9T5jxMn8_PK-peIftjpdBLkYbnBIWgYYSk_bqfra6PLU9Kzeu_MAQ1ACkSBYSFRnFgHfSkkrlwMhX8777PRZvad7VQePfg6Zuu74eMsvokGENkRSW1qU9WKfTBWa5jO4FvRy78ON88RvpqpbJOmQCabVeUYHvakyyPK6kpwPRAXELwK2U918jiS7rFoXe_dAa20XG1B4Cy6ZiuHoJ3FFeapqRkMn1OdI4KvDPtNQEeQ4PCOpNT4Bz9AHWlMA8LaJbP9wX0juDrHnRO0HdhrvM75nPhUoPKdmhX3ylhx6XpSb7_RjmR52C_bM3sQIh2UAs4R8gWjiGMBqISya2GU1MAh6l2Uog8M_N_wyXi3WKDCykuns9u9sIqMAVrxosB8oxEdvXLjRlckoq88E_nCeRT_JdOwSrJG5NtA_XTtU9IoPHqRLY27Wa3MtRNQYnoQBptuFq8se_ngY29CEItyIOjamvFaxqzInReY88KssVWY_YEQkLlIEsdv3YSZDS78C9tbZGAVNiMl9jjoADJMk-cP7mshmbuvIHGGhW07j0T8N4NzErC4Vh_UL6O2NQ0TugNX7k41sN_8BJ372476x0VPw30LkVL9WaXOPd_3n09HcxsfgYtIviQhoeqm4y-FpVdOH3-xmYRL_QOdd0xIByMDGpvOuZsxJiVXGStPD4BBUGKUpTReAPOhjuF9VFJ_bsCbXr5TC29_eXBtM3GHu1LC4CAPYJWsXOOWkBKQYrFE7y1X0MTX6Ikv_8GLlppVQJFvF-eTzygdkJ2nHgslE0Lj6gLftyJFzAaik_NLW487rlQ25-o9d53EaoaVuk-ddytJeGHNqE2b5zBa5QKITsrUcUWtCcsYweDqtvPpXB2_NvuhXuVpRjUqQz8PRtQQeiW1Em9v3xoCnrgfywXatTPXMIV8sRDLY9z4Qr4YGPNoo27cNsFPkBYEvanq0VYz_oHJQ0FDCGTC1MG991XwLz9zu4PzNHRgyw_19IQwrvexQ0hM-_phJKAF0bN0aM8VLXgCebARI-mVHb3DYex66D9YAYV3WHT4nMha6ArXJIvzkl_PEi_e0c6daGQhgiUnPVY_p_hTR9JbULjArTe6P4jRYS3JPry9GoxeGkqGX_drK3froFukwTviBZPa9vyZNEsv9bLL-EdLJlTBKdti2zruvl3dqYG7VYhKCU4UoA2l5HaJBZ8VzzDKd3103Uk1nJk86cUdg==
+# Reconstituição pública do tratamento
+
+NÃO é captura literal do transporte. Objeto corrigido5b413a0331f89969e90a407bd237e872d58757129da3c37df7308a43a31ca3a3,475arquivos. O revisor recebeu required_inputs, controles novos e descrições de Docker/browser/workflow/recuperação.22controlesPASS, runtime inteiro HTTP/bytesDockerPASS; novo reciboIAB401entradas mais prova anterior de código idêntico; limitações de download/Markdown/reboot/aceite declaradas. Os trechos abaixo provêm do código local conferido do mesmo objeto.
+
+## scripts/check_release.py
+
+```
+"""Bind the deployable object to a recorded consultative review and QA receipts."""
+from pathlib import Path
+import argparse
+import hashlib
+import json
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def object_manifest():
+    names = ['index.html', 'app.js', 'styles.css', '404.html', 'CNAME', '.nojekyll', 'Dockerfile',
+             'compose.yaml', '.dockerignore', '.gitattributes', 'README.md', 'LICENSE', 'package.json',
+             'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md', 'CHANGELOG.md',
+             'docs/ingestion-contract.json', 'docs/research/frozen-manifest.json',
+             'docs/research/relations.json', 'docs/SPEC.md', 'docs/SPEC-ADDENDUM-0.2.md',
+             'docs/SPEC-ADDENDUM-0.3.md', 'docs/GOVERNANCE.md', 'docs/ARCHITECTURE.md',
+             'docs/OPERATIONS.md', 'docs/RESEARCH.md', 'docs/ASSETS.md', 'docs/ASSETS.json']
+    files = {ROOT / name for name in names}
+    for directory, pattern in [('assets', '**/*'), ('data', '**/*'), ('scripts', '*.py'),
+                               ('tests', '*.py'), ('deploy', '*'),
+                               ('.github/workflows', '*.yml'),
+                               ('docs/research', 'batch-*-report.json'),
+                               ('docs/research/external', '*.json')]:
+        files.update(f for f in (ROOT / directory).glob(pattern) if f.is_file())
+    return {f.relative_to(ROOT).as_posix(): sha(f) for f in sorted(files)}
+
+
+def fingerprint(manifest):
+    return hashlib.sha256(json.dumps(manifest, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+
+
+def required_inputs(kind, current):
+    runtime = {k for k in current if k.startswith(('data/', 'assets/'))}
+    runtime |= {'index.html', 'app.js', 'styles.css', '404.html'}
+    runtime |= {'docs/' + name for name in ['GOVERNANCE.md', 'ASSETS.md', 'ASSETS.json',
+                                           'RESEARCH.md', 'ARCHITECTURE.md', 'OPERATIONS.md']}
+    if kind=='admission':
+        return {k for k in current if k.startswith('data/')}|{'scripts/validate.py','scripts/build_data.py','docs/ingestion-contract.json','docs/research/relations.json','docs/research/frozen-manifest.json','docs/ASSETS.json'}
+    if kind=='controls':
+        return {k for k in current if k.startswith(('scripts/','tests/','data/'))}
+    if kind=='browser':
+        return runtime | {'CNAME', '.nojekyll', 'scripts/package_site.py'}
+    if kind=='docker':
+        return runtime | {'Dockerfile', 'compose.yaml', '.dockerignore', 'deploy/nginx.conf',
+                          'scripts/test_docker.py'}
+    raise ValueError('Unknown QA kind')
+
+
+def check():
+    release = json.loads((ROOT / 'docs/release.json').read_text(encoding='utf8'))
+    current = object_manifest()
+    if current != release['object_files']:
+        raise ValueError('Release object changed; reopen affected review/QA before resealing')
+    review_file = ROOT / release['review_file']
+    if sha(review_file) != release['review_sha256']:
+        raise ValueError('Review receipt changed')
+    review = json.loads(review_file.read_text(encoding='utf8'))
+    if review['object_sha256'] != fingerprint(current) or review['unresolved_high'] != 0:
+        raise ValueError('Review object differs or high findings remain open')
+    receipts=release['qa_receipts']
+    kinds=[r['kind'] for r in receipts]
+    if set(kinds)!={'admission','controls','browser','docker'} or len(kinds)!=4:
+        raise ValueError('All four distinct QA layers are required')
+    if review.get('reviewer_model')==review.get('executor_model') or not review.get('reviewer_model') or not review.get('executor_model'):
+        raise ValueError('Distinct reviewer model is required')
+    for receipt in receipts:
+        file = ROOT / receipt['file']
+        if sha(file) != receipt['sha256']:
+            raise ValueError('QA receipt changed: ' + receipt['file'])
+        result = json.loads(file.read_text(encoding='utf8'))
+        if result.get('status') != 'PASS':
+            raise ValueError('QA not PASS: ' + receipt['file'])
+        tested=result.get('tested_files',{})
+        if not required_inputs(receipt['kind'],current)<=set(tested):
+            raise ValueError('QA input coverage missing: '+receipt['kind'])
+        if any(current.get(name)!=digest for name,digest in tested.items()):
+            raise ValueError('QA refers to changed inputs: '+receipt['kind'])
+    print('PASS release object', fingerprint(current), len(current), 'files')
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.parse_args()
+    check()
+
+```
+
+## tests/test_release.py
+
+```
+"""A green label alone must not satisfy the publication contract."""
+from pathlib import Path
+import json
+import sys
+import unittest
+from unittest.mock import patch
+import uuid
+
+PROJECT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(PROJECT/'scripts'))
+import check_release as gate
+
+
+class ReleaseControls(unittest.TestCase):
+    def setUp(self):
+        self.root=PROJECT/'.runtime'/('release-test-'+uuid.uuid4().hex)
+        (self.root/'docs/qa').mkdir(parents=True)
+        names=['app.js','styles.css','index.html','data/knowledge.json','data/context.txt',
+               'data/articles/example.json','404.html','CNAME','.nojekyll','.dockerignore',
+               'docs/GOVERNANCE.md','docs/ASSETS.md','docs/RESEARCH.md',
+               'docs/ARCHITECTURE.md','docs/OPERATIONS.md','scripts/package_site.py','scripts/test_docker.py',
+               'Dockerfile','compose.yaml','deploy/nginx.conf','assets/brand/heuristik-mark.svg',
+               'scripts/validate.py','scripts/build_data.py','docs/ingestion-contract.json',
+               'docs/research/relations.json','docs/research/frozen-manifest.json','docs/ASSETS.json']
+        self.current={name:'fixture-'+str(i) for i,name in enumerate(names)}
+        self.release={'object_files':self.current,'review_file':'docs/review.json','qa_receipts':[]}
+        self.write('docs/review.json',{'object_sha256':gate.fingerprint(self.current),'unresolved_high':0,
+                                     'reviewer_model':'Terra','executor_model':'Sol'})
+        self.release['review_sha256']=gate.sha(self.root/'docs/review.json')
+        for kind in ['admission','controls','browser','docker']:
+            name='docs/qa/'+kind+'.json'
+            self.write(name,{'status':'PASS','tested_files':{key:self.current[key] for key in gate.required_inputs(kind,self.current)}})
+            self.release['qa_receipts'].append({'kind':kind,'file':name,'sha256':gate.sha(self.root/name)})
+        self.save()
+
+    def write(self,name,obj):
+        (self.root/name).write_text(json.dumps(obj),encoding='utf8')
+
+    def save(self):
+        self.write('docs/release.json',self.release)
+
+    def invoke(self):
+        with patch.object(gate,'ROOT',self.root),patch.object(gate,'object_manifest',return_value=self.current):
+            return gate.check()
+
+    def test_all_bound_layers_pass(self):
+        self.invoke()
+
+    def test_empty_qa_does_not_pass(self):
+        self.release['qa_receipts']=[]
+        self.save()
+        with self.assertRaisesRegex(ValueError,'four distinct QA'):
+            self.invoke()
+
+    def test_rehashed_stale_browser_receipt_does_not_pass(self):
+        name='docs/qa/browser.json'
+        value=json.loads((self.root/name).read_text())
+        value['tested_files']['app.js']='old-version-hash'
+        self.write(name,value)
+        for receipt in self.release['qa_receipts']:
+            if receipt['kind']=='browser':receipt['sha256']=gate.sha(self.root/name)
+        self.save()
+        with self.assertRaisesRegex(ValueError,'changed inputs: browser'):
+            self.invoke()
+
+    def mutate_reviewed_file(self, name):
+        self.current[name]='new-reviewed-version'
+        self.release['object_files']=self.current
+        review=json.loads((self.root/'docs/review.json').read_text())
+        review['object_sha256']=gate.fingerprint(self.current)
+        self.write('docs/review.json',review)
+        self.release['review_sha256']=gate.sha(self.root/'docs/review.json')
+        # Rebind other layers so the named layer must detect its own stale input.
+        for receipt in self.release['qa_receipts']:
+            if receipt['kind'] in ('admission','controls'):
+                self.write(receipt['file'],{'status':'PASS','tested_files':{
+                    key:self.current[key] for key in gate.required_inputs(receipt['kind'],self.current)}})
+                receipt['sha256']=gate.sha(self.root/receipt['file'])
+        self.save()
+
+    def test_changed_lazy_body_requires_new_browser_qa(self):
+        self.mutate_reviewed_file('data/articles/example.json')
+        with self.assertRaisesRegex(ValueError,'changed inputs: browser'):
+            self.invoke()
+
+    def test_changed_packaged_document_requires_new_docker_qa(self):
+        self.mutate_reviewed_file('docs/OPERATIONS.md')
+        browser=self.release['qa_receipts'][2]
+        self.write(browser['file'],{'status':'PASS','tested_files':{
+            key:self.current[key] for key in gate.required_inputs('browser',self.current)}})
+        browser['sha256']=gate.sha(self.root/browser['file'])
+        self.save()
+        with self.assertRaisesRegex(ValueError,'changed inputs: docker'):
+            self.invoke()
+
+
+if __name__=='__main__':
+    unittest.main()
+
+```
+
+## scripts/test_docker.py
+
+```
+"""Probe only this Compose project; preserve receipts and keep the service running."""
+from pathlib import Path
+from datetime import datetime, timezone
+import argparse
+import hashlib
+import json
+import subprocess
+import time
+from urllib.request import urlopen
+from urllib.error import HTTPError
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def run(*args):
+    return subprocess.check_output(args, cwd=ROOT, text=True, encoding='utf8', stderr=subprocess.STDOUT).strip()
+
+
+def inspect():
+    cid = run('docker', 'compose', 'ps', '-q', 'web')
+    return json.loads(run('docker', 'inspect', cid))[0]
+
+
+def ready():
+    for _ in range(45):
+        state = inspect()
+        if state['State'].get('Health', {}).get('Status') == 'healthy':
+            return state
+        time.sleep(1)
+    raise AssertionError('Container did not become healthy in 45 seconds')
+
+
+def main(output, exercise_restart):
+    if output.exists():
+        raise ValueError('Refusing to overwrite previous Docker receipt')
+    from check_release import object_manifest,required_inputs
+    initial_files=object_manifest()
+    initial_inputs={name:initial_files[name] for name in required_inputs('docker',initial_files)}
+    checks = []
+    def need(ok, name):
+        checks.append({'check': name, 'pass': bool(ok)})
+        if not ok:
+            raise AssertionError(name)
+    result = {'checked_at': datetime.now(timezone.utc).isoformat(), 'checks': checks}
+    try:
+        before = ready()
+        host = before['HostConfig']
+        need(before['Config']['User'] == '101:101', 'Non-root UID/GID')
+        need(host['ReadonlyRootfs'], 'Read-only root filesystem')
+        need('ALL' in host['CapDrop'] and any('no-new-privileges' in s for s in host['SecurityOpt']), 'Dropped capabilities / no new privileges')
+        need(host['PortBindings']['8080/tcp'][0]['HostIp'] == '127.0.0.1', 'Loopback binding')
+        need(host['RestartPolicy']['Name'] == 'unless-stopped', 'Restart policy')
+        need(host['Memory'] == 128 * 1024 ** 2 and host['PidsLimit'] == 64, 'Resource bounds')
+        need(run('docker', 'compose', 'exec', '-T', 'web', 'id', '-u') == '101', 'Effective process UID')
+        runtime_names = [name for name in initial_inputs
+                         if name.startswith(('assets/', 'data/', 'docs/'))
+                         or name in ('index.html', 'app.js', 'styles.css', '404.html')]
+        for name in sorted(runtime_names):
+            with urlopen('http://127.0.0.1:4173/' + name, timeout=5) as response:
+                body = response.read()
+                need(response.status == 200 and body == (ROOT / name).read_bytes(), 'HTTP / bytes ' + name)
+        with urlopen('http://127.0.0.1:4173/healthz', timeout=5) as response:
+            need(response.read() == b'ok\n', 'Health HTTP response')
+        try:
+            urlopen('http://127.0.0.1:4173/unknown-heuristik-test-path', timeout=5)
+            need(False, 'Unknown path rejected')
+        except HTTPError as exc:
+            need(exc.code == 404, 'Unknown path rejected')
+        if exercise_restart:
+            stopped=subprocess.run(['docker','compose','exec','-T','web','sh','-c','kill -TERM 1'],cwd=ROOT,capture_output=True)
+            result['process_exit_probe_returncode']=stopped.returncode
+            time.sleep(2)
+            after = ready()
+            need(after['Id'] == before['Id'] and after['RestartCount'] > before['RestartCount'], 'Automatic recovery after own process exit')
+            run('docker', 'compose', 'up', '-d', '--force-recreate', 'web')
+            recreated = ready()
+            need(recreated['Id'] != before['Id'], 'Own service recreated')
+            with urlopen('http://127.0.0.1:4173/data/knowledge.json', timeout=5) as response:
+                need(response.read() == (ROOT/'data/knowledge.json').read_bytes(), 'Knowledge persists across recreation')
+        current = inspect()
+        current_files=object_manifest()
+        need(all(current_files.get(name)==sha for name,sha in initial_inputs.items()),'Tested Docker inputs unchanged')
+        result['tested_files']=initial_inputs
+        result.update(status='PASS', image=current['Image'], health=current['State']['Health']['Status'], restart_count=current['RestartCount'], nginx=run('docker','compose','exec','-T','web','nginx','-v'), scope='Local image/HTTP/content, constraints and optional process-exit/recreation. Not host reboot, frozen-process auto-heal, Pages or human acceptance.')
+    except Exception as exc:
+        result.update(status='FAIL', error=str(exc))
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf8', newline='\n')
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    raise SystemExit(result['status'] != 'PASS')
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--exercise-restart', action='store_true')
+    args = ap.parse_args()
+    main(args.out, args.exercise_restart)
+
+```
+
+## .github/workflows/pages.yml
+
+```
+name: Edition gates and Pages
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14'
+      - run: python scripts/validate.py
+      - run: python -m unittest discover -s tests -v
+      - run: node --check app.js
+      - run: python scripts/check_release.py
+      - run: python scripts/package_site.py --out _site
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish validated edition
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+
+```
+
+Recuperação operacional: preservar intenção/base/candidato/stage/backup, comparar hashes antes de qualquer restauração, não apagar barreira para tentar novamente; estados e limites em docs/OPERATIONS.md. Não foi ensaiada perda de energia em cada instrução.

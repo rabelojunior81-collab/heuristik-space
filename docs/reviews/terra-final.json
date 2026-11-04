@@ -11,11 +11,13 @@
   "packets": [
     {
       "file": "docs/reviews/terra-final-package.md",
-      "sha256": "107a95edb4e017abfe0aa9ebc92dc8d252214814e24d1a109764bf150aa5acdc"
+      "sha256": "3ab87d6c7bf012f474bd1cf3c57bafd4d965bb5bed641e5df3a81a518d15b68b",
+      "provenance": "Readable reconstruction, NOT literal transport capture"
     },
     {
       "file": "docs/reviews/terra-final-followup.md",
-      "sha256": "228e0d360eee618f5d6e1b73e83b0e74b75a5227a0ca7637f5d556b41b51ad40"
+      "sha256": "322061814c1ecdc4c01e24b033a8b910a4188b1c43851942ccdaa616f6945457",
+      "provenance": "Readable reconstruction, NOT literal transport capture"
     }
   ],
   "initial_object_sha256": "c959c686edd9bad9604433ed5e434cd5d0733af4f9b42117f2350be10e76307c",
@@ -46,8 +48,14 @@
     "Native browser file-save completion",
     "Markdown rendering in IAB",
     "Host reboot or frozen-process auto-heal",
-    "Human acceptance"
+    "Human acceptance",
+    "Byte-exact plaintext transport capture: native argument storage was opaque; first extraction invalidated and archived"
   ],
   "verdict_file": "docs/reviews/terra-final-verdict.md",
-  "verdict_sha256": "b43abcf9c5362919812aad98315be918ffbaa22aa64da54f41e3ef357cdb1055"
+  "verdict_sha256": "b43abcf9c5362919812aad98315be918ffbaa22aa64da54f41e3ef357cdb1055",
+  "packet_capture_correction": "docs/reviews/packet-correction.md",
+  "receipt_delta_review": {
+    "file": "docs/reviews/receipt-delta-verdict.json",
+    "sha256": "a0f749010bcf67eb7098c8e2f8f2564f40e5932d8efaaf736114927accab6fd7"
+  }
 }
