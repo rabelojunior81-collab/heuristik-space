@@ -1,0 +1,311 @@
+{
+  "slug": "davemessew--agentflux",
+  "name": "AgentFlux",
+  "url": "https://github.com/davemessew/AgentFlux",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "AgentFlux é uma aplicação self-hosted para workflows visuais e agentes, com interface web, fontes de documentos e conexões para modelos externos ou locais. A release mais recente consultada, v0.3.0, inclui análise de vídeo, FFmpeg e serviço local de transcrição Whisper; cenas são segmentadas e amostradas, imagens vão ao modelo de visão selecionado e ações breves ainda podem passar despercebidas. O Compose liga a interface apenas ao loopback e usa volumes separados de dados e speech models, mas a aplicação é single-user sem autenticação. Credenciais são cifradas e a chave fica junto ao banco; documentos, workflows e logs não são cifrados. Adoção exige proteger diretório/host e revisar chamadas de rede, permissões e artefato fixado.",
+  "topics": [
+    "workflows visuais",
+    "agentes",
+    "Ollama",
+    "Docker",
+    "vídeo",
+    "base de conhecimento",
+    "self-hosted",
+    "credenciais"
+  ],
+  "aliases": [
+    "automação visual de agentes",
+    "AgentFlux local",
+    "workflow por vídeo",
+    "agente com documentos",
+    "orquestração local"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Escopo declarado",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README descreve editor visual com 17 etapas preconfiguradas, templates, ramificações e importação/exportação JSON; agentes podem ser descritos em linguagem natural, receber fontes e modelo e rodar manualmente ou em agenda. Também anuncia importação de arquivos e conexões HTTP, pastas e programas aprovados. Isso delimita o produto como construtor/executor de fluxos na própria aplicação; não é controle genérico do desktop."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Execução e dependências",
+      "kind": "observed",
+      "paragraphs": [
+        "A instalação rápida documentada carrega duas imagens Docker e executa Compose; a release contém app, interface, FFmpeg e speech service local. A plataforma não inclui o modelo geral de linguagem/visão: exige apontar para Ollama, LM Studio, vLLM ou endpoint OpenAI-compatible e credenciais conforme o provedor. O speech model Whisper é componente separado incluído/cacheado em volume próprio. README fixa prebuild em Linux/amd64 e não testado em outros alvos; no Windows orienta Docker Desktop em modo Linux."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Análise de vídeo",
+      "kind": "observed",
+      "paragraphs": [
+        "O README do commit consultado e a release v0.3.0 afirmam que análise de gravações já está incluída no pacote Docker. O sistema analisa segmentos sobrepostos de um minuto com mudanças de tela, quadros periódicos e fala transcrita com Whisper local. Gravações são enviadas à própria instância e removidas após processamento/cancelamento; até 24 quadros selecionados por segmento vão ao modelo de visão, e áudio/imagem externos requerem autorização separada. Limites declarados: 250 MB/30 minutos, orçamento de chamadas/tokens, codec e ações breves podem impedir cobertura completa. Isso corrige a documentação da release anterior, que não incluía o recurso."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Dados, segredos e rede",
+      "kind": "observed",
+      "paragraphs": [
+        "O README diz que workflows, documentos, credenciais e logs ficam no volume agentflux-data e orienta backup integral, incluindo .vault-key; volumes são removidos com docker compose down -v. Gravação vai à instância AgentFlux e quadros são enviados ao modelo de visão escolhido, não se conclui que saiam diretamente do browser ao endpoint. O texto documenta aprovações para processamento externo de imagem/áudio e não estabelece política de retenção do modelo/provedor remoto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Licença, distribuição e atualização",
+      "kind": "observed",
+      "paragraphs": [
+        "O repositório declara Apache-2.0. A release v0.3.0 distribui imagem prebuild, compose e checksums; o commit HEAD v0.3.0 tem verificação smoke própria descrita para API, interface e persistência ao substituir container, mas nós não repetimos a verificação. Checksum confirma integridade do artefato baixado frente ao valor esperado, não segurança, proveniência de build nem compatibilidade. Atualização deve comparar conteúdo empacotado, preservar volume/chave e manter caminho de retorno."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "É uma hipótese de bancada para transformar documentos e dados estruturados em fluxos revisáveis, com resultados e logs exportáveis. Pode ser comparado a ferramentas de knowledge/workflow, mas o modelo, conexões de rede, permissões de programas e configuração de volume teriam de ser delimitados antes de uso com material real. O preview de vídeo talvez facilite derivar procedimentos de uma gravação, mas sua cobertura amostral limita tarefas rápidas e não substitui observação humana."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Em bancada isolada, medir instalação/reversão da release, portas publicadas, autenticação, limites de leitura dos diretórios conectados e o que efetivamente é persistido no volume. Usar documentos sintéticos e um vídeo com ações deliberadamente curtas e longas para conferir lacunas entre amostragem e workflow proposto; repetir com servidor de modelo local e remoto e capturar destinos/bytes. Nenhum ensaio, instalação, build ou execução do AgentFlux foi feito nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Pipeline de mídia e privacidade",
+      "kind": "observed",
+      "paragraphs": [
+        "O produto apaga gravações após processamento ou cancelamento segundo o README. Essa declaração não especifica todos os temporários, logs, dumps ou backups, portanto um ensaio deve localizar cada cópia e verificar remoção após caminhos de sucesso, erro e cancelamento. Volume de dados e volume de modelos de fala são separados e ambos precisam constar no plano de preservação/reversão; excluir apenas o container não os remove."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Estado da release e instalação",
+      "kind": "observed",
+      "paragraphs": [
+        "Consulta da API oficial do GitHub em 2026-11-03 identifica v0.3.0 publicada em 2026-10-30 e HEAD b197134d8f8062c744104b6759daae30fae82c70. A documentação desse commit aponta tarball de imagem Linux/amd64, compose e checksums; build do código pode conter novidades que não estão na release. O quickstart usa Docker Compose e abre localhost:4310; precisa-se revisar bindings de porta no Compose antes de assumir que só loopback aceita tráfego."
+      ],
+      "source_ids": [
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Formato de avaliação sugerido",
+      "kind": "analysis",
+      "paragraphs": [
+        "Separar quatro coisas em uma avaliação: se a etapa de workflow executa; se os dados persistem após atualizar container; se a imagem enviada corresponde ao que o operador aprovou; e se o resultado do modelo é correto. Registrar commit, tag, arquitetura e hash de imagem; testar cancelamento durante ingestão e confirmar que arquivos de gravação temporários são removidos. Rodar ainda um caso com endpoint remoto e um caso sem rede para identificar degradação honesta."
+      ],
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Autenticação e dados em repouso",
+      "kind": "observed",
+      "paragraphs": [
+        "A instalação oficial liga 4310 a 127.0.0.1 e declara produto single-user sem autenticação/roles; para acesso remoto exige camada de controle de acesso. A documentação afirma AES-256-GCM para credenciais, com chave .vault-key no mesmo diretório do banco, enquanto documentos, workflows e logs não são cifrados. Portanto proteção de credenciais depende de proteger o diretório inteiro; backups devem guardar DB e chave juntos, e um vazamento do volume expõe conteúdo e credenciais. Estas são declarações de docs não verificadas em runtime."
+      ],
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Importações, conectores e redaction",
+      "kind": "observed",
+      "paragraphs": [
+        "Docs limitam upload a 12 MB por arquivo/response, 500 registros por import e 40 arquivos por pasta sem recursão; PDF exige texto legível e OCR não vem incluído. Pastas adicionais requerem allowlist de raiz e mount explícito, enquanto programas precisam de allowlist e habilitação. HTTP GET pode transmitir dados em URL/cabeçalhos ainda que cloud/POST exijam aprovações globais e por workflow. Redaction é regex/pattern matching, pode omitir informação ou alterar texto benigno, e exige revisão manual do que sai."
+      ],
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md (HEAD consultado)",
+      "url": "https://raw.githubusercontent.com/davemessew/AgentFlux/b197134d8f8062c744104b6759daae30fae82c70/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "b197134d8f8062c744104b6759daae30fae82c70",
+      "note": "Leitura estática da fonte primária; conteúdo pinado ao HEAD capturado via API oficial em 2026-11-03.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "LICENSE (Apache-2.0) e repositório",
+      "url": "https://github.com/davemessew/AgentFlux/blob/b197134d8f8062c744104b6759daae30fae82c70/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "b197134d8f8062c744104b6759daae30fae82c70",
+      "note": "Metadados e licença declarada na árvore pinada.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "Release v0.3.0",
+      "url": "https://github.com/davemessew/AgentFlux/releases/tag/v0.3.0",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v0.3.0 publicada em 2026-10-30",
+      "note": "API oficial lista v0.3.0 como latest; esta é a release referida pelo README no HEAD capturado.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "compose.release.yaml",
+      "url": "https://raw.githubusercontent.com/davemessew/AgentFlux/b197134d8f8062c744104b6759daae30fae82c70/compose.release.yaml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "b197134d8f8062c744104b6759daae30fae82c70",
+      "note": "Config pinada: loopback 127.0.0.1:4310, volumes separados de dados e speech model.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "docs/installation.md",
+      "url": "https://raw.githubusercontent.com/davemessew/AgentFlux/b197134d8f8062c744104b6759daae30fae82c70/docs/installation.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "b197134d8f8062c744104b6759daae30fae82c70",
+      "note": "Limites, permissões de import/output, AES-GCM, chave no data dir, logs/documentos sem criptografia e redaction descritos pelo projeto.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "Commit HEAD consultado",
+      "url": "https://github.com/davemessew/AgentFlux/commit/b197134d8f8062c744104b6759daae30fae82c70",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "b197134d8f8062c744104b6759daae30fae82c70",
+      "note": "Commit message: Update Docker installation and screenshots for 0.3; captura pela API pública do GitHub.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "O artefato Docker documentado não acompanha todo o código atual",
+      "certainty": "CONFIRMADO",
+      "detail": "README diz que análise de vídeo está no código-fonte, mas não na imagem v0.2.0; também documenta prebuild Linux/amd64.",
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "title": "Hospedagem própria implica processamento remoto opcional",
+      "certainty": "CONFIRMADO",
+      "detail": "Configuração exige endpoint de modelo acessível; análise envia quadros ao modelo escolhido e cloud exige permissão para imagens sem redação.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Relevância como bancada de automação documental",
+      "certainty": "HIPÓTESE",
+      "detail": "Depende de ensaios de permissões, proveniência, cobertura dos fluxos e saída de dados.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; nenhum build, instalação ou execução de terceiros",
+  "limitations": [
+    "Fontes main são móveis e não ficaram pinadas por SHA; conteúdo e releases podem mudar após a data de acesso.",
+    "Não inspecionei integralmente backend, segurança, dependências transitivas, comportamento de rede nem imagem prebuild.",
+    "Checksums citados pela release não foram recalculados; recurso local e alegações de privacidade não foram testados.",
+    "Desempenho, estabilidade, segurança, qualidade dos workflows e custos de modelos permanecem não avaliados."
+  ],
+  "related": [
+    "mrveiss--autobot-ai",
+    "polterguy--magic",
+    "frigadehq--hob"
+  ],
+  "metrics": {
+    "full_name": "davemessew/AgentFlux",
+    "html_url": "https://github.com/davemessew/AgentFlux",
+    "description": "Agentic AI platform for visual workflows and autonomous agents. Run it with Docker on your own computer or server.",
+    "homepage": "https://agentflux.cloud",
+    "default_branch": "main",
+    "created_at": "2026-10-27T14:43:07Z",
+    "updated_at": "2026-11-03T20:48:41Z",
+    "pushed_at": "2026-10-30T03:44:30Z",
+    "stargazers_count": 251,
+    "forks_count": 3,
+    "open_issues_count": 0,
+    "subscribers_count": 0,
+    "network_count": 3,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "ai-agents",
+      "docker",
+      "ollama",
+      "self-hosted",
+      "workflows"
+    ],
+    "size": 1324,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

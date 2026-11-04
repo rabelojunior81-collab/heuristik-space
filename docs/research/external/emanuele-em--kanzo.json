@@ -1,0 +1,297 @@
+{
+  "slug": "emanuele-em--kanzo",
+  "name": "Kanzo",
+  "url": "https://github.com/emanuele-em/kanzo",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "Kanzo é um quadro Kanban self-hosted feito para humanos e agentes, distribuído como binário Rust pequeno e com servidor MCP. O estado do quadro fica em SQLite e arquivos de configuração sob uma pasta home; sincronização usa um repositório Git escolhido pelo operador. A release v0.3.0 (1 nov 2026) acrescenta compartilhamento de quadro em rede entre computadores e suporte nativo a Windows, elevando a importância de rever controles de acesso: o README alerta que não há login quando se escuta em 0.0.0.0. A licença é AGPL-3.0, com obrigações específicas ao modificar e oferecer serviço de rede.",
+  "topics": [
+    "kanban",
+    "MCP",
+    "Rust",
+    "SQLite",
+    "Git sync",
+    "self-hosted",
+    "agentes de código",
+    "AGPL-3.0"
+  ],
+  "aliases": [
+    "kanban para agentes",
+    "board MCP",
+    "gerenciador local de tarefas"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto declarado",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README define Kanzo como board web e servidor MCP no mesmo programa. Humanos e agentes trabalham nas mesmas tarefas; comandos exportam board a Markdown/JSON, sincronizam por Git e permitem apontar cada agente ao projeto a partir do remote do repositório de trabalho. Isso descreve integração de tarefas, não orquestração de execução de código nem um agente autônomo embutido."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Dados e sincronização",
+      "kind": "observed",
+      "paragraphs": [
+        "A documentação situa kanzo.db e config.toml em ~/kanzo, alterável por --home/KANZO_HOME. A sincronização transforma a pasta em repositório Git e faz commit/pull/push; se ambos os lados mudaram, há opção de escolher conteúdo local ou remoto. A partilha recente é outro modo: uma instância hospeda board e clientes conectam-se. Repo privado protege transporte/controle apenas conforme configuração e identidade Git; conteúdo do board, anexos e comentários precisam ser considerados dados sincronizados."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Exposição de rede e acesso MCP",
+      "kind": "observed",
+      "paragraphs": [
+        "README mostra config listen=127.0.0.1 por padrão e alerta que 0.0.0.0 expõe board à rede sem login. Também documenta MCP sobre HTTP em /mcp e acesso de agentes ao board. A release v0.3.0 adiciona share/join para computadores diferentes. Antes de usar numa rede além da máquina local é necessário determinar quem pode alcançar a porta, se transporte é protegido e quais ferramentas MCP têm acesso; nesta pesquisa não tentei conexão ou autorização."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Plataformas e maturidade",
+      "kind": "observed",
+      "paragraphs": [
+        "Release v0.3.0 indica suporte nativo para Windows via instalador PowerShell e destaca compartilhamento entre máquinas. Página de releases lista versões 0.1.0 a 0.3.0, sinal de projeto recente com evolução rápida. O README anuncia medidas de memória/velocidade em Apple M4; são medidas do autor e não generalizáveis para hardware diferente. Não há evidência nesta pesquisa de backup/restauração comprovado nem de carga concorrente segura além da descrição de uso."
+      ],
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Licença e custo",
+      "kind": "observed",
+      "paragraphs": [
+        "A licença declarada é AGPL-3.0. O fato de ser gratuito para baixar não elimina obrigações ao distribuir versões derivadas ou oferecer a versão modificada pela rede; a avaliação jurídica do caso concreto requer examinar a licença integral. Há custo de operação do host e do repositório Git, mesmo com aplicação leve."
+      ],
+      "source_ids": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Pertinência e ensaio",
+      "kind": "analysis",
+      "paragraphs": [
+        "Pode preencher um espaço simples de fila compartilhada entre agente e pessoa, com estado revisável fora da conversa. Antes de usá-lo como fonte autorizativa, avaliar concorrência, conflitos de sync, anexos e exposição MCP; comparar sua fronteira de confiança com um board convencional. Um ensaio seguro usa diretório descartável e repo privado de teste, sem dados reais, testa migração v0.2→v0.3, rede local segregada, conflitos e backup/restore. Nenhuma instalação ou execução foi feita aqui."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Permissões MCP e fronteira agente/humano",
+      "kind": "observed",
+      "paragraphs": [
+        "README especifica que os agentes podem pegar tarefas, mover cartões e comentar; um cartão marcado Human fica fora da fila de ação dos agentes. É uma separação útil, mas essa regra de produto só protege se toolset e servidor MCP estiverem alcançáveis pelos agentes pretendidos. Um board compartilhado não é fonte de verdade de execução: comentários e estados precisam de histórico externo e revisão humana quando forem usados como evidência."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Atualização automática e proveniência",
+      "kind": "observed",
+      "paragraphs": [
+        "README diz que o app oferece instalar nova versão no sidebar e em Windows limita o self-update ao caso de kanzo.exe no diretório bin referido. A documentação recomenda verificar downloads com gh attestation verify e apresenta releases assinadas pelo GitHub. Isso fornece mecanismo verificável de proveniência, mas não confirma que um artefato não foi modificado no host nem avalia conteúdo malicioso. Nenhuma attestation foi conferida nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Implementação e disponibilidade",
+      "kind": "observed",
+      "paragraphs": [
+        "Cargo.toml identifica implementação Rust e a página de release fornece binários Windows/macOS/Linux. O README lista board SQLite e config TOML, mas não especifica neste recorte criptografia, ACL por usuário, logs de auditoria, backup automatizado ou resolução avançada de conflitos. Ausência no recorte documental não prova ausência no código; esses pontos devem ser localizados e testados em source code antes de confiar dados sensíveis."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Reprodutibilidade de versão",
+      "kind": "observed",
+      "paragraphs": [
+        "HEAD capturado foi 862399f762e78149eccea38b0bcb82c53a3ffa93, um commit de dependências após a tag v0.3.0 e8740b778ccd6e5dfb169e76313bd001c52f9ecb. Logo, release publicada e HEAD de desenvolvimento não são o mesmo objeto. A avaliação deve piná-los separadamente, preservar binário/attestation e medir upgrade; anúncios de tamanho e velocidade (4.5 MB, ~1 ms em release) são do autor e não medições independentes."
+      ],
+      "source_ids": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://raw.githubusercontent.com/emanuele-em/kanzo/862399f762e78149eccea38b0bcb82c53a3ffa93/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "862399f762e78149eccea38b0bcb82c53a3ffa93",
+      "note": "Fonte primária pinada ao HEAD capturado via API oficial.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "Release v0.3.0",
+      "url": "https://github.com/emanuele-em/kanzo/releases/tag/v0.3.0",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v0.3.0; 2026-11-01; commit abreviado e8740b7",
+      "note": "Release notes acrescentam sharing e suporte Windows; métricas de performance são alegações do autor.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "Releases list",
+      "url": "https://github.com/emanuele-em/kanzo/releases",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "lista consultada em 2026-11-03",
+      "note": "Histórico público de releases até v0.3.0.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "Cargo.toml",
+      "url": "https://github.com/emanuele-em/kanzo/blob/862399f762e78149eccea38b0bcb82c53a3ffa93/Cargo.toml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "862399f762e78149eccea38b0bcb82c53a3ffa93",
+      "note": "Manifesto Rust consultado como evidência de implementação e metadados do pacote.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "Commit HEAD consultado",
+      "url": "https://github.com/emanuele-em/kanzo/commit/862399f762e78149eccea38b0bcb82c53a3ffa93",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "862399f762e78149eccea38b0bcb82c53a3ffa93",
+      "note": "API pública do GitHub; merge de atualizações de dependências.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "LICENSE / AGPL-3.0",
+      "url": "https://github.com/emanuele-em/kanzo/blob/e8740b778ccd6e5dfb169e76313bd001c52f9ecb/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "v0.3.0 tag e8740b778ccd6e5dfb169e76313bd001c52f9ecb",
+      "note": "Licença na release tag; revisar versão efetivamente distribuída.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "MCP e modo de escuta tornam board alcançável por agentes/rede",
+      "certainty": "CONFIRMADO",
+      "detail": "README documenta /mcp e diz que listen=0.0.0.0 remove login e só deve ser usado em rede confiável.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Release recente adiciona colaboração em rede e Windows",
+      "certainty": "CONFIRMADO",
+      "detail": "v0.3.0 de 2026-11-01 documenta share/join e instalador PowerShell.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Quadro pode ser útil como estado de tarefa compartilhado",
+      "certainty": "HIPÓTESE",
+      "detail": "Exige validar concorrência, retenção, sync, backup e controle de acesso antes de tratar como registro confiável.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; binário e serviço não executados",
+  "limitations": [
+    "Main e release são referências móveis/tagged e podem receber atualizações; não fixei SHA completo.",
+    "Não avaliei implementação SQLite/sync, segurança MCP, anexos, concorrência, recuperação ou performance.",
+    "Números de tamanho e latência foram medidos pelo projeto em Apple M4 e não são benchmark independente.",
+    "Licença citada não constitui interpretação jurídica do impacto de uso específico."
+  ],
+  "related": [
+    "mrveiss--autobot-ai",
+    "davemessew--agentflux"
+  ],
+  "metrics": {
+    "full_name": "emanuele-em/kanzo",
+    "html_url": "https://github.com/emanuele-em/kanzo",
+    "description": "Self-hosted, sharable kanban for humans and agents. One 4.5 MB binary, 4.5 MB of RAM, 10 to 60 tokens per agent reply, starts in 2 ms, zero setup.",
+    "homepage": "",
+    "default_branch": "main",
+    "created_at": "2026-10-25T11:14:03Z",
+    "updated_at": "2026-11-03T20:47:59Z",
+    "pushed_at": "2026-11-02T16:21:46Z",
+    "stargazers_count": 970,
+    "forks_count": 59,
+    "open_issues_count": 8,
+    "subscribers_count": 6,
+    "network_count": 59,
+    "archived": false,
+    "disabled": false,
+    "language": "Rust",
+    "topics": [
+      "ai-agents",
+      "claude-code",
+      "cli",
+      "codex",
+      "coding-agents",
+      "kanban",
+      "local-first",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "productivity",
+      "project-management",
+      "raspberry-pi",
+      "rust",
+      "self-hosted",
+      "sqlite",
+      "task-manager"
+    ],
+    "size": 12554,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

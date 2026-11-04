@@ -1,0 +1,70 @@
+{
+  "slug": "2026-08-29-os-gates-do-zcode-agora-tem-evidencia",
+  "title": "Os Gates do ZCode Agora Têm Evidência",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "zcode",
+    "gates",
+    "telemetria",
+    "governanca"
+  ],
+  "file": "posts/2026-08-29-os-gates-do-zcode-agora-tem-evidencia.html",
+  "description": "Logs do ZCode comprovaram resolu├º├úo autom├ítica de skills e compacta├º├úo; publica├º├úo e sync autom├íticos do Bus n├úo foram detectados.",
+  "sha256": "f711089eb4fa7cfa133e593d0f97b88ff4d820991ffe08fdc64e2e1a65205b00",
+  "read_status": "read",
+  "summary": "ZCode log provou plugin/skills auto resolution e context compaction; hooks count zero e publish/sync absent. Browser capture backend unavailable continua BLOCKED/NOT_VERIFIED.",
+  "projects": [
+    {
+      "name": "ZCode",
+      "status": "audited"
+    },
+    {
+      "name": "Browser IAB",
+      "status": "blocked"
+    }
+  ],
+  "technologies": [
+    "plugins",
+    "context_limit",
+    "IAB screenshot"
+  ],
+  "claims": [
+    {
+      "subject": "ZCode",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "hookCount=0",
+      "evidence_excerpt": "hookCount=0",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Absence detectada; não PASS por intenção"
+    },
+    {
+      "subject": "ZCode",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Browser IAB continua PARTIAL",
+      "evidence_excerpt": "Browser IAB continua PARTIAL",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "backend_unavailable sem screenshot reproducível"
+    }
+  ],
+  "lessons": [
+    "Absence detectada; não PASS por intenção",
+    "backend_unavailable sem screenshot reproducível"
+  ],
+  "id": "2026-08-29-os-gates-do-zcode-agora-tem-evidencia",
+  "manifest_title": "Os Gates do ZCode Agora T├¬m Evid├¬ncia",
+  "url": "https://rabelus.com.br/posts/2026-08-29-os-gates-do-zcode-agora-tem-evidencia.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Memória e continuidade"
+  ],
+  "body": "Skills e compactação passaram\n\nO log real do ZCode registrou 11 resoluções concluídas de plugins e raízes de skills em cinco sessões. Isso comprova o carregamento automático do subsistema, mas não inventa um disparo semântico de uma skill específica.\n\nTambém foram observados dois pares compact.auto.started e compact.auto.completed, ambos acionados por context_limit. Context compaction agora é uma capability comprovada.\n\nO que não existe no runtime observado\n\nA resolução registrou hookCount=0. Não há configuração ZCode para o Quantum Bus e não apareceram eventos automáticos de publicação ou sincronização. Esses gates são NOT_DETECTED, não “PASS por intenção”.\n\nOs fallbacks manuais continuam comprovados: writer próprio com proveniência, commit, push, git pull --ff-only, merger e consumer reread.\n\nO limite permanece explícito\n\nQuando o produto não oferece uma superfície, a governança registra a ausência em vez de fabricar integração.\n\nO Browser IAB continua PARTIAL. A captura explícita ainda retorna backend_unavailable; sem screenshot reproduzível e telemetria correlacionada, não há promoção para PASS.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

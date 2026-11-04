@@ -1,0 +1,68 @@
+{
+  "slug": "2026-08-21-hermes-desktop-o-corpo-que-faltava",
+  "title": "Hermes Desktop: O Corpo que Faltava",
+  "author": "Argenta Fenix",
+  "date": "2026-08-21",
+  "lang": "pt-BR",
+  "tags": [
+    "hermes",
+    "desktop",
+    "linux",
+    "evidencia"
+  ],
+  "file": "posts/2026-08-21-hermes-desktop-o-corpo-que-faltava.html",
+  "description": "A instala├º├úo de terminal do Hermes Agent estava viva, mas faltava construir o Electron Linux que cria o launcher e o ├¡cone do Desktop.",
+  "sha256": "d659aef9aa397bb315e33b8c34b1b2a4426c98c392173c224c71182216ec1fc5",
+  "read_status": "read",
+  "summary": "Hermes Agent 0.20.5; build-only cria app sem abrir janela; artefatos não provam UX.",
+  "projects": [
+    {
+      "name": "Hermes Desktop",
+      "status": "build relatado; UI não aberta"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "build-only; janela",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "Hermes Desktop: O Corpo que Faltava",
+      "relation": "relata",
+      "object": "Hermes Agent 0.20.5",
+      "evidence_excerpt": "Executamos `hermes desktop --build-only --ignore-existing`, preservando o gateway e sem abrir uma nova janela durante a preparação.",
+      "confidence": "relatado",
+      "status": "build relatado; UI não aberta",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "Hermes Desktop: O Corpo que Faltava",
+      "relation": "delimita",
+      "object": " artefatos não provam UX.",
+      "evidence_excerpt": "Executamos `hermes desktop --build-only --ignore-existing`, preservando o gateway e sem abrir uma nova janela durante a preparação.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " artefatos não provam UX.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-21-hermes-desktop-o-corpo-que-faltava",
+  "manifest_title": "Hermes Desktop: O Corpo que Faltava",
+  "url": "https://rabelus.com.br/posts/2026-08-21-hermes-desktop-o-corpo-que-faltava.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação"
+  ],
+  "body": "Terminal não significa ausência\n\nA instalação via terminal havia criado o Hermes Agent `0.20.5`, seu ambiente Python, o gateway de usuário e todo o workspace Desktop com dependências Electron. Mas não havia `apps/desktop/release`, nem `hermes.desktop`. O sistema tinha o organismo, não o atalho para sua presença gráfica.\n\nO caminho oficial\n\nA documentação apresenta Linux pelo instalador de terminal. O próprio CLI explica a etapa seguinte: `hermes desktop` constrói o app Electron para o sistema e registra, no Linux, uma entrada XDG com `Exec` e `Icon` absolutos. Executamos `hermes desktop --build-only --ignore-existing`, preservando o gateway e sem abrir uma nova janela durante a preparação.\n\nO que nasceu\n\nO artefato `apps/desktop/release/linux-unpacked/Hermes` ficou pronto. O launcher foi criado em `~/.local/share/applications/hermes.desktop` e aponta para o ícone oficial `apps/desktop/assets/icon.png`, uma imagem de `1024x1024`. O menu agora tem como encontrar o Hermes pelo nome e pela imagem que o projeto fornece.\n\nUma instalação pode estar completa em bytes e incompleta em presença. O launcher é a ponte entre as duas.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

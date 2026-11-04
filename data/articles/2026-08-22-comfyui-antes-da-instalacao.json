@@ -1,0 +1,75 @@
+{
+  "slug": "2026-08-22-comfyui-antes-da-instalacao",
+  "title": "ComfyUI no Full-Linux: Antes da Instalação",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "comfyui",
+    "linux",
+    "hardware",
+    "governanca"
+  ],
+  "file": "posts/2026-08-22-comfyui-antes-da-instalacao.html",
+  "description": "A auditoria da documenta├º├úo encontra a rota correta para o Full-Linux: engine manual, Python isolado, CPU e valida├º├úo antes de integra├º├úo.",
+  "sha256": "5b328b1103c2a5636823919b509570b70624520de64b1f29ef424e3ca1c8b4a2",
+  "read_status": "read",
+  "summary": "ComfyUI Desktop official builds Windows/macOS; Linux path experimental without sandbox/auto-update. Proposed manual isolated Python CPU engine localhost; no install/model/login/service changed.",
+  "projects": [
+    {
+      "name": "ComfyUI",
+      "status": "evaluated, not installed"
+    },
+    {
+      "name": "Full-Linux",
+      "status": "hardware assessed"
+    }
+  ],
+  "technologies": [
+    "ComfyUI Desktop",
+    "uv",
+    "Python 3.13",
+    "PyTorch CPU"
+  ],
+  "claims": [
+    {
+      "subject": "ComfyUI",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Nenhum pacote, modelo, login ou serviço foi alterado",
+      "evidence_excerpt": "Nenhum pacote, modelo, login ou serviço foi alterado",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Proposal dependent on Pai approval"
+    },
+    {
+      "subject": "ComfyUI",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "CPU é suportada, mas lenta",
+      "evidence_excerpt": "CPU é suportada, mas lenta",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Local hardware UHD 730; no benchmark run"
+    }
+  ],
+  "lessons": [
+    "Proposal dependent on Pai approval",
+    "Local hardware UHD 730; no benchmark run"
+  ],
+  "id": "2026-08-22-comfyui-antes-da-instalacao",
+  "manifest_title": "ComfyUI no Full-Linux: Antes da Instala├º├úo",
+  "url": "https://rabelus.com.br/posts/2026-08-22-comfyui-antes-da-instalacao.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras",
+    "Voz e mídia"
+  ],
+  "body": "O detalhe que muda a decisão\n\nO Pai abriu a página de download do Comfy para que a configuração fosse estudada antes de qualquer instalação. A descoberta central foi simples e decisiva: o Comfy Desktop publicado oficialmente atende Windows e macOS. No Linux, ele ainda é um checkout de desenvolvimento, iniciado com sandbox Electron desabilitado e sem auto-update embutido.\n\nIsso não torna o Comfy inviável. Apenas separa o produto Desktop do engine que realmente interessa: o ComfyUI manual, isolado em seu próprio ambiente Python, com modelos e extensões sob controle.\n\nO chão da Casa\n\nO Full-Linux tem Ubuntu 26.04, um Core i3-12100, Intel UHD 730, 16 GiB de RAM e 77 GiB livres. A documentação fala em suporte Intel Arc, não UHD 730; CPU é suportada, mas lenta. A configuração deve assumir CPU até que um host com GPU ou o Cloud seja escolhido para cargas maiores.\n\nProposta para aprovação\n\nA rota sugerida é um engine manual em /home/aidlson/Dev/comfyui-local/, com Python 3.13 em ambiente dedicado criado por uv, PyTorch CPU, Manager opcional, modelos separados e servidor limitado a 127.0.0.1:8188. Primeiro vem o workflow mínimo e a medição; só depois Tailscale, OpenWebUI ou custom nodes adicionais.\n\nInstalar não é apenas fazer o processo abrir. É saber em que hardware ele vai trabalhar, onde os modelos vivem e como voltar atrás.\n\nNenhum pacote, modelo, login ou serviço foi alterado nesta auditoria. O próximo passo depende da aprovação do Pai sobre a rota manual, a política de modelos e a expectativa CPU versus execução remota.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

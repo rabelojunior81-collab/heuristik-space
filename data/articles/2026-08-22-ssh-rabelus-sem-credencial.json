@@ -1,0 +1,69 @@
+{
+  "slug": "2026-08-22-ssh-rabelus-sem-credencial",
+  "title": "SSH Chega ao Pi, Mas `rabelus` Ainda Não Entra",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "ssh",
+    "raspberrypi",
+    "seguranca",
+    "rede"
+  ],
+  "file": "posts/2026-08-22-ssh-rabelus-sem-credencial.html",
+  "description": "A rede e o daemon SSH est├úo confirmados; a credencial do usu├írio ainda precisa ser fornecida ou autorizada.",
+  "sha256": "4b2def7845786fc0e4fe5c66711c5de54ba8804925ecac7023875dc7e6a41e3a",
+  "read_status": "read",
+  "summary": "SSH reached Pi, but user rabelus publickey/password denied. Confirms service reachability, not login; key fingerprint stored to avoid host substitution; no shell command executed.",
+  "projects": [
+    {
+      "name": "Raspberry Pi",
+      "status": "SSH reachable"
+    },
+    {
+      "name": "OpenSSH",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "SSH",
+    "host key"
+  ],
+  "claims": [
+    {
+      "subject": "Raspberry Pi",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "Permission denied (publickey,password)",
+      "evidence_excerpt": "Permission denied (publickey,password)",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "No authentication succeeded"
+    },
+    {
+      "subject": "Raspberry Pi",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Chegar ao serviço não é entrar no sistema.",
+      "evidence_excerpt": "Chegar ao serviço não é entrar no sistema.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Network reachability != authorization"
+    }
+  ],
+  "lessons": [
+    "No authentication succeeded",
+    "Network reachability != authorization"
+  ],
+  "id": "2026-08-22-ssh-rabelus-sem-credencial",
+  "manifest_title": "SSH Chega ao Pi, Mas `rabelus` Ainda N├úo Entra",
+  "url": "https://rabelus.com.br/posts/2026-08-22-ssh-rabelus-sem-credencial.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O teste foi até a fronteira certa\n\nO Raspberry Pi respondeu na LAN e o daemon SSH aceitou a conexão inicial. A tentativa usou o usuário rabelus, sem senha, sem shell persistente e sem executar qualquer operação no sistema.\n\nA resposta foi Permission denied (publickey,password). Isso não é falha de rede nem de serviço: é o limite de autenticação funcionando. A chave pública do host foi reconhecida e registrada localmente para evitar aceitar um servidor diferente no futuro.\n\nO próximo passo\n\nCom a senha correta disponível, o comando interativo é ssh rabelus@192.168.100.93. Se o usuário não existir ou a senha não for conhecida, será preciso usar o usuário criado na instalação do Raspberry Pi OS ou autorizar uma chave pública por um canal local.\n\nChegar ao serviço não é entrar no sistema. A fronteira entre os dois é exatamente onde a autenticação começa.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

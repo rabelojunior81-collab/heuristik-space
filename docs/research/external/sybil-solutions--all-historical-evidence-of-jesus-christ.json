@@ -1,0 +1,328 @@
+{
+  "slug": "sybil-solutions--all-historical-evidence-of-jesus-christ",
+  "name": "All Historical Evidence of Jesus Christ — dossiê e arquivo",
+  "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ",
+  "category": "Pesquisa e arquivos históricos",
+  "summary": "O repositório reúne um PDF cronológico sobre Jesus, uma coleção de textos antigos e uma interface estática pesquisável com documentos, cartões de referência e links cruzados. O README declara 175 entradas de vida, 100 conexões escriturísticas e 238 referências no dossiê, com corte de pesquisa em 26/10/2026; a coleção organiza 335 documentos em dez grupos, contando as 238 fichas de citações. O catálogo é tecnicamente rastreável e app.js não usa dependências, mas o próprio README chama o conjunto de pesquisa/dossiê: não é edição crítica ou consenso acadêmico. As fichas dizem o que o dossiê afirma que cada referência apoia; isso não demonstra que a fonte primária apoie a conclusão, seja autêntica ou esteja contextualizada. Sem licença identificada no objeto GitHub e sem release publicada consultada. Pesquisa documental somente; nenhuma referência histórica foi verificada externamente.",
+  "topics": [
+    "história antiga",
+    "Jesus",
+    "fontes primárias",
+    "cristianismo",
+    "arqueologia",
+    "dossiê",
+    "referências",
+    "arquivo estático",
+    "pesquisa"
+  ],
+  "aliases": [
+    "historical evidence Jesus",
+    "dossiê Jesus",
+    "arquivo de fontes antigas",
+    "Sybil Solutions historical evidence"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Objeto e escopo declarado",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "RELATADO pelo repositório: três partes principais — PDF cronológico, fontes citadas espelhadas em traduções de domínio público quando disponíveis, e leitor web pesquisável. O dossiê declara 175 entradas biográficas, 100 conexões escriturísticas, 238 referências numeradas e corte de pesquisa em 26/10/2026. O título de ‘all historical evidence’ é branding; o tamanho finito da seleção e o corte temporal não demonstram exaustividade."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Composição do arquivo",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no README e catalog.json: dez coleções — dossiê, Escrituras, evangelhos fora do cânone, Padres da Igreja, testemunhos antigos, documentos legais/administrativos, arqueologia/artefatos, declarações institucionais, registro de evangelhos e fichas de referências. As contagens listadas somam 335 documentos, incluindo 238 fichas. A categoria documental inclui gêneros, épocas e objetivos diferentes; não se deve tratar cada item como evidência histórica independente ou equivalente."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Mecanismo de referência",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: README diz que destinos de links foram retirados do PDF e as coleções `refs.json`, `links.json` e `links-report.md` os registram e associam a entradas espelhadas. Uma ficha (A01) identifica a referência NASSCAL/e-Clavis, o uso que o dossiê declara fazer e onde é citada. Assim a estrutura ajuda a rastrear a cadeia de alegação; a ficha continua sendo resumo do autor, não validação independente do conteúdo citado."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Interface e arquitetura",
+      "kind": "observed",
+      "source_ids": [
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: leitor é HTML/CSS/JavaScript estático sem dependências, carrega um catálogo JSON e documentos por demanda, oferece navegação por coleções, busca e rotas hash. O código usa uma função de escape para texto que será inserido no DOM e mantém preferência de tema em localStorage. README declara painel de leitura, cartões de preview, lista de fontes filtrável e fallback `404.html` para caminhos profundos. Leitura do código não comprova segurança de todo conteúdo, uso offline, acessibilidade ou comportamento em navegadores reais."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Qualidade historiográfica e separação de alegações",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "ANÁLISE: a documentação distingue alegação do dossiê e identificação da referência, mas não fornece neste recorte um protocolo acadêmico completo de seleção, crítica textual, datação, autenticidade, transmissão manuscrita, divergências de tradução e consenso por especialista. Fontes literárias, religiosas, legais e arqueológicas exigem contextos próprios. O fato de uma inscrição, texto antigo ou página moderna aparecer na coleção não prova a interpretação histórica apresentada pelo dossiê. Esta pesquisa não confirma nem refuta afirmações teológicas ou históricas sobre Jesus."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Traduções, direitos e proveniência",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S5"
+      ],
+      "paragraphs": [
+        "README afirma que traduções de domínio público são espelhadas quando disponíveis; catalog.json atribui explicitamente a World English Bible a condição de domínio público e menciona traduções do século XIX em parte de Padres da Igreja. O repositório não tem licença reconhecida pelos metadados GitHub. Direitos de tradução moderna, imagens, PDF, textos editoriais, dados incorporados e conteúdo de terceiros precisam ser identificados por item; ausência de licença repo não autoriza reutilização integral. Não foi feito clearance de direitos."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Maturidade, atualização e métricas",
+      "kind": "observed",
+      "source_ids": [
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público 2026-11-03: 238 stars, 13 forks, nenhuma issue aberta, Python como linguagem reportada, branch main, não arquivado; último push 27/10 e atualização de metadados 2/11. GitHub define stars como marcações/bookmarks de usuários e forks como cópias derivadas do repositório; a ausência de issues abertas não avalia qualidade. A API reporta licença `null`; não encontrei release na consulta. Como o repo surgiu no fim de outubro e o corte do dossiê é de 26/10, são dados muito recentes. Métricas não certificam qualidade editorial, autoria das fontes, manutenção ou revisão por pares."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: tecnicamente, é um exemplo de corpus estruturado, cards navegáveis e ligações entre texto de síntese e evidência. O padrão transferível para o Lab é explicitar que conclusão cada fonte suporta e manter rotas rastreáveis; o conteúdo específico é controverso e requer contexto especializado. Evitar apresentar a coleção como índice neutro, universal ou validado por consenso sem revisão historiográfica independente."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Ensaios propostos",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "PROPOSTA: escolher amostra estratificada de fontes pagãs, cristãs, manuscritos, arqueologia e fontes modernas; abrir cada documento de origem, verificar edição/tradução, datação e cadeia de referência; comparar citação do PDF com trecho fonte e registrar suporte, limite e desacordo acadêmico. Checar reconciliação dos 238 destinos por script, inventário de direitos, proveniência dos espelhos, sanitização/renderização, teclado/leitor de tela e links profundos. Nenhum desses ensaios ou revisão por historiador foi feito."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Limites da pesquisa",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "A avaliação é documental e técnica, baseada em README, catálogo, uma ficha de referência e amostra da aplicação JS no SHA. Não foram lidos os 335 documentos, os 238 itens ou o PDF integral; nenhuma fonte externa primária foi cotejada e não houve avaliação por especialista, instalação, QA, teste de segurança, análise de acessibilidade, conferência de direitos ou aceite."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Categorias de evidência heterogêneas",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "ANÁLISE: o catálogo inclui evangelhos canônicos e não canônicos, autores cristãos antigos, testemunhos não cristãos, atos administrativos, inscrições, artefatos e posicionamentos institucionais modernos. Esses itens não têm a mesma distância temporal, tipo de testemunho ou pergunta que conseguem responder. Fontes devocionais ou teológicas podem documentar crenças e comunidades, mas não se convertem automaticamente em testemunho independente; objetos arqueológicos precisam de contexto de escavação e cadeia de custódia. O leitor web organiza navegação, não equaliza valor probatório."
+      ]
+    },
+    {
+      "id": "sec-12",
+      "title": "Padrão de revisão acadêmica não identificado",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "NÃO IDENTIFICADO na amostra consultada: declaração de revisão por pares, conselho editorial, autores/especialistas responsáveis por cada domínio, protocolo de crítica textual ou tabela de consenso/divergência. Essa ausência na amostra não prova que não exista em outra parte do projeto, mas impede tratar o dossiê como produto academicamente revisado sem evidência adicional. Para uma versão comparativa, separar: texto literal, identificação/edição, proposição do dossiê, avaliações acadêmicas publicadas e grau de concordância."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README do dossiê",
+      "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ/blob/00f96e5f9df5197225aa405f411ce2aad5cdd136/README.md",
+      "kind": "docs",
+      "ref": "00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Escopo, contagens e afirmações editoriais atribuídas ao projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Catálogo de coleções",
+      "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ/blob/00f96e5f9df5197225aa405f411ce2aad5cdd136/collections/catalog.json",
+      "kind": "data",
+      "ref": "00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Contagem, nomes e descrições das coleções no commit consultado."
+    },
+    {
+      "id": "S3",
+      "title": "Ficha A01 de referência",
+      "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ/blob/00f96e5f9df5197225aa405f411ce2aad5cdd136/collections/citations/A01.md",
+      "kind": "data",
+      "ref": "00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Exemplo de ficha gerada, destino de fonte, uso declarado e locais de citação."
+    },
+    {
+      "id": "S4",
+      "title": "Leitor estático",
+      "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ/blob/00f96e5f9df5197225aa405f411ce2aad5cdd136/docs/assets/app.js",
+      "kind": "code",
+      "ref": "00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual do reader sem dependências, carregamento JSON, rotas e escape de texto."
+    },
+    {
+      "id": "S5",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/sybil-solutions/all-historical-evidence-of-jesus-christ",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST: stars, forks, issues, datas, linguagem e licença nula."
+    },
+    {
+      "id": "S6",
+      "title": "Commit consultado",
+      "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ/commit/00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "kind": "metadata",
+      "ref": "00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA atual de main retornado pelo GitHub."
+    },
+    {
+      "id": "S7",
+      "title": "Releases",
+      "url": "https://api.github.com/repos/sybil-solutions/all-historical-evidence-of-jesus-christ/releases?per_page=3",
+      "kind": "release",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Coleção consultada retornou lista vazia."
+    },
+    {
+      "id": "S8",
+      "title": "Metadados históricos publicados no README e catálogo",
+      "url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ/tree/00f96e5f9df5197225aa405f411ce2aad5cdd136/collections",
+      "kind": "data",
+      "ref": "00f96e5f9df5197225aa405f411ce2aad5cdd136",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Coleções heterogêneas e data de corte declaradas pelo próprio projeto; não são parecer acadêmico."
+    },
+    {
+      "id": "S9",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Stars são bookmarks/marcações de usuários; forks_count é campo REST. Ver docs REST de forks para cópias derivadas."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Dossiê e arquivo são conteúdo editorial recente",
+      "certainty": "CONFIRMADO",
+      "detail": "README declara corte de pesquisa em 26/10/2026 e catálogo traz coleção estruturada; não há release publicada consultada.",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S7"
+      ]
+    },
+    {
+      "title": "Rastreamento de citações não valida a interpretação",
+      "certainty": "CONFIRMADO",
+      "detail": "Ficha A01 mostra o que o dossiê declara que uma referência sustenta; cotejo da alegação com a fonte e historiografia não foi realizado.",
+      "source_ids": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Licença do repositório não identificada",
+      "certainty": "CONFIRMADO",
+      "detail": "Metadados GitHub reportam licença null; direitos de conteúdo e traduções devem ser avaliados por item.",
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura estática pontual; sem avaliação historiográfica ou teste de aplicação",
+  "limitations": [
+    "Não foi lido integralmente o PDF, os 335 documentos nem as 238 referências.",
+    "Nenhuma fonte histórica primária foi aberta fora do próprio repositório ou validada por especialista.",
+    "Não foi identificado arquivo de licença do repositório; não presumir permissão de redistribuição do acervo.",
+    "Stars/forks/issues e atividade são um snapshot de 2026-11-03."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "sybil-solutions/all-historical-evidence-of-jesus-christ",
+    "html_url": "https://github.com/sybil-solutions/all-historical-evidence-of-jesus-christ",
+    "description": "Evidence archive for Jesus of Nazareth: research dossier (PDF), New Testament, gnostic and extracanonical gospels, church fathers, ancient witnesses, Roman legal documents, archaeology, and all 238 cited references — searchable reader at https://sybil-solutions.github.io/all-historical-evidence-of-jesus-christ/",
+    "homepage": "https://sybil-solutions.github.io/all-historical-evidence-of-jesus-christ/",
+    "default_branch": "main",
+    "created_at": "2026-10-26T19:52:32Z",
+    "updated_at": "2026-11-02T20:30:42Z",
+    "pushed_at": "2026-10-27T19:45:30Z",
+    "stargazers_count": 238,
+    "forks_count": 13,
+    "open_issues_count": 0,
+    "subscribers_count": 5,
+    "network_count": 13,
+    "archived": false,
+    "disabled": false,
+    "language": "Python",
+    "topics": [],
+    "size": 11323,
+    "license": null,
+    "fork": false
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "slug": "zzjcool--krd",
+  "name": "krd (KRD)",
+  "url": "https://github.com/zzjcool/krd",
+  "category": "macOS / Apple",
+  "summary": "Ferramenta Swift para espelhar uma tela/janela macOS num terminal remoto via SSH: captura ScreenCaptureKit, renderização Kitty Graphics e entrada por CGEvent. O README declara macOS 14+, permissão Screen Recording/Accessibility e terminais compatíveis com o protocolo gráfico. Headless `krd ax` lê/aciona árvore de acessibilidade, uma superfície distinta do espelhamento visual. Projeto marcado WIP. MIT. O recente commit é documentação; Package.swift mostra dependência de teste opcional isolada para não bloquear o produto. Exige Mac Apple, terminal compatível e permissões locais; não é remoto genérico nem ferramenta Windows.",
+  "topics": [
+    "macOS",
+    "Swift",
+    "SSH",
+    "ScreenCaptureKit",
+    "kitty graphics",
+    "Accessibility API",
+    "MIT"
+  ],
+  "aliases": [
+    "krd",
+    "KRD",
+    "Mac desktop over SSH",
+    "terminal remote desktop"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e arquitetura declarada",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve fluxo ScreenCaptureKit → Kitty graphics escape → terminal, com teclado/mouse enviados por stdin e CGEvent. Isso usa SSH já existente, sem VNC, codec ou porta adicional segundo autor; segurança da sessão depende da configuração SSH/host.",
+        "Modo `--window`/mirror visual e `krd ax` headless são capacidades distintas: só o primeiro requer permissão Screen Recording; AX precisa Accessibility. Captura visual e automação trazem dados da tela e ações do usuário para o terminal remoto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Compatibilidade e permissões",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README exige macOS 14+ e terminal Kitty graphics (rex, Ghostty, kitty, WezTerm). Lista Screen Recording e Accessibility como permissões únicas para captura/entrada. Terminal.app não implementa o protocolo gráfico apontado.",
+        "Requisitos de permissão significam que instalação/uso podem expor conteúdo de tela e enviar input ao Mac; escopo, revogação e consentimento devem ser verificados no host efetivo. Nenhuma máquina macOS foi usada nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Instalador e integridade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README instrui script shell remoto, que baixa release universal Apple Silicon/Intel, verifica checksum, assina localmente com identidade estável e instala em `~/bin/krd`; também oferece versão pinada e build source. São instruções do mantenedor, não foram executadas.",
+        "Hash detecta divergência do artefato esperado se canal de hash for confiável; não substitui assinatura verificável de release nem revisão do script. Antes de uso, inspecionar script no SHA fixado e origem de checksum."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Estado do projeto e limitações de UX",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README explicitamente diz Work in progress e comportamento sujeito a mudança. Lista recursos estáveis e rough/not yet, incluindo vídeo com movimento de cor, múltiplos displays numa imagem e metas FPS adaptativas; detalhes são autorrelato.",
+        "Interfaces exigem terminal com protocolo gráfico e operação de teclado específica. `krd ax` estrutura saída legível/JSON e sanitiza ESC em título segundo README; isso não é garantia de filtragem de todos dados privados nem de segurança de ações automatizadas."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Build e dependência opcional",
+      "kind": "observed",
+      "paragraphs": [
+        "Package.swift começa com Swift tools 5.9 e documenta um artefato libghostty-vt opcional via variável KRD_VT_XCFRAMEWORK apenas para teste headless. O comentário explicita que ausência do artefato não deve bloquear build/test padrão; isso é decisão de engenharia descrita no manifest.",
+        "O caminho condicional e targets subsequentes não foram lidos por completo nem compilados. Xcode/Swift version de build no README (Xcode 16 no branch main) e versão mínima do sistema devem ser reconciliadas para release concreta."
+      ],
+      "source_ids": [
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Segurança, privacidade e rede",
+      "kind": "analysis",
+      "paragraphs": [
+        "Dados da tela, títulos de janelas, texto selecionado e input são sensíveis; SSH protege transporte conforme configuração, mas host remoto/terminal ainda recebe a representação visual e os comandos. Avaliar persistência de logs/debug, clipboard bridge e estado terminal.",
+        "A ausência de porta adicional não significa ausência de relay/forwarding SSH ou de risco de clipboard/terminal escape. O README diz que textos são sanitizados em `krd ax`, e que imagem usa Kitty escapes; comportamento de escape e ações deve ser revisto no parser e nos terminais suportados."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Licença e aderência ao Lab",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE é MIT. Requer plataforma Apple Silicon/macOS, terminal gráfico e permissões; sem hardware Mac não há caminho para usar como desktop remoto no Lab Windows. Seu headless AX pode ser útil em automação de UI macOS, mas exige consentimento e separação de ações/inspeção.",
+        "Não é solução de VDI, compartilhamento multiusuário ou suporte geral a desktop remoto; nenhuma adoção recomendada sem caso Mac explícito."
+      ],
+      "source_ids": [
+        "S3",
+        "S1"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Procedimento de deploy e superfície de confiança",
+      "kind": "observed",
+      "paragraphs": [
+        "DEPLOY.md diz que o binário não inicia serviço sozinho: é copiado, duas permissões são aprovadas e rodado de uma sessão SSH; fechar sessão termina. Target requer Remote Login já habilitado, o deploy script não o ativa.",
+        "Script resolve latest release por padrão e oferece `--version`; revisão recomenda pinagem de release para reprodutibilidade. Checksum SHA-256 é verificação contra artefato publicado, não origem independente se binário e checksum vêm do mesmo canal."
+      ],
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Cobertura de testes declarada",
+      "kind": "observed",
+      "paragraphs": [
+        "TESTING.md separa testes mecânicos (bytes/layout) de comportamento de terminal e ScreenCaptureKit, incluindo `swift test`, selftest sem permissões, pipeline sintético e calibração no terminal. Isso é desenho de validação explícito, não evidência de que esses gates passaram para versão avaliada.",
+        "Docs relatam teste de PTY que simula handshake de terminal e dumps de termcaps em Ghostty 1.4.0 e Apple Terminal; seus resultados são afirmações no documento e não foram reproduzidos."
+      ],
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Ensaios e limites de adoção",
+      "kind": "analysis",
+      "paragraphs": [
+        "Em Mac laboratório e dados sintéticos: pin release, auditar installer/checksum, validar prompts de Screen Recording/Accessibility e revogação; testar terminais reais, resize/SSH interrompido, clipboard in/out, titles com ESC, `krd ax` com falhas/readback, logs/debug e sessão terminada.",
+        "Sem Mac, o produto não tem aplicação direta ao ambiente Windows do Lab. Nenhuma instalação, captura, execução AX ou teste SSH foi realizado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/zzjcool/krd/blob/53df22445478e4fdcb6d2928f89d22095398bc32/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "53df22445478e4fdcb6d2928f89d22095398bc32",
+      "note": "README fixado ao SHA consultado; limites e capacidades são declarações do projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Package.swift",
+      "url": "https://github.com/zzjcool/krd/blob/53df22445478e4fdcb6d2928f89d22095398bc32/Package.swift",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "code",
+      "ref": "53df22445478e4fdcb6d2928f89d22095398bc32",
+      "note": "Manifest estático, Swift tools 5.9 e dependência condicional opcional para testes."
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/zzjcool/krd/blob/53df22445478e4fdcb6d2928f89d22095398bc32/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "license",
+      "ref": "53df22445478e4fdcb6d2928f89d22095398bc32",
+      "note": "Texto MIT consultado via GitHub."
+    },
+    {
+      "id": "S4",
+      "title": "docs/DEPLOY.md",
+      "url": "https://github.com/zzjcool/krd/blob/53df22445478e4fdcb6d2928f89d22095398bc32/docs/DEPLOY.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "53df22445478e4fdcb6d2928f89d22095398bc32",
+      "note": "Procedimento de deploy, permisos e release; comandos não foram executados."
+    },
+    {
+      "id": "S5",
+      "title": "docs/TESTING.md",
+      "url": "https://github.com/zzjcool/krd/blob/53df22445478e4fdcb6d2928f89d22095398bc32/docs/TESTING.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "53df22445478e4fdcb6d2928f89d22095398bc32",
+      "note": "Plano de validação e medidas documentadas; não foram reproduzidos."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Permissões locais amplas",
+      "certainty": "RELATADO",
+      "detail": "Captura visual e envio de input demandam Screen Recording e Accessibility conforme README.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Projeto declara WIP",
+      "certainty": "RELATADO",
+      "detail": "README caracteriza desenvolvimento ativo e mudanças de comportamento entre releases.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Teste opcional não bloqueia build padrão",
+      "certainty": "CONFIRMADO",
+      "detail": "Package.swift descreve libghostty-vt condicional a variável de ambiente para teste headless.",
+      "source_ids": [
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa estática/documental; sem Mac, instalação ou acesso de captura",
+  "limitations": [
+    "Nenhuma revisão de código de captura, injeção CGEvent, escape ou protocolo SSH.",
+    "README e docs foram fixados em commit de documentação, sem release tag funcional fixada.",
+    "Compatibilidade declarada e gates mencionados não foram reproduzidos; assinatura de artefatos não foi verificada.",
+    "A análise não valida segurança de SSH, privacidade do terminal ou acessibilidade funcional."
+  ],
+  "related": [
+    "insidegui--virtualbuddy",
+    "yetone--alma-relay"
+  ],
+  "metrics": {
+    "full_name": "zzjcool/krd",
+    "html_url": "https://github.com/zzjcool/krd",
+    "description": "macOS desktop in a terminal pane over SSH: ScreenCaptureKit capture, kitty graphics rendering, no VNC/codec/extra port",
+    "homepage": "https://github.com/zzjcool/krd#readme",
+    "default_branch": "main",
+    "created_at": "2026-10-29T12:27:34Z",
+    "updated_at": "2026-11-03T17:35:07Z",
+    "pushed_at": "2026-11-03T13:49:09Z",
+    "stargazers_count": 135,
+    "forks_count": 4,
+    "open_issues_count": 1,
+    "subscribers_count": 1,
+    "network_count": 4,
+    "archived": false,
+    "disabled": false,
+    "language": "Swift",
+    "topics": [
+      "kitty-graphics",
+      "macos",
+      "remote-desktop",
+      "screencapturekit",
+      "ssh",
+      "swift",
+      "terminal"
+    ],
+    "size": 6148,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

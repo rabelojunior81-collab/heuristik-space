@@ -1,0 +1,69 @@
+{
+  "slug": "2026-09-18-o-qrel-que-aprendeu-a-dizer-por-que",
+  "title": "O Qrel que Aprendeu a Dizer por Quê",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "benchmark",
+    "retrieval"
+  ],
+  "file": "posts/2026-09-18-o-qrel-que-aprendeu-a-dizer-por-que.html",
+  "description": "Sessenta casos locais, inten├º├úo e classe no caminho real, uma fixture corrigida por invent├írio e nenhum limiar maquiado.",
+  "sha256": "158fee6af0e8b4aaca3d53913c8bbe923de5e53b6dfea610df1fb63dbe6d219e",
+  "read_status": "read",
+  "summary": "QREL passou a codificar intent/class em 60 casos e gateway HTTP; uma fixture visual apontava 9.3.jpeg inexistente, corrigida para 9.1.jpeg via inventário, sem mexer limiar. 60/60 e acceptance=false.",
+  "projects": [
+    {
+      "name": "Modernity retrieval benchmark",
+      "status": "mencionado"
+    },
+    {
+      "name": "Studio inventory",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "HTTP gateway",
+    "qrel",
+    "intent/class"
+  ],
+  "claims": [
+    {
+      "subject": "Modernity retrieval benchmark",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": " classe filtra no servidor",
+      "evidence_excerpt": " classe filtra no servidor",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Benchmark dev sem corpus externo"
+    },
+    {
+      "subject": "Modernity retrieval benchmark",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Corrigimos a fixture, não o limiar.",
+      "evidence_excerpt": "Corrigimos a fixture, não o limiar.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Resultado local, não avaliação humana"
+    }
+  ],
+  "lessons": [
+    "Benchmark dev sem corpus externo",
+    "Resultado local, não avaliação humana"
+  ],
+  "id": "2026-09-18-o-qrel-que-aprendeu-a-dizer-por-que",
+  "manifest_title": "O Qrel que Aprendeu a Dizer por Qu├¬",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-qrel-que-aprendeu-a-dizer-por-que.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O primeiro benchmark local tinha quatro perguntas e uma ambiguidade escondida: a classe de produto aparecia dentro do texto, mas não existia como dado auditável. Isso era pouco para uma retomada que precisava explicar suas decisões.\n\nDo qrel ao caminho real\n\nO conjunto dev passou a congelar 60 casos: 24 factuais, 12 visuais, 12 sem evidência e 12 adversariais ou cross-project. Cada consulta carrega intent e class. A rota HTTP também os recebe; a classe filtra no servidor e a telemetria devolve o que foi consultado.\n\nUma falha concreta\n\nNa primeira rodada, uma referência visual apontava para 9.3.jpeg, arquivo que não existia. O inventário do Studio mostrou o ângulo real 9.1.jpeg. Corrigimos a fixture, não o limiar.\n\nResultado e limite\n\nDepois da correção: 60/60 conjuntos exact, 60/60 com proveniência válida e 24 abstenções. É benchmark lexical local, sem corpus externo e com acceptance=false. Não é ainda revisão humana, embeddings, três rodadas estatísticas ou G5.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,295 @@
+{
+  "slug": "osolmaz--switch",
+  "name": "osolmaz/switch",
+  "url": "https://github.com/osolmaz/switch",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "Switch é uma biblioteca TypeScript para harnesses de modelos de decisão. O programa oferece alternativas finitas e o modelo responde perguntas tipadas com probabilidades. Atende avaliação, classificação e navegação dirigida, com exemplos de juiz por rubrica, xadrez e WikiRace. Seu diferencial é manter transições e ferramentas no código e registrar percursos reproduzíveis. A leitura confirmou mecanismos no loop, no adaptador pi-ai e no manifesto. A versão é inicial, e o próprio autor limita a qualidade atual de Jev como juiz. Para o Lab, interessa como componente experimental de avaliação estreita, condicionado a benchmark próprio.",
+  "topics": [
+    "modelos de decisão",
+    "harness",
+    "avaliação",
+    "máquina de estados",
+    "TypeScript",
+    "Jev",
+    "replay"
+  ],
+  "aliases": [
+    "decision models",
+    "classificador",
+    "System One",
+    "judge",
+    "rubrica"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e problema",
+      "paragraphs": [
+        "O foco são tarefas cujo próximo passo pode ser enumerado. O domínio oferece perguntas booleanas, escolhas ou escores, em vez de solicitar ferramentas em texto livre. O juiz de rubrica proposto navega documentos e imagens sob demanda. A economia de contexto é plausível, mas depende do número de passos e da qualidade da seleção. Avaliar um relatório completo exige também verificar se a navegação deixou passar evidência contrária."
+      ],
+      "source_ids": [
+        "S1"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura observada",
+      "paragraphs": [
+        "package.json declara versão 0.1.1, módulos ES e Node mínimo 22.18. Exporta núcleo, CLI, modelos e utilitários de teste. Depende de pi-ai, Commander e Zod; exemplos e viewer ficam fora do pacote npm principal. O código separa domínio, helper de escolhas, loop, definição, trace e replay. Essa organização permite incorporar o núcleo em outro programa sem adotar a interface dos exemplos nem transformar o framework em serviço multiusuário."
+      ],
+      "source_ids": [
+        "S4",
+        "S6"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Mecanismo no código",
+      "paragraphs": [
+        "src/core/loop.ts confirma inicialização, registro do hash da definição, perguntas por estado e aplicação da transição até não existirem questões. Distingue done, step limit e failed. Define três tentativas por lote e fator 0,7 para reduzir visão quando o contexto excede a janela. Esses controles limitam falhas de transporte e contexto; não provam correção da decisão nem garantem que uma transição tenha efeitos seguros ou idempotentes."
+      ],
+      "source_ids": [
+        "S6"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-4",
+      "title": "Contrato do domínio",
+      "paragraphs": [
+        "DOMAINS.md explicita que não existe opção de parada automática. O domínio deve fornecê-la e retirar escolhas já executadas. Limite de passos fica desligado enquanto não configurado. picking exige chaves e textos distintos, seleciona opções por prioridade e converte a resposta na transição correspondente. Uma lista incompleta pode tornar impossível uma resposta adequada. O responsável pelo domínio precisa modelar evidência insuficiente, desistência, erro e estados terminais antes de avaliar modelos."
+      ],
+      "source_ids": [
+        "S2"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-5",
+      "title": "Providers e autenticação",
+      "paragraphs": [
+        "piAiDecider exige provider/id e um modelo registrado como classifier. Rejeita modelo desconhecido, toma janela do catálogo e configura timeout padrão de 300 segundos e duas retentativas de transporte. A chave pode ser explícita ou resolvida pelo provider, como TYPESAFE_API_KEY. O contrato não é o de qualquer chat OpenAI-compatible: perguntas tipadas e probabilidades são centrais. Não foram medidas disponibilidade, limites de conta, latência real ou políticas de retenção do provider."
+      ],
+      "source_ids": [
+        "S5"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-6",
+      "title": "Persistência e recuperação",
+      "paragraphs": [
+        "run.json, result.json, trace.jsonl e requests.jsonl registram definição, resultados, perguntas e respostas. Replay completo usa estados gravados e não executa transições nem consulta modelo. Fork repete o prefixo e volta à inferência. O código valida domínio e caso e anota divergência de hash. Isso reconstrói o percurso histórico; não confirma que arquivos externos ainda têm o mesmo conteúdo ou que efeitos produzidos no mundo real possam ser repetidos com segurança."
+      ],
+      "source_ids": [
+        "S1"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-7",
+      "title": "Segurança e privacidade",
+      "paragraphs": [
+        "Escolhas finitas reduzem geração arbitrária de comandos, mas as transições continuam com os poderes do processo. Não foram identificados sandbox universal, RBAC multiusuário ou criptografia em repouso nas fontes selecionadas. Views e imagens podem seguir ao provider, e requests/traces podem conter material sensível. Um uso no Lab exigiria minimizar dados, restringir ferramentas e planejar retenção. A lista finita não neutraliza automaticamente instruções maliciosas presentes nos documentos que o modelo consulta."
+      ],
+      "source_ids": [
+        "S1"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-8",
+      "title": "Deploy e experiência",
+      "paragraphs": [
+        "A distribuição principal é biblioteca/CLI; o viewer é pacote separado para acompanhar casos no navegador. O manifesto contém build, lint, typecheck, cobertura e mutação, evidência de verificações disponíveis, sem execução nesta missão. Windows, extração de PDFs e dependências dos exemplos continuam sem validação funcional. Não há prova de acessibilidade do viewer ou de navegação mobile. Um piloto deveria começar com domínio local sintético e sem privilégios, antes de adicionar documentos reais e renderizadores."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "Licença e custos",
+      "paragraphs": [
+        "LICENSE contém MIT. Uso e modificação exigem preservar os avisos aplicáveis; a licença não fornece modelo, créditos de inferência ou direitos sobre documentos de entrada. A perspectiva de especialização muito mais barata é argumento do autor, não resultado reproduzido. Custos incluem API, construção do domínio, preparação de páginas e armazenamento dos rastros. A contabilidade de usage ajuda quando o provider informa números completos, mas não cobre automaticamente infraestrutura nem tempo de revisão humana."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-10",
+      "title": "Maturidade e manutenção",
+      "paragraphs": [
+        "Foram consultados release v0.1.1 e commit da branch padrão de 30 de outubro de 2026. É versão inicial. O próprio README declara que Jev é fraco em xadrez e ainda não substitui os melhores modelos de chat como juiz. Separar qualidade do framework e do modelo evita conclusões erradas. Não houve auditoria de todos os testes, issues, dependências ou incidentes. Atividade recente indica manutenção, sem estabelecer estabilidade, suporte ou capacidade de produção."
+      ],
+      "source_ids": [
+        "S1",
+        "S7",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Alternativas e pertinência",
+      "paragraphs": [
+        "Pode complementar avaliadores determinísticos e revisão consultiva em rubricas estreitas com fontes navegáveis. Regras diretas são preferíveis quando os critérios são objetivos; juiz de chat cobre ambiguidades que uma lista fechada exclui. Para o Lab, o valor é investigar rastreabilidade, calibração e custo numa unidade pequena. Não substituiria aceite humano, gate canônico ou protocolo de sessão. Uma probabilidade é saída de modelo e não autoridade para publicar, concluir trabalho ou alterar arquivos."
+      ],
+      "source_ids": [
+        "S1"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-12",
+      "title": "Próximos ensaios propostos",
+      "paragraphs": [
+        "Com autorização futura, fixar corpus público, rótulos humanos e alternativas explícitas, incluindo insuficiência de evidência. Comparar regras, classificador e juiz de chat em erro, cobertura, calibração, custo total e latência. Exercitar loop sem parada, resposta inválida, contexto excessivo, retomada e mudança de domínio entre run e replay. Inspecionar se cada nota cita evidência suficiente. Nenhum ensaio foi executado: esta pesquisa fornece contrato e riscos para decidir a abertura de um piloto."
+      ],
+      "source_ids": [
+        "S1"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README oficial",
+      "url": "https://github.com/osolmaz/switch/blob/7c5b6b9bae55e9e7cda3efe310f585187eb7c717/README.md",
+      "accessed_at": "2026-11-03T20:06:42.348Z",
+      "kind": "docs",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "Lido pelo plugin GitHub; alegações do mantenedor separadas de comprovação funcional."
+    },
+    {
+      "id": "S2",
+      "title": "docs/DOMAINS.md",
+      "url": "https://github.com/osolmaz/switch/blob/7c5b6b9bae55e9e7cda3efe310f585187eb7c717/docs/DOMAINS.md",
+      "accessed_at": "2026-11-03T20:06:42.348Z",
+      "kind": "docs",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "Blob d2205e8b8adfcf725b9f3bc195256e3ff7a51f70; leitura estática, sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/osolmaz/switch/blob/7c5b6b9bae55e9e7cda3efe310f585187eb7c717/LICENSE",
+      "accessed_at": "2026-11-03T20:06:42.349Z",
+      "kind": "license",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "Blob e05fcffa33aa75d086cb04b1ed3eb45397058b0a; leitura estática, sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "package.json",
+      "url": "https://github.com/osolmaz/switch/blob/7c5b6b9bae55e9e7cda3efe310f585187eb7c717/package.json",
+      "accessed_at": "2026-11-03T20:06:42.349Z",
+      "kind": "code",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "Blob 866bfe0d75f4f5f6f19a5cd836c5c7dfd1338aca; leitura estática, sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "src/models/pi-ai.ts",
+      "url": "https://github.com/osolmaz/switch/blob/7c5b6b9bae55e9e7cda3efe310f585187eb7c717/src/models/pi-ai.ts",
+      "accessed_at": "2026-11-03T20:06:42.349Z",
+      "kind": "code",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "Blob e9c71944ca0a3cf11d36913345b177ddea104d96; leitura estática, sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "src/core/loop.ts",
+      "url": "https://github.com/osolmaz/switch/blob/7c5b6b9bae55e9e7cda3efe310f585187eb7c717/src/core/loop.ts",
+      "accessed_at": "2026-11-03T20:06:42.349Z",
+      "kind": "code",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "Blob feca29c4f78f3cb9fca31a99b167407df7a9e577; leitura estática, sem execução."
+    },
+    {
+      "id": "S7",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/osolmaz/switch/releases?per_page=2",
+      "accessed_at": "2026-11-03T20:06:42.349Z",
+      "kind": "release",
+      "ref": "snapshot 2026-11-03",
+      "note": "Consulta real da coleção, até duas releases; não equivale a teste dos binários."
+    },
+    {
+      "id": "S8",
+      "title": "Último commit da branch padrão consultado",
+      "url": "https://github.com/osolmaz/switch/commit/7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "accessed_at": "2026-11-03T20:06:42.349Z",
+      "kind": "code",
+      "ref": "7c5b6b9bae55e9e7cda3efe310f585187eb7c717",
+      "note": "docs: play the explainer video inline under the README's first paragraph [skip ci]"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Loop e replay separados",
+      "certainty": "CONFIRMADO",
+      "detail": "Loop, estado, transição e replay são interfaces explícitas no código.",
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "title": "Qualidade atual limitada",
+      "certainty": "RELATADO",
+      "detail": "README reconhece limites de Jev como juiz.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Pesquisa estática; nenhum produto executado.",
+    "Caminho src/core/run.ts retornou 404; árvore revelou src/core/loop.ts, posteriormente lido.",
+    "Endpoint /readme foi recusado pelo plugin; README.md foi lido por fetch_file.",
+    "Sem auditoria exaustiva de issues ou segurança."
+  ],
+  "related": [],
+  "metrics": {
+    "full_name": "osolmaz/switch",
+    "html_url": "https://github.com/osolmaz/switch",
+    "description": "A framework for building decision-model harnesses for any kind of task. Your program offers the model a short list of next steps, and the model picks one at a time until it can answer.",
+    "homepage": null,
+    "default_branch": "main",
+    "created_at": "2026-10-25T14:12:42Z",
+    "updated_at": "2026-11-03T17:38:23Z",
+    "pushed_at": "2026-10-30T05:12:52Z",
+    "stargazers_count": 428,
+    "forks_count": 29,
+    "open_issues_count": 3,
+    "subscribers_count": 0,
+    "network_count": 29,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "classifiers",
+      "decision-models",
+      "evals",
+      "llm-harness"
+    ],
+    "size": 1430,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

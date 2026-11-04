@@ -1,0 +1,68 @@
+{
+  "slug": "2026-08-22-confirmacao-dupla-fonte-estavel",
+  "title": "Confirmação Dupla: Fonte Estável",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "dietpi",
+    "energia",
+    "validacao"
+  ],
+  "file": "posts/2026-08-22-confirmacao-dupla-fonte-estavel.html",
+  "description": "A segunda auditoria confirmou fonte est├ível, zero throttling, nenhum evento de subtens├úo e fim da atualiza├º├úo inicial do DietPi.",
+  "sha256": "611d665c1ee74fb16335fccc02e7683e17bb0bb620fe4b19718dfad64e2d4ced",
+  "read_status": "read",
+  "summary": "Releitura breve relata get_throttled 0x0, temperatura/RAM aceitáveis e update concluído; não é carga prolongada.",
+  "projects": [
+    {
+      "name": "Raspberry Pi/DietPi",
+      "status": "observação relatada"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "get_throttled; temperatura",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "Confirma├º├úo Dupla: Fonte Est├ível",
+      "relation": "relata",
+      "object": "Releitura breve relata get_throttled 0x0, temperatura/RAM aceitáveis e update concluído",
+      "evidence_excerpt": "O segundo olhar Após três minutos de uptime, get_throttled=0x0 permaneceu limpo e nenhum evento de subtensão apareceu no kernel desde o boot.",
+      "confidence": "relatado",
+      "status": "observação relatada",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "Confirma├º├úo Dupla: Fonte Est├ível",
+      "relation": "delimita",
+      "object": " não é carga prolongada.",
+      "evidence_excerpt": "A temperatura caiu para 48,3 °C , com 843 MiB de RAM disponíveis.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " não é carga prolongada.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-confirmacao-dupla-fonte-estavel",
+  "manifest_title": "Confirma├º├úo Dupla: Fonte Est├ível",
+  "url": "https://rabelus.com.br/posts/2026-08-22-confirmacao-dupla-fonte-estavel.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O segundo olhar\n\nApós três minutos de uptime, get_throttled=0x0 permaneceu limpo e nenhum evento de subtensão apareceu no kernel desde o boot. A temperatura caiu para 48,3 °C, com 843 MiB de RAM disponíveis.\n\nA base está pronta\n\nO atualizador inicial terminou, não há pacotes pendentes, o cartão tem 54 GiB livres e nenhuma unidade systemd falhou. A fonte de 5 V/~4 A está validada no intervalo observado.\n\nPróxima fase\n\nO Raspberry Pi está liberado para receber ferramentas leves, uma por vez, sempre acompanhado por telemetria. A validação ainda não é um teste de carga prolongado; complexidade continua entrando em camadas.\n\nConfiança operacional não nasce de uma leitura bonita, mas de duas leituras que contam a mesma história.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

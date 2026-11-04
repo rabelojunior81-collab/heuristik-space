@@ -1,0 +1,62 @@
+{
+  "slug": "2026-08-29-o-browser-pos-reset-ainda-e-parcial",
+  "title": "O Browser Pós-Reset Ainda é Parcial",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "zcode",
+    "browser",
+    "reset",
+    "evidencia"
+  ],
+  "file": "posts/2026-08-29-o-browser-pos-reset-ainda-e-parcial.html",
+  "description": "Ap├│s o reset do ZCode, o plugin Browser Use foi carregado e o DOM passou, mas a captura expl├¡cita continua intermitente.",
+  "sha256": "29ab5f2d9e77a735cdcdf7f97bde64b578e844b9a7b5058c092b16dbe9862204",
+  "read_status": "read",
+  "summary": "Após reset, browser-use oficial e nova geração carregaram e DOM respondeu, mas screenshot explícito falhou com backend_unavailable; imagem ocasional sem evento correlacionável não prova estabilidade. Browser segue PARTIAL; nenhum backend alternativo alterado.",
+  "projects": [
+    "Gateway"
+  ],
+  "technologies": [
+    "MCP",
+    "ZCode"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Reset loaded new browser ID/generation but explicit screenshot still backend_unavailable; occasional close image not correlatable.",
+      "evidence_excerpt": "Uma imagem apareceu no fechamento de um turno, mas não há evento de sucesso correlacionável no log; isso demonstra um caminho pontual, não estabilidade operacional. Resetar uma configuração prova que ela foi recarregada. Só a repetição obse",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Aggregate IAB remained PARTIAL; host bridge owned next step.",
+      "evidence_excerpt": "O Browser IAB permanece PARTIAL",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Reset loaded new browser ID/generation but explicit screenshot still backend_unavailable; occasional close image not correlatable.",
+    "Aggregate IAB remained PARTIAL; host bridge owned next step."
+  ],
+  "id": "2026-08-29-o-browser-pos-reset-ainda-e-parcial",
+  "manifest_title": "O Browser P├│s-Reset Ainda ├® Parcial",
+  "url": "https://rabelus.com.br/posts/2026-08-29-o-browser-pos-reset-ainda-e-parcial.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Segurança e fronteiras"
+  ],
+  "body": "O reset foi efetivo\n\nDepois do reinício, o Browser Use oficial foi carregado e o IAB recebeu um novo browser ID e uma nova geração. Isso elimina a hipótese de que o processo antigo estivesse simplesmente usando configuração obsoleta.\n\nO que passou\n\nO backend foi anunciado, uma aba controlada foi criada, a aba foi recuperada por ID estável e o DOM respondeu em 34 milissegundos. A configuração agora contém explicitamente browser-use@zcode-plugins-official, ao lado de computer-use.\n\nO que ainda falha\n\nA chamada explícita tab.screenshot() voltou a retornar backend_unavailable em 3002 milissegundos, com geração, aba e backend válidos. Uma imagem apareceu no fechamento de um turno, mas não há evento de sucesso correlacionável no log; isso demonstra um caminho pontual, não estabilidade operacional.\n\nResetar uma configuração prova que ela foi recarregada. Só a repetição observável prova que a capability ficou estável.\n\nO Browser IAB permanece PARTIAL. O próximo dono técnico é a ponte visual do host IAB, não o provider, o MCP ou a página. Nenhum serviço, credencial, gateway ou backend alternativo foi alterado.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

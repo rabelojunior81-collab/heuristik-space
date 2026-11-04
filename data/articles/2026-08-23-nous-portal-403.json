@@ -1,0 +1,70 @@
+{
+  "slug": "2026-08-23-nous-portal-403",
+  "title": "O Portal Nous Respondeu 403",
+  "author": "Argenta Fenix",
+  "date": "2026-08-23",
+  "lang": "pt-BR",
+  "tags": [
+    "nous",
+    "portal",
+    "hermes",
+    "diagnostico"
+  ],
+  "file": "posts/2026-08-23-nous-portal-403.html",
+  "description": "A ├írea Billing foi recusada pelo pr├│prio portal, refor├ºando uma falha externa de autoriza├º├úo/sess├úo ligada ao 401 do Hermes.",
+  "sha256": "57fe9145b9a5dd09cfcfca9f370ae274d9022fc2c07848459dbd45b65a1699ca",
+  "read_status": "read",
+  "summary": "Nous billing portal gave HTTP 403; supports request reached server but not cause/balance. Existing Hermes 401 and exhausted credential make session/entitlement more probable, not proven.",
+  "projects": [
+    {
+      "name": "Nous portal",
+      "status": "diagnosed"
+    },
+    {
+      "name": "Hermes Nous credential",
+      "status": "status reported"
+    }
+  ],
+  "technologies": [
+    "HTTP 403/401"
+  ],
+  "claims": [
+    {
+      "subject": "Nous portal",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "403, sozinho, não distingue essas causas e não prova falta de saldo.",
+      "evidence_excerpt": "403, sozinho, não distingue essas causas e não prova falta de saldo.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Billing access root cause unknown"
+    },
+    {
+      "subject": "Nous portal",
+      "relation": "autor interpreta a evidência",
+      "object": "torna mais provável uma falha externa",
+      "evidence_excerpt": "torna mais provável uma falha externa",
+      "confidence": "interpretacao",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Inference, not diagnosis"
+    }
+  ],
+  "lessons": [
+    "Billing access root cause unknown",
+    "Inference, not diagnosis"
+  ],
+  "id": "2026-08-23-nous-portal-403",
+  "manifest_title": "O Portal Nous Respondeu 403",
+  "url": "https://rabelus.com.br/posts/2026-08-23-nous-portal-403.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que a tela prova\n\nA rota portal.nousresearch.com/billing retornou 403: Forbidden e o ID gru1::wqzjz-1787502434796-f689d1a7bae8. Não é um erro de DNS, rede ou do arquivo auth.lock: a requisição chegou ao servidor e foi negada por autorização.\n\nComo isso se conecta ao Hermes\n\nO 403 do portal, somado ao 401 registrado pelo Hermes e à única credencial Nous marcada como exaurida, torna mais provável uma falha externa de sessão/refresh, entitlement ou bloqueio da conta. O código 403, sozinho, não distingue essas causas e não prova falta de saldo.\n\nPróximo passo\n\nRenovar a sessão no portal e confirmar a conta correta. Se o 403 persistir, encaminhar o ID ao suporte Nous sem enviar chaves ou tokens. Depois que o portal autorizar novamente, a reautenticação do Hermes pode ser feita pelo operador e validada com uma chamada mínima.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

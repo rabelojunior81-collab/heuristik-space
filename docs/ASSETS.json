@@ -1,0 +1,66 @@
+[
+  {
+    "file": "assets/family/rabelus-lab-mark-1x1-v1.jpg",
+    "source": "https://rabelus.com.br/images/rabelus-lab-mark-1x1-v1.jpg",
+    "sha256": "44e756a5adc8ac184da0d8ab1417528a9182443a7b325b96939d0da5bb73479d",
+    "credit": "Rabelus Lab / autoria e identidade do membro representado",
+    "basis": "reuso solicitado expressamente pelo titular do projeto; não atribuir licença de código aos retratos",
+    "role": "proveniência e apresentação da Família"
+  },
+  {
+    "file": "assets/family/argenta-avatar-1x1-v1.jpg",
+    "source": "https://rabelus.com.br/images/argenta-avatar-1x1-v1.jpg",
+    "sha256": "3808deb4414e5212bcb1b2101107af9fa4ff5f429a3758b22f89a5ac2585c188",
+    "credit": "Rabelus Lab / autoria e identidade do membro representado",
+    "basis": "reuso solicitado expressamente pelo titular do projeto; não atribuir licença de código aos retratos",
+    "role": "proveniência e apresentação da Família"
+  },
+  {
+    "file": "assets/family/author-tessy.jpg",
+    "source": "https://rabelus.com.br/images/author-tessy.jpg",
+    "sha256": "023e13e4957200b7b7e3c59945e2446002649054a9ee75bca4c85b8b39c8c373",
+    "credit": "Rabelus Lab / autoria e identidade do membro representado",
+    "basis": "reuso solicitado expressamente pelo titular do projeto; não atribuir licença de código aos retratos",
+    "role": "proveniência e apresentação da Família"
+  },
+  {
+    "file": "assets/family/author-killian.jpg",
+    "source": "https://rabelus.com.br/images/author-killian.jpg",
+    "sha256": "96d29a02d74e4658eed3d1dc2059d7fff378359aba6ff0b64ba43a51b693f7f7",
+    "credit": "Rabelus Lab / autoria e identidade do membro representado",
+    "basis": "reuso solicitado expressamente pelo titular do projeto; não atribuir licença de código aos retratos",
+    "role": "proveniência e apresentação da Família"
+  },
+  {
+    "file": "assets/family/author-buddy-fenix.jpg",
+    "source": "https://rabelus.com.br/images/author-buddy-fenix.jpg",
+    "sha256": "6b46d6feadbf8c66fadf7eee80a46cca18f9e5edf9e55c6f9966261ac7d20671",
+    "credit": "Rabelus Lab / autoria e identidade do membro representado",
+    "basis": "reuso solicitado expressamente pelo titular do projeto; não atribuir licença de código aos retratos",
+    "role": "proveniência e apresentação da Família"
+  },
+  {
+    "file": "assets/media/2026-10-05-apresentacao-turma-ia-internal-curta.mp3",
+    "source": "https://rabelus.com.br/audio/2026-10-05-apresentacao-turma-ia-internal-curta.mp3",
+    "sha256": "8a6a0949b5ad6f990ccdc317bca2739b6401f8ba6308474f8e15f00e35d41fbb",
+    "credit": "LARS Rabelus / Rabelus Lab",
+    "basis": "reuso solicitado expressamente pelo titular; direitos do áudio preservados",
+    "role": "amostra de voz histórica, só reprodução sob demanda"
+  },
+  {
+    "file": "assets/fonts/atkinson-hyperlegible-next.ttf",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/atkinsonhyperlegiblenext/AtkinsonHyperlegibleNext%5Bwght%5D.ttf",
+    "sha256": "5a455d1cfa099b601ab70751bb9673e8fe1854dc4500c80e1a220d0d75e31745",
+    "credit": "Braille Institute / Applied Design Works; fonte Atkinson Hyperlegible Next",
+    "basis": "SIL Open Font License1.1, arquivo OFL.txt incluído",
+    "role": "tipografia aberta próxima da referência, não identificação exata da fonte da imagem"
+  },
+  {
+    "file": "assets/fonts/OFL.txt",
+    "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/atkinsonhyperlegiblenext/OFL.txt",
+    "sha256": "aca6a428580965d2297d1b718042dd427c2a9443ece3b0d02d758e161e0c4030",
+    "credit": "Braille Institute / Applied Design Works; fonte Atkinson Hyperlegible Next",
+    "basis": "SIL Open Font License1.1, arquivo OFL.txt incluído",
+    "role": "tipografia aberta próxima da referência, não identificação exata da fonte da imagem"
+  }
+]

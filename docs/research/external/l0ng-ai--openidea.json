@@ -1,0 +1,311 @@
+{
+  "slug": "l0ng-ai--openidea",
+  "name": "OpenIDEA",
+  "url": "https://github.com/l0ng-ai/openidea",
+  "category": "Ferramentas de desenvolvimento e UI",
+  "summary": "OpenIDEA propõe uma IDE com hábitos e atalhos inspirados no IntelliJ IDEA, núcleo em Rust e interface React dentro de Tauri. A árvore contém módulos reais para LSP, depuração, terminal, Git, bancos e agentes; isso supera uma maquete visual, mas não comprova equivalência semântica com produtos JetBrains nem cobertura uniforme das linguagens anunciadas. O benchmark publicado é do próprio projeto e reconhece que a análise Python comparada não faz o mesmo trabalho. Para o Lab, interessa como referência de arquitetura desktop e candidato a ensaio isolado de edição. Não houve instalação, medição independente, abertura de workspace sensível ou adoção.",
+  "topics": [
+    "IDE",
+    "Rust",
+    "Tauri",
+    "IntelliJ",
+    "editor",
+    "LSP",
+    "depuração",
+    "desktop"
+  ],
+  "aliases": [
+    "IDE",
+    "Rust",
+    "Tauri",
+    "IntelliJ",
+    "editor",
+    "LSP",
+    "depuração",
+    "desktop"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e foco efetivo",
+      "paragraphs": [
+        "CONFIRMADO: o README apresenta editor, terminal, depurador, Git e clientes HTTP/banco em uma aplicação desktop inspirada no fluxo IntelliJ. RELATADO: a cobertura anunciada passa de sessenta linguagens. Essa frase agrega níveis diferentes de suporte, como gramática, realce, servidor de linguagem e integração específica. A utilidade deve ser avaliada por linguagem e tarefa; sem execução, não se afirma que refatoração, inspeções e build tenham a profundidade do IntelliJ IDEA."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura observável",
+      "paragraphs": [
+        "CONFIRMADO: Cargo.toml organiza um workspace com crates ide-core, ide-vfs, ide-text, ide-index, ide-lsp, ide-dap, ide-host, ide-agent e outros. A interface usa React, CodeMirror, Zustand e xterm; Tauri oferece a ponte de comandos para Rust. É uma arquitetura híbrida, embora a apresentação diga reconstruída em Rust. A separação de host, protocolos e UI é material para estudo de fronteiras e tipagem IPC no AOS, sem significar compatibilidade automática."
+      ],
+      "source_ids": [
+        "S2",
+        "S7",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "UI versus capacidade implementada",
+      "paragraphs": [
+        "CONFIRMADO: commands/lsp.rs exporta comandos de conclusão, hover, navegação e edições que delegam para ide_host::ops::lsp. Isso demonstra caminhos de implementação além de menus. A existência dos comandos não prova comportamento correto em todo servidor, timeout ou documento grande. Deve-se evitar tanto classificá-lo apenas como clone visual quanto tratá-lo como substituto maduro de uma IDE estabelecida; cobertura funcional permanece NÃO IDENTIFICADA neste levantamento."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-4",
+      "title": "Dependências e extensibilidade",
+      "paragraphs": [
+        "CONFIRMADO: os manifests incluem tree-sitter, redb, tokio, gix, portable-pty e clientes de rede e bancos. O workspace exclui sdk e plugins do build principal porque esses usam workspaces próprios para wasm32-wasip2. O SDK e os plugins sugerem uma superfície extensível, mas o contrato completo de permissões não foi auditado. Compilar exige toolchain Rust e frontend compatíveis com os manifests; não se deve deduzir simplicidade de manutenção apenas do tamanho do instalador."
+      ],
+      "source_ids": [
+        "S7",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-5",
+      "title": "Plataformas e distribuição",
+      "paragraphs": [
+        "CONFIRMADO: a release v0.1.35 lista pacotes Windows, macOS e Linux. Existência do artefato publicado não demonstra inicialização no host do Lab. RELATADO: a issue1089 registra falha de inicialização em RPM no Wayland; é um relato individual, não resultado reproduzido aqui. A seleção de um pacote deve considerar arquitetura, assinatura, dependências do webview e caminho de atualização, mantendo a entrada nativa das ferramentas atuais."
+      ],
+      "source_ids": [
+        "S5",
+        "S6"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-6",
+      "title": "Persistência e integrações",
+      "paragraphs": [
+        "CONFIRMADO: o desenho inclui indexação, filesystem virtual e bibliotecas de banco e HTTP. O terminal e os comandos de agente ampliam o alcance para processos externos. Os locais exatos de caches, credenciais, históricos e dados de projeto não foram inventariados nesta amostra, portanto permanecem NÃO IDENTIFICADOS. Para o Lab, essa lacuna importa mais que abrir uma tela: um ensaio precisa acompanhar escrita no projeto e no perfil e identificar tráfego por integração."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-7",
+      "title": "Segurança e dados",
+      "paragraphs": [
+        "Análise: IDEs executam builds, extensões, servidores de linguagem e agentes sob o usuário. Um projeto aberto pode conter scripts e configuração não confiáveis; a leitura de um repositório não concede autorização de executar esses elementos. A presença de DOMPurify no frontend é uma dependência observada, não certificado contra injeção. O conjunto completo de permissões de plugins e a proteção de segredos no caminho de agentes permanecem NÃO IDENTIFICADOS. Só projetos sintéticos seriam adequados a um futuro ensaio inicial."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-8",
+      "title": "Benchmark e comparabilidade",
+      "paragraphs": [
+        "RELATADO: o autor mede abertura do projeto freqtrade com caches aquecidos, cinco execuções e hardware Windows específico. O próprio README ressalva análise Python mais profunda no IDEA e significados diferentes de pronto. Logo, os números publicados são evidência da metodologia descrita, não prova de equivalência de trabalho ou ganho para o Lab. Um comparativo útil precisaria fixar commit, arquivos, diagnósticos concluídos, memória de todos os processos e operações editáveis idênticas."
+      ],
+      "source_ids": [
+        "S1"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-9",
+      "title": "Licença, custo e manutenção",
+      "paragraphs": [
+        "CONFIRMADO: LICENSE é Apache2.0 e há inventário THIRD_PARTY_LICENSES.md para componentes de terceiros. A licença do projeto não elimina obrigações desses componentes ou custos de provedores usados em agentes. O SHA consultado e releases mostram trabalho público recente; issues PHP sobre nível de linguagem também mostram lacunas concretas. Não foi identificado SLA, suporte contratado ou teste de migração. Popularidade e velocidade de commits não substituem estabilidade observada."
+      ],
+      "source_ids": [
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-10",
+      "title": "Alternativas e pertinência ao Lab",
+      "paragraphs": [
+        "Análise: a comparação funcional apropriada envolve IntelliJ IDEA para profundidade de linguagem, VSCode/VSCodium para ecossistema e Zed para outro desenho de editor. São referências de comparação, sem avaliação atual dessas alternativas. OpenIDEA pode ensinar organização modular e APIs de UI/host. O Lab já exige compatibilidade nativa e preservação de configuração; portanto o aproveitamento documental é imediato, enquanto uma troca de IDE exigiria contrato e evidência próprios."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Próximos ensaios verificáveis",
+      "paragraphs": [
+        "Proposta, sem execução autorizada neste relatório: usar um projeto descartável com testes conhecidos, medir inicialização fria e quente e verificar conclusão, goto, rename, depuração, terminal e diff. Depois registrar arquivos tocados, tráfego, cancelamento e atualização/rollback. Comparar uma linguagem principal por vez e testar perda de servidor LSP. O critério deve ser a tarefa concluída corretamente com dados preservados, e não semelhança da interface ou ausência de crash em uma abertura."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/l0ng-ai/openidea/blob/6b9ab3b323ad9d21cd9108c69f365c8c81441290/README.md",
+      "kind": "docs",
+      "ref": "6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S2",
+      "title": "Árvore do código",
+      "url": "https://github.com/l0ng-ai/openidea/tree/6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "kind": "code",
+      "ref": "6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S3",
+      "title": "Licença",
+      "url": "https://github.com/l0ng-ai/openidea/blob/6b9ab3b323ad9d21cd9108c69f365c8c81441290/LICENSE",
+      "kind": "license",
+      "ref": "6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S4",
+      "title": "Último commit consultado",
+      "url": "https://github.com/l0ng-ai/openidea/commit/6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "kind": "metadata",
+      "ref": "6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S5",
+      "title": "Releases consultadas",
+      "url": "https://github.com/l0ng-ai/openidea/releases",
+      "kind": "release",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S6",
+      "title": "Issues e PRs abertos consultados",
+      "url": "https://github.com/l0ng-ai/openidea/issues",
+      "kind": "issue",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S7",
+      "title": "package.json",
+      "url": "https://github.com/l0ng-ai/openidea/blob/6b9ab3b323ad9d21cd9108c69f365c8c81441290/package.json",
+      "kind": "code",
+      "ref": "6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S8",
+      "title": "Cargo.toml",
+      "url": "https://github.com/l0ng-ai/openidea/blob/6b9ab3b323ad9d21cd9108c69f365c8c81441290/Cargo.toml",
+      "kind": "code",
+      "ref": "6b9ab3b323ad9d21cd9108c69f365c8c81441290",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Implementação além da interface",
+      "certainty": "CONFIRMADO",
+      "detail": "Há workspace Rust e comandos LSP reais; equivalência completa com IntelliJ não verificada.",
+      "source_ids": [
+        "S2",
+        "S7",
+        "S8"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "A leitura cobre documentação e amostra estática, sem teste funcional, auditoria completa de segurança ou aceite humano.",
+    "Releases, issues e branch são um retrato datado; o SHA identifica o código consultado."
+  ],
+  "related": [
+    "veloxbase--veloxdb",
+    "tractordev--webframe"
+  ],
+  "recorded_at": "2026-11-03T20:07:50+00:00",
+  "metrics": {
+    "full_name": "l0ng-ai/openidea",
+    "html_url": "https://github.com/l0ng-ai/openidea",
+    "description": "The IDE you know, rebuilt in Rust. IntelliJ IDEA–style keymap, tool windows and search-everywhere in a fast native app: editor, code insight, debugger, Git, terminal, database and HTTP clients for 60+ languages.",
+    "homepage": null,
+    "default_branch": "main",
+    "created_at": "2026-10-21T12:23:14Z",
+    "updated_at": "2026-11-03T21:01:57Z",
+    "pushed_at": "2026-11-03T20:56:23Z",
+    "stargazers_count": 5572,
+    "forks_count": 453,
+    "open_issues_count": 203,
+    "subscribers_count": 22,
+    "network_count": 453,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "code-editor",
+      "cross-platform",
+      "dap",
+      "database-client",
+      "debugger",
+      "desktop-app",
+      "developer-tools",
+      "git",
+      "http-client",
+      "ide",
+      "intellij",
+      "lsp",
+      "rust",
+      "tauri",
+      "terminal"
+    ],
+    "size": 28317,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

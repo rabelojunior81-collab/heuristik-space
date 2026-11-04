@@ -1,0 +1,323 @@
+{
+  "slug": "gtsteffaniak--filebrowser",
+  "name": "FileBrowser Quantum",
+  "url": "https://github.com/gtsteffaniak/filebrowser",
+  "category": "Infraestrutura self-hosted",
+  "summary": "FileBrowser Quantum é um fork amplo do File Browser para administrar arquivos pelo navegador, com múltiplas fontes, busca, prévias, usuários e compartilhamento. O backend Go declara bibliotecas de OIDC, LDAP, WebAuthn, JWT e bancos locais; o serviço de senha consultado aplica verificação de hash, troca obrigatória e TOTP condicionado ao usuário. O projeto removeu comandos de shell da interface, segundo o autor, mas mantém operações de arquivo com efeitos importantes. Releases relatam correções de permissões e exposição de campos, que exigem seleção cuidadosa da versão. Para o Lab, interessa como hipótese de acesso web a conjuntos delimitados de arquivos, sem confundir compartilhamento, sincronização e backup.",
+  "topics": [
+    "arquivos",
+    "WebDAV",
+    "OIDC",
+    "LDAP",
+    "compartilhamento",
+    "permissões",
+    "Go",
+    "busca",
+    "self-hosted"
+  ],
+  "aliases": [
+    "File Browser fork",
+    "gerenciador de arquivos",
+    "file manager",
+    "Quantum",
+    "explorador web"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e fork",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Quantum se apresenta como fork extenso do File Browser, com múltiplas fontes, usuários, preview, edição e compartilhamento. O nome do repositório não significa que seja intercambiável com o projeto original. A comparação oficial lista recursos e limitações, mas é material do fornecedor e pode ficar desatualizada. A unidade de avaliação deve ser esta distribuição e seu formato de configuração, sem importar automaticamente comandos ou migrações do upstream."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e dependências",
+      "kind": "observed",
+      "paragraphs": [
+        "backend/go.mod exige Go1.27 e inclui bibliotecas de OIDC, LDAP, WebAuthn, JWT, OTP, SQLite, bbolt, thumbnails e FFmpeg. A árvore separa frontend e backend e contém testes de rotas de autenticação e compartilhamento. Isso revela várias fronteiras além de listar diretórios: indexação, geração de prévias, identidade e metadados. A presença de uma dependência não comprova que todo recurso esteja habilitado nem com quais opções em uma instalação."
+      ],
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Fontes e mecanismo de acesso",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O produto permite múltiplas fontes do filesystem, regras de inclusão e exclusão e acesso por caminho. Segundo o README, há busca indexada, tamanhos de pastas e atualizações em tempo real; busca no conteúdo não é anunciada como capacidade pronta. Isso ajuda distinguir localizar nome e metadado de pesquisar semanticamente documentos. O conjunto exposto é limitado tanto por configuração do app quanto pelo acesso do processo no sistema operacional."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Autenticação observada",
+      "kind": "observed",
+      "paragraphs": [
+        "AuthenticatePassword resolve nome de usuário, lê hash, aplica CheckPwd e rejeita tentativa de login por senha quando a conta usa outro método. Também verifica troca obrigatória e TOTP quando o usuário tem segredo e o fluxo não o desabilita. A existência do parâmetro disableOtp exige avaliar chamadores para qualquer conclusão sobre cobertura. Este trecho demonstra verificações concretas, sem provar proteção de todos os endpoints ou bypass inexistente."
+      ],
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Configuração inicial",
+      "kind": "observed",
+      "paragraphs": [
+        "O config.yaml consultado usa porta80, source /srv e senha habilitada, signup desativado e passkey desativada. O mínimo de senha do exemplo é5 caracteres. Esses são valores de um arquivo distribuído, não afirmações sobre todas as opções ou uma instalação real. Antes de montar diretórios no Lab, seria preciso delimitar raiz, permissões do processo e usuário, inclusive links simbólicos, mounts e arquivos temporários de prévia."
+      ],
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Compartilhamento e API",
+      "kind": "official_claim",
+      "paragraphs": [
+        "São anunciados links com validade, acesso anônimo ou por usuário, permissões de visualização, edição e upload, além de tokens longos e Swagger para usuários habilitados. Cada opção muda a ameaça e a recuperação: expirar link não apaga arquivo já baixado e negar escrita não impede exfiltração por leitura. API e WebDAV adicionam clientes e rotas que precisam reproduzir a política da interface, sem presumir equivalência por aparência."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Persistência e recuperação",
+      "kind": "analysis",
+      "paragraphs": [
+        "Arquivos de usuário são distintos do banco de usuários, permissões, tokens, quotas e compartilhamentos. Dependências de SQLite e bbolt mostram histórico e caminhos de armazenamento, mas o layout completo de migração não foi auditado. Backup deve preservar arquivos e estado necessário para reconstituir acesso, com credenciais protegidas. Um gestor web não é sozinho uma estratégia de cópias, retenção ou recuperação após ransomware; também pode propagar uma ação destrutiva autorizada."
+      ],
+      "source_ids": [
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Segurança e manutenção",
+      "kind": "official_claim",
+      "paragraphs": [
+        "As releases2.0.2-stable e2.1.4-beta relatam correções em permissões de tokens, compartilhamentos, XSS e redaction de campos. São relatos versionados do mantenedor; não foi reproduzido qualquer problema, nem demonstrado seu estado em outra versão. O projeto anuncia remoção dos comandos de shell, reduzindo uma classe de funções expostas, mas arquivo malicioso, parser de mídia, token e configuração seguem relevantes. Nenhuma certificação de segurança resulta dessas notas."
+      ],
+      "source_ids": [
+        "S1",
+        "S6",
+        "S8"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Plataformas e UX",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O autor anuncia binário standalone e Docker em Linux, Windows e macOS, interface responsiva e personalizável e previews de documentos e mídia. O mesmo pacote pode exigir ferramentas adicionais conforme o formato. Nenhuma renderização, acessibilidade, WebDAV ou funcionamento em NTFS foi testado aqui. Features visuais não provam preservação de conteúdo e permissões. Deve-se verificar nomes Unicode, arquivos grandes, upload interrompido e erro de acesso com dados sintéticos."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Licença e custo",
+      "kind": "observed",
+      "paragraphs": [
+        "O texto de LICENSE é Apache2.0. Gratuidade do código e ausência de plano do fornecedor não removem custos de discos, thumbnails, banda, TLS, backup e administração. Recursos externos de identidade ou edição colaborativa podem acrescentar contratos e processamento. Não foi estimado consumo para acervo real. Uso de previews e fontes exige conferir licença de dependências e direitos dos arquivos, sem extrapolar a licença do gerenciador."
+      ],
+      "source_ids": [
+        "S3",
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Alternativas e Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "Comparado a SFTP nativo, acrescenta acesso por navegador e compartilhamento delimitado. Termix tem foco em hosts e credenciais e delega arquivos a plugin; uma suíte de colaboração como Nextcloud tem objetivo mais amplo. A hipótese do Lab é publicar internamente um conjunto específico de artefatos com política explícita, sem expor o corpus inteiro. Não há decisão de adoção, substituição de storage ou migração de dados nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Preparar árvore sintética com dois usuários, grupos, nomes adversariais, links, pasta fora da raiz e quota. Exercitar interface, API e WebDAV, incluindo link expirado, token revogado, upload interrompido, exclusão e restauração. Conferir quais metadados vazam em erro e se previews respeitam escopo. Fixar tag e verificar atualização com backup próprio. Nenhum arquivo do Lab foi montado ou publicado e nenhum serviço foi iniciado."
+      ],
+      "source_ids": [
+        "S1",
+        "S4",
+        "S5",
+        "S8"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/gtsteffaniak/filebrowser/blob/8415d5f1ffc40ccb8688673cf4c33247499d24b9/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "docs",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S2",
+      "title": "backend/go.mod",
+      "url": "https://github.com/gtsteffaniak/filebrowser/blob/8415d5f1ffc40ccb8688673cf4c33247499d24b9/backend/go.mod",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "code",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/gtsteffaniak/filebrowser/blob/8415d5f1ffc40ccb8688673cf4c33247499d24b9/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "license",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S4",
+      "title": "backend/internal/auth/service.go",
+      "url": "https://github.com/gtsteffaniak/filebrowser/blob/8415d5f1ffc40ccb8688673cf4c33247499d24b9/backend/internal/auth/service.go",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "code",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S5",
+      "title": "backend/config.yaml",
+      "url": "https://github.com/gtsteffaniak/filebrowser/blob/8415d5f1ffc40ccb8688673cf4c33247499d24b9/backend/config.yaml",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "code",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S6",
+      "title": "CHANGELOG.md",
+      "url": "https://github.com/gtsteffaniak/filebrowser/blob/8415d5f1ffc40ccb8688673cf4c33247499d24b9/CHANGELOG.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "code",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S7",
+      "title": "Commit consultado",
+      "url": "https://github.com/gtsteffaniak/filebrowser/commit/8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.628Z",
+      "kind": "metadata",
+      "ref": "8415d5f1ffc40ccb8688673cf4c33247499d24b9",
+      "note": "Fix install button (#3312)"
+    },
+    {
+      "id": "S8",
+      "title": "Releases consultadas",
+      "url": "https://github.com/gtsteffaniak/filebrowser/releases/tag/v2.1.4-beta",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.629Z",
+      "kind": "release",
+      "ref": "não identificado",
+      "note": "v2.1.4-beta; v2.0.2-stable"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Fork específico",
+      "certainty": "RELATADO",
+      "detail": "O produto é Quantum e possui diferenças substanciais em relação ao File Browser original.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Controles de senha observados",
+      "certainty": "CONFIRMADO",
+      "detail": "O serviço verifica hash, método e TOTP condicionado, sem prova de cobertura global.",
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "title": "Correções versionadas",
+      "certainty": "RELATADO",
+      "detail": "Releases relatam problemas e correções; nenhuma exploração foi executada.",
+      "source_ids": [
+        "S8"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Nenhum teste funcional, de segurança, desempenho ou recuperação foi executado.",
+    "Custos e serviços terceiros dependem da conta, região, volume e condições vigentes; valores do autor são alegações datadas.",
+    "A análise estática amostra o mecanismo e não certifica segurança, privacidade, conformidade ou adequação operacional."
+  ],
+  "related": [
+    "termix-ssh--termix",
+    "tonyantony300--dashbeam",
+    "mizorewww--gdirect"
+  ],
+  "metrics": {
+    "full_name": "gtsteffaniak/filebrowser",
+    "html_url": "https://github.com/gtsteffaniak/filebrowser",
+    "description": "📂 Web File Browser",
+    "homepage": "https://filebrowserquantum.com",
+    "default_branch": "main",
+    "created_at": "2023-06-11T19:19:09Z",
+    "updated_at": "2026-11-03T20:59:47Z",
+    "pushed_at": "2026-11-03T21:09:03Z",
+    "stargazers_count": 9031,
+    "forks_count": 522,
+    "open_issues_count": 205,
+    "subscribers_count": 31,
+    "network_count": 522,
+    "archived": false,
+    "disabled": false,
+    "language": "Go",
+    "topics": [],
+    "size": 110651,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

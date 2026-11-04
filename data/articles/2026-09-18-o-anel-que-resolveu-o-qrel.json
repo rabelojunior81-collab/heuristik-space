@@ -1,0 +1,54 @@
+{
+  "slug": "2026-09-18-o-anel-que-resolveu-o-qrel",
+  "title": "O Anel que Resolveu o Qrel",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "benchmark",
+    "proveniencia"
+  ],
+  "file": "posts/2026-09-18-o-anel-que-resolveu-o-qrel.html",
+  "description": "A consulta amb├¡gua ganhou inten├º├úo e classe; o benchmark local convergiu sem limiar novo nem corpus externo.",
+  "sha256": "0cb91a201379738853ce0b764bf494b21c1b4d15af5ef46a587456ab055957eb",
+  "read_status": "read",
+  "summary": "Consulta ambígua de joias foi corrigida no texto de intent; runner top-k=2 resolveu 4/4 consultas; lexical baseline sem corpus externo nem custo.",
+  "projects": [
+    {
+      "name": "Modernity retrieval",
+      "status": "local"
+    }
+  ],
+  "technologies": [
+    "lexical search",
+    "top-k"
+  ],
+  "claims": [
+    {
+      "subject": "Modernity retrieval",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "O corpus não saiu da máquina e nenhum custo novo foi criado.",
+      "evidence_excerpt": "O corpus não saiu da máquina e nenhum custo novo foi criado.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Não é UAT ou prova estatística"
+    }
+  ],
+  "lessons": [
+    "Não é UAT ou prova estatística"
+  ],
+  "id": "2026-09-18-o-anel-que-resolveu-o-qrel",
+  "manifest_title": "O Anel que Resolveu o Qrel",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-anel-que-resolveu-o-qrel.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Interfaces e produto",
+    "Patrimônio e negócio"
+  ],
+  "body": "“Diamantes ouro branco” encontrava dois anéis e um colar. A divergência não era motivo para dobrar o teste nem para inventar uma semântica. A consulta passou a carregar a intenção: anel diamantes ouro branco.\n\nO resultado local\n\nO runner reproduziu quatro consultas em top-k=2: quatro conjuntos esperados, proveniência válida em todas e abstenção para a consulta sem fonte. O corpus não saiu da máquina e nenhum custo novo foi criado.\n\nO que não significa\n\nIsso é baseline lexical determinístico, não UAT nem prova estatística de produção. Embeddings continuam direção futura, depois da evolução com Ananke/ERPNext e de um ADR próprio.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

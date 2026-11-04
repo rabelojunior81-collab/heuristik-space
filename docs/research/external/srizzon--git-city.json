@@ -1,0 +1,383 @@
+{
+  "slug": "srizzon--git-city",
+  "name": "Git City",
+  "url": "https://github.com/srizzon/git-city",
+  "category": "Ferramentas de desenvolvimento e UI",
+  "summary": "Git City transforma perfis GitHub em edifícios pixel art numa cidade 3D interativa. O README apresenta páginas de perfil, conquistas, personalização, kudos, presentes, comparações e cartões compartilháveis; a arquitetura declarada combina Next.js, Three.js/React Three Fiber, Supabase/PostgreSQL com OAuth GitHub e hospedagem Vercel. O código consultado confirma o fluxo OAuth Supabase e uma rota de exclusão de conta que também remove edifícios reivindicados. A licença é AGPL-3.0. É uma referência de visualização social e identidade visual para o Lab, mas depende de serviço e conta e não constitui uma ferramenta de desenvolvimento offline. Código e leituras estáticas foram fixados no SHA indicado; métricas vêm de snapshot datado da API do GitHub. Nenhuma implantação foi testada.",
+  "topics": [
+    "GitHub",
+    "perfil de desenvolvedor",
+    "visualização 3D",
+    "pixel art",
+    "Three.js",
+    "Next.js",
+    "Supabase",
+    "OAuth",
+    "social"
+  ],
+  "aliases": [
+    "Git City",
+    "cidade 3D",
+    "perfil GitHub visual",
+    "pixel art",
+    "Three.js",
+    "OAuth"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o projeto representa perfis GitHub como edifícios numa cidade 3D e oferece páginas de perfil, comparação, conquistas, itens cosméticos, kudos e cartões de compartilhamento. São funções descritas no README; a existência da interface pública não prova disponibilidade, desempenho ou exatidão dos dados em produção."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura e tecnologia",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o README declara Next.js 16, Three.js via React Three Fiber/drei, Supabase (PostgreSQL, autenticação OAuth GitHub e RLS), Tailwind CSS e Vercel. Isso coloca o produto na categoria de aplicação web dependente de serviços externos, não de utilitário local independente. O commit consultado é 0be2a03bd18a0cb26e830a24cb9396c80c222426."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Identidade, dados e exclusão",
+      "kind": "observed",
+      "source_ids": [
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no código consultado: a rota `src/app/api/auth/github/route.ts` inicia OAuth via Supabase e encaminha ao callback; o ramo de desenvolvimento usa login local. `src/app/api/account/delete/route.ts` exige usuário autenticado, localiza desenvolvedores reivindicados por esse usuário e chama exclusão da conta. SECURITY.md identifica tokens OAuth, políticas RLS, webhooks Stripe e endpoints CRON como superfícies sensíveis. Não foi auditado se cada dado derivado ou cópia é removido, nem a correção de políticas RLS."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Segurança e privacidade",
+      "kind": "analysis",
+      "source_ids": [
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "ANÁLISE: o produto associa métricas públicas do GitHub a contas autenticadas e tem elementos sociais e de compra, ampliando a superfície além da visualização. SECURITY.md fornece canal privado e aponta áreas de atenção, mas é uma política declarada, não uma auditoria independente. Não foram verificados escopos OAuth, retenção, telemetria, controles administrativos, Stripe, RLS ou comportamento de remoção em ambiente real."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Métricas, licença e manutenção",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S3",
+        "S6",
+        "S13"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público de 2026-11-03: 5.972 stars, 296 forks, 18 issues abertas; linguagem predominante TypeScript; repositório não arquivado, branch `main`, último push 2026-10-26; sem releases publicadas na coleção consultada. GitHub define stars como marcações feitas por usuários e forks como cópias do repositório na rede; são indicadores de interesse e reutilização, não de qualidade. O GitHub identifica AGPL-3.0, confirmado pelo LICENSE. Vercel, Supabase, GitHub OAuth e pagamentos podem ter custos e termos próprios; o código não permite concluir custo operacional."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: útil como estudo de visualização de perfil e de formas lúdicas de expor contribuições. A combinação de cidade 3D, cartões e comparação pode inspirar superfícies demonstrativas, mas a persistência social, OAuth e pagamento são escopo substancialmente maior que um widget local. AGPL exige análise de compatibilidade antes de reutilizar ou distribuir modificações; este registro não é parecer jurídico nem recomendação de adoção."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Próximos ensaios e limites",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "paragraphs": [
+        "PROPOSTA: se a pertinência for retomada, fazer revisão de licença e arquitetura, examinar consultas e políticas RLS, escopos OAuth, fluxo de exclusão, limites de API do GitHub, acessibilidade/teclado em canvas 3D e comportamento em dispositivos modestos. Usar dados sintéticos e sem credenciais pessoais. Pesquisa documental e leitura pontual apenas; não houve instalação, execução, teste visual, auditoria completa, avaliação de custo ou aceite."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Reivindicação de perfil e autorização",
+      "kind": "observed",
+      "source_ids": [
+        "S8"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: `src/app/api/claim/route.ts` deriva o login do provedor de identidade do GitHub, limita a reivindicação a um edifício por usuário e atualiza apenas se o perfil ainda não estiver reivindicado; comentário descreve a condição como atômica para evitar corrida. Após reivindicar, o código insere evento no feed e agenda dados sociais do GitHub. Essa rota reduz um tipo de abuso de troca de nome, mas não substitui revisão das políticas de banco e privilégios usados pelo cliente administrativo."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Economia e efeitos de ações",
+      "kind": "observed",
+      "source_ids": [
+        "S10"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: `src/app/api/arcade/shop/route.ts` requer autenticação, seleciona o edifício do usuário e lê catálogo, inventário e carteira; o comentário anuncia compra atômica (débito de PX e concessão de item). O repositório descreve moedas e troca opcional em variáveis de ambiente. Isso amplia consequências para além de renderização: saldo e posse precisam de invariantes transacionais, proteção contra repetição e trilha de auditoria. A leitura parcial do arquivo não confirma o fluxo completo de compra nem a situação de ativos digitais."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Configuração e dependências externas",
+      "kind": "observed",
+      "source_ids": [
+        "S9",
+        "S11"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: `.env.example` lista chave administrativa Supabase, GitHub token, segredo CRON, chave de administração do arcade, PartyKit/Cloudflare, Reown/WalletConnect, Alchemy e 0x, além de variáveis opcionais adicionais. Os nomes sinalizam fronteiras de confiança e possíveis provedores/serviços, não que todas as integrações estejam ativas na implantação pública. `package.json` declara Next.js, Supabase, React Three Fiber, Reown e bibliotecas de analytics. Segredos e custos devem ser inventariados por implantação; valores de exemplo não são credenciais reais."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Operação e modelo de serviço",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S11"
+      ],
+      "paragraphs": [
+        "ANÁLISE: o produto combina aplicação web, banco gerenciado, arquivos públicos de modelos, OAuth, workers de jogos e, opcionalmente, serviços de blockchain e pagamentos. Mesmo quando a interface é gratuita para visitante, manutenção depende de disponibilidade e limites dessas integrações. O rótulo ‘GitHub profile’ pode criar expectativa de que a cidade seja representação objetiva de toda contribuição; a documentação descreve proxies visuais como altura por contribuições e largura por repositórios, sem validação da definição ou atualização do dado nesta revisão."
+      ]
+    },
+    {
+      "id": "sec-12",
+      "title": "Duas credenciais e duas fronteiras GitHub",
+      "kind": "analysis",
+      "source_ids": [
+        "S4",
+        "S9"
+      ],
+      "paragraphs": [
+        "ANÁLISE: `.env.example` chama GITHUB_TOKEN de token pessoal para chamadas à API, enquanto `/api/auth/github` usa OAuth por meio do Supabase para autenticar a pessoa que reivindica perfil. São funções distintas: token de servidor para coletar dados e sessão de usuário para autorização social. Essa separação é importante para revisar escopos mínimos, rotação, rate limit, armazenamento, logs e possibilidade de conta técnica; não foi verificado quais scopes são exigidos nem se a coleta busca dados privados. A autorização a perfis públicos e a coleta de dados de contribuição merecem política transparente de cache e remoção."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/README.md",
+      "kind": "docs",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "README público consultado via GitHub; declara recursos e stack, sem execução."
+    },
+    {
+      "id": "S2",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/srizzon/git-city",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST público: contagens, linguagem, datas, licença declarada e estado de arquivo."
+    },
+    {
+      "id": "S3",
+      "title": "Commit consultado",
+      "url": "https://github.com/srizzon/git-city/commit/0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "kind": "metadata",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA atual de main retornado pelo GitHub no momento da consulta."
+    },
+    {
+      "id": "S4",
+      "title": "OAuth GitHub",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/src/app/api/auth/github/route.ts",
+      "kind": "code",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual da rota; sem ensaio funcional."
+    },
+    {
+      "id": "S5",
+      "title": "Exclusão de conta e SECURITY.md",
+      "url": "https://github.com/srizzon/git-city/tree/0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "kind": "code",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura de src/app/api/account/delete/route.ts e SECURITY.md no mesmo SHA."
+    },
+    {
+      "id": "S6",
+      "title": "Releases",
+      "url": "https://api.github.com/repos/srizzon/git-city/releases?per_page=3",
+      "kind": "release",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Coleção REST consultada retornou lista vazia."
+    },
+    {
+      "id": "S7",
+      "title": "Licença AGPL-3.0",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/LICENSE",
+      "kind": "license",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Texto do LICENSE consultado no SHA."
+    },
+    {
+      "id": "S8",
+      "title": "Reivindicação de edifício",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/src/app/api/claim/route.ts",
+      "kind": "code",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura estática de identidade, limite e atualização condicional da reivindicação."
+    },
+    {
+      "id": "S9",
+      "title": "Variáveis de ambiente",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/.env.example",
+      "kind": "code",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Inventário de integrações e segredos esperados, sem valores credenciais."
+    },
+    {
+      "id": "S10",
+      "title": "Loja do arcade",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/src/app/api/arcade/shop/route.ts",
+      "kind": "code",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura estática parcial de autenticação, inventário/carteira e caminho de compra."
+    },
+    {
+      "id": "S11",
+      "title": "Manifesto de dependências",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/package.json",
+      "kind": "code",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Scripts e dependências declarados, sem instalação."
+    },
+    {
+      "id": "S12",
+      "title": "Relato de segurança",
+      "url": "https://github.com/srizzon/git-city/blob/0be2a03bd18a0cb26e830a24cb9396c80c222426/SECURITY.md",
+      "kind": "docs",
+      "ref": "0be2a03bd18a0cb26e830a24cb9396c80c222426",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Inclui webhooks Stripe e tokens como áreas sensíveis; não comprova que todos estejam habilitados."
+    },
+    {
+      "id": "S13",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Documentação REST: stars são bookmarks/usuários que estrelaram; schema do repo inclui forks_count."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Produto social com autenticação e backend",
+      "certainty": "CONFIRMADO",
+      "detail": "README declara Supabase, OAuth GitHub e recursos sociais; o código confirma a rota OAuth. Não inferir que o serviço é autossuficiente/offline.",
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "title": "Fluxo de remoção da conta existe",
+      "certainty": "CONFIRMADO",
+      "detail": "A rota consultada exige usuário e encaminha exclusão de conta e desenvolvedores reivindicados; efeito completo e eliminação de cópias não foram verificados.",
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "title": "Atenção à copyleft de rede",
+      "certainty": "CONFIRMADO",
+      "detail": "LICENSE e metadados identificam AGPL-3.0; avaliar obrigações antes de reutilizar/distribuir.",
+      "source_ids": [
+        "S2",
+        "S7"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura estática pontual; não instalado nem executado",
+  "limitations": [
+    "Relatório não avalia disponibilidade ou comportamento do site em produção.",
+    "Não houve auditoria de RLS, tokens, Stripe, endpoints CRON, dependências, acessibilidade ou custo.",
+    "Métricas de GitHub são snapshot datado, não indicador de qualidade."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "srizzon/git-city",
+    "html_url": "https://github.com/srizzon/git-city",
+    "description": "Your GitHub profile as a 3D pixel art building in an interactive city",
+    "homepage": "https://thegitcity.com",
+    "default_branch": "main",
+    "created_at": "2026-02-20T16:11:55Z",
+    "updated_at": "2026-11-03T14:35:00Z",
+    "pushed_at": "2026-10-26T22:09:24Z",
+    "stargazers_count": 5972,
+    "forks_count": 296,
+    "open_issues_count": 18,
+    "subscribers_count": 19,
+    "network_count": 296,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "3d",
+      "github",
+      "nextjs",
+      "pixel-art",
+      "react",
+      "react-three-fiber",
+      "supabase",
+      "three-js",
+      "threejs",
+      "typescript",
+      "visualization"
+    ],
+    "size": 35590,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

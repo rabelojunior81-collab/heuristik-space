@@ -1,0 +1,284 @@
+{
+  "slug": "0kzh--glisse",
+  "name": "Glisse",
+  "url": "https://github.com/0kzh/glisse",
+  "category": "Ferramentas de desenvolvimento e UI",
+  "summary": "Glisse é uma biblioteca React de componentes que reproduz o estilo Liquid Glass na web, usando CSS, filtros SVG, mapas calculados e animações de mola. O código consultado não depende de um motor WebGL para obter o efeito principal: há diferenças de caminho entre Chromium e WebKit e comentários explícitos sobre custo de filtros em Safari. Switches têm semântica de botão com role e estado ARIA, e o CSS contém foco visível e redução de movimento; conformidade de acessibilidade não foi testada. Para o Lab, serve como referência de técnicas visuais e degradação controlada, sem justificar troca do DNA quadrado ou adoção indiscriminada de transparências.",
+  "topics": [
+    "React",
+    "Liquid Glass",
+    "CSS",
+    "SVG",
+    "refração",
+    "acessibilidade",
+    "componentes",
+    "animação"
+  ],
+  "aliases": [
+    "React",
+    "Liquid Glass",
+    "CSS",
+    "SVG",
+    "refração",
+    "acessibilidade",
+    "componentes",
+    "animação"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "paragraphs": [
+        "CONFIRMADO: o README mostra importação de Button e Switch como componentes React com estilos incorporados. A árvore inclui input, menu, slider, segmented-control, search-field e tab-bar. RELATADO: a descrição apresenta fidelidade ao Liquid Glass da Apple; esse é um posicionamento do autor, não certificação da Apple ou teste perceptual independente. O pacote é uma camada visual/interativa para aplicações, não um framework completo, backend, sistema de design universal ou motor de criação de telas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-2",
+      "title": "Mecanismo visual real",
+      "paragraphs": [
+        "CONFIRMADO: lens.ts constrói mapas de deslocamento a partir da geometria da lente; refraction.ts calcula a borda luminosa usando canvas2D e disponibiliza filtros SVG. CSS aplica blur, saturação e backdrop-filter. Portanto chamar o projeto simplesmente de shader WebGL seria impreciso. O mecanismo combina JavaScript, bitmap gerado, SVG e CSS, com custo dependente da área filtrada e do movimento. As observações sobre Safari no código pertencem ao autor e não foram medidas neste host."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Compatibilidade de navegadores",
+      "paragraphs": [
+        "CONFIRMADO: refractsBackdrop detecta Chromium pelo user-agent para escolher o caminho do backdrop. Comentários em lens.ts registram peculiaridades de unidades e invalidação de filtros no WebKit, além de custo alto para conteúdo grande em movimento. Isso sustenta uma distinção de caminhos de implementação, sem garantir cobertura de cada versão do navegador. Firefox, mobile, webviews embutidos e modos de economia precisariam de matriz de teste própria; uma demo no desktop não resolveria essa dimensão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-4",
+      "title": "Arquitetura e dependências",
+      "paragraphs": [
+        "CONFIRMADO: package.json define módulos ESM/CommonJS, tipos TypeScript e React/react-dom como peerDependencies a partir de18. Os componentes compartilham helpers de controle, press, hold, spring, lens e classes. Não foi identificado serviço remoto obrigatório no desenho do pacote. A build usa tsdown e a validação declarada usa TypeScript e Vitest. Esses scripts demonstram intenção de manutenção e distribuição, não execução dos testes nesta pesquisa."
+      ],
+      "source_ids": [
+        "S2",
+        "S7"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-5",
+      "title": "Interação e estado",
+      "paragraphs": [
+        "CONFIRMADO: Switch aceita checked, defaultChecked e onCheckedChange; o helper compartilhado suporta uso controlado e interno. O componente trata pointer capture, gesto horizontal, rolagem vertical, clique e cancelamento e encerra animações/listeners no cleanup. Há complexidade relevante em conciliar toque e scroll: o resultado deve ser testado em dispositivos reais. A API não persiste preferências automaticamente; a aplicação consumidora continua responsável por salvar dados e decidir efeitos de cada mudança."
+      ],
+      "source_ids": [
+        "S2",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-6",
+      "title": "Acessibilidade observável e lacunas",
+      "paragraphs": [
+        "CONFIRMADO: o Switch termina em button com role switch e aria-checked, enquanto a decoração fica aria-hidden. O exemplo do README fornece aria-label; rótulo continua responsabilidade do consumidor. O CSS contém focus-visible e uma media query prefers-reduced-motion. Isso é evidência de mecanismos, não prova de WCAG. Permanecem NÃO IDENTIFICADOS o contraste em fundos variáveis, leitores de tela, zoom elevado, forced-colors e a redução efetiva de todas as animações JavaScript."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-7",
+      "title": "Performance e persistência",
+      "paragraphs": [
+        "Análise: mapas dependem de dimensões, densidade e tema; o código mantém cache de bordas e observa resize e alterações de tema. A combinação pode evitar recomputações, mas o custo agregado de muitas lentes requer medição. Filtros sobre conteúdo extenso e animação contínua podem competir com tarefas principais. Não há banco ou armazenamento de usuário identificado no pacote; o estado observado vive em componentes, mapas de cache e DOM. Persistência de negócio pertence ao app."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-8",
+      "title": "Segurança e privacidade",
+      "paragraphs": [
+        "Análise: uma biblioteca de apresentação que roda dentro do app herda acesso do JavaScript da aplicação ao DOM. Ausência de API externa obrigatória não é auditoria de cadeia de dependências ou de distribuição npm. Não se identificou autenticação ou sistema de permissões porque essa função está fora do foco implementado. Antes de usar no Lab, seria preciso conferir versão publicada contra o código revisto, lockfile, conteúdo distribuído e efeitos de políticas CSP sobre filtros e imagens geradas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "Licença, distribuição e manutenção",
+      "paragraphs": [
+        "CONFIRMADO: LICENSE é MIT e package.json informa versão0.5.0. A coleção de releases do GitHub consultada veio vazia; isso não implica ausência de publicação npm. As entradas abertas consultadas são PRs sobre controle de Menu, homepage e scheduler de springs, não defeitos reproduzidos aqui. A PR4 descreve interferência de frame pendente com fake timers; é um alerta de teste e lifecycle, sem atribuir automaticamente falha visível a usuários."
+      ],
+      "source_ids": [
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-10",
+      "title": "Alternativas e aplicações no Lab",
+      "paragraphs": [
+        "Análise: CSS nativo com uma camada sólida, controles HTML e primitivas de acessibilidade oferece um comparador mais simples. Outras bibliotecas de componentes podem ser comparadas por contrato e semântica; não foram auditadas neste recorte. Para o AOS, Glisse interessa sobretudo como estudo de filtros, limites de webviews e interação tátil. A decisão estética continua do Pai e do design do projeto: o efeito não autoriza substituir bordas e geometria canonizadas do Blog."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Próximos ensaios",
+      "paragraphs": [
+        "Proposta: criar uma pequena tela sintética separada com switch, menu, campo e slider sobre fundos claros, escuros e complexos. Medir frame time e memória em Chromium, Safari/WebKit e Firefox, com áreas grandes e várias lentes. Percorrer tudo por teclado e leitor de tela, testar zoom, scroll touch, disabled e reduced-motion. Comparar com a versão sólida, registrar legibilidade e verificar desmontagem. Nenhum desses ensaios foi executado; o pacote permanece candidato documental."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/0kzh/glisse/blob/46be5ba07b60eb507e887ff338ded7840576a79f/README.md",
+      "kind": "docs",
+      "ref": "46be5ba07b60eb507e887ff338ded7840576a79f",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S2",
+      "title": "Árvore do código",
+      "url": "https://github.com/0kzh/glisse/tree/46be5ba07b60eb507e887ff338ded7840576a79f",
+      "kind": "code",
+      "ref": "46be5ba07b60eb507e887ff338ded7840576a79f",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S3",
+      "title": "Licença",
+      "url": "https://github.com/0kzh/glisse/blob/46be5ba07b60eb507e887ff338ded7840576a79f/LICENSE",
+      "kind": "license",
+      "ref": "46be5ba07b60eb507e887ff338ded7840576a79f",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S4",
+      "title": "Último commit consultado",
+      "url": "https://github.com/0kzh/glisse/commit/46be5ba07b60eb507e887ff338ded7840576a79f",
+      "kind": "metadata",
+      "ref": "46be5ba07b60eb507e887ff338ded7840576a79f",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S5",
+      "title": "Releases consultadas",
+      "url": "https://github.com/0kzh/glisse/releases",
+      "kind": "release",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S6",
+      "title": "Issues e PRs abertos consultados",
+      "url": "https://github.com/0kzh/glisse/issues",
+      "kind": "issue",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S7",
+      "title": "package.json",
+      "url": "https://github.com/0kzh/glisse/blob/46be5ba07b60eb507e887ff338ded7840576a79f/package.json",
+      "kind": "code",
+      "ref": "46be5ba07b60eb507e887ff338ded7840576a79f",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    },
+    {
+      "id": "S8",
+      "title": "src/glass.tsx",
+      "url": "https://github.com/0kzh/glisse/blob/46be5ba07b60eb507e887ff338ded7840576a79f/src/glass.tsx",
+      "kind": "code",
+      "ref": "46be5ba07b60eb507e887ff338ded7840576a79f",
+      "accessed_at": "2026-11-03",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução.",
+      "access_precision": "day"
+    }
+  ],
+  "findings": [],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "A leitura cobre documentação e amostra estática, sem teste funcional, auditoria completa de segurança ou aceite humano.",
+    "Releases, issues e branch são um retrato datado; o SHA identifica o código consultado."
+  ],
+  "related": [
+    "l0ng-ai--openidea",
+    "tractordev--webframe"
+  ],
+  "recorded_at": "2026-11-03T20:07:50+00:00",
+  "metrics": {
+    "full_name": "0kzh/glisse",
+    "html_url": "https://github.com/0kzh/glisse",
+    "description": "iOS 26 Liquid Glass for the web",
+    "homepage": "",
+    "default_branch": "main",
+    "created_at": "2026-10-23T18:55:21Z",
+    "updated_at": "2026-11-03T20:34:12Z",
+    "pushed_at": "2026-10-30T05:12:24Z",
+    "stargazers_count": 194,
+    "forks_count": 8,
+    "open_issues_count": 3,
+    "subscribers_count": 2,
+    "network_count": 8,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [],
+    "size": 3076,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

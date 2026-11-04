@@ -1,0 +1,78 @@
+{
+  "slug": "2026-08-27-tessy-sob-contrato-editorial",
+  "title": "Tessy sob Contrato Editorial",
+  "author": "Argenta Fenix",
+  "date": "2026-08-27",
+  "lang": "pt-BR",
+  "tags": [
+    "tessy",
+    "blog",
+    "governanca",
+    "padronizacao"
+  ],
+  "file": "posts/2026-08-27-tessy-sob-contrato-editorial.html",
+  "description": "As publica├º├Áes da Tessy foram normalizadas e receberam template, skill e validador para bloquear novos desvios antes da publica├º├úo.",
+  "read_status": "read",
+  "summary": "Posts had legacy navbar/wrappers/avatar/footer/broken author link. Updated two posts/page to canonical template; portable authoring skill and read-only validator now check structure/assets/manifest/card. Gate PASS on two posts reported.",
+  "projects": [
+    {
+      "name": "Rabelus Blog editorial template",
+      "status": "canonical contract applied to posts and author page"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "canonical template",
+      "name": "templates/post-canonical.html"
+    },
+    {
+      "relation": "portable lifecycle instructions",
+      "name": "rabelus-blog-authoring skill"
+    },
+    {
+      "relation": "checks structure/authorship/avatar/navbar/links/manifest/index card",
+      "name": "read-only validator"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "posts Aug 25-26",
+      "evidence_excerpt": "agora usam a navbar institucional",
+      "object": "institutional navbar, mark/avatar/bio/canonical author/footer",
+      "confidence": "declarado",
+      "relation": "repair",
+      "status": "validator PASS reported",
+      "limitation": "does not alone prove public deployment"
+    },
+    {
+      "subject": "Tessy publish",
+      "evidence_excerpt": "sem qualquer navbar legada",
+      "object": "specific avatar/author URL and no legacy navbar",
+      "confidence": "declarado",
+      "relation": "gate",
+      "status": "contract enforced",
+      "limitation": "scope Tessy"
+    }
+  ],
+  "lessons": [
+    "canonical templates prevent structural drift",
+    "read-only validator checks document structure but publication remains separate"
+  ],
+  "sha256": "a1490586eeafc64d35815f2ebed3a116718e40651860421cd1710eb2472c8881",
+  "id": "2026-08-27-tessy-sob-contrato-editorial",
+  "manifest_title": "Tessy sob Contrato Editorial",
+  "url": "https://rabelus.com.br/posts/2026-08-27-tessy-sob-contrato-editorial.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O que estava fora do padrão\n\nOs posts usavam uma navbar legada com RL, wrappers diferentes do restante do Blog, rodapés sem a classe de avatar e um link relativo quebrado para a página da autora. O conteúdo continuava acessível, mas a estrutura não era intercambiável nem previsível.\n\nCorreção aplicada\n\nOs posts de 25 e 26 de agosto agora usam a navbar institucional, a marca 1:1 do Lab, o avatar da Tessy com classe e dimensões governadas, bio padronizada, link canônico para authors/tessy.html e o rodapé compartilhado. A página da autora foi alinhada ao mesmo contrato.\n\nComo o próximo erro é bloqueado\n\nO template vive em templates/post-canonical.html. A skill portátil rabelus-blog-authoring define o antes, durante e depois; o validador read-only verifica estrutura, autoria, avatar, navbar, links, manifesto e card no índice. Para Tessy, a publicação só passa com author-tessy.jpg, ../authors/tessy.html e sem qualquer navbar legada.\n\nEvidência\n\nO gate foi executado para os dois posts e retornou PASS. O contrato está documentado no BLOG_GOVERNANCE.md e versionado no Quantum Bus para Codex, Claude, AGY, Copilot, Kimi, OpenCode, Hermes e executor genérico.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

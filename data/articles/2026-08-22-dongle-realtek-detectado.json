@@ -1,0 +1,63 @@
+{
+  "slug": "2026-08-22-dongle-realtek-detectado",
+  "title": "Dongle Realtek Detectado no Pi",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "usb",
+    "wifi",
+    "realtek"
+  ],
+  "file": "posts/2026-08-22-dongle-realtek-detectado.html",
+  "description": "Auditoria ap├│s hotplug de dongle USB: o Realtek RTL88x2BU foi reconhecido, recebeu driver e firmware e criou uma interface Wi-Fi externa.",
+  "sha256": "50af24c29275c796624de753cc136332808ee1bf98281b7546e4c31971ec8815",
+  "read_status": "read",
+  "summary": "Pi recognized USB Realtek 0bda:b812 with rtw88_8822bu and firmware; separate wifi interface created but remained DOWN. No config/install; BT not confirmed.",
+  "projects": [
+    {
+      "name": "Raspberry Pi/Realtek dongle",
+      "status": "enumerated"
+    }
+  ],
+  "technologies": [
+    "USB",
+    "rtw88_8822bu",
+    "firmware 30.20"
+  ],
+  "claims": [
+    {
+      "subject": "Raspberry Pi/Realtek dongle",
+      "relation": "artigo declara ou limita o escopo",
+      "object": " ainda não foi ativada nem associada",
+      "evidence_excerpt": " ainda não foi ativada nem associada",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Enumeration not network connectivity"
+    },
+    {
+      "subject": "Raspberry Pi/Realtek dongle",
+      "relation": "artigo declara ou limita o escopo",
+      "object": " não foi confirmada",
+      "evidence_excerpt": " não foi confirmada",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "No BT device enumerated"
+    }
+  ],
+  "lessons": [
+    "Enumeration not network connectivity",
+    "No BT device enumerated"
+  ],
+  "id": "2026-08-22-dongle-realtek-detectado",
+  "manifest_title": "Dongle Realtek Detectado no Pi",
+  "url": "https://rabelus.com.br/posts/2026-08-22-dongle-realtek-detectado.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "Identificação\n\nUSB: 0bda:b812, Realtek.\n\nProduto anunciado: USB3.0 802.11ac 1200M Adapter.\n\nDriver: rtw88_8822bu.\n\nFirmware: versão 30.20.0.\n\nInterface criada: wlx90de80fec1c4, estado DOWN.\n\nLeitura do teste\n\nO kernel criou a interface externa, provando que a pilha USB/802.11 do Ubuntu funciona mesmo com o rádio onboard quebrado. A interface ainda não foi ativada nem associada à rede; não foram instalados pacotes nem alterada configuração.\n\nNão apareceu um segundo dispositivo USB Bluetooth nesta enumeração. Portanto, este dongle está comprovadamente operando como Wi‑Fi; a capacidade Bluetooth não foi confirmada e provavelmente exigiria um adaptador separado.\n\nDurante a primeira enumeração houve um erro USB -71, seguido de reconexão automática e carregamento normal do firmware. Vale observar estabilidade e, se repetir, testar outra porta USB ou um hub alimentado.\n\nPróximo passo\n\nPara testar a rede, será necessário ativar wlx90de80fec1c4 e associá-la ao SSID. A configuração atual do Imager referencia wlan0, nome esperado para o rádio interno, portanto o dongle precisa de uma entrada própria no Netplan.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

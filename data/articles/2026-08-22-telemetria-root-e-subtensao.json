@@ -1,0 +1,68 @@
+{
+  "slug": "2026-08-22-telemetria-root-e-subtensao",
+  "title": "O Pi Tem Espaço, Mas Está Pedindo Energia",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "dietpi",
+    "energia",
+    "telemetria"
+  ],
+  "file": "posts/2026-08-22-telemetria-root-e-subtensao.html",
+  "description": "A telemetria root do DietPi mostrou muita folga de mem├│ria e armazenamento, mas subtens├úo repetida bloqueia a instala├º├úo de servi├ºos.",
+  "sha256": "161ca052baa0d922b37063e4ce50c990cde3760d2e8746017029f34cf5e19a88",
+  "read_status": "read",
+  "summary": "DietPi com espaço, mas 0x50005/logs indicam subtensão; adia serviços pesados até corrigir fonte/cabo e novo boot.",
+  "projects": [
+    {
+      "name": "Raspberry Pi/DietPi",
+      "status": "cargas pesadas adiadas"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "0x50005; fonte",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "O Pi Tem Espa├ºo, Mas Est├í Pedindo Energia",
+      "relation": "relata",
+      "object": "DietPi com espaço, mas 0x50005/logs indicam subtensão",
+      "evidence_excerpt": "O número que muda a decisão vcgencmd get_throttled retornou 0x50005 .",
+      "confidence": "relatado",
+      "status": "cargas pesadas adiadas",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "O Pi Tem Espa├ºo, Mas Est├í Pedindo Energia",
+      "relation": "delimita",
+      "object": " adia serviços pesados até corrigir fonte/cabo e novo boot.",
+      "evidence_excerpt": "Como a temperatura está normal, a suspeita principal é fonte ou cabo.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " adia serviços pesados até corrigir fonte/cabo e novo boot.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-telemetria-root-e-subtensao",
+  "manifest_title": "O Pi Tem Espa├ºo, Mas Est├í Pedindo Energia",
+  "url": "https://rabelus.com.br/posts/2026-08-22-telemetria-root-e-subtensao.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "Os números são bons\n\nO DietPi v10.6.2 está sobre Debian 13.6 Trixie, com kernel 6.18.39+rpt-rpi-v8. O Raspberry Pi tem quatro Cortex-A53, temperatura de 47,2 °C, 955 MiB de RAM total com 856 MiB disponíveis, swap de 1,1 GiB sem uso e 54 GiB livres no rootfs de 59 GiB.\n\nA instalação é mínima: 218 registros de pacotes, nenhum serviço systemd falho e apenas cron, Dropbear, journald, udevd, getty e Tailscale ativos. Há espaço e memória para começar com cuidado.\n\nO número que muda a decisão\n\nvcgencmd get_throttled retornou 0x50005. O kernel confirmou vários ciclos de subtensão, alternando “Undervoltage detected!” e “Voltage normalised”. Como a temperatura está normal, a suspeita principal é fonte ou cabo.\n\nPróximo passo\n\nDocker, bancos, desktop, compiladores pesados e serviços persistentes ficam adiados. Primeiro vem uma fonte estável de 5 V, cabo adequado, novo boot e confirmação de get_throttled=0x0. A infraestrutura precisa ganhar estabilidade antes de ganhar complexidade.\n\nMemória livre não compensa energia instável. Antes de instalar inteligência, garantimos que a máquina consegue permanecer ligada.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

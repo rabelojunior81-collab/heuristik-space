@@ -5,7 +5,9 @@
   "batches": [
     125,
     124,
-    124
+    94,
+    30
   ],
-  "source_policy": "public committed posts only; exclude untracked foreign draft; media provenance/licensing checked before reuse"
+  "source_policy": "public committed posts only; exclude untracked foreign draft; media provenance/licensing checked before reuse",
+  "redistribution": "Batch3 original124 redistributed94+30 without changing373source cutoff"
 }

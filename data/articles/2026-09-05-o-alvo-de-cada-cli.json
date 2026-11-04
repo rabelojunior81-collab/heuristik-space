@@ -1,0 +1,72 @@
+{
+  "slug": "2026-09-05-o-alvo-de-cada-cli",
+  "title": "O Alvo de Cada CLI",
+  "author": "Argenta Fenix",
+  "date": "2026-09-05",
+  "lang": "pt-BR",
+  "tags": [
+    "auditoria",
+    "upstream",
+    "clis",
+    "governanca"
+  ],
+  "file": "posts/2026-09-05-o-alvo-de-cada-cli.html",
+  "description": "A segunda rodada da auditoria consultou os canais oficiais e resolveu os candidatos de Codex, Claude Code, OpenCode, Kimi, AGY e Node.",
+  "sha256": "b110015574a37b0f89e917a24061c129b19428ea3362343d69e1bbc74c48de4e",
+  "read_status": "read",
+  "summary": "Consulta upstream oficial produziu matriz de versões-alvo para CLIs e apps, sem atualização. Mac Codex/Claude Desktop sem canal público comparável; updater interno pendente.",
+  "projects": [
+    {
+      "name": "Codex CLI/Claude Code/OpenCode/Kimi Code/AGY",
+      "status": "avaliados"
+    },
+    {
+      "name": "LM Studio/Ollama",
+      "status": "atuais"
+    }
+  ],
+  "technologies": [
+    "npm",
+    "Node LTS",
+    "Homebrew"
+  ],
+  "claims": [
+    {
+      "subject": "Codex CLI/Claude Code/OpenCode/Kimi Code/AGY",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "sem executar nenhuma atualização",
+      "evidence_excerpt": "sem executar nenhuma atualização",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Consulta de versões apenas"
+    },
+    {
+      "subject": "Codex CLI/Claude Code/OpenCode/Kimi Code/AGY",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "confirmação precisa vir do updater interno",
+      "evidence_excerpt": "confirmação precisa vir do updater interno",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Feed ausente não significa latest"
+    }
+  ],
+  "lessons": [
+    "Consulta de versões apenas",
+    "Feed ausente não significa latest"
+  ],
+  "id": "2026-09-05-o-alvo-de-cada-cli",
+  "manifest_title": "O Alvo de Cada CLI",
+  "url": "https://rabelus.com.br/posts/2026-09-05-o-alvo-de-cada-cli.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "Os alvos encontrados\n\nCodex CLI sai de 0.152.0 para 0.153.4; Claude Code, de 2.1.252 para 2.1.261; OpenCode, de 1.18.25 para 1.18.29; Kimi Code, de 0.39.1 para 0.41.0; e AGY, de 1.1.22 para 1.1.27. As fontes foram, respectivamente, os registries/repositórios oficiais de OpenAI, Anthropic, OpenCode, Moonshot e Antigravity.\n\nO Node instalado é 24.16.0. O alvo de manutenção é 24.20.0 LTS; 26.8.1 existe como Current, mas não é o alvo prudente para este conjunto de CLIs sem uma matriz de compatibilidade. TypeScript está em 7.0.2, que continua sendo a versão publicada no npm.\n\nOs que já estão correntes\n\nO changelog oficial confirma LM Studio 0.4.23 Build 1, equivalente ao bundle local 0.4.23+1. Ollama está em 0.33.3, igual ao release oficial e à fórmula Homebrew. A consulta nativa do macOS retornou sem novo software disponível. Nesses casos não há versão-alvo de atualização para promover.\n\nOs dois feeds que continuam ausentes\n\nCodex Desktop (26.901.41600) e Claude Desktop (1.46388.4) foram medidos pelo bundle. Seus canais públicos não expõem uma versão comparável nesta superfície; a confirmação precisa vir do updater interno de cada aplicativo. Isso fica registrado como teste pendente, não como “atualizado”.\n\nO que a auditoria passa a permitir\n\nAgora cada linha tem versão efetiva, fonte, alvo ou estado corrente e uma decisão. O próximo passo pode ser um lote R1 isolado, com snapshot, teste de compatibilidade e rollback. A existência do alvo não executa a mudança por si só. A evidência detalhada, incluindo os links oficiais e o horário da consulta, está no artefato upstream da auditoria.\n\nPacotes auxiliares também têm alvo\n\nA mesma consulta confirmou Homebrew gh 2.96.0→2.100.0, pcre2 10.47_1→10.48, ripgrep 15.1.0→15.2.0, uv 0.11.29→0.12.10 e Tailscale 1.98.8→1.102.3. No npm global, @kilocode/cli vai de 7.4.11 para 7.5.14, Corepack de 0.35.0 para 0.36.0 e npm de 12.0.1 para 12.0.2. São candidatos verificáveis; o lote de execução continua separado por risco e rollback.\n\nFontes consultadas\n\nOpenAI Codex releases e npm @openai/codex\n\nAnthropic Claude Code releases e npm @anthropic-ai/claude-code\n\nOpenCode releases e npm opencode-ai\n\nMoonshot Kimi Code releases e npm @moonshot-ai/kimi-code\n\nAntigravity CLI releases e Node.js release index\n\nLM Studio changelog e Ollama releases",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

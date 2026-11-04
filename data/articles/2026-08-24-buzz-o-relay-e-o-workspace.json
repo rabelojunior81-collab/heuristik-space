@@ -1,0 +1,126 @@
+{
+  "slug": "2026-08-24-buzz-o-relay-e-o-workspace",
+  "title": "Buzz: quando o Relay vira o Workspace",
+  "author": "Argenta Fenix",
+  "date": "2026-08-24",
+  "lang": "pt-BR",
+  "tags": [
+    "buzz",
+    "nostr",
+    "agentes",
+    "relay",
+    "colaboracao"
+  ],
+  "file": "posts/2026-08-24-buzz-o-relay-e-o-workspace.html",
+  "description": "Leitura profunda do Block Buzz: relay Nostr, identidade de agentes, canais, workflows, Git, auditabilidade, mesh e limites reais.",
+  "read_status": "read",
+  "summary": "Detailed code/docs analysis of Buzz collaboration project: Nostr event relay (Rust/Axum), Postgres/Redis/S3, signed identity, ACP agents, CLI/MCP, workflows, audit hashes, media/Git. Notable: approval gates have schema/UI but executor fails rather than waiting/resuming; audit hash chain lacks external signature; no E2E encryption; current code includes Redis-backed rate limiter despite stale architecture doc. Recommends isolated lab evaluation, not replacing Bus/production.",
+  "projects": [
+    {
+      "name": "Buzz",
+      "status": "research/recommendation for isolated collaboration lab, not adopted"
+    },
+    {
+      "name": "OpenBot",
+      "status": "complementary agent execution layer"
+    },
+    {
+      "name": "9Router",
+      "status": "model/provider routing layer, no native integration found"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Nostr NIP-42/NIP-98",
+      "relation": "agent/user auth"
+    },
+    {
+      "name": "Rust Axum/Postgres/Redis/S3-MinIO",
+      "relation": "Buzz server architecture"
+    },
+    {
+      "name": "ACP/MCP",
+      "relation": "agent and dev tooling"
+    },
+    {
+      "name": "QUIC/Iroh Mesh",
+      "relation": "compute sharing proposal"
+    },
+    {
+      "name": "RedisRateLimiter",
+      "relation": "present in code despite stale doc"
+    }
+  ],
+  "claims": [
+    {
+      "status": "gap in analyzed commit",
+      "confidence": "declarado",
+      "evidence_excerpt": "a interface de aprovação não equivale ainda a uma barreira de aprovação",
+      "object": "schema/API/UI exists but executor marks run failed instead of persisting/waiting",
+      "subject": "approval workflow",
+      "limitation": "snapshot only",
+      "relation": "implementation gap"
+    },
+    {
+      "status": "project limitation",
+      "confidence": "declarado",
+      "evidence_excerpt": "Tamper-evident, não tamper-proof.",
+      "object": "SHA-256 chain tamper-evident not tamper-proof because DB writer could rewrite",
+      "subject": "audit log",
+      "limitation": "no external signature",
+      "relation": "integrity"
+    },
+    {
+      "status": "architecture consequence",
+      "confidence": "declarado",
+      "evidence_excerpt": "Isso favorece busca, eDiscovery e auditoria pelo servidor, mas significa que o relay é capaz de ler o conteúdo.",
+      "object": "not promised; relay can read content",
+      "subject": "privacy",
+      "limitation": "TLS/at-rest only",
+      "relation": "E2E"
+    },
+    {
+      "status": "docs need alignment",
+      "confidence": "declarado",
+      "evidence_excerpt": "a documentação ficou atrás da implementação",
+      "object": "RedisRateLimiter exists in current code while architecture document says absent",
+      "subject": "rate limiting docs",
+      "limitation": "commit snapshot",
+      "relation": "drift"
+    },
+    {
+      "status": "not adopted",
+      "confidence": "declarado",
+      "evidence_excerpt": "Eu o avaliaria como plano de colaboração e coordenação agentiva, em laboratório isolado.",
+      "object": "evaluate in isolated lab; not direct Bus replacement or production",
+      "subject": "adoption",
+      "limitation": "backup/key/TLS/membership/workflow validation required",
+      "relation": "recommendation"
+    }
+  ],
+  "lessons": [
+    "approval UI does not guarantee approval enforcement",
+    "hash chain without external trust root is tamper-evident only",
+    "relay participation implies content is readable to server absent E2E",
+    "docs can lag code; align before serving as security contract",
+    "Buzz, OpenBot and 9Router cover distinct coordination/execution/routing layers"
+  ],
+  "sha256": "dba74f90939f5da3c8cdc5915242802c758633dd1f9ad7febe9a65e724f07afc",
+  "id": "2026-08-24-buzz-o-relay-e-o-workspace",
+  "manifest_title": "Buzz: quando o Relay vira o Workspace",
+  "url": "https://rabelus.com.br/posts/2026-08-24-buzz-o-relay-e-o-workspace.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "A tese do projeto\n\nO Buzz parte de uma frase simples: o relay é o workspace. Conversas, agentes, workflows, artefatos, mídia, Git e memória devem viver atrás de um domínio, de uma identidade e de um log comum. O agente não é um bot escondido atrás de uma integração; ele é um membro com chave própria, presença, canais, histórico e trilha de auditoria.\n\nDebaixo da interface de equipe há um relay Nostr. Cada mensagem, reação, mudança de canal, passo de workflow e evento de Git é um evento assinado, identificado por um kind. O mesmo formato e a mesma identidade servem para a pessoa e para o processo.\n\nArquitetura real\n\nDesktop / Web / Mobile / buzz-cli / agentes ACP\n                    ↓ WebSocket + REST\n              buzz-relay (Rust + Axum)\n        ┌───────────┼───────────┬───────────┐\n     Postgres     Redis       S3/MinIO    crates\n  eventos/FTS   pub/sub      mídia/Git   auth/audit/workflow\n\nO relay é a fonte única de verdade. Ele autentica, verifica assinatura, valida membership, persiste, distribui aos inscritos, indexa, audita e dispara workflows. Os crates são separados: buzz-core define eventos e filtros; buzz-auth cuida de NIP-42/NIP-98; buzz-db persiste; buzz-pubsub usa Redis; buzz-search usa full-text do Postgres; buzz-audit encadeia hashes; buzz-workflow executa automações.\n\nIsso produz uma escolha arquitetural forte: uma funcionalidade nova não precisa criar mais uma API isolada. Em princípio, define um novo kind, passa pelo pipeline já autenticado e ganha fan-out, histórico, busca e auditoria.\n\nIdentidade: humanos e agentes no mesmo plano\n\nWebSocket usa NIP-42: o relay envia um desafio e o cliente responde com um evento assinado, provando posse da chave. A ponte HTTP usa NIP-98, com assinatura que cobre URL e método. O acesso ao conteúdo não termina na autenticação: membership de canal é o portão real. Estar autenticado não significa poder ler todos os canais.\n\nHá papéis de owner, admin, member, guest e bot. Agentes recebem sua própria chave Nostr, podem pertencer a canais e podem ser localizados como participantes da comunidade. O desktop guarda chaves no keyring do sistema; em Linux sem Secret Service, recorre a arquivo com permissão de proprietário. A perda da chave continua sendo uma perda real de identidade — não há “esqueci minha senha” tradicional.\n\nEm multi-community, o host da requisição determina a comunidade antes de AUTH, EVENT, REQ, REST, mídia, Git ou workflows. A ideia é que projeto-a.example e projeto-b.example possam compartilhar infraestrutura sem compartilhar estado observável. O código e a documentação tratam esse limite como uma propriedade de segurança, não apenas como um filtro de interface.\n\nO agente deixa de ser um processo anônimo\n\nO buzz-cli é a superfície agent-first: JSON na entrada e na saída, erros estruturados e comandos para mensagens, canais, threads, busca, canvas, mídia, workflows, Git, memória e administração. Isso é importante porque o agente não precisa dirigir a UI para participar do trabalho.\n\nO buzz-acp faz a ponte entre o relay e agentes ACP como Goose, Codex e Claude Code. Ele ouve menções, descobre canais acessíveis, agrupa eventos por canal, envia um prompt por ACP e publica a resposta usando o CLI. Há pool de 1 a 32 subprocessos, uma execução simultânea por canal, recuperação de processo e filtro de autores. O default é owner-only, uma escolha sensata para evitar que qualquer membro transforme um agente em caixa de execução pública.\n\nO par buzz-agent + buzz-dev-mcp segue uma filosofia mais minimalista: ACP de um lado, MCP do outro, cada sessão com seus próprios servidores MCP. O servidor de desenvolvimento oferece shell, leitura, edição, rg, árvore e tarefas; opera no nível de confiança do usuário, portanto não é uma sandbox mágica. A segurança está em limites de processo, saída, tempo, cancelamento e no ambiente em que o binário é executado.\n\nO workspace é mais que chat\n\nStream: conversa rápida com threads.\n\nForum: discussão longa e assíncrona.\n\nDMs: conversas privadas com até nove participantes.\n\nCanvas: documento compartilhado por canal.\n\nSearch: busca full-text nos eventos permitidos.\n\nGit: smart HTTP, patches, anúncios NIP-34 e proteção de branches.\n\nHuddles: áudio Opus em WebSocket, sem SFU externo.\n\nA ambição é substituir o mosaico “chat + GitHub + CI + bot + wiki + busca” por um substrato comum. Não porque cada peça isolada seja nova, mas porque a pergunta, o patch, a aprovação e a decisão de merge passam a ser eventos pesquisáveis no mesmo lugar.\n\nWorkflows: coordenação com evidência\n\nWorkflows são YAML-as-code. Podem disparar por mensagem, reação, agenda ou webhook. As ações incluem enviar mensagem, reagir, chamar webhook, atrasar e solicitar aprovação. Condições usam evalexpr, têm funções de string e timeout curto; webhooks têm proteção contra SSRF, redirects desabilitados e limite de resposta.\n\nA promessa é boa: uma automação não só executa, mas deixa uma trilha de passos. Porém existe um limite concreto no commit analisado: send_dm e set_channel_topic ainda retornam NotImplemented; gates de aprovação têm schema, APIs e UI, mas o executor ainda marca o run como falho em vez de persistir e retomar a aprovação.\n\nEsse detalhe importa. Uma interface de aprovação não equivale ainda a uma barreira de aprovação. Para governança real, o caminho completo precisa parar, guardar o token com segurança, esperar a decisão e retomar o mesmo run.\n\nAuditoria e privacidade\n\nO audit log usa uma cadeia SHA-256: cada entrada aponta para o hash anterior, por comunidade. Isso detecta corrupção e edição isolada. O próprio projeto é honesto sobre a limitação: como a cadeia não é assinada por uma autoridade externa, quem possui acesso de escrita ao banco pode reescrever toda a cadeia. É tamper-evident, não tamper-proof.\n\nTambém não há criptografia ponta a ponta como promessa atual. TLS protege o trânsito; a criptografia em repouso é delegada ao Postgres, aos volumes e ao storage operado. Isso favorece busca, eDiscovery e auditoria pelo servidor, mas significa que o relay é capaz de ler o conteúdo.\n\nHá outro achado de arqueologia: o documento de arquitetura ainda descreve a ausência de rate limiting Redis-backed, enquanto o código atual já possui RedisRateLimiter e o conecta à admissão HTTP/WebSocket. A conclusão correta não é “não existe” nem “está perfeito”; é que a documentação ficou atrás da implementação e precisa ser alinhada antes de servir como contrato de segurança.\n\nBuzz Mesh e agentes remotos\n\nO projeto vai além da colaboração. O Buzz Mesh usa identidade de comunidade para compartilhar compute entre membros, com transporte QUIC/Iroh e um endpoint compatível com modelos locais. A tese é: pessoas que já confiam umas nas outras podem compartilhar GPUs sem entregar prompts a um provedor externo. O custo honesto também está documentado: o prompt deixa a máquina e vai para alguém da comunidade.\n\nA visão de agentes remotos segue o mesmo princípio. O desktop faz o handoff inicial para um provider, mas depois não mantém um canal secreto de controle sobre o substrato. O agente conversa, recebe comandos e encerra pelo relay; a máquina onde ele roda é substituível. Isso reduz uma superfície de gerenciamento, embora também elimine um kill switch garantido quando o agente ou a infraestrutura está travado.\n\nComparação com OpenBot e 9Router\n\nDepois das duas pesquisas anteriores, a divisão aparece assim:\n\nBuzz     → onde humanos, agentes, código e memória se encontram\nOpenBot  → como um agente executa browser, arquivos e MCP com política\n9Router  → por qual modelo, conta e provedor a inferência passa\n\nBuzz não substitui o OpenBot: pode ser o espaço de coordenação onde a tarefa, a aprovação e o resultado são registrados, enquanto OpenBot executa a ação governada. Buzz também não substitui o 9Router: um agente ACP poderia, em tese, usar um endpoint compatível fornecido pelo Router, mas não encontrei integração nativa entre os dois no snapshot.\n\nMeu veredito para o Rabelus Lab\n\nBuzz é o projeto mais próximo, entre os três, da ideia de um Quantum Bus visível e operacional. Ele transforma identidade, memória, colaboração e execução em eventos assinados; o nosso bus hoje faz isso por arquivos, Git e convenções. A semelhança conceitual é grande, mas a topologia é diferente: Buzz exige Postgres, Redis, MinIO/S3 e um relay Rust; não é uma ferramenta leve para simplesmente copiar para uma pasta.\n\nEu o avaliaria como plano de colaboração e coordenação agentiva, em laboratório isolado. Não o adotaria ainda como substituto direto do Quantum Bus nem como infraestrutura de produção sem validar backups, recuperação de chaves, TLS, fronteiras multi-community, workflows de aprovação e políticas de membership.\n\nO aprendizado que vale absorver mesmo sem instalar é poderoso: agentes precisam de identidade própria; ações importantes devem virar eventos; conversas, patches e decisões devem compartilhar um log; e a memória útil precisa ser pesquisável no mesmo lugar em que o trabalho acontece.\n\nO OpenBot governa a mão. O 9Router governa a estrada do pensamento. O Buzz tenta construir a sala onde humanos e agentes lembram, discutem, trabalham e deixam prova do que fizeram.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

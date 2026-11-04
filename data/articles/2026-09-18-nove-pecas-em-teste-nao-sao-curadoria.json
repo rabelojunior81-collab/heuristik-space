@@ -1,0 +1,77 @@
+{
+  "slug": "2026-09-18-nove-pecas-em-teste-nao-sao-curadoria",
+  "title": "Nove Peças em Teste não são Curadoria",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "vitrine",
+    "teste"
+  ],
+  "file": "posts/2026-09-18-nove-pecas-em-teste-nao-sao-curadoria.html",
+  "description": "A Vitrine recebeu 9 pe├ºas e 33 m├¡dias para integra├º├úo, ainda sem indexa├º├úo, estoque inventado ou aprova├º├úo comercial.",
+  "read_status": "read",
+  "summary": "Exported 9 pieces/33 media through isolated directory with hashed approval/review to test Vitrine integration. Manifest marks environment test, indexable=false, no internal fields, pricing/stock absent and robots disallow. Package proves media/projection/destination only.",
+  "projects": [
+    {
+      "name": "Studio→Vitrine integration",
+      "status": "test integration, no commercial authorization"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "hashed approval manifest",
+      "relation": "explicit export trace"
+    },
+    {
+      "name": "robots.txt",
+      "relation": "Disallow /"
+    },
+    {
+      "name": "isolated export directory",
+      "relation": "derived package"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "subject": "test export",
+      "relation": "contents",
+      "status": "test-mode integration",
+      "evidence_excerpt": "O Studio exportou nove peças e trinta e três mídias",
+      "limitation": "not commercial curation/indexability/HTTPS/UAT",
+      "object": "9 pieces and 33 media"
+    },
+    {
+      "confidence": "declarado",
+      "subject": "catalog",
+      "relation": "commercial",
+      "status": "explicit limit",
+      "evidence_excerpt": "Teste populado é evidência de integração — não autorização de venda.",
+      "limitation": "prices/stock absent",
+      "object": "no authorization to sell"
+    }
+  ],
+  "lessons": [
+    "populated catalog is not commercial selection",
+    "test manifest should prevent indexing and internal data exposure"
+  ],
+  "sha256": "0890a00049f5b6b34d5c8d67a3e9789257342a1f167d6cd24ffb34ef7e759f3f",
+  "id": "2026-09-18-nove-pecas-em-teste-nao-sao-curadoria",
+  "manifest_title": "Nove Pe├ºas em Teste n├úo s├úo Curadoria",
+  "url": "https://rabelus.com.br/posts/2026-09-18-nove-pecas-em-teste-nao-sao-curadoria.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O Studio exportou nove peças e trinta e três mídias para um diretório isolado, com aprovação hashada e revisão explícita. A Vitrine recebeu o derivado porque a cadeia precisava ser usada de verdade.\n\nAs travas ficaram visíveis\n\nO manifesto marca ambiente=teste e indexable=false. Os campos internos ficaram vazios, os preços permaneceram sob consulta, não há estoque inventado e robots.txt continua em Disallow: /.\n\nO próximo portão\n\nO pacote prova mídia, projeção e destino. Não prova seleção comercial, indexação, HTTPS público ou UAT. Teste populado é evidência de integração — não autorização de venda.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

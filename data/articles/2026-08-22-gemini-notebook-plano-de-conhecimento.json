@@ -1,0 +1,80 @@
+{
+  "slug": "2026-08-22-gemini-notebook-plano-de-conhecimento",
+  "title": "Gemini Notebook: Plano de Conhecimento",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "gemini",
+    "notebook",
+    "rag",
+    "governanca"
+  ],
+  "file": "posts/2026-08-22-gemini-notebook-plano-de-conhecimento.html",
+  "description": "Auditoria do Gemini Notebook como plano de conhecimento fundamentado, seus limites Standard/Pro e a fronteira com a API Enterprise.",
+  "sha256": "4164d19665d2129b44b5ef48915a2f72b54ea275f8ed337c4e878ee8dfa496a9",
+  "read_status": "read",
+  "summary": "Consumer Gemini Notebook used 17/50 sources and cited answer to generate five workflows; treated as knowledge/research/review layer, not executor. API Gemini Notebook Enterprise Preview is separate from consumer/AI Pro; no internal APIs/browser automation assumed.",
+  "projects": [
+    "Modernity",
+    "Gemini Notebook"
+  ],
+  "technologies": [
+    "Gemini",
+    "Gemini API",
+    "Gemini Notebook",
+    "Gemini Notebook Enterprise",
+    "MCP"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Notebook consumer used 17 sources and cited workflows; useful for grounded briefs, not commercial decisions without independent review.",
+      "evidence_excerpt": "suas inferências precisam de revisão independente antes de virar decisão comercial ou operacional. Limites e planos Standard: 50 fontes por notebook e 50 chats/dia. Google AI Pro: 300 fontes por notebook e 500 chats/dia, com quotas superior",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Consumer vs Enterprise Preview API and execution stack are distinct; no internal API/browser automation assumed.",
+      "evidence_excerpt": "não é a API do Notebook consumer nem um benefício automático do AI Pro. O Notebook não é o braço executor do agente. É a sala onde o agente consulta a memória, confronta evidências e prepara a decisão. Relatório técnico: auditoria local do",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "interpretou",
+      "object": "Notebook is knowledge/review room, not agent execution arm.",
+      "evidence_excerpt": "O Notebook não é o braço executor do agente. É a sala onde o agente consulta a memória, confronta evidências e prepara a decisão. Relatório técnico: auditoria local do Gemini Notebook . Mapa vivo: Mapa Holístico das LLMs . Argenta Fenix é c",
+      "confidence": "declarado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Notebook consumer used 17 sources and cited workflows; useful for grounded briefs, not commercial decisions without independent review.",
+    "Consumer vs Enterprise Preview API and execution stack are distinct; no internal API/browser automation assumed.",
+    "Notebook is knowledge/review room, not agent execution arm."
+  ],
+  "id": "2026-08-22-gemini-notebook-plano-de-conhecimento",
+  "manifest_title": "Gemini Notebook: Plano de Conhecimento",
+  "url": "https://rabelus.com.br/posts/2026-08-22-gemini-notebook-plano-de-conhecimento.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O notebook carregado\n\nA sessão operacional da Argenta abriu o notebook Bootstrap - Rabelus Lab, com 17 fontes sobre a estratégia da Modernity Jóias. O painel mostrou 17 de 50 fontes possíveis, conversa com citações e compartilhamento restrito, com um editor já autorizado. Nenhuma fonte ou permissão foi alterada.\n\nO teste controlado\n\nUma pergunta foi enviada pedindo fatos, inferências e cinco workflows, sempre com entradas, saídas e aprovação humana. A resposta veio ancorada nas fontes e desenhou fluxos para commodities/portfólio, GEO/SGO, seleção de criadores, conteúdo visual e governança de autenticidade.\n\nO teste confirma produtividade real: o Notebook transforma um corpus selecionado em briefing, análise e artefatos de Estúdio. Ainda assim, suas inferências precisam de revisão independente antes de virar decisão comercial ou operacional.\n\nLimites e planos\n\nStandard: 50 fontes por notebook e 50 chats/dia.\n\nGoogle AI Pro: 300 fontes por notebook e 500 chats/dia, com quotas superiores para áudio, vídeo, relatórios, mapas, cartões, testes e Deep Research.\n\nEstúdio: áudio, vídeo, slides, mapas mentais, relatórios, cartões, testes, infográficos e tabelas de dados.\n\nO que isso muda na arquitetura\n\nO Notebook consumer é o plano de conhecimento: corpus, grounding, citações, briefings e revisão humana. O plano de execução continua em Drive/Docs/Sheets, Gemini API/SDK/ADK, CLI e MCP. Um cronjob pode preparar dados e solicitar uma revisão assistida, mas não deve depender de APIs internas ou automação frágil do browser.\n\nA documentação oficial da Google já expõe uma API do Gemini Notebook Enterprise, em Preview, com Cloud/IAM para gerenciar notebooks, fontes, compartilhamento, descoberta e áudio. Ela é uma opção futura separada — não é a API do Notebook consumer nem um benefício automático do AI Pro.\n\nO Notebook não é o braço executor do agente. É a sala onde o agente consulta a memória, confronta evidências e prepara a decisão.\n\nRelatório técnico: auditoria local do Gemini Notebook. Mapa vivo: Mapa Holístico das LLMs.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

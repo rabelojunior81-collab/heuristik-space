@@ -1,0 +1,69 @@
+{
+  "slug": "2026-08-22-wifi-bluetooth-hardware-block",
+  "title": "Wi‑Fi e Bluetooth: o Software Foi Reabilitado, o Rádio Não Respondeu",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "wifi",
+    "bluetooth",
+    "hardware"
+  ],
+  "file": "posts/2026-08-22-wifi-bluetooth-hardware-block.html",
+  "description": "Auditoria profunda do WiÔÇæFi e Bluetooth do Raspberry Pi 3 Model B: configura├º├úo corrigida, mas falhas de timeout no barramento interno indicam bloqueio de hardware.",
+  "sha256": "ed394e796514cc02b9f4f66bd8969dff3202df9d7ce0ab04ce3cb0e745c513dc",
+  "read_status": "read",
+  "summary": "Removed software rfkill/overlay blocks, installed BlueZ/WiFi tools and corrected UART. wlan0/hci0 still timeout -110; power 3.3V nominal, so hardware hypothesis remains, proposed clean image/dongle confirmation.",
+  "projects": [
+    {
+      "name": "Pi onboard Broadcom combo",
+      "status": "suspected hardware fault"
+    },
+    {
+      "name": "Bluetooth/WiFi software",
+      "status": "configured"
+    }
+  ],
+  "technologies": [
+    "rfkill",
+    "bluez",
+    "iw",
+    "UART",
+    "Netplan"
+  ],
+  "claims": [
+    {
+      "subject": "Pi onboard Broadcom combo",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "wlan0 não é criado",
+      "evidence_excerpt": "wlan0 não é criado",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Software changes did not repair radio"
+    },
+    {
+      "subject": "Pi onboard Broadcom combo",
+      "relation": "autor interpreta a evidência",
+      "object": "aponta para o rádio onboard não respondendo eletricamente",
+      "evidence_excerpt": "aponta para o rádio onboard não respondendo eletricamente",
+      "confidence": "interpretacao",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Hardware not confirmed; clean image/dongle test proposed"
+    }
+  ],
+  "lessons": [
+    "Software changes did not repair radio",
+    "Hardware not confirmed; clean image/dongle test proposed"
+  ],
+  "id": "2026-08-22-wifi-bluetooth-hardware-block",
+  "manifest_title": "WiÔÇæFi e Bluetooth: o Software Foi Reabilitado, o R├ídio N├úo Respondeu",
+  "url": "https://rabelus.com.br/posts/2026-08-22-wifi-bluetooth-hardware-block.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "O que foi corrigido\n\nRemovido dtoverlay=disable-wifi do boot.\n\nInstalados bluez, rfkill, iw, pi-bluetooth e firmware Bluetooth.\n\nConfigurado dtoverlay=miniuart-bt e removido o console serial que ocupava a UART.\n\nPaís regulatório ajustado para BR; backups protegidos mantidos em /root/argenta-fenix-pi-backups/.\n\nEvidência residual\n\nMesmo com o software ativo, wlan0 não é criado e o kernel registra mmc1: error -110 whilst initialising SDIO card. O Bluetooth registra hci0: BCM: Reset failed (-110). O rfkill está desbloqueado, o firmware Broadcom existe, a fonte reporta throttled=0x0 e a alimentação lógica de 3,3 V está nominal.\n\nWi‑Fi e Bluetooth compartilham o mesmo combo Broadcom; a coincidência dos dois timeouts depois da correção de software aponta para o rádio onboard não respondendo eletricamente. O SSID/senha ainda não foram aplicados porque o hardware não chegou a criar a interface.\n\nPróximo teste\n\nO teste de maior valor é iniciar uma imagem nativa limpa ou conectar um dongle USB Wi‑Fi/Bluetooth. Se o dongle funcionar, o Pi permanece útil e a falha fica isolada ao combo onboard; se a imagem limpa também repetir os mesmos timeouts, a hipótese de hardware fica confirmada.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,335 @@
+{
+  "slug": "a11delavar--mitra",
+  "name": "Mitra",
+  "url": "https://github.com/a11delavar/mitra",
+  "category": "Negócios e produtividade",
+  "summary": "Mitra combina calendário e tarefas em linha do tempo e permite calendários próprios ou sincronização com CalDAV, Google, Apple, Notion, Todoist e Tempo. O README alerta que o produto ainda é pré-1.0 e sujeito a mudanças. O compose monta `~/mitra` em `/app/data`; a documentação MCP esclarece que uma ferramenta conectada pode ler e alterar os calendários e que, sem login, qualquer pessoa que alcance a URL pode usar a instância. É uma referência direta para agenda e MCP, com risco operacional claro em credenciais, sincronização e mutações. Licença AGPL-3.0. Pesquisa documental apenas, sem conectar contas ou executar o container.",
+  "topics": [
+    "calendário",
+    "tarefas",
+    "CalDAV",
+    "MCP",
+    "self-hosted",
+    "sincronização",
+    "AGPL"
+  ],
+  "aliases": [
+    "Mitra calendar",
+    "agenda de tarefas",
+    "MCP calendário",
+    "self-hosted calendar"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "kind": "observed",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "CONFIRMADO pelo README: calendário e tarefas em visualizações semana, mês, ano, timeline e tabela; oferece planejamento de tarefas, disponibilidade, subtarefas, dependências, anexos, notificações, convidados e respostas. O aviso do próprio README classifica o produto como inicial e sujeito a breaking changes antes de 1.0."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Sincronização e dados",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "RELATADO: calendários podem ficar no próprio Mitra ou sincronizar bidirecionalmente com CalDAV, Google Calendar, Apple Calendar, Notion, Todoist e Tempo; feeds publicados são descritos como somente leitura. O compose fixa volume persistente em `~/mitra:/app/data`. A pesquisa não testou consistência, conflitos, exclusões remotas, criptografia, cópias de segurança ou recuperação dos conectores."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "MCP e permissões",
+      "kind": "observed",
+      "source_ids": [
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO na documentação oficial de conectores: MCP pode ler e modificar os calendários e ações chegam ao provedor como ações do usuário. Com login, tokens têm permissão read-only ou read-and-write e apenas fingerprint é mantido pelo Mitra; token é mostrado uma única vez e pode ser revogado. Sem login, o servidor é de usuário único sem token: qualquer pessoa que consiga alcançar a URL pode usar a API. A recomendação explícita é manter servidor sem autenticação privado."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Implantação, custo e operação",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: distribuição Docker Compose para um container, com porta 3000 e volume persistente; README descreve um pequeno container e banco próprio. Isso não inclui host, domínio, TLS, backup externo, monitoramento ou gestão de credenciais dos conectores. Custo de hospedagem e providers de calendário não foi cotado; a existência de código aberto não prova operação sem custos."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Licença e estado",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S4",
+        "S5",
+        "S10"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público de 2026-11-03: 146 stars, 8 forks, 10 issues abertas; TypeScript; não arquivado; branch main; último push 2026-10-29. GitHub define stars como marcações feitas por usuários e forks como cópias no grafo do repositório; issues abertas são o contador público e não defeitos confirmados. LICENSE/package declaram AGPL-3.0-only. Releases, docs e imagem em GHCR são apontadas no README; contagem/estado de releases não foi auditada nesta consulta. Métricas não indicam estabilidade nem segurança."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Aderência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "paragraphs": [
+        "ANÁLISE: a combinação de agenda, tarefas, planejamento e protocolo MCP pode servir de referência para um assistente pessoal com ações rastreáveis. O risco central é a autoridade dada ao conector: token gravável pode alterar compromissos e propagar alterações aos provedores. O caso sem autenticação é especialmente inadequado para endpoint exposto. A licença AGPL também requer análise antes de incorporar ou disponibilizar serviço modificado em rede."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Ensaios propostos e limites",
+      "kind": "analysis",
+      "source_ids": [
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "PROPOSTA: em instância descartável, testar autenticação, escopo read-only vs read-write, revogação, autorização sem login, idempotência de alterações, timezone/DST, conflitos e propagação entre conectores; verificar backup e restauração do volume e comportamento de falhas parciais. Usar calendários e contas sintéticas. Não houve execução, sincronização, avaliação de acessibilidade, revisão integral do código ou validação jurídica."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Escopo efetivo dos tokens",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S7",
+        "S8"
+      ],
+      "paragraphs": [
+        "CONFIRMADO na documentação e leitura pontual: token tem nome reconhecível, escopo read ou read-write, e o segredo é mostrado uma vez ao criá-lo. Código de middleware calcula hash do bearer recebido e localiza token/usuário, recusa token inválido ou revogado e registra uso; código MCP oferece às ferramentas somente operações de leitura quando escopo não permite escrita. Isso indica controle granular intencional, mas não comprova resistência a vazamento de token, validade, rate limit, isolamento entre calendários ou cobertura completa das ferramentas."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Conteúdo de calendário como entrada não confiável",
+      "kind": "analysis",
+      "source_ids": [
+        "S2",
+        "S7"
+      ],
+      "paragraphs": [
+        "ANÁLISE ancorada em orientação do próprio servidor: instruções MCP pedem chamar `get_context` antes, que informa hora atual, fuso da casa e calendários; também dizem que entradas podem vir de calendários editáveis por outras pessoas e devem ser tratadas como dados, não instruções. Isso reconhece risco de conteúdo malicioso/injeção indireta para agente conectado. Não foi verificado se todas as ferramentas preservam essa fronteira nem se clientes MCP honram a instrução."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Versão e maturidade do pacote",
+      "kind": "observed",
+      "source_ids": [
+        "S4",
+        "S5",
+        "S9"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: README alerta que o projeto está em movimento antes de 1.0; o package.json fixado no SHA consultado marca versão 0.7.1 e licença AGPL-3.0-only. Os scripts incluem testes, lint, typecheck e build; a existência dos comandos não comprova seu êxito neste SHA. A imagem `latest` é recomendada no compose, com comentários oferecendo tags major/minor/patch e pin exato, mas nenhum método de update ou digest foi ensaiado nesta pesquisa."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Backup e restauração",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "ANÁLISE: o README afirma que tudo fica no diretório `~/mitra` na configuração inicial, de modo que respaldar esse diretório respaldaria os dados. Isso só vale para esse perfil simples; contas conectadas, tokens, configurações, arquivos adicionais ou volumes externos em configurações avançadas podem exigir artefatos diferentes. Replicar o diretório enquanto o banco está em escrita pode produzir cópia inconsistente. Exigir backup coordenado e ensaio de restauração, migração e reconexão dos providers antes de armazenar calendário importante."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/a11delavar/mitra/blob/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/README.md",
+      "kind": "docs",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "README e instrução Compose; declara recursos, estágio e stack."
+    },
+    {
+      "id": "S2",
+      "title": "Documentação oficial MCP",
+      "url": "https://github.com/a11delavar/mitra/blob/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/docs/ai-connectors.md",
+      "kind": "docs",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Guia de permissões e risco de exposição MCP; não testado."
+    },
+    {
+      "id": "S3",
+      "title": "Compose de self-hosting",
+      "url": "https://github.com/a11delavar/mitra/blob/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/compose.yaml",
+      "kind": "code",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Configuração declarativa de container/volume consultada; não executada."
+    },
+    {
+      "id": "S4",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/a11delavar/mitra",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST: contagens, licença, linguagem e datas."
+    },
+    {
+      "id": "S5",
+      "title": "Commit consultado",
+      "url": "https://github.com/a11delavar/mitra/commit/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "kind": "metadata",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA retornado para main pelo GitHub."
+    },
+    {
+      "id": "S6",
+      "title": "Licença",
+      "url": "https://github.com/a11delavar/mitra/blob/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/LICENSE",
+      "kind": "license",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "README e metadados identificam AGPL-3.0; caminho do LICENSE fixado ao SHA."
+    },
+    {
+      "id": "S7",
+      "title": "Implementação MCP",
+      "url": "https://github.com/a11delavar/mitra/blob/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/src/features/agents/server/mcp.ts",
+      "kind": "code",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura estática do setup MCP, contexto requerido e filtragem por escopo; sem requisições."
+    },
+    {
+      "id": "S8",
+      "title": "Emissão e middleware de tokens",
+      "url": "https://github.com/a11delavar/mitra/tree/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/src/features/identity/server",
+      "kind": "code",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual de CreateAccessToken.ts e accessTokenMiddleware.ts."
+    },
+    {
+      "id": "S9",
+      "title": "Manifesto de pacote",
+      "url": "https://github.com/a11delavar/mitra/blob/ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091/package.json",
+      "kind": "code",
+      "ref": "ccbd7e0ebc83dc14ba7e68b42bfe11cb2157a091",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Versão, licença e scripts declarados; não executados."
+    },
+    {
+      "id": "S10",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "GitHub define star como bookmark; schema do repo distingue forks_count. Ver docs REST de forks para o significado de cópias derivadas."
+    }
+  ],
+  "findings": [
+    {
+      "title": "MCP possui capacidade de mutação",
+      "certainty": "CONFIRMADO",
+      "detail": "A documentação informa que ferramenta conectada pode ler e alterar calendários e que alterações alcançam provedores conectados.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Instância sem autenticação deve permanecer privada",
+      "certainty": "CONFIRMADO",
+      "detail": "A própria documentação alerta que qualquer pessoa com alcance de rede à URL pode usar MCP quando não há login.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Projeto pré-1.0 e sujeito a breaking changes",
+      "certainty": "RELATADO",
+      "detail": "Aviso publicado pelo projeto; não é verificação independente de estabilidade.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental; container não executado e nenhum conector autorizado",
+  "limitations": [
+    "Nenhuma sincronização, ação MCP, login ou revogação foi testada.",
+    "Não foi feita auditoria de armazenamento de tokens, backups, segurança, acessibilidade ou custo.",
+    "Estado e métricas do GitHub são instantâneo datado."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "a11delavar/mitra",
+    "html_url": "https://github.com/a11delavar/mitra",
+    "description": "One calendar to plan your events and tasks",
+    "homepage": "https://mitracal.com",
+    "default_branch": "main",
+    "created_at": "2026-05-21T17:22:32Z",
+    "updated_at": "2026-11-03T20:40:05Z",
+    "pushed_at": "2026-10-29T18:22:51Z",
+    "stargazers_count": 146,
+    "forks_count": 8,
+    "open_issues_count": 10,
+    "subscribers_count": 0,
+    "network_count": 8,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "apple-calendar",
+      "caldav",
+      "calendar",
+      "events",
+      "google-calendar",
+      "notion",
+      "planning",
+      "reminders",
+      "self-hosted",
+      "tasks"
+    ],
+    "size": 107902,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "slug": "win4r--video-director",
+  "name": "video-director",
+  "url": "https://github.com/win4r/video-director",
+  "category": "Skills para Claude",
+  "summary": "video-director é um pacote de instruções e scripts para guiar Claude Code em vídeos curtos gerados deterministicamente como HTML/Canvas/SVG/Three.js/GSAP/Remotion e renderizados em MP4. Inclui gates de briefing/timeline, QA audiovisual e pequenos briefs de avaliação. Não é um serviço de geração hospedado nem traz modelo; depende do harness, renderizador, ffmpeg e bibliotecas locais. O próprio README diz que a avaliação comparativa executou cada brief uma única vez e não cobre conteúdos adicionados depois, portanto resultados publicados são exploratórios, não evidência de superioridade geral.",
+  "topics": [
+    "skill Claude Code",
+    "vídeo gerado por código",
+    "renderização",
+    "QA audiovisual",
+    "timeline",
+    "evals",
+    "MIT"
+  ],
+  "aliases": [
+    "diretor de vídeo por código",
+    "skill de vídeo Claude",
+    "HTML para MP4",
+    "checagem de vídeo"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Objetivo e método",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README posiciona a skill primariamente para Claude Opus 5.5 em Claude Code e propõe planejar um filme com números, construir animação determinística e medir propriedades que o agente não consegue observar diretamente. Os formatos incluem HTML, Canvas, SVG, Three.js, GSAP e Remotion. Esta é uma metodologia de trabalho/instrução; não entrega modelo próprio, serviço de vídeo remoto nem shots prontos para reutilização."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Conteúdo e dependências",
+      "kind": "observed",
+      "paragraphs": [
+        "O inventário lista SKILL.md, templates de treatment/timeline/fatos/relatório, números de craft, catálogo de QA, rubric de crítica, scripts check_timeline.py e qa_video.py, três briefs de eval e metodologia baseada em oito repositórios. README requer ffmpeg/ffprobe e Python com numpy/Pillow; filmes HTML exigem Node, Playwright e Chromium ou Remotion; faster-whisper é opcional para narração. A lista de ferramentas define uma cadeia operacional que deve ser compatível e mantida no ambiente que renderiza."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "O que os checks conseguem dizer",
+      "kind": "analysis",
+      "paragraphs": [
+        "Os checks mencionados medem critérios como contraste/tamanho de texto, frame inicial, flashes, cortes, congelamento, costura de loop, loudness, silêncio e contato visual. Eles podem revelar defeitos mensuráveis, mas não certificam coerência narrativa, direitos de mídia, identidade de produto, fidelidade de briefing nem qualidade percebida integral. A própria skill distingue orientação e revisão humana; resultado automatizado precisa ser conferido em playback com áudio e contexto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Evidência publicada",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README relata três briefs por configuração, com 28/28 versus 25/28 assertions e preferência cega 2–1 em uma rodada, depois 30/32 versus 26/32 e 3–0 em outra; custo reportado inclui aproximadamente o dobro de tempo/tokens na primeira. O mantenedor observa que houve apenas uma execução por configuração, que character/illustrated/revision/live-page foram acrescentados depois sem avaliação e que comparação entre modelos não foi estabelecida. Esses limites impedem generalizar os resultados como medição robusta."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Portabilidade e licença",
+      "kind": "observed",
+      "paragraphs": [
+        "Instruções se concentram em Claude Code e recomendam um modelo nomeado, mas outros agentes de código podem seguir o workflow se disponibilizarem as ferramentas necessárias. A qualidade depende de ferramentas locais e modelo selecionado. Repositório declara MIT. Ausência de releases nomeadas indica distribuir diretamente o conteúdo versionado em Git; isso não elimina necessidade de pinagem de commit antes de avaliação reproduzível."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Pertinência e validação",
+      "kind": "analysis",
+      "paragraphs": [
+        "Pode ser referência para transformar um brief audiovisual em tratamento, timeline, código reproduzível e pacote de QA. Para o Lab, o material útil seria a disciplina de critérios/relato, não assumir um modelo como padrão ou confiar em seus outputs sem conferência de fonte e produto. Avaliar em um único vídeo sintético com oráculo de tempo/texto/áudio, repetir configuração, comparar resultado cego e separar medição de aceitação estética. Nenhuma skill, dependência ou script foi instalado ou executado nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Gates do processo",
+      "kind": "observed",
+      "paragraphs": [
+        "README anuncia gates de etapa e skill descreve briefing, treatment, timeline, build contract e definição de pronto. Isso aumenta a rastreabilidade potencial: a validação da timeline ocorre antes da geração e a inspeção do MP4 após render. O gate só vale quando é executado, e um script sem erro não substitui conferência do vídeo/audio, fontes, direitos ou aceite de quem pediu o trabalho."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Reprodutibilidade e formatos de entrega",
+      "kind": "analysis",
+      "paragraphs": [
+        "A abordagem determinística pressupõe controlar timebase, viewport, fontes, assets, versão de navegador, exportador e parâmetros do encoder. MP4 final sozinho perde editabilidade e relação com timeline; para repetir, guardar código, brief, timeline, dependências e relatório junto com o render. QA inclui contato sheets, loudness e silêncio; isso suporta inspeção, mas não certifica equivalência entre máquinas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Licença e cadeia de ferramentas",
+      "kind": "observed",
+      "paragraphs": [
+        "O repositório declara MIT. Dependências mencionadas (Node/Playwright/Chromium, ffmpeg, Remotion, TTS, faster-whisper) possuem licenças e condições próprias, não cobertas automaticamente pelo MIT da skill. Incorporar música, fontes, gravações ou vídeos requer autorizações individuais. Nenhuma SBOM, pinagem de versões nem auditoria de licenças transitivas foi publicada no trecho consultado."
+      ],
+      "source_ids": [
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Estado e maturidade",
+      "kind": "observed",
+      "paragraphs": [
+        "HEAD pinado é 4747e5c153509ef7f8f7fd1a0aad6acfda36280d (30 out 2026 conforme API GitHub); a página de releases não lista releases. A avaliação então depende de clone/commit e não de artefato versionado assinado. README e metodologia são fontes mutáveis; para reprodução, registrar SHA, modelo exato e custo/tokens de cada sessão. A inexistência de release não implica inatividade ou defeito, apenas muda a garantia de distribuição."
+      ],
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://raw.githubusercontent.com/win4r/video-director/4747e5c153509ef7f8f7fd1a0aad6acfda36280d/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "4747e5c153509ef7f8f7fd1a0aad6acfda36280d",
+      "note": "Fonte primária pinada; resultados de eval atribuídos ao mantenedor com limites explícitos.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "video-director/SKILL.md",
+      "url": "https://github.com/win4r/video-director/blob/4747e5c153509ef7f8f7fd1a0aad6acfda36280d/video-director/SKILL.md",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "4747e5c153509ef7f8f7fd1a0aad6acfda36280d",
+      "note": "Arquivo principal da skill no commit pinado; revisado como conteúdo, não carregado em agente.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "Releases",
+      "url": "https://github.com/win4r/video-director/releases",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "página informa que não há releases",
+      "note": "Distribuição atual observada no GitHub; tags/commits podem ainda existir.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "LICENSE",
+      "url": "https://github.com/win4r/video-director/blob/4747e5c153509ef7f8f7fd1a0aad6acfda36280d/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "4747e5c153509ef7f8f7fd1a0aad6acfda36280d",
+      "note": "README declara MIT; licença do commit pinado.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "Commit HEAD",
+      "url": "https://github.com/win4r/video-director/commit/4747e5c153509ef7f8f7fd1a0aad6acfda36280d",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "4747e5c153509ef7f8f7fd1a0aad6acfda36280d",
+      "note": "API pública do GitHub; commit message: docs: add 3D character video demo to both READMEs.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Ferramenta de orientação e QA, sem motor de geração incluído",
+      "certainty": "CONFIRMADO",
+      "detail": "README descreve skill/scripts e diz expressamente que não é modelo ou serviço hospedado.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Benchmarks publicados são pequenos e exploratórios",
+      "certainty": "CONFIRMADO",
+      "detail": "Apenas três briefs e uma rodada por configuração; própria documentação exclui novas modalidades e comparação controlada entre modelos.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Utilidade como referência de QA audiovisual",
+      "certainty": "HIPÓTESE",
+      "detail": "Aderência depende de replicar em brief próprio e avaliar playback/aceitação além dos checks automáticos.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; scripts, avaliações e vídeos não foram executados ou reproduzidos",
+  "limitations": [
+    "main não pinado por SHA; resultados e dependências podem mudar.",
+    "Não examinei script linha a linha nem testei falsos positivos/negativos dos checks.",
+    "N amostral pequeno, uma execução por configuração e conteúdo adicionado depois sem avaliação segundo README.",
+    "Direitos e origem dos assets de demonstração não foram auditados nesta amostra."
+  ],
+  "related": [
+    "motionsites-ai--claude-skill"
+  ],
+  "metrics": {
+    "full_name": "win4r/video-director",
+    "html_url": "https://github.com/win4r/video-director",
+    "description": "A Claude skill for directing, building and verifying code-rendered videos (HTML/Canvas → MP4): principles, gated workflow, QA scripts and evals.",
+    "homepage": null,
+    "default_branch": "main",
+    "created_at": "2026-10-28T03:35:27Z",
+    "updated_at": "2026-11-03T20:40:27Z",
+    "pushed_at": "2026-10-30T06:04:14Z",
+    "stargazers_count": 297,
+    "forks_count": 26,
+    "open_issues_count": 0,
+    "subscribers_count": 1,
+    "network_count": 26,
+    "archived": false,
+    "disabled": false,
+    "language": "Python",
+    "topics": [],
+    "size": 34132,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "slug": "veloxbase--veloxdb",
+  "name": "VeloxDB",
+  "url": "https://github.com/veloxbase/veloxdb",
+  "category": "Ferramentas de desenvolvimento e UI",
+  "summary": "VeloxDB é um cliente desktop de bancos com frontend React/Tauri e drivers Rust para motores SQL e NoSQL. Oferece editor, resultados, diagramas e conexões diretas, mas a leitura encontrou um ponto decisivo para o Lab: apesar da comunicação sem cloud no README, o código inclui Ask Veloxy via OpenRouter e envio de contexto de esquema. Há também PR aberta relatando caminhos de escrita sem confirmação no lint e na IA; o lint consultado usa EXPLAIN concatenado em simple_query. Isso não foi explorado nem reproduzido. O projeto interessa para comparação de UX e protocolos, condicionado a ensaio sintético e investigação desses limites antes de acesso a dados.",
+  "topics": [
+    "bancos de dados",
+    "SQL",
+    "NoSQL",
+    "Tauri",
+    "Rust",
+    "OpenRouter",
+    "credenciais",
+    "diagramas"
+  ],
+  "aliases": [
+    "bancos de dados",
+    "SQL",
+    "NoSQL",
+    "Tauri",
+    "Rust",
+    "OpenRouter",
+    "credenciais",
+    "diagramas"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "paragraphs": [
+        "CONFIRMADO: trata-se de cliente de administração e consulta, não de um novo servidor de banco. O README anuncia workspace SQL, histórico, favoritos, grade virtualizada, diagrama ER, edição de estrutura e exportação. São funções com diferentes níveis de efeito: observar resultado, modificar uma célula e aplicar DDL não têm o mesmo risco. A simples abertura do cliente não seria um ensaio suficiente para aceitar todos esses contratos no Lab."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura e protocolos",
+      "paragraphs": [
+        "CONFIRMADO: React, CodeMirror, ReactFlow e Tauri compõem a interface; Rust concentra drivers e comandos. Há módulos para PostgreSQL, MySQL, SQLite, DuckDB, MongoDB, Redis, ClickHouse, LibSQL, MSSQL e Cassandra. A lista de treze produtos anunciados compartilha protocolos: AzureSQL usa TDS, ScyllaDB usa CQL e Turso usa pipeline HTTP. Quantidade de nomes não significa treze implementações independentes nem cobertura integral das variantes de autenticação e tipos."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Dependências e plataformas",
+      "paragraphs": [
+        "CONFIRMADO: o README e Cargo manifestam drivers tokio-postgres, sqlx, tiberius, scylla, mongodb, redis, duckdb e reqwest. Existem pacotes para macOS, Windows e Linux e caminho de preview somente frontend. Esse preview não comprova conexão nativa: a abstração de repository admite ambientes com transporte diferente. O README também menciona sshpass para autenticação SSH por senha. Os requisitos de secret service, TLS e runtime precisam ser conferidos por sistema antes de uma avaliação funcional."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-4",
+      "title": "Persistência e segredos",
+      "paragraphs": [
+        "CONFIRMADO: credentials.rs usa keyring e o serviço com.veloxdb.app para senhas por conexão e chave OpenRouter. Há funções de armazenar, recuperar e apagar credenciais. Isso comprova intenção de usar cofre nativo, mas não auditoria de permissões, disponibilidade do serviço ou ausência de cópias em logs e estado. O README anuncia restauração de abas, rascunhos e diagramas; localização e criptografia dos demais dados persistidos permanecem NÃO IDENTIFICADAS nesta amostra."
+      ],
+      "source_ids": [
+        "S7"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-5",
+      "title": "Conexões e transporte",
+      "paragraphs": [
+        "RELATADO: a documentação oferece SSL/TLS, CA customizada e túneis SSH; os modos incluem desabilitar, preferir ou exigir. Não se deve chamar toda conexão de criptografada apenas porque o programa suporta TLS. O relato aberto64 descreve falha de conexão AzureSQL; não foi reproduzido. Um futuro teste precisaria diferenciar certificado inválido, hostname, autenticação, tipos numéricos, timeout e reconexão por motor, com servidores e credenciais sintéticos."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S13"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-6",
+      "title": "IA e fronteira de dados",
+      "paragraphs": [
+        "CONFIRMADO: commands/veloxy.rs lê schema e chaves estrangeiras, monta prompt com nome de banco, engine, tarefa, histórico recente e contexto e chama endpoint chat/completions a partir da configuração OpenRouter. Há armazenamento da chave no keyring. Portanto a frase promocional sem cloud não pode ser generalizada ao caminho opcional de IA. Retenção no provider, roteamento para modelo e custo por token não foram identificados; prompt e esquema podem conter informações confidenciais mesmo sem linhas da tabela."
+      ],
+      "source_ids": [
+        "S9",
+        "S11"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-7",
+      "title": "Lint e escrita sem confirmação",
+      "paragraphs": [
+        "CONFIRMADO: lint.rs, no código consultado, concatena EXPLAIN ao SQL e chama simple_query no caminho PostgreSQL; SQLite usa EXPLAIN QUERY PLAN com sqlx. RELATADO: PR66 aberta descreve execução de instruções adicionais e caminhos Ask Veloxy sem confirmação, propondo correção. A presença da proposta não demonstra correção incorporada ao SHA. Não houve execução de SQL, tentativa de exploração ou auditoria completa. O achado impede recomendação de conexão com bases reais nesta fase."
+      ],
+      "source_ids": [
+        "S10",
+        "S12"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-8",
+      "title": "UX e acessibilidade",
+      "paragraphs": [
+        "RELATADO: o README anuncia atalhos, paleta, temas e internacionalização. A arquitetura com grid virtual e canvas oferece recursos úteis para volume e modelagem, mas a navegação por leitor de tela, seleção por teclado e associação de relações no diagrama não foi testada. Preview de migração é boa superfície de revisão, desde que a execução corresponda ao texto exibido. Não se inferiu que toda escrita exige confirmação nem que histórico restaura corretamente depois de falha."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-9",
+      "title": "Licença, custos e manutenção",
+      "paragraphs": [
+        "CONFIRMADO: LICENSE é MIT e a release v0.4.1 descreve correções de MongoDB e Redis e endurecimento de engines. Há referências históricas a abeni16 em links internos do README, enquanto a URL fornecida resolve em veloxbase; o conteúdo deve ser ligado ao endereço atual e ao SHA. Não foi identificado preço obrigatório do cliente. Bancos gerenciados, provider de IA e operação têm custos próprios; a licença MIT não os torna gratuitos."
+      ],
+      "source_ids": [
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S14"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-10",
+      "title": "Alternativas e pertinência ao Lab",
+      "paragraphs": [
+        "Análise: DBeaver, clientes oficiais e ferramentas de linha de comando são comparadores adequados por protocolo e operação, sem avaliação atual desses produtos aqui. Para o Lab, o valor imediato é o estudo da ponte React/Rust, dos formulários multi-engine, da prévia de DDL e da separação de cofres. A adoção exigiria primeiro resolver a fronteira de IA e validar escrita, cancelamento e recuperação. Este relatório não aprova substituir ferramentas de banco ou instalar o produto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Próximos ensaios",
+      "paragraphs": [
+        "Proposta: começar com container ou arquivo sintético descartável e usuário somente leitura; conferir persistência de senhas e rascunhos, desligar IA e medir tráfego. Verificar status e diff da PR66 antes de testar lint com múltiplas instruções em base descartável. Depois testar tipos, Unicode, transações, rollback, limite de linhas, TLS inválido e exportação. Só uma segunda etapa poderia considerar escrita deliberada. Nenhuma consulta de banco ou provider foi realizada nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/README.md",
+      "kind": "docs",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S2",
+      "title": "Árvore do código",
+      "url": "https://github.com/veloxbase/veloxdb/tree/ed58ff79acba554dd56444e54f6cdca64dede246",
+      "kind": "code",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "Licença",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/LICENSE",
+      "kind": "license",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "Último commit consultado",
+      "url": "https://github.com/veloxbase/veloxdb/commit/ed58ff79acba554dd56444e54f6cdca64dede246",
+      "kind": "metadata",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "Releases consultadas",
+      "url": "https://github.com/veloxbase/veloxdb/releases",
+      "kind": "release",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "Issues e PRs abertos consultados",
+      "url": "https://github.com/veloxbase/veloxdb/issues",
+      "kind": "issue",
+      "ref": "branch",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S7",
+      "title": "src-tauri/src/credentials.rs",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/src-tauri/src/credentials.rs",
+      "kind": "code",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S8",
+      "title": "src-tauri/src/db.rs",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/src-tauri/src/db.rs",
+      "kind": "code",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta documental pública pelo plugin GitHub; sem execução."
+    },
+    {
+      "id": "S9",
+      "title": "src-tauri/src/commands/veloxy.rs",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/src-tauri/src/commands/veloxy.rs",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "kind": "code",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta pública documental; relatos sem reprodução."
+    },
+    {
+      "id": "S10",
+      "title": "src-tauri/src/commands/lint.rs",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/src-tauri/src/commands/lint.rs",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "kind": "code",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta pública documental; relatos sem reprodução."
+    },
+    {
+      "id": "S11",
+      "title": "src-tauri/src/lib.rs",
+      "url": "https://github.com/veloxbase/veloxdb/blob/ed58ff79acba554dd56444e54f6cdca64dede246/src-tauri/src/lib.rs",
+      "ref": "ed58ff79acba554dd56444e54f6cdca64dede246",
+      "kind": "code",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta pública documental; relatos sem reprodução."
+    },
+    {
+      "id": "S12",
+      "title": "pull/66",
+      "url": "https://github.com/veloxbase/veloxdb/pull/66",
+      "ref": "pull/66",
+      "kind": "issue",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta pública documental; relatos sem reprodução."
+    },
+    {
+      "id": "S13",
+      "title": "issues/64",
+      "url": "https://github.com/veloxbase/veloxdb/issues/64",
+      "ref": "issues/64",
+      "kind": "issue",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta pública documental; relatos sem reprodução."
+    },
+    {
+      "id": "S14",
+      "title": "releases/tag/v0.4.1",
+      "url": "https://github.com/veloxbase/veloxdb/releases/tag/v0.4.1",
+      "ref": "releases/tag/v0.4.1",
+      "kind": "release",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Consulta pública documental; relatos sem reprodução."
+    }
+  ],
+  "findings": [
+    {
+      "title": "IA transmite contexto para provider",
+      "certainty": "CONFIRMADO",
+      "detail": "Veloxy monta contexto de esquema e histórico e chama chat/completions; não generalizar a alegação sem cloud.",
+      "source_ids": [
+        "S9",
+        "S11"
+      ]
+    },
+    {
+      "title": "Risco de escrita no lint relatado e código compatível",
+      "certainty": "RELATADO",
+      "detail": "PR66 descreve bypass; lint consultado usa EXPLAIN concatenado em simple_query. Não reproduzido.",
+      "source_ids": [
+        "S10",
+        "S12"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "A leitura cobre documentação e amostra estática, sem teste funcional, auditoria completa de segurança ou aceite humano.",
+    "Releases, issues e branch são um retrato datado; o SHA identifica o código consultado."
+  ],
+  "related": [
+    "l0ng-ai--openidea"
+  ],
+  "recorded_at": "2026-11-03T20:09:52+00:00",
+  "metrics": {
+    "full_name": "veloxbase/veloxdb",
+    "html_url": "https://github.com/veloxbase/veloxdb",
+    "description": "Database management, built for developers",
+    "homepage": "https://veloxdb.dev",
+    "default_branch": "main",
+    "created_at": "2026-03-17T16:34:46Z",
+    "updated_at": "2026-11-03T21:12:17Z",
+    "pushed_at": "2026-10-27T12:02:24Z",
+    "stargazers_count": 890,
+    "forks_count": 60,
+    "open_issues_count": 9,
+    "subscribers_count": 3,
+    "network_count": 60,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "admin",
+      "linux",
+      "macos",
+      "mysql",
+      "postgressql",
+      "rust",
+      "shadcn-ui",
+      "sqlite",
+      "tauri",
+      "windows"
+    ],
+    "size": 12171,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

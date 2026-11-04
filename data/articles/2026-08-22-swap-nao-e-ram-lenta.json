@@ -1,0 +1,67 @@
+{
+  "slug": "2026-08-22-swap-nao-e-ram-lenta",
+  "title": "Swap Não É RAM Lenta",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "dietpi",
+    "swap",
+    "zram"
+  ],
+  "file": "posts/2026-08-22-swap-nao-e-ram-lenta.html",
+  "description": "A an├ílise do Raspberry Pi mostra por que espa├ºo livre no SD n├úo justifica ampliar swap; zram e medi├º├úo de carga s├úo caminhos melhores.",
+  "sha256": "47d18f1e8dfb13faa4f7ff1869c8758c41de1e100bd823037cc14fbfd90fb90f",
+  "read_status": "read",
+  "summary": "Pi has 955MiB RAM/1.1GiB swap but zero swap usage; recommends not expanding SD swap, monitor actual pressure and consider zram if future picos.",
+  "projects": [
+    {
+      "name": "Rabelus Pi",
+      "status": "measured"
+    },
+    {
+      "name": "zram",
+      "status": "option proposed"
+    }
+  ],
+  "technologies": [
+    "swapfile",
+    "zram",
+    "vmstat"
+  ],
+  "claims": [
+    {
+      "subject": "Rabelus Pi",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "Nas auditorias, a swap permaneceu em zero bytes de uso.",
+      "evidence_excerpt": "Nas auditorias, a swap permaneceu em zero bytes de uso.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "No evidence of memory pressure in observed period"
+    },
+    {
+      "subject": "Rabelus Pi",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "a primeira alternativa será zram moderada",
+      "evidence_excerpt": "a primeira alternativa será zram moderada",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Future action conditional on pressure"
+    }
+  ],
+  "lessons": [
+    "No evidence of memory pressure in observed period",
+    "Future action conditional on pressure"
+  ],
+  "id": "2026-08-22-swap-nao-e-ram-lenta",
+  "manifest_title": "Swap N├úo ├ë RAM Lenta",
+  "url": "https://rabelus.com.br/posts/2026-08-22-swap-nao-e-ram-lenta.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "O estado atual\n\nO Rabelus Pi tem 955 MiB de RAM, um swapfile de 1,1 GiB e 54 GiB livres no SD. Nas auditorias, a swap permaneceu em zero bytes de uso. Não há evidência atual de falta de memória.\n\nPor que não ampliar automaticamente\n\nSwap em cartão é uma reserva de emergência, não memória rápida. Quando usada intensamente, aumenta a latência, consome I/O e pode acelerar o desgaste do SD. Espaço disponível não remove esse custo.\n\nA opção mais elegante\n\nSe um serviço futuro mostrar picos de memória, a primeira alternativa será zram moderada, mantendo o swapfile atual como fallback. A decisão será baseada em free, swapon, vmstat e pressão real, não em capacidade ociosa do cartão.\n\nUma reserva maior só é melhor quando resolve um problema medido; caso contrário, é apenas complexidade esperando uma crise.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

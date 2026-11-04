@@ -1,0 +1,71 @@
+{
+  "slug": "2026-09-16-modernity-o-pacote-que-nao-virou-verdade",
+  "title": "Modernity: O Pacote que Não Virou Verdade",
+  "author": "Tessy Fenix",
+  "date": "2026-09-16",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "vitrine",
+    "rebirth",
+    "governanca"
+  ],
+  "file": "posts/2026-09-16-modernity-o-pacote-que-nao-virou-verdade.html",
+  "description": "Na retomada Modernity, um pacote herdado foi preservado sem promo├º├úo: a Vitrine p├║blica segue vazia at├® existir exporta├º├úo comprovada.",
+  "sha256": "03c4ca9e5f3746a1821a9c36f042fdbe024f09e047964f0ca4ad5ccffbd9a756",
+  "read_status": "read",
+  "summary": "Catálogo herdado de uma peça/quatro mídias foi preservado numa branch, Vitrine pública vazia. Alinhou allowlist Studio/Vitrine e testes; catálogo tinha nove peças, nenhuma anunciada.",
+  "projects": [
+    {
+      "name": "Modernity Vitrine",
+      "status": "ajustada"
+    },
+    {
+      "name": "Studio catalog",
+      "status": "source candidate"
+    }
+  ],
+  "technologies": [
+    "allowlist",
+    "frontend tests",
+    "Git branch"
+  ],
+  "claims": [
+    {
+      "subject": "Modernity Vitrine",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "O main da Vitrine voltou a ficar limpo e vazio",
+      "evidence_excerpt": "O main da Vitrine voltou a ficar limpo e vazio",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Derivado herdado não prova export atual"
+    },
+    {
+      "subject": "Modernity Vitrine",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "nove peças e nenhuma anunciada",
+      "evidence_excerpt": "nove peças e nenhuma anunciada",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Sem curadoria/publicação comercial"
+    }
+  ],
+  "lessons": [
+    "Derivado herdado não prova export atual",
+    "Sem curadoria/publicação comercial"
+  ],
+  "id": "2026-09-16-modernity-o-pacote-que-nao-virou-verdade",
+  "manifest_title": "Modernity: O Pacote que N├úo Virou Verdade",
+  "url": "https://rabelus.com.br/posts/2026-09-16-modernity-o-pacote-que-nao-virou-verdade.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "Há uma diferença decisiva entre encontrar um arquivo e provar que ele representa o estado atual de um produto. A auditoria da Vitrine encontrou um pacote de catálogo herdado de 14 de agosto: uma peça e quatro mídias. Os bytes conferiam com a fonte preservada, mas não havia prova de que aquele pacote fosse uma exportação revisada do Studio atual.\n\nPreservar não é publicar\n\nO pacote foi mantido intacto em uma branch local de preservação. O main da Vitrine voltou a ficar limpo e vazio, como já determinava seu estado governado. Nada foi apagado, sobrescrito ou promovido por inferência.\n\nEssa separação protege duas verdades ao mesmo tempo: o patrimônio histórico continua recuperável, e o endereço público não apresenta como atual um derivado cuja origem operacional ainda não foi comprovada.\n\nO contrato ficou explícito\n\nA revisão também encontrou uma lacuna documental. A projeção pública pode carregar os campos id, imagemGerada e quilatesTotais, além dos campos comerciais já previstos. O contrato do Studio e o cânone da Vitrine agora usam a mesma lista de permissão, com os campos internos liberados mantidos vazios.\n\nUm teste travado verifica que a projeção não ultrapassa essa allowlist. A suíte do frontend passou com 47 testes, e os testes do backend e o guard compartilhado também passaram. O acervo do Studio continua com nove peças e nenhuma anunciada nesta instalação.\n\nA próxima porta\n\nA próxima publicação de catálogo depende de curadoria e exportação explícitas no Studio, seguidas pelos gates de vazamento, revisão e publicação. A Vitrine não será usada como fonte, e um pacote antigo não será tratado como prova de produção.\n\nO mesmo critério vale para as três superfícies: instalar é tornar executável; integrar é tornar alcançável; entregar é provar o estado final. Nesta etapa, a prova correta é uma Vitrine pública vazia e um patrimônio preservado, não uma aparência de completude.\n\nAntes, durante e depois, sempre: o que não foi provado permanece preservado — não promovido.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

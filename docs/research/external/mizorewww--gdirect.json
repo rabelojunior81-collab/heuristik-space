@@ -1,0 +1,291 @@
+{
+  "slug": "mizorewww--gdirect",
+  "name": "gdirect",
+  "url": "https://github.com/mizorewww/gdirect",
+  "category": "Infraestrutura self-hosted",
+  "summary": "CLI Rust para navegar, baixar, enviar e montar Google Drive. README diz que, por padrão, experimenta primeiro relay terceiro (183.56.143.147), que encaminha tráfego a Google; `--google-only` ou GDIRECT_GOOGLE_ONLY evita esse relay, à custa de endpoint possivelmente inacessível. Login e alguns refreshes seguem rede do sistema. Cargo.toml fixa GPL-2.0-or-later, Rust 2024 e SQLite; código amostrado declara scope OAuth Drive amplo. README e CLI declaram validação TLS contra raízes Google, mas validação completa não foi auditada.",
+  "topics": [
+    "Google Drive",
+    "Rust",
+    "CLI",
+    "OAuth",
+    "download",
+    "upload",
+    "rclone",
+    "GPL-2.0"
+  ],
+  "aliases": [
+    "gdirect",
+    "Google Drive direct transfer",
+    "Drive CLI",
+    "montagem Drive"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e rotas de rede",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve browse, ls, download, upload e mount, incluindo export de Docs/Sheets/Slides. Ele separa transferências/Drive API (IP escaneado) de login/account verification (rede normal) e fallback para refresh de token; mount usa rede normal via rclone.",
+        "A seleção automática começa tentando relay conhecido 183.56.143.147 que não pertence ao Google; o README diz que relay encaminha TLS sem poder ler conteúdo, mas observa IP do usuário e host Google em parte dos casos. `--google-only` ou GDIRECT_GOOGLE_ONLY=1 evita endpoint terceiro e força apenas frontends Google identificados pela lista do projeto. Esta opção é relevante para privacidade/política de saída e pode falhar em regiões onde esses endereços não respondem."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Código e dependências observadas",
+      "kind": "observed",
+      "paragraphs": [
+        "Cargo.toml no commit fixado declara Rust edition 2024, GPL-2.0-or-later, rusqlite bundled, reqwest blocking com rustls/system-proxy, clap e serde. libaria2 é fixada/empacotada segundo nome do projeto e documentação; não foi examinada cadeia de build integral.",
+        "main.rs declara `--ip`, `--sni`, `--no-sni` e `--ca-cert`; comentário do CLI diz que certificado segue verificado ao usar SNI alternativo/ausente. Isso é um mecanismo observado, não garantia de ausência de bypass em todos caminhos."
+      ],
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "OAuth e estado local",
+      "kind": "observed",
+      "paragraphs": [
+        "README exige OAuth Desktop client do próprio usuário, browser no mesmo computador para callback local e Drive API habilitada. `src/auth.rs` define scope `https://www.googleapis.com/auth/drive`; é um escopo amplo de Drive e não foi visto escopo restrito por pasta.",
+        "README localiza credenciais, IPs escaneados e settings em SQLite sob dados do usuário por sistema. Logout remove token salvo e preserva IPs; isso não prova exclusão segura de WAL/backup ou revogação no Google. Não foi feito login."
+      ],
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Transferência e integridade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README relata downloads retomáveis e verificados contra MD5 informado pelo Drive; uploads criam novos arquivos em vez de sobrescrever arquivo de mesmo nome. MD5 aqui é checagem de integridade operacional, não atestado criptográfico de origem ou proteção contra conteúdo malicioso.",
+        "Mount usa cache local com meta aproximada de 5 GiB que pode exceder se houver arquivos abertos/não enviados; unmount preserva itens pendentes. Assim, a conclusão de cópia depende do estado de sincronização indicado pela ferramenta e de recuperação do cache."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Instalação e plataformas",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Há binários pré-compilados declarados para macOS 15+, Linux x86_64/glibc recente e Windows x86_64; ARM Linux, musl e sistemas antigos exigem build. Mount adiciona rclone e em algumas plataformas FUSE3 ou WinFsp via gerenciador de pacotes, potencialmente com elevação.",
+        "O README instrui instalação por scripts remotos e `curl|bash`/PowerShell; isso é superfície de supply chain. Não baixei nem executei instalador; recomenda-se inspecionar script e verificar assinatura/hash do release antes de qualquer uso."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Licença, custo e adequação",
+      "kind": "analysis",
+      "paragraphs": [
+        "Licença GPL-2.0-or-later registrada em Cargo.toml e metadado GitHub. Serviço usa conta Google e quota/termos Google; custo/limite dependem da conta e não foram avaliados. O app não é storage, backup versionado nem provedor independente do Google Drive.",
+        "Pode ser instrumento para transferência individual ou acesso a Drive; não deve se tornar canal de backup corporativo sem revisão de OAuth, cache, logs, quotas, políticas Google, verificação de arquivo e estado após falha."
+      ],
+      "source_ids": [
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Parsing e armazenamento de credenciais",
+      "kind": "observed",
+      "paragraphs": [
+        "`src/auth.rs` define estrutura Credentials com client_id, client_secret e refresh_token; comentário declara que somente esses campos são guardados e token_uri/credential source importados são ignorados. O manifesto mostra SQLite bundled como mecanismo local.",
+        "Amostra não revela encryption-at-rest nem política de permissões de arquivo; segredo persistente requer proteção do usuário/OS. Sem auditar implementação de store, não afirmamos plaintext/ciphertext."
+      ],
+      "source_ids": [
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Persistência e proteção local",
+      "kind": "analysis",
+      "paragraphs": [
+        "README localiza SQLite de estado sob diretório de dados do usuário e inclui credenciais, endpoints escaneados e ajustes. Não foi observada criptografia em repouso do banco; ausência de evidência de criptografia não prova ausência, então o estado deve ser protegido pelo OS/account e backup.",
+        "Logout remove credenciais mas mantém IPs escaneados, segundo README. Excluir arquivo SQLite, portabilidade para outra máquina e perda de cache requerem procedimento próprio; não há backup/restore completo declarado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Compatibilidade e operação",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Binários cobrem Windows x86_64 e macOS 15+ ARM/Intel, Linux x86_64 glibc 2.35+; mount adiciona rclone e FUSE/WinFsp, podendo pedir administrador. Sistemas Apple Silicon cobertos; Linux ARM64 exige build.",
+        "A versão tem release recente 0.9.0 indicada no commit de Homebrew em 26 Oct. Isso é manutenção observada em repositório, não suporte garantido. Google OAuth browser login dificulta host headless e precisa do mesmo computador no callback local."
+      ],
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Fixar release e revisar instaladores e hashes; auditar transport/auth/store e scope real; testar export/MD5, resume, cancelamento e reauth em Drive sintético; simular cache não enviado e re-mount; validar proxy, TLS, logs e retirada de credenciais.",
+        "Pesquisa documental e amostra do código OAuth; não houve login, transferência, mount, instalação ou teste de segurança."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/mizorewww/gdirect/blob/48f413458f84c55a0d8878340a32b9bf8fa3e2d5/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "48f413458f84c55a0d8878340a32b9bf8fa3e2d5",
+      "note": "README consultado no commit 0.9.0; alerta explicitamente relay não-Google primeiro e oferece --google-only."
+    },
+    {
+      "id": "S2",
+      "title": "Cargo.toml",
+      "url": "https://github.com/mizorewww/gdirect/blob/48f413458f84c55a0d8878340a32b9bf8fa3e2d5/Cargo.toml",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "code",
+      "ref": "48f413458f84c55a0d8878340a32b9bf8fa3e2d5",
+      "note": "Metadados/dependências estáticas; não avalia código transitivo."
+    },
+    {
+      "id": "S3",
+      "title": "src/main.rs",
+      "url": "https://github.com/mizorewww/gdirect/blob/48f413458f84c55a0d8878340a32b9bf8fa3e2d5/src/main.rs",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "code",
+      "ref": "48f413458f84c55a0d8878340a32b9bf8fa3e2d5",
+      "note": "Amostra da definição CLI mostra opções de roteamento/TLS e DB; análise parcial."
+    },
+    {
+      "id": "S4",
+      "title": "src/auth.rs",
+      "url": "https://github.com/mizorewww/gdirect/blob/48f413458f84c55a0d8878340a32b9bf8fa3e2d5/src/auth.rs",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "48f413458f84c55a0d8878340a32b9bf8fa3e2d5",
+      "note": "Amostra do scope OAuth e parsing de credenciais; comentário diz que somente campos selecionados são preservados."
+    },
+    {
+      "id": "S5",
+      "title": "Google setup",
+      "url": "https://github.com/mizorewww/gdirect/blob/48f413458f84c55a0d8878340a32b9bf8fa3e2d5/docs/configuration/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "48f413458f84c55a0d8878340a32b9bf8fa3e2d5",
+      "note": "Instruções OAuth do próprio projeto; não é aprovação do Google nem revisão de escopos."
+    },
+    {
+      "id": "S6",
+      "title": "LICENSE",
+      "url": "https://github.com/mizorewww/gdirect/blob/48f413458f84c55a0d8878340a32b9bf8fa3e2d5/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "license",
+      "ref": "48f413458f84c55a0d8878340a32b9bf8fa3e2d5",
+      "note": "Cargo.toml declara GPL-2.0-or-later; metadado público do GitHub lista GPL-2.0."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Relay não-Google pode ser tentado primeiro",
+      "certainty": "RELATADO",
+      "detail": "README aponta relay 183.56.143.147, informa metadados que ele pode observar e opção --google-only para evitá-lo; comportamento não foi testado.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Escopo OAuth observado",
+      "certainty": "CONFIRMADO",
+      "detail": "src/auth.rs define scope Google Drive amplo; login/consentimento não foram realizados.",
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "title": "TLS documentado, não auditado integralmente",
+      "certainty": "RELATADO",
+      "detail": "README e CLI declaram hostname/certificado ou raízes Google verificados inclusive SNI alternativo; não se inspecionaram todas as chamadas de rede.",
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa estática/documental; sem instalação, login ou acesso a Google Drive",
+  "limitations": [
+    "Código OAuth amostrado; store, criptografia do estado, processamento completo de certificados e APIs não auditados.",
+    "Release e commit são snapshots; não foi verificada assinatura de binários.",
+    "Termos, quotas e preços Google não foram investigados nesta tarefa.",
+    "Nenhuma cópia/restauração nem interoperabilidade foi ensaiada."
+  ],
+  "related": [
+    "tonyantony300--dashbeam",
+    "gtsteffaniak--filebrowser"
+  ],
+  "metrics": {
+    "full_name": "mizorewww/gdirect",
+    "html_url": "https://github.com/mizorewww/gdirect",
+    "description": "Rust Google Drive direct downloader using pinned libaria2",
+    "homepage": "https://mizore.blog/posts/gdirect/",
+    "default_branch": "main",
+    "created_at": "2026-10-25T05:52:22Z",
+    "updated_at": "2026-11-03T13:26:36Z",
+    "pushed_at": "2026-10-26T11:07:58Z",
+    "stargazers_count": 785,
+    "forks_count": 54,
+    "open_issues_count": 2,
+    "subscribers_count": 2,
+    "network_count": 54,
+    "archived": false,
+    "disabled": false,
+    "language": "Rust",
+    "topics": [],
+    "size": 4103,
+    "license": {
+      "key": "gpl-2.0",
+      "name": "GNU General Public License v2.0",
+      "spdx_id": "GPL-2.0",
+      "url": "https://api.github.com/licenses/gpl-2.0",
+      "node_id": "MDc6TGljZW5zZTg="
+    },
+    "fork": false
+  }
+}

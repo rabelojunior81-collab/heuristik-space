@@ -1,0 +1,371 @@
+{
+  "slug": "traccar--traccar",
+  "name": "Traccar Server",
+  "url": "https://github.com/traccar/traccar",
+  "category": "Infraestrutura self-hosted",
+  "summary": "Backend Java para rastreamento GPS/telemática, ingestão de protocolos de dispositivos e API REST, acompanhado por web app e apps móveis em repositórios separados. README declara suporte a 200+ protocolos/2000+ modelos e auto-hospedagem ou serviço gerenciado. build.gradle observado exige Java 21 e incorpora Gradle/protobuf/checkstyle; OpenAPI registra versão 6.17.0. Licença Apache-2.0. Dados de localização de pessoas/ativos são sensíveis: deployment não é uma aplicação neutra de mapas e demanda base legal, consentimento/aviso, retenção e controle de acesso. Nenhuma instância ou dispositivo foi conectado.",
+  "topics": [
+    "GPS",
+    "telemática",
+    "Java",
+    "REST API",
+    "geofencing",
+    "Docker",
+    "Apache-2.0",
+    "rastreamento"
+  ],
+  "aliases": [
+    "Traccar",
+    "GPS tracking server",
+    "fleet tracking",
+    "geofencing"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e componentes",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README define este repositório como backend Java e separa web app de navegador, Manager para ver dispositivos e Client para enviar a localização de dispositivos móveis. Logo, este item sozinho não é o produto completo de experiência/cliente.",
+        "O uso inclui rastrear veículos, ativos ou pessoas, com relatórios, geofences, alarmes e mensagens. Esses domínios podem produzir decisões sobre indivíduos e têm consequências de privacidade e segurança física."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e protocolos",
+      "kind": "observed",
+      "paragraphs": [
+        "build.gradle configura Java source/target 21, Gradle, protobuf, enforcer de bytecode, Checkstyle e resolução por Maven Central. README atribui ao servidor suporte a mais de 200 protocolos GPS e 2000 modelos; é alegação do projeto e não foi validada com dispositivos.",
+        "OpenAPI 3.1 declara versão 6.17.0, API REST e endpoints de demo/assinatura. Isso oferece contrato de integração mas não substitui autorização por objeto nem política de rate limit."
+      ],
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Persistência e topologia",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README afirma compatibilidade com bancos SQL principais e Quick Start usa Docker Compose com MySQL. Há database schema no repo; opções de banco, migrações, backup e upgrades precisam ser verificadas para versão fixada.",
+        "Modo gerenciado oficial também existe, mas implica terceiro e condições comerciais próprias. Self-hosting desloca ao operador rede, TLS, atualização, backup, sincronização de relógios e disponibilidade."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Identidade e segurança",
+      "kind": "analysis",
+      "paragraphs": [
+        "README cita administração de conta/dispositivo, API REST e notificações; não foi revisado código de auth/ACL, ingestão de posição, exposição de portas nem mecanismos de retenção. Demonstração pública não é ambiente apropriado para telemetria privada.",
+        "Localização precisa pode identificar rotinas residenciais, trabalho e relações. Antes do uso real, limitar operador e dispositivos, auditar quem vê históricos/exportações, validar retenção/apagamento e proteger canais de protocolo e API."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Licença, custos e operação",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE.txt e metadado GitHub indicam Apache License 2.0. O README diz self-host gratuito; infraestrutura, mapas/geocoding, SMS/email, armazenamento, banda e operação geram custos próprios. Managed hosting é comercial; preços atuais não foram levantados.",
+        "Atividade GitHub mostra commit de 3 Nov 2026 relacionado a decodificar respostas de comandos Teltonika sobre UDP; isto documenta manutenção de protocolo recente, sem demonstrar estabilidade de release."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "UX e aderência ao Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "Dashboard browser, geofences e relatórios são adequados a frota/ativos instrumentados, mas requerem dispositivos GPS/clients capazes. Sem necessidade explícita de rastreamento, não há aderência presumida ao Lab.",
+        "Se houver uso de dispositivo pessoal, gravar somente dados minimizados, em janela e com propósito explícito. O software não fornece por si só fundamento legal ou governança de dados."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Autenticação API observada em documentação",
+      "kind": "official_claim",
+      "paragraphs": [
+        "API docs oficiais descrevem autenticação por sessão cookie, HTTP Authorization e Bearer token. Para websocket `/api/socket`, a página cita somente sessão cookie; token obtém sessão via `/api/session?token=...`.",
+        "Configurar token em query pode expô-lo em logs/proxies; preferir canal e mecanismo documentados para cada cliente e conferir logs. Não foi testado nenhum endpoint."
+      ],
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Papéis e autorização por objeto",
+      "kind": "official_claim",
+      "paragraphs": [
+        "User Management oficial descreve papéis Administrator/Manager/User, limites e objetos atribuídos; Permissions and Groups liga usuário a dispositivos/grupos. Admin tem acesso total, Manager gere usuários atribuídos e objetos que possui; User acessa objetos designados sob limites.",
+        "Isso mostra modelo de controle além de login, mas não valida isolamento entre tenants nem configuração adequada. Regras de objeto precisam ser testadas contra API, WebSocket, export e relatório."
+      ],
+      "source_ids": [
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Arquitetura de tempo real",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Documentação de arquitetura diz que websocket envia posição mais recente inicial e atualizações; ConnectionManager filtra pelas permissões de dispositivo. APIs REST aplicam autenticação/permissão conforme essa mesma documentação.",
+        "Afirmação informa desenho esperado; não substitui auditoria do código. Socket de tempo real e exportações podem vazar localização se filtros forem inconsistentes."
+      ],
+      "source_ids": [
+        "S9"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Privacidade e implicação operacional",
+      "kind": "analysis",
+      "paragraphs": [
+        "O produto ingere posições via protocolos de dispositivos móveis/GPS e expõe histórico, relatórios e eventos. Geolocalização em série pode revelar hábitos e locais sensíveis; restringir resolução, retenção, acesso, exports, logs e operadores pelo caso de uso.",
+        "Desativação do serviço pode deixar device tentando reenviar backlog conforme protocolo/firmware. Backlog e clock drift devem entrar no ensaio de exclusão e retenção; a documentação consultada não determina comportamento universal de cada modelo."
+      ],
+      "source_ids": [
+        "S1",
+        "S6",
+        "S7"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Ensaios posteriores",
+      "kind": "analysis",
+      "paragraphs": [
+        "Fixar release e protocolos; usar simulador e dados falsos; testar roles/object permissions em REST e WebSocket, rotas de export, API token em logs, revoke, backlog, timestamp out-of-order, precisão, carga, SQL backup/restore, TLS, portas e retenção.",
+        "Nenhum serviço, app ou dispositivo foi executado/instalado nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S6",
+        "S7",
+        "S8",
+        "S9"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/traccar/traccar/blob/e62625fdb8e669e32e8465ebbd07ac68a7dab8d2/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "e62625fdb8e669e32e8465ebbd07ac68a7dab8d2",
+      "note": "README oficial e arquitetura do conjunto; contagem de protocolos é alegação do projeto."
+    },
+    {
+      "id": "S2",
+      "title": "build.gradle",
+      "url": "https://github.com/traccar/traccar/blob/e62625fdb8e669e32e8465ebbd07ac68a7dab8d2/build.gradle",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "code",
+      "ref": "e62625fdb8e669e32e8465ebbd07ac68a7dab8d2",
+      "note": "Configuração observada: Java 21, protobuf, checkstyle e regras de build."
+    },
+    {
+      "id": "S3",
+      "title": "openapi.yaml",
+      "url": "https://github.com/traccar/traccar/blob/e62625fdb8e669e32e8465ebbd07ac68a7dab8d2/openapi.yaml",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "code",
+      "ref": "e62625fdb8e669e32e8465ebbd07ac68a7dab8d2",
+      "note": "Contrato OpenAPI especifica 3.1 e versão 6.17.0; não foi testado contra servidor."
+    },
+    {
+      "id": "S4",
+      "title": "Commit consultado",
+      "url": "https://github.com/traccar/traccar/commit/e62625fdb8e669e32e8465ebbd07ac68a7dab8d2",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "metadata",
+      "ref": "e62625fdb8e669e32e8465ebbd07ac68a7dab8d2",
+      "note": "Mudança nomeada para decodificar respostas de comandos Teltonika via UDP."
+    },
+    {
+      "id": "S5",
+      "title": "LICENSE.txt",
+      "url": "https://github.com/traccar/traccar/blob/e62625fdb8e669e32e8465ebbd07ac68a7dab8d2/LICENSE.txt",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "license",
+      "ref": "e62625fdb8e669e32e8465ebbd07ac68a7dab8d2",
+      "note": "GitHub identifica Apache-2.0."
+    },
+    {
+      "id": "S6",
+      "title": "Traccar API",
+      "url": "https://www.traccar.org/traccar-api/",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "página oficial consultada em 2026-11-03",
+      "note": "Descreve métodos de autenticação e websocket; não foram chamados endpoints."
+    },
+    {
+      "id": "S7",
+      "title": "User Management",
+      "url": "https://www.traccar.org/user-management/",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "página oficial consultada em 2026-11-03",
+      "note": "Papéis e permissões descritos pelo projeto."
+    },
+    {
+      "id": "S8",
+      "title": "Permissions and Groups",
+      "url": "https://www.traccar.org/permissions-groups/",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "página oficial consultada em 2026-11-03",
+      "note": "Modelo de atribuição de objetos; não foi testado."
+    },
+    {
+      "id": "S9",
+      "title": "Server Architecture",
+      "url": "https://www.traccar.org/architecture/",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "página oficial consultada em 2026-11-03",
+      "note": "Descrição de autenticação, filtros REST/WebSocket e repositório web separado."
+    },
+    {
+      "id": "S10",
+      "title": "Releases",
+      "url": "https://github.com/traccar/traccar/releases",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "release",
+      "ref": "página consultada em 2026-11-03",
+      "note": "Latest apresentado como v6.16.0; snapshot pode divergir de main/OpenAPI versão 6.17.0."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Backend separado dos clients/UI",
+      "certainty": "CONFIRMADO",
+      "detail": "README lista web, Manager e Client como projetos separados.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Requisitos de build observados",
+      "certainty": "CONFIRMADO",
+      "detail": "build.gradle fixa Java source/target 21 e configura protobuf/checkstyle.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Risco central é dado de localização",
+      "certainty": "ANÁLISE",
+      "detail": "Derivado da finalidade declarada de rastrear pessoas/veículos/ativos; privacidade precisa ser avaliada no caso de uso concreto.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Spec e release observados estão desalinhados",
+      "certainty": "CONFIRMADO",
+      "detail": "OpenAPI em main declara 6.17.0 enquanto a página pública de releases consultada mostrava v6.16.0 como mais recente; consumidores devem fixar spec/release compatíveis.",
+      "source_ids": [
+        "S3",
+        "S10"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa estática/documental; nenhum servidor ou dispositivo conectado",
+  "limitations": [
+    "Não foram auditados auth, permissões, protocolos específicos, API, nem componentes web separados.",
+    "Não foram testados protocolos, precisão, geofences, notificações, performance ou upgrade.",
+    "Preços/termos de mapas, SMS, email e hosting não pesquisados.",
+    "Conclusão sobre privacidade é análise do domínio, não parecer jurídico nem validação de configuração."
+  ],
+  "related": [
+    "gtsteffaniak--filebrowser",
+    "furey--freetvarr"
+  ],
+  "metrics": {
+    "full_name": "traccar/traccar",
+    "html_url": "https://github.com/traccar/traccar",
+    "description": "Open source GPS tracking platform - self-hosted or managed, 200+ device protocols",
+    "homepage": "https://www.traccar.org",
+    "default_branch": "master",
+    "created_at": "2012-04-16T08:33:49Z",
+    "updated_at": "2026-11-03T20:32:11Z",
+    "pushed_at": "2026-11-03T03:21:00Z",
+    "stargazers_count": 8045,
+    "forks_count": 3471,
+    "open_issues_count": 408,
+    "subscribers_count": 316,
+    "network_count": 3471,
+    "archived": false,
+    "disabled": false,
+    "language": "Java",
+    "topics": [
+      "docker",
+      "fleet-management",
+      "gps",
+      "gps-tracking",
+      "hacktoberfest",
+      "iot",
+      "java",
+      "open-source",
+      "rest-api",
+      "self-hosted",
+      "telematics",
+      "traccar",
+      "vehicle-tracking"
+    ],
+    "size": 28387,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

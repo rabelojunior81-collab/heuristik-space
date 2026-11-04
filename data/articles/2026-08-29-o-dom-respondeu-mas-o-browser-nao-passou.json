@@ -1,0 +1,82 @@
+{
+  "slug": "2026-08-29-o-dom-respondeu-mas-o-browser-nao-passou",
+  "title": "O DOM Respondeu, Mas o Browser Não Passou",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "zcode",
+    "browser",
+    "iab",
+    "evidencia"
+  ],
+  "file": "posts/2026-08-29-o-dom-respondeu-mas-o-browser-nao-passou.html",
+  "description": "A rechecagem do Browser IAB no ZCode confirmou DOM acess├¡vel, mas reproduziu o timeout visual; o status continua n├úo verificado.",
+  "read_status": "read",
+  "summary": "Controlled about:blank DOM inspection succeeded but visual screenshot runtime timed out at 3000ms. Because visual proof required, Browser stays PARTIAL/NOT_VERIFIED; no backend/provider/persistent config changed. ZCode has manual Tier 0 context, not governed Browser PASS.",
+  "projects": [
+    {
+      "name": "ZCode Browser IAB",
+      "status": "DOM accessible, screenshot timeout, remains partial"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "selected controlled blank tab by observed facts",
+      "name": "iab backend"
+    },
+    {
+      "relation": "runtime timeout 3000ms",
+      "name": "visual screenshot"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "DOM",
+      "evidence_excerpt": "Isso confirma que existe uma superfície controlada acessível nesta sessão.",
+      "object": "inspection responded",
+      "confidence": "declarado",
+      "relation": "status",
+      "status": "DOM pass",
+      "limitation": "not visual proof"
+    },
+    {
+      "subject": "screenshot",
+      "evidence_excerpt": "o resultado não foi promovido: Browser continua PARTIAL/NOT_VERIFIED",
+      "object": "timeout, criterion not met",
+      "confidence": "declarado",
+      "relation": "status",
+      "status": "not verified",
+      "limitation": "next gate technical"
+    },
+    {
+      "subject": "browser governance",
+      "evidence_excerpt": "não possui claim de Browser governado PASS",
+      "object": "no governed Browser PASS",
+      "confidence": "declarado",
+      "relation": "claim",
+      "status": "explicit limit",
+      "limitation": "manual Tier0 only"
+    }
+  ],
+  "lessons": [
+    "DOM inspection and visual proof are separate",
+    "repeat same route without inventing a cause or switching backend",
+    "partial proof is valuable when stop point is explicit"
+  ],
+  "sha256": "0642eaf088e823d5a585da492d57d9bdf398e2f191d829e311c955469c83315c",
+  "id": "2026-08-29-o-dom-respondeu-mas-o-browser-nao-passou",
+  "manifest_title": "O DOM Respondeu, Mas o Browser N├úo Passou",
+  "url": "https://rabelus.com.br/posts/2026-08-29-o-dom-respondeu-mas-o-browser-nao-passou.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "Uma prova ficou verde\n\nA aba controlada about:blank foi recuperada pelo backend iab, e a inspeção DOM respondeu. Isso confirma que existe uma superfície controlada acessível nesta sessão. Também confirma que a identidade da página não foi presumida: a aba foi listada e selecionada por fatos observados.\n\nA prova visual continuou bloqueada\n\nQuando a captura visual foi solicitada, o runtime expirou novamente no limite de 3000 milissegundos. Como o critério de aprovação exige screenshot corroborante, o resultado não foi promovido: Browser continua PARTIAL/NOT_VERIFIED.\n\nO que a repetição ensina\n\nO teste agora é reproduzível sem inventar uma causa. Sabemos que o DOM responde e que a superfície visual não conclui no timeout observado. Não trocamos de backend, não acessamos uma página externa e não alteramos provider, serviço ou configuração persistente.\n\nUma prova parcial é útil quando deixa claro exatamente onde a prova parou.\n\nO próximo gate permanece técnico e delimitado: resolver o timeout do IAB e repetir a validação visual. Até lá, o ZCode tem contexto Tier 0 manual confirmado, mas não possui claim de Browser governado PASS.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

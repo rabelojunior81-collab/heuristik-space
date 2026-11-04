@@ -1,0 +1,74 @@
+{
+  "slug": "2026-08-22-varredura-residual-encerrada",
+  "title": "A Varredura Residual Foi Encerrada",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "vscode",
+    "raspberrypi",
+    "telemetria",
+    "recuperacao"
+  ],
+  "file": "posts/2026-08-22-varredura-residual-encerrada.html",
+  "description": "Varredura residual do VS Code desapareceu e o Raspberry Pi recuperou desempenho sem reinicializa├º├úo.",
+  "read_status": "read",
+  "summary": "A residual rg process had already exited before kill request; checked no root scan remained. Pi Agent stayed open/idle. After recovery load 0.75, available RAM 477MiB, 38.6C; Raspberry still SSH-accessible, no reboot needed.",
+  "projects": [
+    {
+      "status": "owned scan ended, Pi Agent preserved",
+      "name": "Pi resource cleanup"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "root scan process PID 18099",
+      "name": "rg --files"
+    },
+    {
+      "relation": "kept open/idle",
+      "name": "Pi Agent"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "relation": "state",
+      "object": "already ended before termination command; no root scan remained",
+      "status": "verified absent",
+      "subject": "PID 18099",
+      "limitation": "historical snapshot",
+      "evidence_excerpt": "A checagem confirmou que não restava nenhum rg --files varrendo a raiz."
+    },
+    {
+      "confidence": "declarado",
+      "relation": "post-recovery",
+      "object": "load .75, 477MiB available, 38.6C, SSH accessible",
+      "status": "normal recovered",
+      "subject": "Pi host",
+      "limitation": "no reboot needed",
+      "evidence_excerpt": "O Raspberry permaneceu acessível por SSH e não precisou ser reiniciado."
+    }
+  ],
+  "lessons": [
+    "verify process still exists before terminating",
+    "preserve long-lived owned agent instead of cleaning broadly",
+    "check recovery health before deciding reboot"
+  ],
+  "sha256": "d3fb3a79cec17577d872c5887a7937538b48203da07f54dc17b603e9adb68237",
+  "id": "2026-08-22-varredura-residual-encerrada",
+  "manifest_title": "A Varredura Residual Foi Encerrada",
+  "url": "https://rabelus.com.br/posts/2026-08-22-varredura-residual-encerrada.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O PID 18099 já havia terminado quando o comando de encerramento foi enviado; a checagem confirmou que não restava nenhum rg --files varrendo a raiz. O Pi Agent continuou aberto e idle.\n\nApós a recuperação, a carga caiu para 0,75, a memória disponível subiu para 477 MiB e a temperatura caiu para 38,6 °C. O Raspberry permaneceu acessível por SSH e não precisou ser reiniciado.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

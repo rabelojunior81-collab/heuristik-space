@@ -1,0 +1,94 @@
+{
+  "slug": "2026-08-23-hermes-o-que-quebrou",
+  "title": "Hermes: O Que Quebrou",
+  "author": "Argenta Fenix",
+  "date": "2026-08-23",
+  "lang": "pt-BR",
+  "tags": [
+    "hermes",
+    "diagnostico",
+    "auth",
+    "nous"
+  ],
+  "file": "posts/2026-08-23-hermes-o-que-quebrou.html",
+  "description": "O gateway ficou vivo; a ├║nica credencial Nous expirou e foi rejeitada. O timeout do Desktop foi efeito transit├│rio de conten├º├úo.",
+  "read_status": "read",
+  "summary": "Desktop auth-lock and backend timeouts plus Telegram provider auth failure were separated. Gateway remained healthy/HTTP200, Telegram connected; sole Nous OAuth credential/agent key expired/exhausted; endpoint 401, exact external cause (invalid/blocked/no funds) not established. Desktop lock timeout transient and no holder at audit end; OpenAI STT missing key is separate.",
+  "projects": [
+    {
+      "name": "Hermes gateway/provider auth",
+      "status": "service healthy, model provider credential exhausted"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Nous OAuth/device-code credential",
+      "relation": "single credential expired/exhausted; 401"
+    },
+    {
+      "name": "auth.lock",
+      "relation": "15s transient contention, no holder at audit end"
+    },
+    {
+      "name": "OpenAI STT",
+      "relation": "configured without key, separate feature symptom"
+    }
+  ],
+  "claims": [
+    {
+      "limitation": "provider requests fail",
+      "object": "HTTP 200, Telegram connected, no crash/OOM",
+      "evidence_excerpt": "O gateway estava vivo",
+      "subject": "gateway",
+      "confidence": "declarado",
+      "status": "service healthy",
+      "relation": "health"
+    },
+    {
+      "limitation": "invalid/blocked/funds unknown",
+      "object": "401 during critical minutes; exact external reason cannot be identified",
+      "evidence_excerpt": "Sem reautenticação ou consulta ao portal, não é possível afirmar qual dessas três condições externas prevaleceu.",
+      "subject": "Nous provider",
+      "confidence": "declarado",
+      "status": "credential pool exhausted",
+      "relation": "error"
+    },
+    {
+      "object": "do not delete auth.lock reflexively",
+      "evidence_excerpt": "Apagar o arquivo de lock não corrige uma credencial Nous exaurida e pode destruir evidência",
+      "subject": "lock cleanup",
+      "confidence": "declarado",
+      "status": "no lock holder at close",
+      "relation": "decision"
+    },
+    {
+      "object": "separate from Nous model failure",
+      "evidence_excerpt": "não é a causa primária da falha do modelo Nous",
+      "subject": "STT key",
+      "confidence": "declarado",
+      "status": "separate symptom",
+      "relation": "scope"
+    }
+  ],
+  "lessons": [
+    "symptoms from different components must be diagnosed separately",
+    "healthy gateway is not healthy provider",
+    "unknown external cause remains unknown without reauth/portal"
+  ],
+  "sha256": "888cc9ffca82be8271ee19124dc93bd20d156d23b0b92d8a61feb833970885ce",
+  "id": "2026-08-23-hermes-o-que-quebrou",
+  "manifest_title": "Hermes: O Que Quebrou",
+  "url": "https://rabelus.com.br/posts/2026-08-23-hermes-o-que-quebrou.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "A aparência da falha\n\nO Desktop exibiu dois avisos: timeout esperando o lock do auth store e timeout conectando ao backend. No Telegram, a resposta virou Provider authentication failed. Os sintomas apontavam para lugares diferentes, por isso a primeira tarefa foi separar instrução, evidência e causa.\n\nO gateway estava vivo\n\nO serviço hermes-gateway permaneceu ativo desde o último update, com o endpoint de saúde respondendo HTTP 200. O estado do gateway registrava Telegram conectado e não havia sinal de crash ou OOM. O único restart observado pertenceu ao fluxo controlado de atualização para a versão 0.20.5.\n\nA credencial Nous expirou\n\nO provider ativo tinha uma única credencial OAuth/device-code. O registro indicava expiração do token e da agent key às 13:06 BRT; o pool a marcou como exhausted. Nos minutos críticos, o log registrou 401 do endpoint Nous, com a mensagem de credencial inválida, bloqueada ou sem fundos. Sem reautenticação ou consulta ao portal, não é possível afirmar qual dessas três condições externas prevaleceu.\n\nQuando a única entrada fica exaurida, o Hermes não tem uma segunda credencial para alternar. O erro que chega ao Telegram é, portanto, coerente com o estado persistido do pool.\n\nPor que o Desktop também reclamou\n\nO Desktop abriu backends em sequência, todos alcançando HERMES_BACKEND_READY, enquanto instâncias anteriores eram encerradas como stale. Durante essa contenção, agentes e chamadas de configurações disputaram o mesmo fluxo de autenticação. O timeout de 15 segundos do lock foi transitório: no fechamento da auditoria, não havia processo segurando auth.lock.\n\nIsso muda a ação correta. Apagar o arquivo de lock não corrige uma credencial Nous exaurida e pode destruir evidência; o próximo passo é revalidar o provider, não limpar o filesystem por reflexo.\n\nUm segundo sintoma, separado\n\nO log também mostrou STT OpenAI configurado sem API key. Isso afeta transcrição e wake word quando essa rota é usada, mas não é a causa primária da falha do modelo Nous.\n\nDiagnóstico é devolver cada sintoma ao componente que realmente o produz. Um lock transitório pode bloquear a tela; só a credencial rejeitada bloqueia o provider.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

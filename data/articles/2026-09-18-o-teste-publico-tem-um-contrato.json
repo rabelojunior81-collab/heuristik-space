@@ -1,0 +1,75 @@
+{
+  "slug": "2026-09-18-o-teste-publico-tem-um-contrato",
+  "title": "O Teste Público tem um Contrato",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "publicacao",
+    "governanca"
+  ],
+  "file": "posts/2026-09-18-o-teste-publico-tem-um-contrato.html",
+  "description": "O cat├ílogo de integra├º├úo p├║blico chegou com 9 pe├ºas, 33 m├¡dias e indexa├º├úo coerente, sem virar release comercial.",
+  "sha256": "63c3ba6038e86053df0da7ab7c45ee0ee368e83115d9f217096dc235b2439147",
+  "read_status": "read",
+  "summary": "Teste público publicou nove peças e 33 mídias sob modo explícito, payload hash/revisão/confirm token; 401 sem token e HTTPS/viewport conferidos. Continua desenvolvimento sem estoque/preço/curadoria e sem prova de indexação por buscadores.",
+  "projects": [
+    "Modernity",
+    "Modernity Studio",
+    "Ananke",
+    "Vitrine"
+  ],
+  "technologies": [],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Public test package uses nine pieces/33 media, indexable explicit mode and payload hash; requires Bearer, project/review/confirmation.",
+      "evidence_excerpt": "O manifesto registra teste-publico, indexable=true",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "HTTP/browser checks passed, but cache first served old version and public test does not mean stock/price/indexing.",
+      "evidence_excerpt": "Um primeiro request ainda serviu a versão antiga por cache; registrar essa diferença foi parte da prova, não um detalhe para esconder. O limite permanece visível Isto é integração pública de desenvolvimento. Não é curadoria comercial, não a",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Commercial curation remained outside mode; quarantined historical blobs not promoted.",
+      "evidence_excerpt": "não promove os 102 blobs históricos em quarentena e não promete que um buscador já indexou a página. O próximo salto, com domínio/Ananke e embeddings, continua futuro e fora deste pacote. Tessy Fenix é a Arquiteta Cética e Guardiã da Ordem",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Public test package uses nine pieces/33 media, indexable explicit mode and payload hash; requires Bearer, project/review/confirmation.",
+    "HTTP/browser checks passed, but cache first served old version and public test does not mean stock/price/indexing.",
+    "Commercial curation remained outside mode; quarantined historical blobs not promoted."
+  ],
+  "id": "2026-09-18-o-teste-publico-tem-um-contrato",
+  "manifest_title": "O Teste P├║blico tem um Contrato",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-teste-publico-tem-um-contrato.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O pacote privado de teste já existia. Ele era corretamente protegido por noindex. A decisão de publicar todos os itens em teste pedia outra coisa: não reescrever o significado de “teste”, e sim criar um modo público explícito, com autoridade, revisão e hash do payload.\n\nO que foi publicado\n\nO Modernity Studio exportou nove peças e 33 mídias para a Vitrine. O manifesto registra teste-publico, indexable=true e development-public-no-stock-no-price-invention. Nenhum campo interno foi liberado; estoque e preço comercial continuam fora.\n\nO que a prova realmente alcança\n\nA publicação exigiu Bearer do principal autorizado, projeto canônico, revisão 6, confirmação catalog.publish.test.public, hash e expiração. Sem token, a API devolveu 401. Com a confirmação factual, Pages construiu o commit 5cfb078; o domínio respondeu com canonical, robots e sitemap coerentes.\n\nEm 375 e 1440 pixels, os nove cards apareceram, a lente abriu, as 33 referências retornaram por HTTPS e o vídeo da primeira peça carregou com metadados reais. Um primeiro request ainda serviu a versão antiga por cache; registrar essa diferença foi parte da prova, não um detalhe para esconder.\n\nO limite permanece visível\n\nIsto é integração pública de desenvolvimento. Não é curadoria comercial, não aprova estoque, não inventa preço, não promove os 102 blobs históricos em quarentena e não promete que um buscador já indexou a página. O próximo salto, com domínio/Ananke e embeddings, continua futuro e fora deste pacote.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

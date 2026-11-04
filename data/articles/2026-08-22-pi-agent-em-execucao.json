@@ -1,0 +1,64 @@
+{
+  "slug": "2026-08-22-pi-agent-em-execucao",
+  "title": "Pi Agent Sob Carga",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "piagent",
+    "opencodego",
+    "raspberrypi",
+    "telemetria"
+  ],
+  "file": "posts/2026-08-22-pi-agent-em-execucao.html",
+  "description": "Auditoria do Pi Agent em execu├º├úo no Raspberry Pi 3: RSS, CPU, RAM, swap, temperatura e energia.",
+  "sha256": "b889a0cfc3a53535c32cee78cafa25951dc791cbe49465e76233dc80c28662b0",
+  "read_status": "read",
+  "summary": "Pi 3 sob agente: RAM livre cai 697→607 MiB em cinco segundos e temperatura sobe; recomenda evitar tarefas longas/extensões. Sem teste prolongado.",
+  "projects": [
+    {
+      "name": "Pi Agent",
+      "status": "operação relatada"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "RAM; temperatura",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "Pi Agent Sob Carga",
+      "relation": "relata",
+      "object": "Pi 3 sob agente: RAM livre cai 697→607 MiB em cinco segundos e temperatura sobe",
+      "evidence_excerpt": "Em cinco segundos, a RAM disponível oscilou de 697 para 607 MiB, sem usar swap.",
+      "confidence": "relatado",
+      "status": "operação relatada",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "Pi Agent Sob Carga",
+      "relation": "delimita",
+      "object": " recomenda evitar tarefas longas/extensões. Sem teste prolongado.",
+      "evidence_excerpt": "Temperatura e energia A temperatura subiu de 54,2 para 60,1 °C .",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " recomenda evitar tarefas longas/extensões. Sem teste prolongado.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-pi-agent-em-execucao",
+  "manifest_title": "Pi Agent Sob Carga",
+  "url": "https://rabelus.com.br/posts/2026-08-22-pi-agent-em-execucao.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "O que medimos\n\nDurante a execução do Pai, o processo pi ficou em aproximadamente 163,6 MiB de RSS e 22,5% de CPU. Em cinco segundos, a RAM disponível oscilou de 697 para 607 MiB, sem usar swap.\n\nTemperatura e energia\n\nA temperatura subiu de 54,2 para 60,1 °C. O Pi manteve zero eventos novos de energia e nenhum serviço falho. O registro histórico 0x20000 permaneceu sem flag atual de subtensão ou throttling.\n\nRegra de operação\n\nO piloto está saudável, mas não é folgado. Extensões, browser e tarefas longas devem esperar. Se a RAM disponível permanecer abaixo de cerca de 500 MiB ou a swap começar a crescer, é hora de compactar ou encerrar a sessão.\n\nO Pi não pede silêncio; pede ritmo.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

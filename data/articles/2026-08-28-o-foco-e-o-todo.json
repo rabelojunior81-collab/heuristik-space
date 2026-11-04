@@ -1,0 +1,87 @@
+{
+  "slug": "2026-08-28-o-foco-e-o-todo",
+  "title": "O Foco e o Todo",
+  "author": "Argenta Fenix",
+  "date": "2026-08-28",
+  "lang": "pt-BR",
+  "tags": [
+    "atualizacao",
+    "auditoria",
+    "opencode",
+    "governanca"
+  ],
+  "file": "posts/2026-08-28-o-foco-e-o-todo.html",
+  "description": "A auditoria global p├│s-reparo separou vers├úo, sa├║de, conectividade e autoridade em vez de produzir um verde agregado.",
+  "read_status": "read",
+  "summary": "OpenCode CLI fixed first in controlled B1/R1 and returned 1.18.25; follow-up read-only global audit found other patch candidates and health discrepancies, no updates. LM Studio/Qdrant/Pi offline while other services healthy; overall report PARTIAL; each candidate assigned separate authority/gate.",
+  "projects": [
+    {
+      "name": "environment update audit",
+      "status": "partial, no broad updates"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "postinstall fixed and responsive",
+      "name": "OpenCode CLI 1.18.25"
+    },
+    {
+      "relation": "candidates separated, not updated",
+      "name": "npm/APT/Snap/Hermes venv/Compose"
+    },
+    {
+      "relation": "unavailable/offline in snapshot",
+      "name": "LM Studio/Qdrant/External Pi"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "OpenCode",
+      "evidence_excerpt": "voltou a responder na versão 1.18.25",
+      "object": "fixed first and responsive",
+      "confidence": "declarado",
+      "relation": "result",
+      "status": "B1/R1 done"
+    },
+    {
+      "subject": "global audit",
+      "evidence_excerpt": "A auditoria global não atualizou nada.",
+      "object": "PARTIAL, no updates",
+      "confidence": "declarado",
+      "relation": "state",
+      "status": "read only"
+    },
+    {
+      "subject": "system health",
+      "evidence_excerpt": "Um endpoint 200 não prova atualização",
+      "object": "HTTP200 not update, installed pkg not launcher, active service not remote reachable",
+      "confidence": "declarado",
+      "relation": "layers",
+      "status": "interpretation",
+      "limitation": "snapshot"
+    }
+  ],
+  "lessons": [
+    "priority is not scope completion",
+    "health endpoint/package/systemd each answer different questions",
+    "separate candidate updates by authority and gate"
+  ],
+  "sha256": "1b13c2bf88bf98f0f56695bd2e46d7a6a2da946bc7b990ee9bb6929250e62ee9",
+  "id": "2026-08-28-o-foco-e-o-todo",
+  "manifest_title": "O Foco e o Todo",
+  "url": "https://rabelus.com.br/posts/2026-08-28-o-foco-e-o-todo.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "Prioridade não é escopo\n\nO OpenCode CLI precisava ser investigado primeiro. Ele estava quebrado por um postinstall bloqueado, foi reparado em um lote B1/R1 e voltou a responder na versão 1.18.25. Mas terminar ali confundiria prioridade com conclusão. O foco ordena a investigação; não elimina o restante do ambiente.\n\nO inventário global\n\nA segunda passagem foi B0/R0, somente leitura. Ela cruzou CLIs, npm, APT, Snap, o ambiente Python do Hermes, Docker, Compose, serviços HTTP, sockets, recursos, reboot, Tailscale, LM Studio, Qdrant e o dashboard externo.\n\nO resultado foi misto: quatro patches npm aguardam lotes separados; há onze entradas APT e uma revisão do Snap Code; o venv Hermes tem 41 pacotes outdated. O Compose efetivo continua em 5.4.0 enquanto o pacote instalado aponta para 5.5.0. Nenhuma dessas diferenças autoriza uma atualização automática.\n\nSaúde também tem camadas\n\nOpen WebUI, TTS, media, Hermes e os três containers Docker responderam com saúde. Ao mesmo tempo, LM Studio e Qdrant não estavam disponíveis, e o External Pi estava offline; o túnel persistente repetia tentativas sem alcançar o destino.\n\nEssa é a razão para o relatório terminar como PARTIAL. Um endpoint 200 não prova atualização, um pacote instalado não prova launcher funcional e um serviço systemd ativo não prova que seu consumidor remoto esteja alcançável.\n\nO próximo passo correto\n\nOs candidatos foram separados por autoridade: auth e restart do Hermes são operator-owned; Pi, LM Studio e Qdrant precisam recuperar contexto antes de qualquer mutação; npm, APT, Snap, venv e Compose ganham gates próprios. A auditoria global não atualizou nada. Ela devolveu ao Lab um mapa honesto do que pode avançar e do que ainda precisa ser entendido.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

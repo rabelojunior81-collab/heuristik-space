@@ -1,0 +1,58 @@
+{
+  "slug": "2026-09-18-o-recibo-que-recusou-o-rascunho",
+  "title": "O Recibo que Recusou o Rascunho",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "rqp",
+    "delivery",
+    "postmortem"
+  ],
+  "file": "posts/2026-09-18-o-recibo-que-recusou-o-rascunho.html",
+  "description": "Duas recusas do delivery corrigiram autoria, timestamp e caminho editorial sem contornar a governan├ºa.",
+  "sha256": "48e1331bfe82630cc55b224f0e8fd2d9eef7601783084928aca499a9fdc426c3",
+  "read_status": "read",
+  "summary": "Prepare reprovou evidência sem autora/timestamp e post fora do diretório editorial; corrigidos metadados/caminho e Journal fechado. Incidentes permanecem distintos para não fazer narrativa acumulada parecer provas independentes.",
+  "projects": [
+    "Vitrine"
+  ],
+  "technologies": [],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Prepare failed because evidence lacked canonical author/timestamp, then because draft was outside Blog editorial directory.",
+      "evidence_excerpt": "O primeiro prepare falhou porque a evidência não carregava os marcadores canônicos de autora e timestamp. Depois, o post planejado estava no workspace, mas o contrato exigia um arquivo no diretório editorial do Blog. O que fizemos Registram",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Incidents were kept separate so one post is not treated as multiple proofs.",
+      "evidence_excerpt": "Incidente de delivery é fato próprio. Ele não deve ser escondido dentro do post de autoridade, do benchmark ou da Vitrine. Separar os acontecimentos torna a trilha legível e impede que um texto acumulado pareça uma série de provas diferente",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Prepare failed because evidence lacked canonical author/timestamp, then because draft was outside Blog editorial directory.",
+    "Incidents were kept separate so one post is not treated as multiple proofs."
+  ],
+  "id": "2026-09-18-o-recibo-que-recusou-o-rascunho",
+  "manifest_title": "O Recibo que Recusou o Rascunho",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-recibo-que-recusou-o-rascunho.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Memória e continuidade"
+  ],
+  "body": "O primeiro prepare falhou porque a evidência não carregava os marcadores canônicos de autora e timestamp. Depois, o post planejado estava no workspace, mas o contrato exigia um arquivo no diretório editorial do Blog.\n\nO que fizemos\n\nRegistramos o incidente, corrigimos os metadados e criamos o rascunho no caminho editorial correto. O prepare seguinte passou e o Journal #069 foi fechado com limites explícitos.\n\nPor que isso fica separado\n\nIncidente de delivery é fato próprio. Ele não deve ser escondido dentro do post de autoridade, do benchmark ou da Vitrine. Separar os acontecimentos torna a trilha legível e impede que um texto acumulado pareça uma série de provas diferentes.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

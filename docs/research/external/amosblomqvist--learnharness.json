@@ -1,0 +1,369 @@
+{
+  "slug": "amosblomqvist--learnharness",
+  "name": "amosblomqvist/learnharness",
+  "url": "https://github.com/amosblomqvist/learnharness",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "LearnHarness aplica agentes ao ensino adaptativo e à prática, mantendo um grafo de proposições e cadeias de raciocínio entre sessões. É uma aplicação Next.js com host Electron e execução Pi, distribuída para macOS, Windows e Linux. A arquitetura documenta diferenças entre registro nativo, projeção visual, turnos e tarefas em segundo plano, além de limites concretos de persistência. Aceita providers, certas conexões de assinatura, Claude Code e um endpoint customizado. Para o Lab, oferece referências úteis de pedagogia e continuidade, mas armazenamento local não significa processamento offline ou validação de aprendizagem. A licença é AGPL, e o acesso a arquivos merece avaliação antes de um piloto.",
+  "topics": [
+    "ensino adaptativo",
+    "grafo de conhecimento",
+    "prática",
+    "Electron",
+    "Pi",
+    "Next.js",
+    "aprendizagem",
+    "providers"
+  ],
+  "aliases": [
+    "tutor",
+    "learning",
+    "knowledge graph",
+    "educação",
+    "estudo",
+    "learn harness"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e foco pedagógico",
+      "paragraphs": [
+        "O mantenedor descreve quatro momentos: medir entendimento, planejar dependências, ensinar por passos e praticar em contextos variados. Campos de raciocínio e confiança alimentam a adaptação. O grafo registra ideias e premissas, não uma nota global da pessoa. É uma proposta pedagógica apoiada por ferramentas, sem estudo de eficácia identificado nesta amostra. Melhor interface ou memória mais longa não demonstram aprendizagem, transferência para problemas novos nem redução de erros conceituais."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura e fronteiras",
+      "paragraphs": [
+        "A arquitetura situa páginas e APIs em app, interface em components, composição em src/server, agentes em src/agent, contratos em src/core e persistência em src/store. Electron hospeda a versão desktop. package.json confirma Next.js, Electron e versão 0.4.1. O documento reconhece que as regras de import não constituem arquitetura hexagonal completa nem garantem escritor único entre processos. Essa autolimitação evita confundir separação de pastas com isolamento demonstrado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Turno e recuperação",
+      "paragraphs": [
+        "O servidor é dono do histórico; o navegador envia eventos, não substitui a transcrição. Admissão valida entrada, resolve modelo, reclama liveness por chat e grava a entrada antes de inferir. Uma corrida retorna 409. O streaming pode se reconectar ao turno aceito, enquanto retry de falha é ação explícita. Essa separação é relevante para evitar duplicação após perda de transporte. A documentação não equivale a teste de queda ou recuperação realizado nesta missão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-4",
+      "title": "Perguntas, prática e subagentes",
+      "paragraphs": [
+        "Perguntas são executadas no servidor e respondidas no navegador. O plano valida um DAG Mermaid restrito. A prática impõe um problema ativo e rejeita conclusão sem problema. Pesquisador, leitor de PDF, criador de demos e gerador visual rodam em segundo plano com jobs persistidos. A existência dessas rotas pode melhorar continuidade, mas também amplia chamadas, arquivos e efeitos externos. A pesquisa não mediu se os agentes obedecem corretamente ao método pedagógico em português."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-5",
+      "title": "Grafo e armazenamento",
+      "paragraphs": [
+        "Chats ficam em JSON e o grafo em JSONL de proposições, cadeias, sessões e cobertura. Fingerprints identificam prosa ainda não extraída. O documento distingue limiar de disparo e tamanho de lote: mudar o primeiro não muda automaticamente o segundo na composição atual. Leitores ignoram certas linhas inválidas; algumas substituições usam rename. Não há transação de banco abrangente ou lock entre processos. Recomenda-se um servidor dono do perfil, com backup e recuperação ensaiados."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-6",
+      "title": "Modelos e endpoint customizado",
+      "paragraphs": [
+        "A implementação usa Pi para streams, ferramentas e metadata. A documentação permite um endpoint OpenAI-compatible com vários modelos; a URL deve incluir o caminho completo, sem acréscimo automático de /v1. Descoberta falha pode recorrer a IDs manuais, mas 401/403, redirects e limites excedidos falham explicitamente. Seleção de Vision não prova que o modelo compreenda imagens. Budgets declarados controlam pedidos e compactação, sem aumentar a janela real do servidor de inferência."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-7",
+      "title": "Identidade e credenciais",
+      "paragraphs": [
+        "Configuração não secreta fica em settings.json; credenciais salvas usam auth.json separado. O endpoint customizado vincula autorização a URL, modo e identificador aleatório. Mudança de destino exige nova chave ou consentimento explícito para reutilizar. Operações verificam binding e revisões opacas evitam sobrescrever edições concorrentes. Electron mantém fronteiras próprias para certas assinaturas. Esses mecanismos não são autenticação multiusuário web. Não houve inspeção integral dos fluxos OAuth nem validação dos termos de cada serviço."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-8",
+      "title": "Privacidade e acesso a dados",
+      "paragraphs": [
+        "Ferramentas de arquivo são de leitura, porém não confinadas ao diretório de dados ou projeto: resolvem caminhos também contra o home do usuário. Anexos por caminho não constituem sandbox de upload. Modelos recebem contexto; pesquisa pode fazer fetch direto; ditado usa Deepgram. Dados locais e chaves locais não significam offline. Para o Lab, seria prudente começar com perfil descartável e fontes públicas, sem corpus privado, e registrar os destinos efetivos de cada modalidade antes de conectar produção."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "Plataformas, UX e acessibilidade",
+      "paragraphs": [
+        "O README oferece macOS Apple Silicon, Windows x64 e Linux x64, com atualizações internas. Windows é descrito como não assinado; macOS como assinado/notarizado. Há referências de teclado e interface de grafo, mas esta pesquisa não verificou foco, contraste, leitor de tela ou toque. O fluxo depende de separar sessão, problema e job, o que exige UX clara em erros e pausas. Compatibilidade de embalagem não prova paridade funcional das ferramentas em todas as plataformas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-10",
+      "title": "Licença e custo",
+      "paragraphs": [
+        "LICENSE contém AGPLv3 e o manifesto declara AGPL-3.0-only. A aplicação não cobra assinatura própria segundo o mantenedor, mas providers, busca e ditado podem cobrar. O medidor estima custos de API conhecidos; assinatura, CLI e endpoint customizado têm limites de contabilização. Cache prolongado pode aumentar escrita de cache. Um orçamento de piloto deve incluir extração do grafo e tarefas de fundo, além das respostas visíveis. Direitos sobre PDFs e dados de alunos permanecem separados da licença."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Manutenção e alternativas",
+      "paragraphs": [
+        "A consulta encontrou release v0.4.1 de 31 de outubro de 2026. O guia de arquitetura diferencia implementação atual de documentos arquivados, sinal útil para leitura fiel. Isso não estabelece estabilidade nem eficácia. Frente a cadernos RAG, o diferencial é medir e praticar entendimento; frente a tutor por chat, é persistir proposições e dependências. ai-memory atende continuidade de agentes, não acompanhamento pedagógico. No Lab, o melhor valor imediato é referência de método e contrato de turno, sem adoção automática."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-12",
+      "title": "Ensaios futuros e limites",
+      "paragraphs": [
+        "Um piloto autorizado deveria usar aula pública curta, critérios definidos por docente e avaliação antes/depois com problema novo. Testar retomada, retry, conflito 409, corrupção de JSONL, extração parcial, troca de provider e imagem rejeitada. Medir se o grafo preserva erros do professor e como corrigi-los. Validar Português, teclado, custo completo e restauração. Nenhum produto foi instalado ou executado aqui; alegações de ensino adaptativo e segurança permanecem qualificadas por documentação e leitura estática."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README oficial",
+      "url": "https://github.com/amosblomqvist/learnharness/blob/e69e85269c064c6c9c49a8b06ae78c06e79c4a63/README.md",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "docs",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "Lido pelo plugin GitHub; alegações do mantenedor separadas de comprovação funcional."
+    },
+    {
+      "id": "S2",
+      "title": "docs/custom-providers.md",
+      "url": "https://github.com/amosblomqvist/learnharness/blob/e69e85269c064c6c9c49a8b06ae78c06e79c4a63/docs/custom-providers.md",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "docs",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "Blob 7ef49cf61702130592e8d714f7223361c9ccc69d; leitura estática, sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "package.json",
+      "url": "https://github.com/amosblomqvist/learnharness/blob/e69e85269c064c6c9c49a8b06ae78c06e79c4a63/package.json",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "code",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "Blob a338ec8fccede5a0949faa8f004915fa45facff3; leitura estática, sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "docs/architecture.md",
+      "url": "https://github.com/amosblomqvist/learnharness/blob/e69e85269c064c6c9c49a8b06ae78c06e79c4a63/docs/architecture.md",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "docs",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "Blob 691a5697f513e6741aa6e1864917cef3ff44757d; leitura estática, sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "LICENSE",
+      "url": "https://github.com/amosblomqvist/learnharness/blob/e69e85269c064c6c9c49a8b06ae78c06e79c4a63/LICENSE",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "license",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "Blob be3f7b28e564e7dd05eaf59d64adba1a4065ac0e; leitura estática, sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "src/core/settings.ts",
+      "url": "https://github.com/amosblomqvist/learnharness/blob/e69e85269c064c6c9c49a8b06ae78c06e79c4a63/src/core/settings.ts",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "code",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "Blob d8f67a4388117698bb74cdf16deb54ecc5f80803; leitura estática, sem execução."
+    },
+    {
+      "id": "S7",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/amosblomqvist/learnharness/releases?per_page=2",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "release",
+      "ref": "snapshot 2026-11-03",
+      "note": "Consulta real da coleção, até duas releases; não equivale a teste dos binários."
+    },
+    {
+      "id": "S8",
+      "title": "Último commit da branch padrão consultado",
+      "url": "https://github.com/amosblomqvist/learnharness/commit/e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "accessed_at": "2026-11-03T20:08:04.468Z",
+      "kind": "code",
+      "ref": "e69e85269c064c6c9c49a8b06ae78c06e79c4a63",
+      "note": "release: prepare 0.4.1"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Persistência sem transação global",
+      "certainty": "RELATADO",
+      "detail": "Arquitetura descreve JSON/JSONL e recomenda um servidor dono do perfil.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Leitura não confinada ao projeto",
+      "certainty": "RELATADO",
+      "detail": "Arquitetura declara ferramentas de arquivo read-only sem sandbox restrito ao projeto.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "AGPL",
+      "certainty": "CONFIRMADO",
+      "detail": "Texto de licença e manifesto identificam AGPL.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Sem teste funcional ou avaliação pedagógica.",
+    "Não auditados todos os adapters de assinatura.",
+    "Qualidade, acessibilidade e custos reais não medidos."
+  ],
+  "related": [
+    "akitaonrails--ai-memory",
+    "frigadehq--hob"
+  ],
+  "metrics": {
+    "full_name": "amosblomqvist/learnharness",
+    "html_url": "https://github.com/amosblomqvist/learnharness",
+    "description": "Agent harness for learning difficult things.",
+    "homepage": "learnharness.ai",
+    "default_branch": "main",
+    "created_at": "2026-10-16T19:35:33Z",
+    "updated_at": "2026-11-03T21:05:00Z",
+    "pushed_at": "2026-11-03T00:48:05Z",
+    "stargazers_count": 5166,
+    "forks_count": 806,
+    "open_issues_count": 374,
+    "subscribers_count": 22,
+    "network_count": 806,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [],
+    "size": 9794,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

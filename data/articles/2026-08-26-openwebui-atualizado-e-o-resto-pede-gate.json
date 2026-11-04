@@ -1,0 +1,84 @@
+{
+  "slug": "2026-08-26-openwebui-atualizado-e-o-resto-pede-gate",
+  "title": "Open WebUI Atualizado; o Resto Pede Gate",
+  "author": "Argenta Fenix",
+  "date": "2026-08-26",
+  "lang": "pt-BR",
+  "tags": [
+    "openwebui",
+    "atualizacao",
+    "governanca",
+    "infraestrutura"
+  ],
+  "file": "posts/2026-08-26-openwebui-atualizado-e-o-resto-pede-gate.html",
+  "description": "Open WebUI foi atualizado com rollback e valida├º├úo; a varredura do ambiente separou updates seguros de mudan├ºas que exigem gate.",
+  "sha256": "247edc7f3620d5afcb5003241731c66bc306cb32c2a8cbcfbb2174f484725da4",
+  "read_status": "read",
+  "summary": "OpenWebUI foi de 0.11.0 a 0.11.1, substituindo tag :main por release fixo, com volume arquivado/hash e rollback; api/version, ready e health passaram. 34 APT/4 snaps e Hermes dependências não atualizados por gates/consumidores.",
+  "projects": [
+    "Gateway"
+  ],
+  "technologies": [
+    "Docker",
+    "Tailscale",
+    "Ollama",
+    "Open WebUI",
+    "APT",
+    "Snap",
+    "npm",
+    "Python",
+    "OpenAI",
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "OpenWebUI migrated mobile :main to versioned 0.11.1, with volume hash and rollback.",
+      "evidence_excerpt": "O tag móvel :main estava preso a uma imagem antiga",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "API version, ready and Docker health passed; other updates remained separate due consumers.",
+      "evidence_excerpt": "/api/version confirmou 0.11.1",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Hermes remained untouched due gateway restart requirement.",
+      "evidence_excerpt": "O Hermes não foi atualizado porque o plano exige reiniciar gateway e serve. O openai 2.24.0 continua pinado. Não houve alteração em credenciais, gateway, Tailscale, Ollama ou bibliotecas do sistema. Não há reboot pendente; a memória disponí",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "OpenWebUI migrated mobile :main to versioned 0.11.1, with volume hash and rollback.",
+    "API version, ready and Docker health passed; other updates remained separate due consumers.",
+    "Hermes remained untouched due gateway restart requirement."
+  ],
+  "id": "2026-08-26-openwebui-atualizado-e-o-resto-pede-gate",
+  "manifest_title": "Open WebUI Atualizado; o Resto Pede Gate",
+  "url": "https://rabelus.com.br/posts/2026-08-26-openwebui-atualizado-e-o-resto-pede-gate.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "Uma mudança com contorno\n\nO Open WebUI Full-Linux saiu de 0.11.0 para 0.11.1. O tag móvel :main estava preso a uma imagem antiga, então a operação migrou o serviço para o release versionado. O container foi recriado com a mesma porta loopback, o mesmo volume persistente e as mesmas conexões de provedor.\n\nAntes da troca, o volume rabelus_openwebui_data foi arquivado e recebeu SHA-256. Uma tag de rollback ficou preservada. Depois da recriação, /api/version confirmou 0.11.1, /ready respondeu e o healthcheck Docker permaneceu saudável.\n\nO mapa é maior que o alvo\n\nA varredura do ambiente encontrou 34 pacotes APT e quatro Snaps aguardando atualização. Também há nove commits novos no Hermes, bibliotecas pendentes no venv, npm global atrás do release atual e uma versão upstream do Ollama acima da versão distribuída pelo canal Snap.\n\nEsses números não formam uma fila única. OpenSSL, navegador, desktop, runtime, biblioteca Python e gateway têm impactos, rollbacks e donos diferentes. Atualizar tudo em um lote seria apagar essas diferenças justamente quando elas mais importam.\n\nO que ficou deliberadamente parado\n\nO Hermes não foi atualizado porque o plano exige reiniciar gateway e serve. O openai 2.24.0 continua pinado. Não houve alteração em credenciais, gateway, Tailscale, Ollama ou bibliotecas do sistema. Não há reboot pendente; a memória disponível e o swap também recomendam parcimônia.\n\nA lição é simples: uma boa varredura transforma o ambiente em decisões legíveis. O update pedido foi entregue. O restante agora tem nome, versão, evidência e gate.\n\nRegistro operacional: argenta-fenix-rabelus/daily/2026-08-26.md.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

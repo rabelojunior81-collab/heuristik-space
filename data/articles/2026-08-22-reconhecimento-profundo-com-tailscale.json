@@ -1,0 +1,78 @@
+{
+  "slug": "2026-08-22-reconhecimento-profundo-com-tailscale",
+  "title": "Reconhecimento Profundo com Tailscale",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "tailscale",
+    "rede",
+    "hermes",
+    "observabilidade"
+  ],
+  "file": "posts/2026-08-22-reconhecimento-profundo-com-tailscale.html",
+  "description": "O mapa real da rede do Rabelus Lab: PCs, dispositivos, peers Tailscale e servi├ºos identificados sem autentica├º├úo ou muta├º├úo remota.",
+  "sha256": "e7042944b770a491e849ade82e3d78a3b3f1c2293e3198339f313af9644c128a",
+  "read_status": "read",
+  "summary": "Tailscale network inventory after shallow first attempt mapped 16 peers/10 online and routes; found Windows/Linux/Mac/phone/TV/unknown RTSP. Hermes endpoints returned 401. No credentials, SSH, DB, prompts or config writes; next targets need choice.",
+  "projects": [],
+  "technologies": [
+    "Tailscale",
+    "SSH",
+    "Ollama",
+    "LM Studio",
+    "PostgreSQL",
+    "OpenCode",
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Read-only Tailscale inventory found 16 peers/10 online with varying LAN/relay/no-response.",
+      "evidence_excerpt": "16 peers conhecidos, dos quais 10 estavam online",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Hermes 401 confirmed reachable endpoint with auth boundary; no keys/SSH/DB/config touched.",
+      "evidence_excerpt": "Nenhuma chave foi tentada, extraída ou transportada pelo Bus. Também não foram executados SSH, Tailscale SSH, PowerShell remoto, consultas de banco, prompts de modelo ou alterações de configuração. A coleta parou exatamente no limite entre",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "considerado",
+      "object": "Target choice needed before any deeper investigation.",
+      "evidence_excerpt": "O próximo ganho de informação exige escolher alvos: inventário de sistema read-only via Tailscale SSH nos Linux, inspeção autorizada do Windows que hospeda a stack de modelos, ou uma trilha separada para a câmera RTSP. Sem essa escolha, “ex",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Read-only Tailscale inventory found 16 peers/10 online with varying LAN/relay/no-response.",
+    "Hermes 401 confirmed reachable endpoint with auth boundary; no keys/SSH/DB/config touched.",
+    "Target choice needed before any deeper investigation."
+  ],
+  "id": "2026-08-22-reconhecimento-profundo-com-tailscale",
+  "manifest_title": "Reconhecimento Profundo com Tailscale",
+  "url": "https://rabelus.com.br/posts/2026-08-22-reconhecimento-profundo-com-tailscale.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "Do IP ao ambiente\n\nO primeiro reconhecimento da rede local mostrou apenas vizinhos e uma sub-rede. Isso respondia à pergunta errada. O que importa no Lab não é quantos endereços existem, mas quais ambientes estão vivos, por onde são alcançáveis e que função cada um desempenha.\n\nCom o Tailscale configurado, o mapa passou a incluir 16 peers conhecidos, dos quais 10 estavam online na coleta. Dois foram alcançados diretamente pela LAN; os demais usaram o relay de São Paulo ou permaneceram sem resposta. Essa diferença de rota é operacionalmente importante: latência e firewall deixam de ser suposições.\n\nO que foi identificado\n\nUm ambiente Windows concentra LM Studio com oito modelos publicados, Ollama, Hermes Dashboard e PostgreSQL.\n\nQuatro ambientes Linux expõem a família Hermes/Ollama e interfaces relacionadas a AionUI/OpenCode; alguns também apresentam SSH.\n\nUm MacBook respondeu como receptor AirPlay; um OnePlus apareceu como peer Tailscale sem serviços TCP expostos.\n\nUma TV Samsung foi identificada por SSDP/UPnP, incluindo seu modelo e funções de media renderer.\n\nUm dispositivo desconhecido respondeu como RTSP em 554, forte indício de câmera ou equipamento de vídeo.\n\nAutenticação não é descoberta\n\nOs endpoints Hermes responderam 401 Unauthorized sem a chave correta. Isso é uma boa notícia: o serviço está alcançável, mas a fronteira de autenticação está funcionando. Nenhuma chave foi tentada, extraída ou transportada pelo Bus.\n\nTambém não foram executados SSH, Tailscale SSH, PowerShell remoto, consultas de banco, prompts de modelo ou alterações de configuração. A coleta parou exatamente no limite entre observar e entrar.\n\nPróximo passo real\n\nO próximo ganho de informação exige escolher alvos: inventário de sistema read-only via Tailscale SSH nos Linux, inspeção autorizada do Windows que hospeda a stack de modelos, ou uma trilha separada para a câmera RTSP. Sem essa escolha, “explorar tudo” mistura superfícies com riscos diferentes.\n\nUm mapa útil não diz apenas onde há uma porta. Ele explica que ambiente existe atrás dela e qual é o limite de acesso.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

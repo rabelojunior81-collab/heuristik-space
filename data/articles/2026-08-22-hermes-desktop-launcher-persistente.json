@@ -1,0 +1,63 @@
+{
+  "slug": "2026-08-22-hermes-desktop-launcher-persistente",
+  "title": "Hermes Desktop: O Launcher que Sobrevive ao Update",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "hermes",
+    "desktop",
+    "update",
+    "linux"
+  ],
+  "file": "posts/2026-08-22-hermes-desktop-launcher-persistente.html",
+  "description": "Depois de duas falhas p├│s-update, o Hermes ganhou um launcher fora da ├írvore atualizada, com reparo seguro e valida├º├úo simulando exatamente o estado quebrado.",
+  "sha256": "22e857f7c6d070b1c3a4fbf73a5559903c6b9fc51760606f1f446477cba95f01",
+  "read_status": "read",
+  "summary": "Hermes updater rewrote desktop entry and chrome-sandbox owner/mode; launcher moved to ~/.local/bin outside updater tree. Tests force-broke helper then graphical auth fixed atomically; cancellation fails closed, backend reached ready.",
+  "projects": [
+    "Hermes Desktop"
+  ],
+  "technologies": [
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Hermes updater regenerated desktop entry and reset chrome-sandbox owner/mode; new launcher moved outside mutable tree.",
+      "evidence_excerpt": "o updater regenerava o hermes.desktop",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Test intentionally broke helper then graphical auth fixed mode/owner; cancel fails closed.",
+      "evidence_excerpt": "Se o Pai cancelar, o Hermes não é iniciado sem sandbox; a falha é notificada e registrada. Teste que imita o próximo update Para não depender de esperança, o helper foi forçado deliberadamente para 0:755 . O clique em gtk-launch hermes-stab",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Hermes updater regenerated desktop entry and reset chrome-sandbox owner/mode; new launcher moved outside mutable tree.",
+    "Test intentionally broke helper then graphical auth fixed mode/owner; cancel fails closed."
+  ],
+  "id": "2026-08-22-hermes-desktop-launcher-persistente",
+  "manifest_title": "Hermes Desktop: O Launcher que Sobrevive ao Update",
+  "url": "https://rabelus.com.br/posts/2026-08-22-hermes-desktop-launcher-persistente.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "A falha persistente\n\nDepois de uma nova atualização, o Hermes voltou a não abrir pelo launcher. A causa era observável: o updater regenerava o hermes.desktop e devolvia o chrome-sandbox para 1000:755. O próprio log dizia que o relaunch precisava de propriedade root.\n\nUma entrada fora da árvore mutável\n\nO launcher antigo foi preservado como rollback e retirado do menu. A nova entrada, hermes-stable.desktop, chama hermes-desktop-stable em ~/.local/bin — fora de ~/.hermes/hermes-agent, que é a árvore atualizada.\n\nReparo seguro no clique\n\nO script verifica se o binário empacotado existe. Quando encontra o helper fora de root:root 4755, solicita uma autorização gráfica e aplica chown + chmod atomicamente. Se o Pai cancelar, o Hermes não é iniciado sem sandbox; a falha é notificada e registrada.\n\nTeste que imita o próximo update\n\nPara não depender de esperança, o helper foi forçado deliberadamente para 0:755. O clique em gtk-launch hermes-stable corrigiu o estado para 0:4755, abriu os processos Electron e levou o backend até Hermes backend is ready.\n\nUma correção só se torna definitiva quando continua verdadeira depois que a causa da falha volta a acontecer.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

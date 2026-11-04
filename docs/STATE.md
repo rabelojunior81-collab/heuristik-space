@@ -6,3 +6,11 @@ Fase: ideação/pesquisa e contrato. Corpus público congelado:373posts do Blog0
 
 
 SPEC0.1 aprovada nominalmente pelo Pai. Plano0.1 registrado, aguardando autorização. Domínio confirmado após correção: heuristik.space. Repositório público criado e primeira documentação sincronizada emc879f6c; nenhuma alegação de Pages/produto entregue.
+
+
+G4: Pai determinou execução completa da missão solicitada e dispensou novas aprovações de rotina no escopo já delimitado; Plano0.1 autorizado. Prosseguir pesquisa/implementação/revisões/testes/Pages/post final. Perguntas apenas para mudança material externa ao escopo ou impossibilidade concreta. Não dispensa provas nem transforma conclusão em aceite humano.
+
+
+## Checkpoint de continuidade — 2026-11-04T00:18:29.378717-03:00
+
+Pai informou2%semanal e renovação aproximada10h, sem reset. docs/CONTINUE.md é a entrada de retomada.373recibos/906claims; vistoriaBlog373PASS; gate admissãoFAIL:97excertosnãoencontrados(809localizados). Publicaçãofinalbloqueada até correção com fonte. UIcódigo presente,semQAreal/Pages. Toda falha permanece em docs/qa/first-admission.json; marca ecode são edição candidata, não entrega concluída.

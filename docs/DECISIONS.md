@@ -7,3 +7,5 @@
 - Seguir metodologia/governança; máximas antes/durante/depois; post final com endereço.
 - Domínio: correção literal posterior **heuristik.space** substitui heristik.space. Não confundir domínio do produto com Blog rabelus.com.br.
 - Review: GPT-6-Luna médio na pesquisa e GPT-6.1-Terra estratégico, consultivo/contextualizado quando não independente; somente material público, sem ferramentas na revisão e sem gasto extra. Aceite humano não delegado.
+
+- Aditamento04/11: rotina degovernança comversionamento/registros/documentação antes,durante,depois poringestão, testes/gates vinculadosàvistoriadoBlog. Semapagarerro; correçãoligadaàtentativa. Pai informou2%semanal/renovaçãoaprox10h e determinou não usarresetsemanal; mitigação porcheckpointversionado.

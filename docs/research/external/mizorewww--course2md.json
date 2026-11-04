@@ -1,0 +1,332 @@
+{
+  "slug": "mizorewww--course2md",
+  "name": "course2md",
+  "url": "https://github.com/mizorewww/course2md",
+  "category": "IA local, conhecimento e estudo",
+  "summary": "course2md converte vídeo de aula em notas ilustradas, ligando mudanças de slide, capturas e transcrição. Aceita arquivo local e links de YouTube ou Bilibili, prefere legendas disponíveis e oferece reconhecimento local ou API. O código foi reorganizado em crates Rust com engine, fontes, IA e protocolo compartilhados por CLI e desktop. A revisão consultada é3.0.0-alpha.1, enquanto2.0.1 aparece como release estável anterior. Notas em Markdown e imagens preservam portabilidade, mas extração de slides e fala exige conferir alinhamento e fidelidade. Para o Lab, interessa como hipótese de preparação de aulas e acervo consultável, sem autorizar acesso a cookies, download de terceiros ou envio a provedores.",
+  "topics": [
+    "vídeo",
+    "aulas",
+    "Markdown",
+    "transcrição",
+    "slides",
+    "Rust",
+    "ASR",
+    "YouTube",
+    "Bilibili",
+    "Ollama"
+  ],
+  "aliases": [
+    "video to notes",
+    "lecture notes",
+    "curso para markdown",
+    "legendas",
+    "fala para texto",
+    "captura de slides"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e saída",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O produto promete transformar aulas gravadas em notas com uma imagem por slide e transcrição associada, salvas em course.md e arquivos de imagem. O leitor oferece resumo, índice, busca e exportações HTML, ZIP e JSON. O benefício principal é manter artefatos comuns, editáveis e guardáveis fora da interface; isso não garante que toda mudança visual represente um slide nem que as palavras estejam alinhadas ao instante correto."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e revisão",
+      "kind": "observed",
+      "paragraphs": [
+        "Cargo.toml e docs/CRATES descrevem workspace Rust dividido por responsabilidade; o pipeline está na engine e a configuração inclui captura, transcrição e LLM. A separação permite compartilhar motor entre CLI e desktop, mas não comprova paridade de todas as opções. O HEAD consultado corresponde à reorganização3.0.0-alpha.1. A release reconhece aceite ainda incompleto; portanto comportamento de main não deve ser apresentado como versão estável já validada."
+      ],
+      "source_ids": [
+        "S2",
+        "S4",
+        "S6",
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Pipeline de slides",
+      "kind": "observed",
+      "paragraphs": [
+        "O template expõe similaridade, intervalo de amostragem, cooldown, modo first ou stable, tempo de estabilidade e região de interesse. Esses controles mostram que captura depende de comparação temporal e parâmetros, não de interpretação infalível do slide. Animações, câmera do professor, tela compartilhada e pequenos incrementos podem exigir ajustes. A qualidade precisa ser julgada por omissões, duplicações, legibilidade e alinhamento com a fala em um vídeo conhecido."
+      ],
+      "source_ids": [
+        "S5",
+        "S4"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Fala, legendas e modelos",
+      "kind": "observed",
+      "paragraphs": [
+        "A configuração distingue transcript_source auto, subtitle e asr. Auto prefere legendas; ASR admite CoreML, GPU, CPU, NPU e API, com compatibilidades de modelo próprias. O README menciona modelos entre cerca de1 e2,4GB e dependências específicas. Escolher NPU não garante que um modelo arbitrário carregue. A release2.0.1 relata correção desse caminho com Whisper no Intel NPU; trata-se de relato versionado, sem execução nossa."
+      ],
+      "source_ids": [
+        "S1",
+        "S5",
+        "S8"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "IA e provedores opcionais",
+      "kind": "observed",
+      "paragraphs": [
+        "O template oferece ASR em API compatível com OpenAI, modo de transcrição ou chat, endpoint e chave. LLM é separado e controla revisão, resumo, visão, concorrência e tradução. Assim um operador pode transcrever localmente e ainda transmitir texto ou capturas ao ligar a revisão. Compatibilidade de endpoint não equivale a todos os recursos do provedor; visão e formatos de resposta precisam de teste. Custo cresce com áudio, tamanho do texto, imagens e repetição de chamadas."
+      ],
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Plataformas e ferramentas",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README descreve desktop macOS Apple Silicon, Windows x64 e Linux x86_64, com limitações distintas para Intel Mac e Linux ARM64. A distribuição desktop inclui ferramentas de vídeo; CLI pode depender de ffmpeg, yt-dlp, aria2 e llama-server. Em Windows, reconhecimento GPU/CPU pode exigir runtime Visual C++. Os pacotes não foram baixados nem executados; compatibilidade anunciada não é prova de funcionamento no host do Lab."
+      ],
+      "source_ids": [
+        "S1",
+        "S8"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Downloads e contas",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O autor afirma perguntar antes de baixar modelo; em scripts sem terminal o comportamento documentado é interromper, salvo autorização explícita por flag ou variável. Para plataformas online existem login Bilibili e leitura de cookies de navegador pelo yt-dlp. Essas funções tratam credenciais e podem afetar a conta; não fazem parte desta pesquisa. Espelhos de modelos e localização automática também podem alterar destinos de rede e precisam de inventário antes de uso."
+      ],
+      "source_ids": [
+        "S1",
+        "S8"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Persistência e continuidade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "A biblioteca mantém notas e imagens em diretórios escolhidos, com tarefas pausáveis e retomáveis. CLI e desktop compartilham alguns logins e modelos, mas preservam configurações próprias. O README alerta que a biblioteca2.0 não lista automaticamente todas as notas1.x, embora arquivos permaneçam legíveis. Isso separa preservação dos bytes de continuidade da interface. Recuperação deve conferir mídias, capturas, metadados, configuração e capacidade de reabrir as notas sem o aplicativo."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Segurança e privacidade",
+      "kind": "analysis",
+      "paragraphs": [
+        "Reconhecimento local reduz envio de áudio, mas URL online, cookies, atualização, modelos e APIs opcionais continuam criando rede e superfícies de confiança. A release relata retirar chaves de logs de trace e evitar repetição de solicitações pagas em retomadas. Isso é evidência de correção declarada no objeto, sem certificação geral. Capturas podem incluir dados de outras janelas; um vídeo privado não se torna seguro somente por gerar Markdown local."
+      ],
+      "source_ids": [
+        "S1",
+        "S5",
+        "S8"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Licença e custo",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE contém MIT. Ferramentas empacotadas, modelos, vídeos, plataformas e serviços têm condições próprias; a licença do conversor não concede direitos sobre aulas ou downloads. O custo pode ser computação local, disco para vídeo e modelos, banda, energia e APIs opcionais. Nenhum valor recorrente foi estimado. Uma assinatura mencionada pelo autor não significa que o Lab tenha rota ou uso incluído para integração automática; isso exige verificação e autorização específica."
+      ],
+      "source_ids": [
+        "S3",
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Alternativas e Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "StudyAI começa no PPTX e oferece estudo ativo; Open Notebook organiza fontes variadas e conversa contextual. course2md é mais útil antes dessas etapas, ao transformar gravações em artefatos portáveis. A hipótese para docência é produzir rascunho com imagens e tempo, preservando vídeo como origem. Não substitui revisão editorial e didática. Adotar a pipeline exigiria mostrar que economiza esforço sem apagar dúvidas da transcrição ou reconstruir fórmulas erradas com aparência convincente."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Usar vídeo sintético com slides estáticos, animação, quadro, fórmula, silêncio e vocabulário português conhecido. Comparar legenda e ASR, medir capturas perdidas ou repetidas e erro de alinhamento. Interromper a tarefa e observar retomada sem repetir requisições pagas. Gerar Markdown e HTML e reabrir em máquina isolada. Rede, credenciais, custo e exclusão devem ter testes separados; nenhum login, download, conversão ou benchmark foi feito nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S4",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "readme.md",
+      "url": "https://github.com/mizorewww/course2md/blob/7baf48d6be29738d13df238a08d1e6aa3dbb94b1/readme.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7843559-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "Cargo.toml",
+      "url": "https://github.com/mizorewww/course2md/blob/7baf48d6be29738d13df238a08d1e6aa3dbb94b1/Cargo.toml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7846288-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/mizorewww/course2md/blob/7baf48d6be29738d13df238a08d1e6aa3dbb94b1/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7848775-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "crates/c2m-engine/src/pipeline.rs",
+      "url": "https://github.com/mizorewww/course2md/blob/7baf48d6be29738d13df238a08d1e6aa3dbb94b1/crates/c2m-engine/src/pipeline.rs",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7851352-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "crates/c2m-engine/src/config_template.toml",
+      "url": "https://github.com/mizorewww/course2md/blob/7baf48d6be29738d13df238a08d1e6aa3dbb94b1/crates/c2m-engine/src/config_template.toml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7853902-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "docs/CRATES.md",
+      "url": "https://github.com/mizorewww/course2md/blob/7baf48d6be29738d13df238a08d1e6aa3dbb94b1/docs/CRATES.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7856329-03:00"
+    },
+    {
+      "id": "S7",
+      "title": "Commit consultado",
+      "url": "https://github.com/mizorewww/course2md/commit/7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "7baf48d6be29738d13df238a08d1e6aa3dbb94b1",
+      "note": "Merge split/workspace: 3.0.0-alpha.1 (#24)",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7858780-03:00"
+    },
+    {
+      "id": "S8",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/mizorewww/course2md/releases?per_page=2",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "não identificado",
+      "note": "v3.0.0-alpha.1; v2.0.1",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7861309-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Pipeline parametrizável",
+      "certainty": "CONFIRMADO",
+      "detail": "Template expõe limites de captura e escolha entre legendas e ASR.",
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "title": "Alpha não é aceite",
+      "certainty": "RELATADO",
+      "detail": "Release3.0.0-alpha.1 declara validação ainda incompleta.",
+      "source_ids": [
+        "S8"
+      ]
+    },
+    {
+      "title": "IA muda fronteira de dados",
+      "certainty": "HIPÓTESE",
+      "detail": "Revisão com visão pode transmitir slides mesmo quando ASR é local.",
+      "source_ids": [
+        "S5"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Nenhum teste funcional, de segurança, desempenho ou recuperação foi executado.",
+    "Custos e serviços terceiros dependem da conta, região, volume e condições vigentes; valores do autor são alegações datadas.",
+    "A análise estática amostra o mecanismo e não certifica segurança, privacidade, conformidade ou adequação operacional."
+  ],
+  "related": [
+    "zuhairhalawa--studyai",
+    "lfnovo--open-notebook",
+    "mizorewww--gdirect"
+  ],
+  "metrics": {
+    "full_name": "mizorewww/course2md",
+    "html_url": "https://github.com/mizorewww/course2md",
+    "description": "Turn YouTube, Bilibili, or local course/meeting recordings into slide-illustrated Markdown and HTML lecture notes.",
+    "homepage": "vibewatching.xyz",
+    "default_branch": "main",
+    "created_at": "2026-08-31T01:56:25Z",
+    "updated_at": "2026-11-03T13:29:33Z",
+    "pushed_at": "2026-11-03T14:50:56Z",
+    "stargazers_count": 494,
+    "forks_count": 29,
+    "open_issues_count": 2,
+    "subscribers_count": 1,
+    "network_count": 29,
+    "archived": false,
+    "disabled": false,
+    "language": "Rust",
+    "topics": [],
+    "size": 55740,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

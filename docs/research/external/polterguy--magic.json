@@ -1,0 +1,317 @@
+{
+  "slug": "polterguy--magic",
+  "name": "Magic Cloud / Magic",
+  "url": "https://github.com/polterguy/magic",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "Magic Cloud é uma plataforma self-hosted de desenvolvimento full-stack com backend, banco, APIs, dashboard, Hyperlambda dinâmico e integração MCP. O README anuncia geração de aplicações e agentes por linguagem natural, autorização por função e sandbox para Hyperlambda. Há ressalvas verificáveis no próprio quickstart: credenciais root/root e portas do backend/frontend publicadas; executar Python/terminal e extensões C# é reservado a root. Chat Ops depende de chave OpenAI salvo rotas alternativas, embora MCP possa expor endpoints sem essa chave. As alegações de segurança e desempenho são do mantenedor, não auditoria independente.",
+  "topics": [
+    "low-code",
+    "Hyperlambda",
+    "MCP",
+    "self-hosted",
+    "RBAC",
+    ".NET",
+    "SQLite",
+    "OIDC"
+  ],
+  "aliases": [
+    "Magic Cloud",
+    "Hyperlambda platform",
+    "gerador full-stack self-hosted",
+    "MCP server de APIs"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e promessa",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve criação e execução de aplicações completas, APIs, automações, chatbot e agentes no mesmo cloudlet; endpoints podem ser publicados como ferramentas MCP. A camada de programação usa Hyperlambda e funções/slots ativos. O escopo combina ambiente de desenvolvimento, runtime web e plataforma de agente, em vez de ser apenas uma skill que escreve código. As comparações com Lovable, Bolt e automações concorrentes são posicionamento do autor."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e requisitos",
+      "kind": "observed",
+      "paragraphs": [
+        "README informa backend .NET 10, dashboard React/Vite/TypeScript e plugins .NET; banco SQLite por padrão com opções MySQL, PostgreSQL, MariaDB e SQL Server. Docker Compose publica backend na 4444 e frontend na 5555, com volumes separados para dados, configuração e módulos. Executar do código requer .NET 10 e Node LTS. A publicação gera uma superfície web e API que precisa ser tratada como serviço, não como script isolado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S6"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Autenticação e exposição inicial",
+      "kind": "observed",
+      "paragraphs": [
+        "O quickstart usa root/root no primeiro login, tanto no Compose quanto em desenvolvimento local. Exemplo Compose publica as portas em todas interfaces por padrão; o README informa autenticação OIDC disponível, mas isso depende de configuração de client ID/secret por provedor. Antes de redear ou expor, operador teria de trocar credenciais iniciais e configurar identidade, TLS, segmentação e roles. Essas são observações de documentação/configuração, não tentativa de login ou varredura de endpoint."
+      ],
+      "source_ids": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Modelo de ameaça e segurança alegada",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O mantenedor afirma sandbox do Hyperlambda, lista de funções permitidas por RBAC e validação server-side das chamadas de Chat Ops. A mesma documentação admite que usuários root podem gerar/executar Python ou terminal e criar extensões C#, e alerta contra expor endpoints que permitam execução arbitrária. A alegação de que funções inexistentes são recusadas não cobre erros lógicos, configuração permissiva, plugin malicioso, cadeia de dependências ou falhas do sandbox. A promessa de prêmio por vulnerabilidade não equivale a auditoria ou certificação."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Modelos, MCP e custos",
+      "kind": "observed",
+      "paragraphs": [
+        "Chat Ops mostra chave OpenAI e escolha de modelo; plugins Ollama/HuggingFace podem substituir inferência e busca BM25 local evita embeddings externos em chatbot. Busca semântica/híbrida continua podendo usar embeddings OpenAI. Uso via MCP pode dispensar chave OpenAI para o controle pelo cliente, mas não faz o servidor de ferramenta automaticamente offline. Custos incluem hardware/infra e APIs selecionadas; a expectativa de preço futura do gerador hospedado é declaração temporal do README."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Manutenção e releases",
+      "kind": "observed",
+      "paragraphs": [
+        "A página de releases lista mudanças frequentes; v24.4.11, datada de 2 de novembro de 2026 na página consultada, corrige tratamento de argumentos desconhecidos em auth.jwks. A cadência indica manutenção ativa, mas exige revisão de changelog, compatibilidade de dados e migrações antes de atualização. Releases recentes não demonstram que uma imagem específica esteja sem vulnerabilidades."
+      ],
+      "source_ids": [
+        "S3"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Licença e pertinência",
+      "kind": "analysis",
+      "paragraphs": [
+        "O repositório declara MIT; isso é licença de código, não licença de dados, plugins externos nem serviço hospedado. Magic pode servir como laboratório para API e ferramenta MCP sob controle local, mas a amplitude de funções administrativas e execução dinâmica eleva os riscos. Pertinência ao Lab é hipótese: avaliar com código descartável, identidade segregada, rede sem exposição e sem credenciais/dados reais antes de qualquer uso continuado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Fazer revisão estática direcionada ao fluxo geração→validação→execução Hyperlambda, autenticação ticket/JWT e autorização de funções; testar papéis root/não-root e MCP com ferramentas permitidas/negadas; confirmar bindings de porta, CORS, persistência e atualização/reversão. Medir fluxos externos para OpenAI/embeddings e testar busca BM25 offline com corpus sintético. Nenhum serviço foi instalado, executado, explorado ou submetido a teste de segurança nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Caminho de geração e permissões",
+      "kind": "observed",
+      "paragraphs": [
+        "A documentação diz que o modelo produz AST/Hyperlambda e que chamadas não declaradas no contrato de função são recusadas; a autorização também é descrita como execução sob JWT e função com auth.ticket.verify. Isso restringe parte da chamada de ferramentas, mas não valida a semântica dos argumentos nem a correção do código gerado. O caso de uso inclui browser headless, acesso a banco e execução de scripts; cada integração amplia a capacidade real do agente e precisa de política menor privilégio."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Mudança e estado dos binários",
+      "kind": "observed",
+      "paragraphs": [
+        "HEAD consultado pela API do GitHub é fa8d220b12560856174f410932554a268fc2dd07; a release mais recente observada é v24.4.11 em 2026-11-02, com correção reportada de argumentos desconhecidos no plugin auth.jwks. README orienta puxar imagens latest no Compose, o que reduz reprodutibilidade; para validação deve-se usar tag/digest fixo e registrar migrations. O release note mostra correção de parser/auth, não uma avaliação global de segurança."
+      ],
+      "source_ids": [
+        "S2",
+        "S3",
+        "S5"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Leitura de desempenho e comparação",
+      "kind": "analysis",
+      "paragraphs": [
+        "Afirmações no README de aceleração frente a FastAPI/Flask, LangChain e ferramentas visuais são medições do mantenedor, sem configuração e conjunto de carga suficientemente comparáveis no trecho consultado. Há badges de SonarCloud no README, mas não foram inspecionados ou correlacionados ao commit. Não usar tais números para dimensionamento sem replicar workload e hardware. Custo de chamadas do gerador hospedado e de embeddings deve ser apurado com preços correntes e estimativa de volume."
+      ],
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://raw.githubusercontent.com/polterguy/magic/fa8d220b12560856174f410932554a268fc2dd07/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "fa8d220b12560856174f410932554a268fc2dd07",
+      "note": "README pinado ao HEAD capturado pela API pública; claims atribuídos ao mantenedor.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "LICENSE",
+      "url": "https://github.com/polterguy/magic/blob/fa8d220b12560856174f410932554a268fc2dd07/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "fa8d220b12560856174f410932554a268fc2dd07",
+      "note": "Verificar a licença no commit pinado; repositório declara MIT.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "Releases",
+      "url": "https://github.com/polterguy/magic/releases",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v24.4.11 (02 nov 2026), commit abreviado c4581a8 conforme página",
+      "note": "Release notes são relato do mantenedor sobre o delta, não teste independente.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "Backend Program.cs",
+      "url": "https://github.com/polterguy/magic/blob/fa8d220b12560856174f410932554a268fc2dd07/backend/Program.cs",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "fa8d220b12560856174f410932554a268fc2dd07",
+      "note": "Entrada de backend indicada pelo índice do repositório; referência para inspeção direcionada, não foi auditada integralmente.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "Commit HEAD",
+      "url": "https://github.com/polterguy/magic/commit/fa8d220b12560856174f410932554a268fc2dd07",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "fa8d220b12560856174f410932554a268fc2dd07",
+      "note": "HEAD informado pela API pública do GitHub; mensagem Update Version.cs.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "docker-compose.yml",
+      "url": "https://github.com/polterguy/magic/blob/fa8d220b12560856174f410932554a268fc2dd07/docker-compose.yml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "fa8d220b12560856174f410932554a268fc2dd07",
+      "note": "Compose pinado publica backend 4444 e frontend 5555 sem bind localhost e define volumes de dados/config/módulos.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Quickstart inicializa credencial conhecida e portas publicadas",
+      "certainty": "CONFIRMADO",
+      "detail": "README mostra root/root e mappings 4444:4444 e 5555:80 sem bind localhost; cenário deve ser endurecido antes de exposição.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Sandbox não é autorização para exposição irrestrita",
+      "certainty": "CONFIRMADO",
+      "detail": "README reserva execução de Python/terminal e extensões a root e adverte não expor endpoints de código arbitrário.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "O uso pode enviar dados para serviços de modelo externos",
+      "certainty": "CONFIRMADO",
+      "detail": "Chat e retrieval semântico usam OpenAI por padrão; opções locais/BM25 existem, mas exigem escolha e configuração.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Plataforma para bancada de geração de APIs",
+      "certainty": "HIPÓTESE",
+      "detail": "Exige ensaio controlado de isolamento, RBAC, MCP, custo e manutenção antes de adoção.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; nenhum código ou serviço executado",
+  "limitations": [
+    "README e licença consultados em branch móvel; SHA e imagem alvo não foram fixados.",
+    "Nenhuma auditoria do runtime, plugins, endpoint público ou cadeia de dependências; bounty não é prova de segurança.",
+    "Portas/credenciais foram lidas na configuração documentada, sem escaneamento ou teste dinâmico.",
+    "Desempenho, segurança do sandbox, OIDC, migração, backup e custos não foram validados."
+  ],
+  "related": [
+    "davemessew--agentflux",
+    "mrveiss--autobot-ai",
+    "emanuele-em--kanzo"
+  ],
+  "metrics": {
+    "full_name": "polterguy/magic",
+    "html_url": "https://github.com/polterguy/magic",
+    "description": "Instant SECURE Full Stack Apps and AI Agents",
+    "homepage": "https://hyperlambda.dev",
+    "default_branch": "master",
+    "created_at": "2019-03-16T04:57:01Z",
+    "updated_at": "2026-11-03T20:43:33Z",
+    "pushed_at": "2026-11-03T13:45:12Z",
+    "stargazers_count": 1220,
+    "forks_count": 178,
+    "open_issues_count": 0,
+    "subscribers_count": 31,
+    "network_count": 178,
+    "archived": false,
+    "disabled": false,
+    "language": "C#",
+    "topics": [
+      "agentic-ai",
+      "ai",
+      "ai-agents",
+      "backend",
+      "code-generation",
+      "crud-generator",
+      "csharp",
+      "dotnet",
+      "hyperlambda",
+      "llm",
+      "low-code",
+      "mcp",
+      "mcp-server",
+      "no-code",
+      "rest-api",
+      "self-hosted",
+      "sql-server"
+    ],
+    "size": 116876,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,1 @@
+{"name":"heuristik-space","version":"0.1.0","private":true,"type":"module","description":"Heuristik Space — by Rabelus Lab. Plataforma estática, sem dependências de runtime.","scripts":{"check":"node --check app.js","serve":"python -m http.server 8780 --bind 127.0.0.1"}}

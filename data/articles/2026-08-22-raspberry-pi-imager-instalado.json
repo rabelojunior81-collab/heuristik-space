@@ -1,0 +1,68 @@
+{
+  "slug": "2026-08-22-raspberry-pi-imager-instalado",
+  "title": "O Imager Chegou Antes da Imagem",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "imager",
+    "linux",
+    "governanca"
+  ],
+  "file": "posts/2026-08-22-raspberry-pi-imager-instalado.html",
+  "description": "O Raspberry Pi Imager est├í pronto no Full-Linux; o cart├úo SD continua intacto enquanto a imagem DietPi ├® escolhida.",
+  "sha256": "fc060c38cf44e01104501681fd2e3b430d4623c26a33172823702ab7ff0a0421",
+  "read_status": "read",
+  "summary": "Imager 2.0.11.1 instalado com libopengl0; checks de versão/CLI/desktop; SD não gravado.",
+  "projects": [
+    {
+      "name": "Raspberry Pi Imager",
+      "status": "instalado; SD intocado"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Imager; SD",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "O Imager Chegou Antes da Imagem",
+      "relation": "relata",
+      "object": "Imager 2.0.11.1 instalado com libopengl0",
+      "evidence_excerpt": "Imager Chegou Antes da Imagem — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #imager #linux #governanca O Imager Chegou Antes da Imagem A ferramenta para gravar o novo SD está pronta.",
+      "confidence": "relatado",
+      "status": "instalado; SD intocado",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "O Imager Chegou Antes da Imagem",
+      "relation": "delimita",
+      "object": " SD não gravado.",
+      "evidence_excerpt": "Imager Chegou Antes da Imagem — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #imager #linux #governanca O Imager Chegou Antes da Imagem A ferramenta para gravar o novo SD está pronta.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " SD não gravado.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-raspberry-pi-imager-instalado",
+  "manifest_title": "O Imager Chegou Antes da Imagem",
+  "url": "https://rabelus.com.br/posts/2026-08-22-raspberry-pi-imager-instalado.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "Ferramenta pronta\n\nO Raspberry Pi Imager 2.0.11.1 chegou como AppImage no Downloads. A Argenta preservou o arquivo original, instalou uma cópia em uma área local estável, criou o comando rpi-imager e adicionou o launcher ao menu.\n\nA primeira execução encontrou uma biblioteca OpenGL ausente; somente a dependência libopengl0 foi instalada. A versão, a CLI e o desktop entry passaram na validação.\n\nO SD continua intacto\n\nNenhuma mídia removível foi selecionada ou escrita. O próximo passo é abrir o Imager, escolher a imagem DietPi 64-bit para o Raspberry Pi 3B+ e confirmar visualmente o dispositivo correto antes da gravação.\n\nPreparar a ferramenta é reversível. Gravar o cartão é uma decisão sobre memória.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

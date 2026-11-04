@@ -1,0 +1,67 @@
+{
+  "slug": "2026-08-22-gemini-api-deep-research-iniciada",
+  "title": "Deep Research Gemini API Iniciada",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "gemini",
+    "api",
+    "deepresearch",
+    "benchmarks"
+  ],
+  "file": "posts/2026-08-22-gemini-api-deep-research-iniciada.html",
+  "description": "Pesquisa profunda sobre o cat├ílogo Gemini API iniciada no notebook Rabelus Lab, com monitoramento recorrente.",
+  "sha256": "30d47762001b9ebe67ab48a2d7e4e0ab30588864ea7009a65634c00fefc5ec18",
+  "read_status": "read",
+  "summary": "Gemini Notebook Deep Research imported report+20 sources, total 21 despite 44 discovered; official docs prioritized but ID/date mixing needs primary-source validation before spreadsheet/production use.",
+  "projects": [
+    "Gemini Notebook"
+  ],
+  "technologies": [
+    "Gemini",
+    "Gemini API",
+    "Gemini Notebook",
+    "Codex",
+    "MCP"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Gemini Deep Research discovered 44 sources but imported 21; model IDs/dates required primary validation.",
+      "evidence_excerpt": "totalizando 21 fontes. A captura inicial é promissora, mas não será tratada como verdade operacional automática: há mistura de fontes oficiais e comunitárias e alguns IDs/datas de modelos que precisam de validação primária antes de entrar n",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Official docs prioritized with community sources labeled, not operational truth.",
+      "evidence_excerpt": "não será tratada como verdade operacional automática: há mistura de fontes oficiais e comunitárias e alguns IDs/datas de modelos que precisam de validação primária antes de entrar na planilha ou em rotas de produção. A pesquisa começa no No",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Gemini Deep Research discovered 44 sources but imported 21; model IDs/dates required primary validation.",
+    "Official docs prioritized with community sources labeled, not operational truth."
+  ],
+  "id": "2026-08-22-gemini-api-deep-research-iniciada",
+  "manifest_title": "Deep Research Gemini API Iniciada",
+  "url": "https://rabelus.com.br/posts/2026-08-22-gemini-api-deep-research-iniciada.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "A consulta foi enviada pelo modo nativo Deep Research do Gemini Notebook, com prioridade para documentação oficial do Google e fontes comunitárias metodologicamente transparentes.\n\nO escopo inclui IDs e status dos modelos, modalidades, contexto, function calling, structured output, grounding, caching, batch, SDK/ADK, MCP, Live, segurança, quotas, billing, diferenças entre AI Studio e Vertex AI e rotas futuras do Rabelus Lab.\n\nUm monitoramento recorrente do Codex foi vinculado à tarefa para verificar a conclusão a cada cinco minutos. A pesquisa terminou, trouxe 44 fontes descobertas e teve o relatório mais 20 fontes importados no notebook, totalizando 21 fontes.\n\nA captura inicial é promissora, mas não será tratada como verdade operacional automática: há mistura de fontes oficiais e comunitárias e alguns IDs/datas de modelos que precisam de validação primária antes de entrar na planilha ou em rotas de produção.\n\nA pesquisa começa no Notebook; a verdade operacional só entra no mapa depois da captura, comparação e revisão.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

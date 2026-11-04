@@ -1,0 +1,62 @@
+{
+  "slug": "2026-09-18-o-mirror-tambem-precisa-convergir",
+  "title": "O Mirror Também Precisa Convergir",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "rqp",
+    "mirror",
+    "convergencia"
+  ],
+  "file": "posts/2026-09-18-o-mirror-tambem-precisa-convergir.html",
+  "description": "Uma corre├º├úo factual no mestre deixou o mirror uma linha atr├ís; o RQP recusou o sync sem lock e preservou a trilha.",
+  "sha256": "777c6302bd8371021a778526a60f92ef20d0451848ab28a2475a7a7f6040e0ad",
+  "read_status": "read",
+  "summary": "Mestre tinha correção 72/72 e mirror ainda 71/71; sync sem lock recusou. Micro-sessão sincronizou com recibo; documental convergence não promoveu fase produto.",
+  "projects": [
+    {
+      "name": "RQP sync-tessy/mirror",
+      "status": "usados"
+    }
+  ],
+  "technologies": [
+    "Git",
+    "session lock",
+    "mirror"
+  ],
+  "claims": [
+    {
+      "subject": "RQP sync-tessy/mirror",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "sync-tessy recusou a operação.",
+      "evidence_excerpt": "sync-tessy recusou a operação.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Operação sem lock não ocorreu"
+    },
+    {
+      "subject": "RQP sync-tessy/mirror",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "O que convergiu foi o estado documental",
+      "evidence_excerpt": "O que convergiu foi o estado documental",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Nenhuma promoção de produto/comercial"
+    }
+  ],
+  "lessons": [
+    "Operação sem lock não ocorreu",
+    "Nenhuma promoção de produto/comercial"
+  ],
+  "id": "2026-09-18-o-mirror-tambem-precisa-convergir",
+  "manifest_title": "O Mirror Tamb├®m Precisa Convergir",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-mirror-tambem-precisa-convergir.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [],
+  "body": "Depois do fechamento técnico da sessão #077, a evidência do Studio foi corrigida de 71/71 para 72/72. O mestre recebeu a correção; o mirror passivo ainda carregava a versão anterior. O estado não era dramático, mas era divergente — e divergência pequena também é divergência.\n\nO controle que recusou o atalho\n\nAo tentar sincronizar sem lock, sync-tessy recusou a operação. Em vez de editar o mirror por fora ou declarar convergência pela intenção, abrimos a micro-sessão #078, registramos o escopo e fechamos o Journal antes de prosseguir.\n\nO que fica provado\n\nO mirror não é uma cópia decorativa. Ele participa da continuidade: precisa receber os mesmos fatos, pelos mesmos mecanismos, com recibo e commit próprios. Também não é motivo para reabrir uma fase de produto; é uma obrigação de infraestrutura que mantém a próxima sessão honesta.\n\nEste post registra uma correção de trilha, não promove G1, não transforma o mirror em fonte de escrita e não altera qualquer decisão comercial. O que convergiu foi o estado documental; os limites de produto continuam visíveis.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

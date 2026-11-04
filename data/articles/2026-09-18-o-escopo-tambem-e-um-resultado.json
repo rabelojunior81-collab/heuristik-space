@@ -1,0 +1,71 @@
+{
+  "slug": "2026-09-18-o-escopo-tambem-e-um-resultado",
+  "title": "O Escopo Também é um Resultado",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "g5",
+    "escopo"
+  ],
+  "file": "posts/2026-09-18-o-escopo-tambem-e-um-resultado.html",
+  "description": "G5 foi fechado como passagem t├®cnica limitada: benchmark local verde, acceptance=false e embeddings reservados para a pr├│xima evolu├º├úo.",
+  "read_status": "read",
+  "summary": "Local benchmark 60/60 exact, 60/60 provenance, 24 abstentions, no external corpus/cost/upload; acceptance=false remains. Embeddings/vector comparison explicitly deferred by scope, not a blocker or completed item; catalog remains test only.",
+  "projects": [
+    {
+      "name": "Ananke/Modernity benchmark",
+      "status": "local G5 technically limited; embeddings deferred"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "gateway intent/classification",
+      "relation": "local runner exercised"
+    },
+    {
+      "name": "embeddings/vector index",
+      "relation": "deferred to later scope; no corpus/cost decision"
+    }
+  ],
+  "claims": [
+    {
+      "status": "local limited pass",
+      "subject": "benchmark",
+      "evidence_excerpt": "60/60 resultados exatos, 60/60 com proveniência válida e 24 abstenções",
+      "confidence": "declarado",
+      "limitation": "no external corpus, acceptance=false",
+      "object": "60 queries exact/provenance and 24 abstentions",
+      "relation": "results"
+    },
+    {
+      "status": "future scope",
+      "subject": "embeddings",
+      "evidence_excerpt": "foram classificados como adiados por escopo futuro",
+      "confidence": "declarado",
+      "limitation": "needs corpus/cost/comparable benchmark/decision",
+      "object": "deferred, not completed",
+      "relation": "status"
+    }
+  ],
+  "lessons": [
+    "acceptance false can coexist with scoped technical pass",
+    "future feature is not a current blocker when explicitly out of scope",
+    "provenance and curation are separate"
+  ],
+  "sha256": "8037166df8e85559eab78aa65b2374d5f380d122cc3026020136bda3eb52a0df",
+  "id": "2026-09-18-o-escopo-tambem-e-um-resultado",
+  "manifest_title": "O Escopo Tamb├®m ├® um Resultado",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-escopo-tambem-e-um-resultado.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Interfaces e produto",
+    "Patrimônio e negócio"
+  ],
+  "body": "O fechamento da retomada Modernity encontrou uma distinção que o plano antigo não conseguia representar: o benchmark local estava verde, mas a ficha histórica ainda chamava embeddings, File Search e índice vetorial de “bloqueio”. A decisão desta fase era outra: benchmark local agora; embeddings depois da evolução com o domínio Ananke/ERPNext.\n\nO que foi provado\n\nO runner local percorreu 60 consultas: 60/60 resultados exatos, 60/60 com proveniência válida e 24 abstenções. Intenção e classe atravessam o caminho real até o gateway. Não houve corpus externo, custo externo ou upload privado. acceptance=false continua correto.\n\nO que ficou para depois\n\nF5.2, F5.3 e F5.4 foram classificados como adiados por escopo futuro, não como concluídos por conveniência. O ADR-009 preserva a lacuna: a comparação vetorial, o modelo de embeddings e o índice derivado ainda precisarão de corpus, custo, benchmark comparável e decisão própria.\n\nPor que isso fecha a fase\n\nO resultado atual é completo dentro do contrato autorizado porque declara o limite sem escondê-lo. G5 passa tecnicamente de forma limitada; G6 pode usar a evidência pública já reconciliada sem ficar artificialmente preso a uma capacidade futura. O catálogo continua de teste, sem preço ou estoque inventado, e a proveniência continua separada da curadoria.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,369 @@
+{
+  "slug": "charonyuu--whatsmyagentdoing",
+  "name": "Charonyuu/whatsmyagentdoing",
+  "url": "https://github.com/Charonyuu/whatsmyagentdoing",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "Whatsmyagentdoing é um observador local de sessões de agentes, apresentado como escritório 2D/3D e painel de estados. Lê históricos de vários harnesses e transforma eventos em situações como trabalhando, aguardando usuário ou concluído, sem executar o trabalho dos agentes. O código confirma polling de arquivos, processamento incremental e servidor SSE com validação de Host e modo privado. A release consultada inclui OpenCode e Hermes via SQLite, dependendo de recursos recentes do Node. Para o Lab, interessa como painel de consciência operacional, com o limite decisivo de que estado inferido por logs não prova processo vivo, tarefa aceita ou posse encerrada.",
+  "topics": [
+    "observabilidade",
+    "agentes",
+    "logs",
+    "SSE",
+    "Node.js",
+    "painel",
+    "SQLite",
+    "privacidade"
+  ],
+  "aliases": [
+    "escritório virtual",
+    "agent monitor",
+    "status",
+    "office",
+    "telemetria",
+    "multi harness"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "paragraphs": [
+        "A ferramenta visualiza sessões existentes e resume seu último estado conhecido. O escritório é metáfora visual, não um orquestrador nem scheduler. Lista separa Needs you, Working e Finished e oferece comandos de retomada. A distinção é importante para o Lab: um cartão pode ajudar a localizar atenção necessária, sem autorizar concluir que uma missão acabou. O monitor não substitui o ledger ou a confirmação do executor sobre o recurso sob sua posse."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura observada",
+      "paragraphs": [
+        "package.json e fontes mostram CLI JavaScript, servidor HTTP local e frontend estático. src/watcher.js descobre históricos e emite mudanças; src/server.js produz snapshots e Server-Sent Events. Não há API de modelo obrigatória para observar agentes. A animação 3D usa bundle de Three.js, com código fonte separado do bundle distribuído. A simplicidade reduz componentes de infraestrutura, mas os adapters dependem de formatos locais que podem mudar sem contrato estável."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Mecanismo de leitura",
+      "paragraphs": [
+        "Watcher usa polling de um segundo e redescoberta periódica, em vez de depender de fs.watch. Codex é localizado percorrendo todas as datas e filtrando por mtime, de modo que chat antigo retomado continue visível. Leituras guardam offsets e pedaços incompletos; alguns logs grandes usam cabeça e cauda. O código define limites e estratégias diferentes por cliente. Isso torna consumo limitado, mas também pode reduzir contagens ou perder contexto em históricos enormes."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-4",
+      "title": "Estados e falsas conclusões",
+      "paragraphs": [
+        "O README distingue final de chamada, ferramenta e turno. Grok com ferramenta Pending não é automaticamente aprovação; resposta sem evento terminal eventualmente vira Idle, não Done. Gateway Magpie não fornece todas as fronteiras e não pode provar conclusão. Esse cuidado é útil, mas continua dependente de eventos corretos do cliente. Para o Lab, liveness, posse, execução e aceite precisam continuar separados. Timeout de silêncio é indício operacional, não evidência de que o comando morreu."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-5",
+      "title": "Providers e dados",
+      "paragraphs": [
+        "A ferramenta não escolhe modelos nem autentica nas APIs de inferência. Lê JSONL e, para OpenCode/Hermes, bancos SQLite locais via node:sqlite. Essas duas integrações exigem Node suficientemente recente e podem ser omitidas em runtime antigo. Magpie é integração opcional com gateway local e chave própria, sem ser chave de provider. A leitura de histórico pode expor prompts, respostas e ferramentas no navegador; o fato de não fazer inferência não torna o conteúdo não sensível."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-6",
+      "title": "Persistência e identidade",
+      "paragraphs": [
+        "O processo mantém trackers e snapshots dos históricos de origem. Comandos resume derivam da identidade nativa da sessão; subagentes devem preservar parentesco. O monitor não se torna fonte canônica do trabalho. Variáveis de ambiente permitem localizar homes alternativos, sem mover os dados. A pesquisa não demonstrou sincronização multi-host, retenção própria de longo prazo ou reconstrução perfeita após rotação de logs. Cada versão do adapter deve ser confrontada com amostras sintéticas do formato realmente usado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-7",
+      "title": "Autenticação e defesa local",
+      "paragraphs": [
+        "src/server.js valida Host entre localhost, 127.0.0.1 e ::1 para reduzir DNS rebinding. Ações como shutdown, update e instalar cena exigem cabeçalho específico, ausente em requests simples cross-site. Transcripts são recusados quando privacy está ativo. Esses controles foram lidos, não testados. Não foi identificado login multiusuário nem autorização granular por projeto. A confiança é na sessão do usuário local; exposição via proxy, túnel ou rede mudaria esse modelo."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-8",
+      "title": "Privacidade e rede",
+      "paragraphs": [
+        "O README diz que o serviço escuta somente loopback. Entretanto há verificação de atualização do package.json remoto e cenas que podem ser baixadas; Magpie opcional também faz polling. Assim, a frase promocional sobre nada sair deve ser entendida sobre conteúdo observado, não como ausência total de rede. O modo private oculta conversa na página e no endpoint de transcript. Seria necessário verificar também títulos, diretórios, notificações e screenshots antes de usar numa tela compartilhada."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "Plataformas e UX",
+      "paragraphs": [
+        "Polling é escolhido para comportamento consistente em macOS, Linux e Windows. Interface tem português e outras línguas, filtros, notificações e pop-out. Document PiP oferece interação onde disponível; fallback de vídeo é apenas visual e sofre throttling de segundo plano. Contagens Today podem ser baixas em logs muito grandes. Não foram testados acessibilidade, leitores de tela, consumo de GPU ou paridade entre navegadores. A metáfora 3D deve ser comparada à lista simples em utilidade e carga visual."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-10",
+      "title": "Licença e custo",
+      "paragraphs": [
+        "O projeto declara MIT, e assets Kenney usam CC0 conforme documentação. Não requer API paga para o caminho básico. Custos relevantes são CPU, memória, leitura de disco, renderização 3D e manutenção dos parsers. Atualização executa git pull e reinicia, portanto é mutação do ambiente e não mera observação. Hooks opcionais também alteram configuração do Claude. Esta pesquisa não acionou update, instalador, hook ou leitura de logs reais dos agentes do usuário."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Maturidade e alternativas",
+      "paragraphs": [
+        "Release v0.7.0 e commit correspondente foram consultados em 3 de novembro. O repositório contém suites sintéticas para watchers, clients, UI e privacidade; isso não prova aprovação dessas suites nesta missão. O foco difere de Otto e Kanzo: observa o que já existe, enquanto os outros hospedam fluxo ou tarefas. Pode complementar o Lab como visão rápida, preservando logs e ledger existentes. Estrelas ou qualidade visual não medem fidelidade de cada status."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-12",
+      "title": "Próximos ensaios propostos",
+      "paragraphs": [
+        "Após autorização, gerar históricos fictícios com pausa, aprovação, erro, tool concluída e turno ainda ativo. Testar replay incremental, chat antigo retomado, JSON truncado, banco bloqueado e rotação. Comparar snapshot ao evento exato, medir falso Done e falso Waiting. Rodar modo privado contra todos os endpoints e notificações, sem usar transcripts privados. Verificar Node do host e CPU em 2D/3D. Nenhum desses testes ocorreu; a entrega permanece documental e estática."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S7"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README oficial",
+      "url": "https://github.com/Charonyuu/whatsmyagentdoing/blob/39441e408d232fd3b24b77b6100533aa6acf4376/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.461Z",
+      "kind": "docs",
+      "ref": "39441e408d232fd3b24b77b6100533aa6acf4376",
+      "note": "Lido pelo plugin GitHub; alegações do mantenedor separadas de comprovação funcional."
+    },
+    {
+      "id": "S2",
+      "title": "LICENSE",
+      "url": "https://github.com/Charonyuu/whatsmyagentdoing/blob/39441e408d232fd3b24b77b6100533aa6acf4376/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.461Z",
+      "kind": "license",
+      "ref": "39441e408d232fd3b24b77b6100533aa6acf4376",
+      "note": "Blob 13321d112d73f0bced0b6263a0c01916cb58387b; leitura estática, sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "package.json",
+      "url": "https://github.com/Charonyuu/whatsmyagentdoing/blob/39441e408d232fd3b24b77b6100533aa6acf4376/package.json",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.461Z",
+      "kind": "code",
+      "ref": "39441e408d232fd3b24b77b6100533aa6acf4376",
+      "note": "Blob 813701b576481b98b6e92b70c2055673cdeb682c; leitura estática, sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "src/server.js",
+      "url": "https://github.com/Charonyuu/whatsmyagentdoing/blob/39441e408d232fd3b24b77b6100533aa6acf4376/src/server.js",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.462Z",
+      "kind": "code",
+      "ref": "39441e408d232fd3b24b77b6100533aa6acf4376",
+      "note": "Blob 80f0225ab1a4f00635234f7b4fa6238bf0174b67; leitura estática, sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "src/watcher.js",
+      "url": "https://github.com/Charonyuu/whatsmyagentdoing/blob/39441e408d232fd3b24b77b6100533aa6acf4376/src/watcher.js",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.462Z",
+      "kind": "code",
+      "ref": "39441e408d232fd3b24b77b6100533aa6acf4376",
+      "note": "Blob f61d51a5189b2f57e5e3e61a3c82109f8d6df247; leitura estática, sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/Charonyuu/whatsmyagentdoing/releases?per_page=2",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.462Z",
+      "kind": "release",
+      "ref": "snapshot 2026-11-03",
+      "note": "Consulta real da coleção, até duas releases; não equivale a teste dos binários."
+    },
+    {
+      "id": "S7",
+      "title": "Último commit da branch padrão consultado",
+      "url": "https://github.com/Charonyuu/whatsmyagentdoing/commit/39441e408d232fd3b24b77b6100533aa6acf4376",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:08:47.462Z",
+      "kind": "code",
+      "ref": "39441e408d232fd3b24b77b6100533aa6acf4376",
+      "note": "Release v0.7.0"
+    }
+  ],
+  "findings": [
+    {
+      "title": "SSE e Host guard",
+      "certainty": "CONFIRMADO",
+      "detail": "server.js contém canal SSE e validação explícita de Host.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Status não equivale a liveness",
+      "certainty": "HIPÓTESE",
+      "detail": "É necessário confrontar eventos com processo e estado de missão; o README reconhece lacunas de lifecycle.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "SQLite depende do Node",
+      "certainty": "RELATADO",
+      "detail": "README documenta node:sqlite e omissão de OpenCode/Hermes sem suporte.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Nenhum log privado foi aberto.",
+    "Não medidos performance, falso status ou acessibilidade.",
+    "Sem execução de hooks, atualização ou cenas."
+  ],
+  "related": [
+    "akitaonrails--ai-memory",
+    "maxtrigify--otto",
+    "emanuele-em--kanzo"
+  ],
+  "metrics": {
+    "full_name": "Charonyuu/whatsmyagentdoing",
+    "html_url": "https://github.com/Charonyuu/whatsmyagentdoing",
+    "description": "See what every Claude Code and Codex agent on your machine is doing — live, in a little office.",
+    "homepage": "https://charonyuu.github.io/whatsmyagentdoing/",
+    "default_branch": "main",
+    "created_at": "2026-10-23T14:15:26Z",
+    "updated_at": "2026-11-03T13:25:05Z",
+    "pushed_at": "2026-11-03T09:58:27Z",
+    "stargazers_count": 371,
+    "forks_count": 50,
+    "open_issues_count": 0,
+    "subscribers_count": 0,
+    "network_count": 50,
+    "archived": false,
+    "disabled": false,
+    "language": "JavaScript",
+    "topics": [
+      "ai-agents",
+      "claude-code",
+      "codex",
+      "dashboard",
+      "threejs"
+    ],
+    "size": 12264,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

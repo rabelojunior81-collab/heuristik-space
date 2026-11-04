@@ -1,0 +1,249 @@
+{
+  "slug": "agharsallah",
+  "name": "agharsallah — perfil GitHub (ordenado por estrelas)",
+  "url": "https://github.com/agharsallah?tab=repositories&sort=stargazers",
+  "category": "Hardware / IoT",
+  "summary": "Este item é um PERFIL de usuário, não um repositório. No snapshot público de 2026-11-03, a API lista 63 repositórios públicos; a página pedida ordena-os por stars. Os primeiros na página são esp-labs-web (645), opus-video (49), esp-labs (18), framio (4), seo-engine-skills (3), e quatro projetos com 2 stars cada. O conjunto visível vai de firmware/ESP32 e web a vídeo, dados, ferramentas de IA, estudos e projetos antigos. Isso demonstra amplitude de portfólio público e atividade recente em alguns repos, não qualidade uniforme, autoria exclusiva, disponibilidade de projetos privados ou perfil pessoal além do que o GitHub expõe. A API REST de repos não documenta sort=stargazers como parâmetro válido; a ordenação foi conferida na página HTML pública. Nenhum perfil individual ou projeto foi auditado em profundidade aqui.",
+  "topics": [
+    "perfil GitHub",
+    "portfólio",
+    "ESP32",
+    "software",
+    "dados",
+    "IA",
+    "vídeo",
+    "stars"
+  ],
+  "aliases": [
+    "agharsallah",
+    "Abderrahmen Gharsallah GitHub",
+    "perfil de desenvolvedor",
+    "portfólio público"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Natureza do item",
+      "kind": "observed",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: a referência do manifesto aponta para a página de perfil do usuário com aba de repositórios classificada por estrelas; não aponta para repositório. Este relatório descreve um catálogo público de projetos e não herda nem substitui o registro específico de `agharsallah/esp-labs-web` (#37)."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Métricas de perfil",
+      "kind": "observed",
+      "source_ids": [
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no endpoint público de usuário em 2026-11-03: login `agharsallah`, 63 repositórios públicos, 41 seguidores e 8 seguidos; o perfil indica criação em 2016. Followers/seguindo são contagens no snapshot, sujeitas a mudança. Não inferir atividade, reputação, localização ou identidade fora desses campos públicos."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Ordem por estrelas e projetos de topo",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S5",
+        "S6"
+      ],
+      "paragraphs": [
+        "CONFIRMADO na página HTML solicitada: lista ordenada por stars coloca esp-labs-web (645), opus-video (49), esp-labs (18), framio (4), seo-engine-skills (3), depois bookshelf, papers-hackathon, All-Data e tunihack (2 cada), entre outros. A página mostra estrelas e alguns forks; contagens ausentes na extração não foram tratadas como zero. GitHub define stars como marcadores/bookmarks que expressam interesse aproximado e forks como cópias derivadas do projeto; nenhuma métrica avalia qualidade, manutenção, segurança ou uso real."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Padrões temáticos visíveis",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE limitada às descrições e metadados públicos: há projetos recentes de ESP32/IoT e web educacional, um app Android, utilitários de vídeo, exemplos de modelos/agentes e repositórios de dados/visualização, além de projetos legados. Essa diversidade temática não demonstra relação entre projetos, estado de suporte ou stack comum. Os repositórios devem ser avaliados separadamente antes de qualquer comparação técnica."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Atividade e continuidade",
+      "kind": "observed",
+      "source_ids": [
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: a lista pública contém múltiplos repos com pushes em 2026-10/11 e outros cuja última atualização remonta a 2016–2018; o intervalo reflete um portfólio misto, não uma política formal de manutenção. O endpoint retornou 63 entradas. Não foi auditado se cada repo arquiva, tem releases, issue response, CI verde ou roadmap atual."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Linguagens e campos",
+      "kind": "observed",
+      "source_ids": [
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no inventário API atual: linguagens majoritárias reportadas incluem JavaScript (32), Python (6), CSS (6) e HTML (4), com C#, C++, Kotlin e TypeScript em uma entrada cada; 11 entradas sem linguagem identificada pelo GitHub. A métrica de linguagem representa classificação automática por arquivos do GitHub, não domínio de expertise nem proporção precisa de esforço."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Significado das stars, forks e seguidores",
+      "kind": "analysis",
+      "source_ids": [
+        "S3",
+        "S5"
+      ],
+      "paragraphs": [
+        "CONFIRMADO pela documentação GitHub: stars funcionam como marcadores e sinal de interesse aproximado; forks indicam cópias derivadas no GitHub, e followers contam contas que seguem o perfil. São sinais de descoberta e participação, mas não critérios de confiabilidade. Contagem no perfil não deve ser somada como usuários únicos nem tratada como tráfego, adoção comercial ou avaliação de código."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: o perfil ajuda a localizar linhas públicas de trabalho ligadas ao tema ESP32 e produtos educacionais, que são detalhados em registros próprios. Seu valor é contextualizar a procedência e a vizinhança do repo, não servir como evidência de qualidade de cada projeto. Estrelas no perfil não justificam preferência ou adoção."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Limites de fonte e ordenação",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "A ordenação foi conferida na página HTML autenticada como pública; a API listagem `/users/{user}/repos` aceita outros critérios e não documenta `stargazers` como sort. Uma chamada API com esse query param não deve ser usada isoladamente para provar ranking. Resultados indexados por mecanismos de busca podem estar defasados; para o mesmo repo esp-labs-web, um crawl anterior mostrava 190 stars e 31 forks, enquanto página/API consultadas agora mostraram 645/95. A discrepância foi resolvida para o snapshot presente pela página direta, sem reconstruir a série histórica."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Próximos passos e limites éticos",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "PROPOSTA: quando a análise de um projeto específico importar, abrir o registro correspondente do manifesto, fixar SHA, licença, README, código relevante, releases/issues e métricas em data própria. Para atualizar o perfil, capturar a lista diretamente e anotar filtros/paginação; não inferir dados privados, biografia, identidade civil além do nome de exibição, intenção ou vínculo entre autores. Nenhum projeto foi executado e não foi feita avaliação de pessoa."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Página pública de repositórios, ordenada por stars",
+      "url": "https://github.com/agharsallah?tab=repositories&sort=stargazers",
+      "kind": "metadata",
+      "ref": "profile-view",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "HTML público consultado diretamente; contém ordem e contagens visíveis no momento."
+    },
+    {
+      "id": "S2",
+      "title": "REST de perfil público",
+      "url": "https://api.github.com/users/agharsallah",
+      "kind": "metadata",
+      "ref": "profile",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Campos públicos: total de repositórios, seguidores, seguidos e datas do perfil."
+    },
+    {
+      "id": "S3",
+      "title": "Página pública de repositórios do usuário",
+      "url": "https://api.github.com/users/agharsallah/repos?per_page=100",
+      "kind": "metadata",
+      "ref": "profile-repos",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Lista pública com 63 repositórios; métricas por repo. `sort=stargazers` não foi usado como prova da ordenação da API."
+    },
+    {
+      "id": "S4",
+      "title": "Metadados de esp-labs-web",
+      "url": "https://api.github.com/repos/agharsallah/esp-labs-web",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Exemplo de projeto mais estrelado na página direta; analisado em separado na referência #37."
+    },
+    {
+      "id": "S5",
+      "title": "Documentação GitHub sobre stars",
+      "url": "https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Define star como marcador para reencontrar projeto e sinal de interesse, sem validar qualidade."
+    },
+    {
+      "id": "S6",
+      "title": "Documentação GitHub sobre forks",
+      "url": "https://docs.github.com/en/rest/repos/forks?apiVersion=2022-11-28",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Endpoint oficial para cópias fork de um repositório."
+    }
+  ],
+  "findings": [
+    {
+      "title": "O perfil contém 63 repositórios públicos no snapshot",
+      "certainty": "CONFIRMADO",
+      "detail": "API de perfil e listagem pública concordam; a lista pode mudar depois da data registrada.",
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "title": "A referência é perfil, não projeto",
+      "certainty": "CONFIRMADO",
+      "detail": "A URL abre a aba de repositórios do perfil; não se deve criar relatório fictício de repositório para #38.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Stars e forks variam entre superfícies cacheadas e diretas",
+      "certainty": "CONFIRMADO",
+      "detail": "esp-labs-web mostrou 190/31 em resultado crawler e 645/95 na página direta/API do mesmo dia; snapshot direto foi preferido e diferença anotada.",
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa de metadados públicos do perfil; nenhum repositório compilado ou executado",
+  "limitations": [
+    "Perfil e contagens são mutáveis; não foram obtidos snapshots históricos para explicar variações.",
+    "Ordenação foi capturada no HTML; API não oferece critério estável documentado por estrelas para esse endpoint.",
+    "Não foram analisados os 63 repositórios individualmente nem inferidas características privadas ou pessoais."
+  ],
+  "related": [
+    "agharsallah--esp-labs-web"
+  ],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": null
+}

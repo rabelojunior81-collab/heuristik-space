@@ -1,6 +1,6 @@
 # Plano0.1 — Heuristik Space
 
-SPEC-mãe: docs/SPEC.md0.1, aprovada nominalmente pelo Pai. Plano aguarda autorização específica. Cada unidade abaixo herda escopo, critérios, exclusões e revisão da SPEC0.1; mudança material reabre a revisão.
+SPEC-mãe: docs/SPEC.md0.1, aprovada nominalmente pelo Pai. Plano AUTORIZADO pelo Pai por instrução expressa de executar a missão completa, sem novas aprovações de rotina dentro do escopo solicitado. Cada unidade abaixo herda escopo, critérios, exclusões e revisão da SPEC0.1; mudança material reabre a revisão.
 
 1. Pesquisa integral: três lotes125/124/124, recibos por artigo, releitura de truncados; consolidação e conferência semântica amostral pelo orquestrador. Saída:373leituras e fonte da wiki rastreável.
 2. Modelo de conhecimento: entidades/caminhos/fichas/relações, fontes/alegações temporalizadas, exportações JSON/TXT DATA_ONLY e cobertura; dados gerados dos relatórios naturais. Registros de inspiração e consideração não viram adoção.

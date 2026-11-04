@@ -1,0 +1,341 @@
+{
+  "slug": "hieunc229--mailflare",
+  "name": "Mailflare",
+  "url": "https://github.com/hieunc229/mailflare",
+  "category": "Infraestrutura self-hosted",
+  "summary": "Suíte autohospedada de e-mail de domínio próprio, calendário, agenda, arquivos e agente/MCP. README declara execução em Cloudflare Workers ou Docker, múltiplos bancos SQL e armazenamento S3/R2/B2, com email por Cloudflare, Resend ou SES. Configuração exige credenciais e permissões Cloudflare relevantes; instalação/deploy têm impacto externo elevado e não foram realizados. Licença AGPL-3.0. Bom candidato a estudo de arquitetura integrada, mas não equivale a serviço operacionalmente gratuito, privado ou pronto para produção sem validar entregabilidade, escopo de tokens, isolamento multiusuário, backup e agente.",
+  "topics": [
+    "email",
+    "calendar",
+    "booking",
+    "drive",
+    "MCP",
+    "Cloudflare Workers",
+    "Docker",
+    "AGPL"
+  ],
+  "aliases": [
+    "Mailflare",
+    "self-hosted Google Workspace",
+    "email workspace",
+    "MCP de email"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e escopo",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README apresenta conjunto de mailbox customizada, regras de roteamento, calendário, booking público, drive e agentes de IA. A caracterização de alternativa ao Google Workspace é posicionamento do mantenedor; equivalência funcional, SLA e paridade não foram demonstrados.",
+        "O repository inclui documentação separada de providers, API e agente/MCP; isso indica superfície de integração ampla e fronteiras que precisam de avaliação independente."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e persistência",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README declara Cloudflare D1 como padrão e opções PostgreSQL, MySQL, Turso/libSQL ou SQLite local; objetos em R2, Backblaze B2 ou AWS S3. Cloudflare Workers ou container Docker são os alvos de hospedagem anunciados.",
+        "A documentação de agentes descreve integração com e-mail e MCP, mas a existência de provider não comprova migração completa, consistência entre bancos ou comportamento sob falha. Cada backend precisa de suas próprias migrações e teste de restauração."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Identidade e permissões",
+      "kind": "analysis",
+      "paragraphs": [
+        "Guia de deploy solicita token Cloudflare com permissões de email, DNS, routing e zone; recomenda separar token de deploy de segredo runtime. Mesmo token escopado tem poder relevante sobre conta/domínios e deve ser tratado como credencial crítica.",
+        "Administração, usuários, API keys, webhooks e logs de auditoria são recursos anunciados. Não foi auditada autorização em endpoints, segregação entre mailboxes, rotação/revogação ou conteúdo dos logs."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Agente, MCP e controle humano",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README anuncia busca de email, redação de respostas e gerenciamento de eventos via agentes/MCP. Documento AGENTIC.md trata como requisito que todo envio originado por agente aguarde revisão e aprovação explícita do texto exato na interface; o arquivo distingue funcionalidades planejadas/aceitação de estado de implementação.",
+        "Esse gate humano descrito é relevante, mas não foi testado. MCP amplia exposição de conteúdo de mailbox a clientes externos; avaliar escopos, principal, revogação, exfiltração por prompt injection e logging antes de conectar qualquer agente."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Custo, licença e UX",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README sugere recebimento gratuito por Cloudflare e quotas gratuitas de provedores de envio; informa plano Worker pago para envio nativo e alerta sobre sandbox inicial do SES. São valores/condições declarados sujeitos a mudança; não são orçamento atual.",
+        "Projeto declara suporte a 34 idiomas e experiência de email/calendário/drive; não foram avaliados acessibilidade, localização real, deliverability, antispam, disponibilidade ou UX."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Fluxos de email e DNS",
+      "kind": "observed",
+      "paragraphs": [
+        "providers.md separa recebimento e envio por domínio entre Cloudflare, Resend e SES, incluindo webhook ou S3/SNS para inbound, e declara que DNS permanece no Cloudflare em todas as combinações. Selecionar provider difere de aplicar Setup, que efetivamente escreve registros.",
+        "API.md documenta gestão de domínios incluindo setup/cleanup de recursos Cloudflare e tratamento explícito de conflito MX com resposta 409 até a opção replaceMx. Isso é mudança externa que pode interromper entrega; DNS exige plano de reversão e controle humano."
+      ],
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Banco e cópias",
+      "kind": "official_claim",
+      "paragraphs": [
+        "docs/databases.md descreve D1 por padrão no Workers e SQLite local no self-host, com opções PostgreSQL/MySQL/Turso e drivers; autenticação libSQL tem variável separada. A configuração e driver inferidos pela URL não provam compatibilidade de toda migration.",
+        "Guia deployment informa backup e updates, mas ainda não testamos consistência de cópia/restauração nem como cada backend preserva anexos e relações. Banco, object storage e configurações precisam de recuperação coerente."
+      ],
+      "source_ids": [
+        "S6",
+        "S7"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Controles do assistente e MCP",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Email assistant doc diz que é necessário configurar provider de IA e que assistant pode ser desligado por admin; permissões são por mailbox selecionada. Auto-draft é desligado até habilitação, há reviewer e limite diário, e drafts devem ser revisados antes do envio.",
+        "O mesmo doc menciona logs de uso com total/estimativa de gasto, paginação por mailbox/folder, revisões de draft e endpoints MCP. Isso oferece limites úteis, mas a redação da documentação não prova enforcement em runtime; verificar chamadas legadas, autorização entre mailboxes e efetividade da aprovação."
+      ],
+      "source_ids": [
+        "S2",
+        "S8"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Limites jurídicos e custo operacional",
+      "kind": "analysis",
+      "paragraphs": [
+        "AGPL-3.0 inclui obrigações copyleft específicas para software de rede; uso e modificações devem ser analisados conforme distribuição/configuração concreta. A licença não concede direitos sobre emails, domínios, marcas, anexos ou modelos externos.",
+        "A rota envolve Cloudflare, provider de envio/recebimento e eventual provider de IA. Preços, quotas, subprocessadores e tratamento de dados variam; não são certificados aqui. Mensagens e anexos trazem dados pessoais/confidenciais e podem ser enviados a serviços escolhidos."
+      ],
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Aderência e ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "A suíte concentra comunicação externa, agenda, arquivos e agentes — domínios com retenções diferentes. Não presumir que adoção integral simplifica governança. Avaliar inicialmente ambiente isolado e dados sintéticos, sem domínio/email reais.",
+        "Ensaios: fixar release; revisar deployment, API auth, DB migrations, providers e MCP; simular MX conflict/rollback, entrega e bounces, scopes por mailbox, revoke, approval gate, backup/restore coerente, prompt injection e limites de custo. Nada foi instalado, configurado ou implantado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Backup API observado",
+      "kind": "observed",
+      "paragraphs": [
+        "Em src/app/api/backups/route.ts, GET/PUT/POST chamam requireAdmin, que obtém usuário por cookie e `assertPrimaryAdmin`; GET lista configurações/backups, PUT valida configuração, POST cria backup manual e executa runner. Erro em GET/PUT vira 403, já POST converte exceções em 400.",
+        "Isso comprova um gate de role específico nesta rota, não a autorização de todos endpoints nem a proteção do destino de backup. Operação manual e settings são destrutivas/sensíveis; testar restore é imprescindível e não é provado pela execução do runner."
+      ],
+      "source_ids": [
+        "S9"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "README consultado via GitHub público; preço e features são alegações datadas."
+    },
+    {
+      "id": "S2",
+      "title": "Repositório e docs de agente/MCP",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/AGENTIC.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Documento descreve contrato pretendido e separa implementação reportada de itens restantes; não foi executado."
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "license",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Texto AGPL-3.0 consultado no snapshot fixado."
+    },
+    {
+      "id": "S4",
+      "title": "docs/providers.md",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/docs/providers.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Documenta providers inbound/outbound e consequências de setup DNS."
+    },
+    {
+      "id": "S5",
+      "title": "docs/api.md",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/docs/api.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Rotas de gestão de domínio e MX documentadas; não é teste de autorização."
+    },
+    {
+      "id": "S6",
+      "title": "docs/databases.md",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/docs/databases.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Configuração documentada de dialetos e drivers SQL."
+    },
+    {
+      "id": "S7",
+      "title": "docs/deployment.md",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/docs/deployment.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Token escopado, deploy e operação; credenciais/deploy não foram realizados."
+    },
+    {
+      "id": "S8",
+      "title": "docs/email-assistant-and-mcp.md",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/docs/email-assistant-and-mcp.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Contrato funcional para mailbox, draft reviewer, auto-draft, usage e MCP; statements são documentação do produto."
+    },
+    {
+      "id": "S9",
+      "title": "src/app/api/backups/route.ts",
+      "url": "https://github.com/hieunc229/mailflare/blob/be89083ed7fc8c71fd58fffa625ecb3d41ce7c88/src/app/api/backups/route.ts",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "be89083ed7fc8c71fd58fffa625ecb3d41ce7c88",
+      "note": "Amostra estática da autorização admin e rotas GET/PUT/POST; não verifica restore nem demais endpoints."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Integração de domínios de alto risco",
+      "certainty": "CONFIRMADO",
+      "detail": "README agrupa e-mail, calendário, drive e agente/MCP sob um mesmo produto.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Envio por agente requer aprovação no contrato",
+      "certainty": "RELATADO",
+      "detail": "AGENTIC.md descreve envio pendente de aprovação humana e explicita itens ainda por completar; não é prova de implementação atual.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Credenciais Cloudflare têm escopo significativo",
+      "certainty": "CONFIRMADO",
+      "detail": "Guia pede permissões de DNS, email e routing; deploy não foi feito.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental; não instalado, executado, configurado nem conectado a contas",
+  "limitations": [
+    "Somente uma rota de backup foi inspecionada; demais handlers, migrations e restore não foram auditados.",
+    "Custos, quotas, termos e subprocessadores mudam; estimativa atual não produzida.",
+    "Políticas de provedor de IA, tratamento de anexos e retenção não foram auditados.",
+    "Nenhum teste de email, DNS, backup, privacidade, segurança ou usabilidade foi executado."
+  ],
+  "related": [
+    "yetone--alma-relay",
+    "gtsteffaniak--filebrowser"
+  ],
+  "metrics": {
+    "full_name": "hieunc229/mailflare",
+    "html_url": "https://github.com/hieunc229/mailflare",
+    "description": "Email for professionals and teams",
+    "homepage": "https://mailflare.co",
+    "default_branch": "main",
+    "created_at": "2026-05-26T01:06:12Z",
+    "updated_at": "2026-11-03T21:02:21Z",
+    "pushed_at": "2026-10-31T15:37:37Z",
+    "stargazers_count": 5572,
+    "forks_count": 841,
+    "open_issues_count": 43,
+    "subscribers_count": 9,
+    "network_count": 841,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "cloudflare",
+      "cloudflare-workers",
+      "email"
+    ],
+    "size": 74037,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "2026-09-18-o-benchmark-sabe-seu-limite",
+  "title": "O Benchmark Sabe seu Limite",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "g5",
+    "benchmark"
+  ],
+  "file": "posts/2026-09-18-o-benchmark-sabe-seu-limite.html",
+  "description": "O benchmark local passou 60 consultas com proveni├¬ncia v├ílida, mas continua acceptance=false e sem embeddings externos.",
+  "sha256": "414199394e26df20022f4c4ad3579030642244e214d5b69735d5a460eebba488",
+  "read_status": "read",
+  "summary": "Benchmark lexical 3x60 exato com provenance/24 abstentions; corpus local sem serviço externo. Acceptance=false e sem embeddings/File Search/qrels humanos.",
+  "projects": [
+    {
+      "name": "Modernity benchmark",
+      "status": "local"
+    }
+  ],
+  "technologies": [
+    "lexical retrieval",
+    "qrels",
+    "provenance"
+  ],
+  "claims": [
+    {
+      "subject": "Modernity benchmark",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "60/60 linhas exatas, 60/60 com proveniência válida e 24 abstenções.",
+      "evidence_excerpt": "60/60 linhas exatas, 60/60 com proveniência válida e 24 abstenções.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Repetição não são 180 independentes; acceptance=false"
+    }
+  ],
+  "lessons": [
+    "Repetição não são 180 independentes; acceptance=false"
+  ],
+  "id": "2026-09-18-o-benchmark-sabe-seu-limite",
+  "manifest_title": "O Benchmark Sabe seu Limite",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-benchmark-sabe-seu-limite.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [],
+  "body": "O baseline local foi repetido em três rodadas registradas: 60/60 linhas exatas, 60/60 com proveniência válida e 24 abstenções. Cada consulta carrega intenção e classe no caminho real; o gateway conserva esses campos e filtra a classe no servidor.\n\nO que não foi feito\n\nNenhuma peça, mídia, consulta ou qrel foi enviada a serviço externo. Embeddings, File Search, comparação vetorial, qrels humanos e custo novo ficaram fora do escopo autorizado desta fase. acceptance=false permanece.\n\nPor que isso é uma conclusão\n\nO resultado fecha o baseline técnico e nomeia o próximo trabalho. Não confunde repetição determinística com 180 observações independentes, nem chama desenvolvimento local de aceitação estatística. A próxima evolução poderá escolher embeddings com corpus, custo e contrato próprios.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

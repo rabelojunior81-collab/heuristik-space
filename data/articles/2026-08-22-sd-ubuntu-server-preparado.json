@@ -1,0 +1,85 @@
+{
+  "slug": "2026-08-22-sd-ubuntu-server-preparado",
+  "title": "Ubuntu Server no SD: Teste de Rádio Preparado",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "ubuntu",
+    "wifi",
+    "diagnostico"
+  ],
+  "file": "posts/2026-08-22-sd-ubuntu-server-preparado.html",
+  "description": "Auditoria do SD de 8 GB preparado no Raspberry Pi Imager com Ubuntu Server, Wi-Fi pr├®-configurado e desmontagem segura antes do teste no Pi.",
+  "read_status": "read",
+  "summary": "Prepared Ubuntu Server 26.04 LTS ARM64 SD with boot/root partitions and Imager network-config/SSH/hostname intent. Secret not published/copied. Unmounted and powered off logically; next clean Ubuntu boot will distinguish DietPi configuration issue from Pi 3 Broadcom combo failure.",
+  "projects": [
+    {
+      "status": "prepared, next boot experiment pending",
+      "name": "Pi 3 clean Ubuntu SD"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "prepared by Raspberry Pi Imager",
+      "name": "Ubuntu Server 26.04 LTS ARM64"
+    },
+    {
+      "relation": "WiFi DHCP/wlan0, BR regulatory domain, protected credential",
+      "name": "network-config"
+    },
+    {
+      "relation": "SSH/hostname intention; current hostname remains ubuntu preboot",
+      "name": "cloud-init user-data"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "relation": "state",
+      "object": "7.5GiB with 512MiB FAT boot, 4GiB ext4 root",
+      "status": "prepared",
+      "subject": "SD media",
+      "limitation": "not boot-tested",
+      "evidence_excerpt": "Partição de raiz: writable, 4 GiB, ext4."
+    },
+    {
+      "confidence": "declarado",
+      "relation": "handling",
+      "object": "protected format, not published/repo",
+      "status": "secret boundary",
+      "subject": "WiFi credential",
+      "evidence_excerpt": "A senha não foi publicada nem copiada para o repositório."
+    },
+    {
+      "confidence": "declarado",
+      "relation": "state",
+      "object": "ubuntu until first boot/cloud-init though intent argenta-fenix-pi",
+      "status": "preboot",
+      "subject": "hostname",
+      "evidence_excerpt": "algo esperado antes do primeiro boot/cloud-init"
+    }
+  ],
+  "lessons": [
+    "prepare a controlled image to isolate distro config vs hardware",
+    "unmount and power off removable media before removal",
+    "do not treat cloud-init intent as boot-completed state"
+  ],
+  "sha256": "497b9740c4ead25f99a1855ab14d5642fb8c4b123bbcf54ee9bc42db2009a2a5",
+  "id": "2026-08-22-sd-ubuntu-server-preparado",
+  "manifest_title": "Ubuntu Server no SD: Teste de R├ídio Preparado",
+  "url": "https://rabelus.com.br/posts/2026-08-22-sd-ubuntu-server-preparado.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "Identidade da mídia\n\nDispositivo: USB Generic_STORAGE_DEVICE, /dev/sda, 7,5 GiB.\n\nPartição de boot: system-boot, 512 MiB, FAT.\n\nPartição raiz: writable, 4 GiB, ext4.\n\nSistema: Ubuntu Server 26.04 LTS (aarch64, preparado pelo Raspberry Pi Imager).\n\nWi‑Fi pré-configurado no Imager\n\nO arquivo network-config contém a rede Rabelus_Lab, DHCP para wlan0, domínio regulatório BR e a credencial armazenada em formato protegido. A senha não foi publicada nem copiada para o repositório.\n\nA mídia também contém user-data com SSH habilitado e a intenção de hostname argenta-fenix-pi; o hostname atual no filesystem ainda aparece como ubuntu, algo esperado antes do primeiro boot/cloud-init.\n\nEstado para o próximo ensaio\n\nAs duas partições foram desmontadas e o dispositivo USB foi desligado logicamente pelo sistema. O SD está seguro para remoção física. O teste deve observar se uma imagem Ubuntu limpa cria wlan0 e um controlador Bluetooth; isso separará configuração DietPi de falha do combo Broadcom do Pi 3.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

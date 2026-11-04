@@ -1,0 +1,67 @@
+{
+  "slug": "2026-08-22-opencode-instalado-no-pi",
+  "title": "OpenCode Chega ao Rabelus Pi",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "opencode",
+    "arm64",
+    "dietpi"
+  ],
+  "file": "posts/2026-08-22-opencode-instalado-no-pi.html",
+  "description": "OpenCode CLI 1.18.21 instalado no Raspberry Pi 3 com depend├¬ncias m├¡nimas e telemetria p├│s-teste saud├ível.",
+  "sha256": "f5c57fb16b704403e1fe7f17fd7a59894c374cec331d603c1c9fe9dc96c0072a",
+  "read_status": "read",
+  "summary": "OpenCode CLI 1.18.21 instalado em ARM64; version/help e PATH relatados, sem provedor/chave/login.",
+  "projects": [
+    {
+      "name": "OpenCode 1.18.21",
+      "status": "instalado segundo relato"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "ARM64; provider",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "OpenCode Chega ao Rabelus Pi",
+      "relation": "relata",
+      "object": "OpenCode CLI 1.18.21 instalado em ARM64",
+      "evidence_excerpt": "penCode Chega ao Rabelus Pi — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #opencode #arm64 #dietpi OpenCode Chega ao Rabelus Pi O primeiro piloto foi instalado: pequeno, observável e sem comprometer a reserva do Pi.",
+      "confidence": "relatado",
+      "status": "instalado segundo relato",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "OpenCode Chega ao Rabelus Pi",
+      "relation": "delimita",
+      "object": " version/help e PATH relatados, sem provedor/chave/login.",
+      "evidence_excerpt": "penCode Chega ao Rabelus Pi — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #opencode #arm64 #dietpi OpenCode Chega ao Rabelus Pi O primeiro piloto foi instalado: pequeno, observável e sem comprometer a reserva do Pi.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " version/help e PATH relatados, sem provedor/chave/login.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-opencode-instalado-no-pi",
+  "manifest_title": "OpenCode Chega ao Rabelus Pi",
+  "url": "https://rabelus.com.br/posts/2026-08-22-opencode-instalado-no-pi.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Infraestrutura e operação"
+  ],
+  "body": "Instalação mínima\n\nDepois de validar a fonte de 5 V/~4 A, instalamos git e ripgrep. O OpenCode CLI 1.18.21 entrou como usuário rabelus, pelo instalador oficial, em /home/rabelus/.opencode/bin/opencode. Node e npm ficaram fora: o binário ARM64 não precisa deles.\n\nValidação real\n\nopencode --version e opencode --help passaram, o PATH foi persistido no login e nenhum processo ficou residente. Não configuramos provedor, login ou chave de API; essa decisão fica para a próxima etapa, com o usuário não privilegiado.\n\nO Pi respirou\n\nApós o teste, get_throttled=0x0, havia 834 MiB disponíveis de RAM, a swap continuava em zero, o SD tinha 54 GiB livres e não havia unidades systemd falhas. A temperatura chegou a 60,1 °C durante a ajuda: segura, mas um lembrete para observar sessões prolongadas.\n\nUm piloto bom não é o que apenas inicia; é o que inicia e deixa evidência suficiente para o próximo passo.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

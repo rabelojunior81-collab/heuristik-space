@@ -1,0 +1,337 @@
+{
+  "slug": "lfnovo--open-notebook",
+  "name": "Open Notebook",
+  "url": "https://github.com/lfnovo/open-notebook",
+  "category": "IA local, conhecimento e estudo",
+  "summary": "Open Notebook organiza fontes, notas, pesquisa e conversas em notebooks, com busca textual e vetorial e geração de podcasts. A implementação combina frontend Next.js, API Python e SurrealDB; Esperanto, content-core e podcast-creator fazem parte do caminho de modelos, extração e áudio. O principal valor é escolher provedores e manter a organização dos dados em infraestrutura própria. Isso não torna toda operação local: modelos, transcrição, síntese e extração podem usar serviços externos. A configuração distribuída merece atenção concreta: UI e API são publicadas em todas as interfaces e não há senha por padrão. Para o Lab, é hipótese de bancada documental e educacional, dependente de ensaios com fontes sintéticas.",
+  "topics": [
+    "RAG",
+    "notebooks",
+    "busca vetorial",
+    "podcasts",
+    "SurrealDB",
+    "Ollama",
+    "privacidade",
+    "processamento documental"
+  ],
+  "aliases": [
+    "NotebookLM alternativo",
+    "caderno de pesquisa",
+    "research assistant",
+    "base de conhecimento",
+    "áudio de estudo"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e promessa",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O autor apresenta o produto como alternativa aberta ao NotebookLM, com múltiplos provedores, conteúdo multimodal, respostas contextualizadas e podcasts de vários participantes. Essa é uma descrição do escopo pretendido, não uma comparação independente das capacidades atuais do concorrente. O valor observável da distribuição é reunir fontes, notas e configurações de modelos em uma aplicação que o operador pode hospedar e inspecionar."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e dependências",
+      "kind": "observed",
+      "paragraphs": [
+        "O manifesto exige Python entre 3.11 e 3.13 e declara FastAPI, LangChain, LangGraph, SurrealDB, Esperanto, content-core e podcast-creator. O compose separa SurrealDB do serviço de aplicação, que reúne interface, API e worker. Portanto o serviço web visível não representa sozinho a arquitetura: falhas de banco, fila e provedor podem ocorrer em camadas distintas e exigem diagnóstico específico."
+      ],
+      "source_ids": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Contexto e mecanismo de RAG",
+      "kind": "observed",
+      "paragraphs": [
+        "A classe Notebook recupera fontes e notas associadas por relações no banco. Listagens normais omitem corpos grandes; get_context solicita texto integral e reúne os insights das fontes para fluxos longos, inclusive podcasts. Isso demonstra montagem explícita de contexto, não uma garantia de que qualquer resposta usará recuperação vetorial adequada. O README distingue busca textual de vetorial; precisão, cobertura e citações continuam sem ensaio nesta pesquisa."
+      ],
+      "source_ids": [
+        "S4",
+        "S1"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Processamento documental",
+      "kind": "official_claim",
+      "paragraphs": [
+        "São anunciadas fontes PDF, vídeo, áudio e páginas web. O compose revela opções de extração pesada: Docling pode adicionar OCR e imagens; Crawl4AI pode instalar Chromium local ou usar um servidor remoto. Essas opções podem baixar runtimes no primeiro início e guardar cache no volume. Convém separar PDF textual, digitalização, tabela e página dinâmica, porque funcionar para texto simples não comprova fidelidade dos demais caminhos."
+      ],
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Podcasts e provedores",
+      "kind": "observed",
+      "paragraphs": [
+        "O manifesto inclui podcast-creator. O README promete até quatro participantes e controle de roteiro. Custo de áudio inclui gerar roteiro e sintetizar vozes; aceitar um LLM para conversa não significa possuir TTS e STT no mesmo provedor. A matriz inclui serviços remotos e Ollama; Anthropic e Groq não oferecem embeddings nela. Operação local exige escolher cada papel. Qualidade em português, pronúncia e fidelidade ao corpus permanecem sem teste."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Persistência e recuperação",
+      "kind": "observed",
+      "paragraphs": [
+        "O compose mantém surreal_data para banco e notebook_data para aplicação, além de chave de criptografia de credenciais. O guia alerta que alterar a chave impede ler credenciais existentes e não há comando de rotação. Recuperação deve verificar originais, notas, configurações e segredos em cópias separadas. Reiniciar containers com volumes existentes não prova restauração em host novo; backups e chave juntos também permitem acesso às credenciais."
+      ],
+      "source_ids": [
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Identidade e exposição de rede",
+      "kind": "observed",
+      "paragraphs": [
+        "O guia descreve uma senha compartilhada, sem contas individuais, e CORS aberto por padrão. O compose publica 8502 e 5055 sem limitar à interface local; apenas SurrealDB é vinculado a 127.0.0.1. Também distribui chave de criptografia de exemplo conhecida. São fatos de configuração nesta revisão, sem exploração executada. A senha de acesso e a chave de criptografia cumprem funções diferentes; trocar somente uma não resolve a outra fronteira."
+      ],
+      "source_ids": [
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Criptografia e privacidade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O guia declara Fernet para credenciais e derivação PBKDF2-HMAC-SHA256 de 600 mil iterações. Isso não implica criptografia dos documentos, logs, backups ou proteção contra operador do host. O slogan de manter pesquisa privada depende de provedores e extração selecionados. Conteúdo enviado a API externa entra em outra relação de serviço. Não foi feita auditoria criptográfica ou inspeção dinâmica de tráfego, portanto nenhuma certificação de segurança é emitida."
+      ],
+      "source_ids": [
+        "S6",
+        "S1"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Licença e custos",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE contém MIT. Permissão do código não concede créditos de modelos, licença dos documentos nem computação gratuita. Há custos de hardware ou servidor, discos, backups, downloads e eventualmente APIs por texto, embeddings e áudio. A comparação comercial do README não substitui uma conta por carga real. Nenhuma estimativa mensal confiável foi produzida sem volume e combinação de provedores definidos; funcionalidades locais continuam consumindo recursos e manutenção."
+      ],
+      "source_ids": [
+        "S3",
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Manutenção e versão",
+      "kind": "observed",
+      "paragraphs": [
+        "Foi fixado o HEAD consultado e lida a coleção de releases. A versão 1.15.0 relata novos provedores, correções de jobs e derivação de credenciais; isso é evidência de publicação e relato do mantenedor. Uma tag publicada e um HEAD posterior são objetos diferentes. Atualização deve preservar volumes e chave, testar migração e reservar retorno. As suítes e os ensaios mencionados no release não foram repetidos aqui."
+      ],
+      "source_ids": [
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Alternativas e pertinência ao Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "StudyAI concentra estudo de slides e repetição espaçada; course2md transforma aulas gravadas em notas. Open Notebook está mais próximo de bancada de conhecimento e diálogo com fontes heterogêneas. Pode apoiar pesquisa e docência no Lab, sem substituir corpus canônico ou virar memória autorizativa de agentes. Uma resposta com citações continua sendo conteúdo a conferir. Adoção permanece hipótese até reduzir trabalho mantendo proveniência, recuperação e fronteiras de acesso."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Um ensaio autorizado começaria com documentos sintéticos de fatos e lacunas conhecidos. Medir extração, citação, exclusão e reindexação, origem de chamadas de rede, bytes enviados e custo por pergunta ou minuto de podcast. Simular interrupção de worker e restauração completa em diretório isolado. Acessibilidade por teclado, português e erros precisam de uso real. Nenhum teste funcional, instalação, execução de terceiros ou alteração de infraestrutura foi realizado nesta pesquisa."
+      ],
+      "source_ids": [
+        "S4",
+        "S5",
+        "S6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/lfnovo/open-notebook/blob/a0f6f3081ae06328f0a451b3a3ef2959ca25721d/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7396505-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "pyproject.toml",
+      "url": "https://github.com/lfnovo/open-notebook/blob/a0f6f3081ae06328f0a451b3a3ef2959ca25721d/pyproject.toml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7404494-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/lfnovo/open-notebook/blob/a0f6f3081ae06328f0a451b3a3ef2959ca25721d/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7407042-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "open_notebook/domain/notebook.py",
+      "url": "https://github.com/lfnovo/open-notebook/blob/a0f6f3081ae06328f0a451b3a3ef2959ca25721d/open_notebook/domain/notebook.py",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7409518-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "docker-compose.yml",
+      "url": "https://github.com/lfnovo/open-notebook/blob/a0f6f3081ae06328f0a451b3a3ef2959ca25721d/docker-compose.yml",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7411945-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "docs/5-CONFIGURATION/security.md",
+      "url": "https://github.com/lfnovo/open-notebook/blob/a0f6f3081ae06328f0a451b3a3ef2959ca25721d/docs/5-CONFIGURATION/security.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7414420-03:00"
+    },
+    {
+      "id": "S7",
+      "title": "Commit consultado",
+      "url": "https://github.com/lfnovo/open-notebook/commit/a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "a0f6f3081ae06328f0a451b3a3ef2959ca25721d",
+      "note": "docs: defaults table matches the code; CHANGELOG entry for the docs overhaul (#1462)",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7417001-03:00"
+    },
+    {
+      "id": "S8",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/lfnovo/open-notebook/releases?per_page=2",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "não identificado",
+      "note": "v1.15.0; v1.14.0",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7419381-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Exposição inicial",
+      "certainty": "CONFIRMADO",
+      "detail": "Compose publica UI/API em todas interfaces e guia declara ausência de senha por padrão.",
+      "source_ids": [
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "title": "Operação integralmente local",
+      "certainty": "HIPÓTESE",
+      "detail": "Depende da escolha de todos os papéis e da verificação de rede.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "title": "Cadeia própria de podcast",
+      "certainty": "CONFIRMADO",
+      "detail": "Há dependência podcast-creator e montagem de contexto longo no domínio.",
+      "source_ids": [
+        "S2",
+        "S4"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Nenhum teste funcional, de segurança, desempenho ou recuperação foi executado.",
+    "Custos e serviços terceiros dependem da conta, região, volume e condições vigentes; valores do autor são alegações datadas.",
+    "A análise estática amostra o mecanismo e não certifica segurança, privacidade, conformidade ou adequação operacional."
+  ],
+  "related": [
+    "zuhairhalawa--studyai",
+    "mizorewww--course2md",
+    "frigadehq--hob"
+  ],
+  "metrics": {
+    "full_name": "lfnovo/open-notebook",
+    "html_url": "https://github.com/lfnovo/open-notebook",
+    "description": "An Open Source implementation of Notebook LM with more flexibility and features",
+    "homepage": "https://www.open-notebook.ai",
+    "default_branch": "main",
+    "created_at": "2024-10-21T17:58:46Z",
+    "updated_at": "2026-11-03T21:02:23Z",
+    "pushed_at": "2026-11-01T21:49:31Z",
+    "stargazers_count": 41504,
+    "forks_count": 4770,
+    "open_issues_count": 193,
+    "subscribers_count": 177,
+    "network_count": 4770,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "assistant",
+      "learning",
+      "note-taking",
+      "notebook",
+      "notes-app",
+      "self-learning"
+    ],
+    "size": 14459,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

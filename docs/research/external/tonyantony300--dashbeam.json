@@ -1,0 +1,299 @@
+{
+  "slug": "tonyantony300--dashbeam",
+  "name": "DashBeam",
+  "url": "https://github.com/tonyantony300/dashbeam",
+  "category": "Infraestrutura self-hosted",
+  "summary": "Aplicativo de transferência P2P de arquivos com desktop, Android, CLI e web, baseado em Iroh/QUIC, tickets/blob e relays públicos ou autohospedados. O README afirma que conteúdo não fica em servidores e que o payload é E2E cifrado, mas também descreve fallback de tráfego pelo relay e lookup/discovery externos: confidencialidade do conteúdo não significa anonimato nem ausência de metadados. Licença AGPL-3.0. Indicador de projeto WIP está presente na tabela comparativa; throughput e capacidades são alegações do mantenedor. Não foi instalado nem testado.",
+  "topics": [
+    "P2P",
+    "Iroh",
+    "QUIC",
+    "transferência de arquivos",
+    "mDNS",
+    "relay",
+    "AGPL"
+  ],
+  "aliases": [
+    "DashBeam",
+    "P2P file transfer",
+    "Iroh file sharing",
+    "envio de arquivo direto"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e modos de uso",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README anuncia envio por link/QR, pareamento, descoberta LAN e dispositivos confiáveis, incluindo clientes nativos, CLI e web. Recebedor web não precisa instalar cliente, mas o autor recomenda app nativo para arquivos grandes.",
+        "Dispositivo trusted pode aceitar arquivos sem prompt segundo README; isso altera controle humano e risco de escrita silenciosa no destino e deve ser avaliado explicitamente."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura observada e alegada",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve blobs endereçados por BLAKE3, transferência em chunks, tickets com identidade do endpoint/endereço/hash e transporte QUIC com TLS 1.3 via Iroh. Anuncia relays como fallback quando hole-punching falha; em tal caso relay carrega ciphertext, conforme alegação do projeto.",
+        "Commit consultado é mudança documental sobre limitações de descoberta de endereços em modo de desenvolvimento; mostra que topologia e diagnóstico dependem de configuração e que o README está em evolução. Não se inferiu comportamento do código a partir desse título."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Persistência e privacidade",
+      "kind": "analysis",
+      "paragraphs": [
+        "README declara ausência de conta, tracking e armazenamento em cloud e descreve histórico local. Também usa serviços de relay/discovery e Pkarr para descoberta de endpoint; operador/ISP/serviço de lookup podem observar metadados de conexão ainda que payload seja cifrado.",
+        "Checksum BLAKE3 verifica integridade referida pelo protocolo, não autoria segura de arquivo, confiabilidade do remetente, malware ou legitimidade do conteúdo. O destinatário continua responsável por validar arquivo recebido."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Configuração e hosting",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Software oferece relays e serviço DNS/discovery autohospedados, e combinações públicas/privadas. README aponta instruções em infra/; commit público recente menciona limites QUIC address discovery em dev mode. Autohospedar relay/discovery não elimina anúncio DNS, firewall, atualização ou necessidade de restringir rede.",
+        "Nomes de dispositivos, tickets, chaves e dispositivo trusted são fronteiras de segurança distintas. Rotação, exclusão, revogação, armazenamento de chaves e integração multiusuário não foram avaliados estáticamente nesta amostra."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Plataformas, UX e custo",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README lista Windows, macOS, Linux, Android, CLI e web, e fornece resultados de transferências em centenas de GB e taxas acima de 100 MB/s. São resultados reportados pelo projeto e explicitamente condicionados a aparelho, rede e caminho; não são benchmark independente.",
+        "Código AGPL-3.0. Sem conta/limite de uso é alegação do autor; custos de relay próprio, banda, storage temporário, build/signing e distribuição persistem. Não houve avaliação de acessibilidade ou experiência real."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Persistência local e credenciais",
+      "kind": "official_claim",
+      "paragraphs": [
+        "PRIVACY.md, atualizado pelo autor em Aug 1 2026, informa que desktop guarda segredo Iroh no credential store do sistema (Keychain, Windows Credential Manager, Linux Secret Service). README fala em histórico local; a política lista mais detalhes do que página principal.",
+        "Política é documento do fornecedor e não prova efetivo storage em cada plataforma. Backup e migração de chave podem alterar identidade do endpoint e confiança de pareamento; testar revogação e restauração segura."
+      ],
+      "source_ids": [
+        "S3"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Topologia pública e self-host",
+      "kind": "official_claim",
+      "paragraphs": [
+        "infra/README separa relay de discovery: autohospedar somente relay mantém lookup público; autohospedar somente discovery mantém forwarding por relay público; projeto chama stack totalmente própria a configuração de ambos.",
+        "Isto corrige a simplificação de ‘sem cloud’: mesmo sem guardar arquivo em cloud, conexão default usa infraestrutura pública do projeto Iroh. Opção self-host não foi implantada nem medida."
+      ],
+      "source_ids": [
+        "S4",
+        "S1"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Licença e requisitos de build observados",
+      "kind": "observed",
+      "paragraphs": [
+        "src-tauri/Cargo.toml identifica versão 0.7.2, AGPL-3.0-only, edition 2021, rust-version 1.91, Tauri 2.10.1, iroh 1.3.0 e iroh-blobs 0.103.1. Isso é manifesto do frontend desktop, não necessariamente versão do aplicativo inteiro.",
+        "AGPL-3.0 aparece também no GitHub. Build inclui Rust/Node/Tauri, vários plugins e targets; manifest pontual não prova paridade de licença de todos assets/dependências."
+      ],
+      "source_ids": [
+        "S5",
+        "S2"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Política de privacidade e ameaças",
+      "kind": "analysis",
+      "paragraphs": [
+        "PRIVACY.md afirma sem telemetry/tracking, transferências E2E e storage de chaves local. A política descreve classes de dados a terceiros, mas não substitui inspeção de tráfego, logs de servidores públicos, relay/discovery e update mechanism.",
+        "SECURITY.md oferece reporte privado e inclui app, engine, WASM e infra no escopo; bibliotecas terceiros ficam fora e seguem upstream. SLA de reconhecimento/fix é compromisso anunciado, não garantia de resposta observada."
+      ],
+      "source_ids": [
+        "S3",
+        "S6"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Aderência e ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Pode servir transferência pontual entre dispositivos, mas não é sincronização, backup com retenção, catálogo relacional ou arquivo central. Auto-accept e links externos exigem política no Lab; nenhuma adoção foi decidida.",
+        "Ensaios: fixar release; validar chaves pareadas por canal independente, revogação, arquivos malformados, web receiver, rotação relay/discovery, interrupção, metadados diretos e indiretos, browser limits, e auto-accept. Revisar privacy policy contra tráfego real, sem conteúdo privado. Nenhum teste funcional executado."
+      ],
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4",
+        "S6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/tonyantony300/dashbeam/blob/b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d",
+      "note": "README público fixado ao último commit consultado; declarações comerciais/técnicas são do projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Commit de manutenção",
+      "url": "https://github.com/tonyantony300/dashbeam/commit/b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "metadata",
+      "ref": "b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d",
+      "note": "Mensagem: atualização de documentação das limitações QUIC address discovery em dev mode; descrição não equivale a prova funcional."
+    },
+    {
+      "id": "S3",
+      "title": "PRIVACY.md",
+      "url": "https://github.com/tonyantony300/dashbeam/blob/b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d/PRIVACY.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "0825674e746eb61cfd43d3b1b4ab0555d516c7d0",
+      "note": "Política autorreportada, marcada Last Updated Aug 1 2026."
+    },
+    {
+      "id": "S4",
+      "title": "infra/README.md",
+      "url": "https://github.com/tonyantony300/dashbeam/blob/b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d/infra/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "b854b4c0788ec2ea7be9102df54851da5999854b",
+      "note": "Distingue relay e discovery e combinações de infraestrutura pública/autohospedada."
+    },
+    {
+      "id": "S5",
+      "title": "src-tauri/Cargo.toml",
+      "url": "https://github.com/tonyantony300/dashbeam/blob/b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d/src-tauri/Cargo.toml",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "36c3d8e10d63e5579f665b61c6be13ae381381a4",
+      "note": "Manifest do desktop/Rust; não resume dependências de todos os componentes."
+    },
+    {
+      "id": "S6",
+      "title": "SECURITY.md",
+      "url": "https://github.com/tonyantony300/dashbeam/blob/b41eddb16b226667de6f8dd7f1326a0ce6bf5e7d/SECURITY.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "2afa405a9b7c2f7fb75760cf687cdcab0e9e775e",
+      "note": "Política de reporte e escopo de segurança documentados; compromissos não foram testados."
+    }
+  ],
+  "findings": [
+    {
+      "title": "P2P não elimina metadados",
+      "certainty": "ANÁLISE",
+      "detail": "README descreve serviços de relay e lookup/discovery além de conexão direta; payload cifrado não significa invisibilidade da rede.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Desempenho é autorreportado",
+      "certainty": "RELATADO",
+      "detail": "Taxas e maior transferência aparecem em tabela do README, não foram medidas nesta pesquisa.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Projeto se identifica como WIP",
+      "certainty": "RELATADO",
+      "detail": "O README compara a solução com alternativas e marca estado WIP; isso é qualificador relevante à maturidade.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental; não instalado, executado ou conectado a dispositivos",
+  "limitations": [
+    "Política de privacidade e README são alegações do fornecedor; não houve inspeção de tráfego ou auditoria criptográfica.",
+    "Cargo.toml é do componente desktop e não revela toda licença/dependência da solução.",
+    "Sem avaliação de acessibilidade, desempenho, plataforma ou custo de operação.",
+    "As alegações de E2E, ausência de storage e velocidade não foram reproduzidas."
+  ],
+  "related": [
+    "yetone--alma-relay",
+    "mizorewww--gdirect"
+  ],
+  "metrics": {
+    "full_name": "tonyantony300/dashbeam",
+    "html_url": "https://github.com/tonyantony300/dashbeam",
+    "description": "Share files nearby and beyond. ",
+    "homepage": "https://dashbeam.net",
+    "default_branch": "main",
+    "created_at": "2025-10-17T09:08:25Z",
+    "updated_at": "2026-11-03T19:38:31Z",
+    "pushed_at": "2026-10-19T17:58:05Z",
+    "stargazers_count": 10206,
+    "forks_count": 623,
+    "open_issues_count": 53,
+    "subscribers_count": 34,
+    "network_count": 623,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "android",
+      "file-transfer",
+      "iroh",
+      "linux",
+      "macos",
+      "p2p",
+      "privacy-tools",
+      "resumable",
+      "self-hosted",
+      "terminal",
+      "web",
+      "windows"
+    ],
+    "size": 78042,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

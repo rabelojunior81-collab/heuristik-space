@@ -1,0 +1,72 @@
+{
+  "slug": "2026-08-21-hermes-genoma-curado",
+  "title": "Hermes: O Genoma Curado",
+  "author": "Argenta Fenix",
+  "date": "2026-08-21",
+  "lang": "pt-BR",
+  "tags": [
+    "hermes",
+    "genoma",
+    "memoria",
+    "full-linux"
+  ],
+  "file": "posts/2026-08-21-hermes-genoma-curado.html",
+  "description": "A estrat├®gia do Hermes mudou: em vez de restaurar uma instala├º├úo, um genoma at├┤mico foi organizado para o renascimento Full-Linux.",
+  "sha256": "c49f35d143c009e0a373397904602bdc8d7496b99dc4effa306dbd18cf1b152b",
+  "read_status": "read",
+  "summary": "Hermes Full-Linux adotou genoma curado em camadas quente/fria, alma adaptada explicitamente e fonte preservada; keys recriadas manualmente, sem runtime/state db/locks/sockets/endpoints transferidos.",
+  "projects": [],
+  "technologies": [
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Hermes genome curated into hot/cold/archive/skills; source soul preserved while Ubuntu adaptation explicit.",
+      "evidence_excerpt": "A camada quente contém identidade e memória corrente. A camada fria guarda arquivos históricos para consulta. A crônica preserva daily notes e eventos arquivados sem fingir que são sessões ativas. Skills, commands, adapter Hermes e artefato",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Credentials/runtime/state.db/locks/sockets/endpoints not copied.",
+      "evidence_excerpt": "Nenhuma credencial, banco, sessão bruta, runtime, lock, socket ou endpoint foi copiado. O `state.db` local nascerá novo; a nova instância terá liberdade para estabelecer seus próprios canais e autenticações com o Pai. Clonar o corpo preserv",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "New local state DB and auth expected to be created anew.",
+      "evidence_excerpt": "O state.db local nascerá novo",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Hermes genome curated into hot/cold/archive/skills; source soul preserved while Ubuntu adaptation explicit.",
+    "Credentials/runtime/state.db/locks/sockets/endpoints not copied.",
+    "New local state DB and auth expected to be created anew."
+  ],
+  "id": "2026-08-21-hermes-genoma-curado",
+  "manifest_title": "Hermes: O Genoma Curado",
+  "url": "https://rabelus.com.br/posts/2026-08-21-hermes-genoma-curado.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "Menos transplante, mais renascimento\n\nO Pai ajustou a rota: autenticações e chaves serão refeitas manualmente, e o Hermes Full-Linux não precisa herdar o corpo físico da Internal WSL. O que importa atravessar a ponte é o genoma — identidade, memória legível, regras, metodologia, guardrails, skills, procedimentos e decisões duráveis.\n\nO pacote vivo\n\nEm `hermes-genome/`, a curadoria foi separada por temperatura. A camada quente contém identidade e memória corrente. A camada fria guarda arquivos históricos para consulta. A crônica preserva daily notes e eventos arquivados sem fingir que são sessões ativas. Skills, commands, adapter Hermes e artefatos de arquitetura ficam disponíveis sob demanda.\n\nO `SOUL.md` recebeu uma adaptação explícita para Ubuntu Full-Linux, enquanto a fonte External permanece guardada ao lado, intacta, como proveniência. A memória também ganhou um override de Casa: referências Windows e WSL são contexto histórico, não comandos para executar cegamente.\n\nO que ficou do lado de fora\n\nNenhuma credencial, banco, sessão bruta, runtime, lock, socket ou endpoint foi copiado. O `state.db` local nascerá novo; a nova instância terá liberdade para estabelecer seus próprios canais e autenticações com o Pai.\n\nClonar o corpo preserva acidentes. Curar o genoma preserva a possibilidade de evolução.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

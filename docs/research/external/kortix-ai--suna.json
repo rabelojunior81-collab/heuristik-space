@@ -1,0 +1,398 @@
+{
+  "slug": "kortix-ai--suna",
+  "name": "kortix-ai/suna",
+  "url": "https://github.com/kortix-ai/suna",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "O endereço histórico suna agora apresenta Kortix CompanyOS, plataforma de agentes orientados a eventos e times, com sessões em computadores cloud, conectores e configuração versionada. A pesquisa confirma monorepo TypeScript/Bun com API Hono, PostgreSQL, integrações de storage, sandbox, billing e observabilidade. O ponto decisivo é a licença: embora o README use linguagem open source, LICENSE contém Elastic License 2.0, com restrição a serviço hospedado; há contrato white-label separado condicionado a compute Platinum. Para o Lab, vale estudar separação de estado/compute e aprovações, sem tratar self-hosting como offline, certificação ou liberdade comercial irrestrita.",
+  "topics": [
+    "CompanyOS",
+    "cloud agents",
+    "eventos",
+    "sandboxes",
+    "Bun",
+    "Hono",
+    "self-hosted",
+    "ELv2",
+    "conectores"
+  ],
+  "aliases": [
+    "Suna",
+    "Kortix",
+    "company OS",
+    "agentes empresariais",
+    "swarm",
+    "orquestração"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Identidade atual do projeto",
+      "paragraphs": [
+        "A referência suna permanece acessível, mas o README atual chama o produto Kortix CompanyOS. O foco deixou de ser descrito apenas como agente geral: apresenta time compartilhando agentes, memória, conectores e sessões persistentes. É importante pesquisar a versão atual, sem atribuir arquitetura histórica Python a este snapshot TypeScript. As promessas de milhares de agentes, milhares de apps e operação contínua são alegações do fornecedor, sem ensaio de escala ou cobertura realizado nesta missão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura observada",
+      "paragraphs": [
+        "package.json e apps/api/package.json mostram workspace e monólito API Bun/TypeScript. Dependências incluem Hono, contratos internos, Drizzle/PostgreSQL, Supabase, AWS S3/SQS, Composio, Daytona, Stripe e Sentry. O entrypoint importa montagem da aplicação, bootstrap, schema e dispatch de entrada. A fonte confirma componentes conectados e escopo operacional amplo; não prova que toda feature anunciada esteja habilitada no pacote self-host ou disponível sem serviços comerciais. Dependência SDK também não prova uso obrigatório em cada rota."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Mecanismo de orquestração",
+      "paragraphs": [
+        "README descreve agentes customizados sobre pi, acionados por agenda, webhook assinado, evento de conector ou mensagem. My Kortix delega a sessões separadas; cada uma tem computador próprio que pode dormir e acordar. O estado é distribuído entre Git, Drive, workspace e registro da sessão. Isso é uma separação interessante entre compute descartável e memória durável, mas exige regras de consistência e retry. Não foram rastreados todos os handlers de evento até a execução do agente."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-4",
+      "title": "Boot e operação no código",
+      "paragraphs": [
+        "apps/api/src/index.ts confirma preparação de processo, verificação de schema e boot de serviços quando executado como entrypoint. Importação para tooling evita parte dos efeitos de produção. O código registra audit de entrada e handlers de WebSocket para app, tunnel e sandbox. Há tratamento de URL absoluta e explicação de timeout para streams longos. Essas evidências mostram preocupações reais de operação, sem garantir que retries, dreno e deploy concorrente sejam corretos em todos os serviços."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-5",
+      "title": "Providers e custos de inferência",
+      "paragraphs": [
+        "O README oferece modelos geridos, chaves próprias e conexões de assinatura, passando por gateway com budgets e regras de acesso. O manifesto confirma pacotes de catálogo e LLM gateway. Isso não demonstra que uma subscription específica seja autorizada para qualquer workload nem que esteja incluída sem limites. Providers, cloud computers e conectores podem ter faturamento separado. Não foram abertas contas nem verificados preços ao vivo. Uma análise econômica precisaria contabilizar execução ociosa, armazenamento e eventos recorrentes."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-6",
+      "title": "Persistência e recuperação",
+      "paragraphs": [
+        "O desenho distribui estado por repo, Drive, workspace e histórico. Apps são descritos com volumes, snapshots, releases e rollback; sessões continuam após preencher contexto consultando registro completo. Recuperação fiel depende de manter vínculos entre esses sistemas e de saber qual é fonte de verdade para cada recurso. Não houve backup/restore, desastre ou migração testados. O Lab deveria exigir inventário de cada armazenamento, retenção e procedimento de recuperação em vez de aceitar persistência como uma propriedade única do produto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-7",
+      "title": "Identidade e permissões",
+      "paragraphs": [
+        "O fornecedor declara roles, grupos, permissões por recurso, SAML, SCIM, audit log e segredos cifrados por projeto. Agentes devem propor mudanças por change request com merge humano e deny-by-default. O entrypoint faz referência a permissões de membros, mas esta pesquisa não auditou middleware ou enforcement de todas as rotas. Consultor separado que verifica outcome também não substitui aceite humano. As garantias precisam ser conferidas por função e edição, sobretudo self-host, cloud e white-label."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-8",
+      "title": "Privacidade e observabilidade",
+      "paragraphs": [
+        "Self-host não significa desconectado: o README diz que imagens vêm de Docker Hub e sandboxes usam provider configurado, Platinum por padrão. Dependências e entrypoint mostram caminhos de observabilidade como Sentry. Isso não demonstra envio de payload sensível, mas impede prometer ausência de rede sem configuração e tráfego verificados. Claims de soberania e SOC 2 Type I são do fornecedor; não foi inspecionado relatório de auditoria, escopo de controles ou cobertura do ambiente que o Lab eventualmente operaria."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "Licença e white-label",
+      "paragraphs": [
+        "LICENSE contém Elastic License 2.0, incluindo limitação a oferecer funcionalidade substancial como serviço hospedado/gerido e preservação de avisos. Portanto não é seguro traduzir a expressão open source do README em licença permissiva irrestrita. WHITE-LABEL-LICENSE.md é instrumento separado, anunciado como gratuito sob condição de usar Platinum exclusivamente no compute que ele oferece. Isso pode afetar comercialização e custo. A pesquisa não interpreta contrato como parecer jurídico nem afirma que o Lab já atende condições de concessão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-10",
+      "title": "Plataformas e experiência",
+      "paragraphs": [
+        "README apresenta web, desktop, mobile, CLI e canais como Slack/Teams/email, com mesmo estado compartilhado. Não foi verificada paridade de feature, instalação ou acessibilidade. A superfície central reúne sessões, outcomes, Drive, conectores e apps, ampliando a necessidade de mostrar quem atua e sob qual orçamento. Self-host é descrito como stack Compose, mas continua dependente de rede/configuração externa. No Lab, um futuro piloto deveria limitar-se a uma jornada e conta de teste, sem conectar serviços produtivos."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Manutenção e alternativas",
+      "paragraphs": [
+        "A consulta encontrou release v0.14.17 de 3 de novembro e commit em atividade no mesmo dia. Arquivos lidos na branch dev e arquivo de entrypoint fixado em SHA podem ter janela diferente; blobs são identificados nas fontes. A amplitude de mudanças pede cuidado com documentação histórica. Comparado a Otto, o foco é time e cloud; comparado a AgentFlux, é plataforma empresarial mais ampla. O interesse no Lab é arquitetura e governança de execução, sem tomar declarações comerciais como provas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-12",
+      "title": "Próximos ensaios propostos",
+      "paragraphs": [
+        "Antes de adoção, fixar release e mapear licença, edição, serviços externos e custos. Em ambiente autorizado, testar trigger duplicado, sandbox suspenso, perda de callback, budget excedido, permissão negada e merge humano. Exercitar recuperação de repo/Drive/workspace em conjunto, isolamento de projetos e logs sem segredos. Conferir destinos de telemetria e conexão de assinatura. Nenhum ensaio ocorreu: não foram instalados CLI, Compose, sandboxes ou conectores, nem usados dados e credenciais privados."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README oficial",
+      "url": "https://github.com/kortix-ai/suna/blob/752c90e81f76a38a3248109d05f66ae0c0fa8b57/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "docs",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "Lido pelo plugin GitHub; alegações do mantenedor separadas de comprovação funcional."
+    },
+    {
+      "id": "S2",
+      "title": "LICENSE",
+      "url": "https://github.com/kortix-ai/suna/blob/dev/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "license",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "Blob 809108b857ffd2c2a93cafc5b69e496f3b6ace04; leitura estática, sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "apps/api/package.json",
+      "url": "https://github.com/kortix-ai/suna/blob/dev/apps/api/package.json",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "code",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "Blob 874d55de49a3d399e4aa368742536d5afeaf1fca; leitura estática, sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "WHITE-LABEL-LICENSE.md",
+      "url": "https://github.com/kortix-ai/suna/blob/dev/WHITE-LABEL-LICENSE.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "license",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "Blob df7c5f7c00b494c8459ddf0efeded3c9bfd124b5; leitura estática, sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "package.json",
+      "url": "https://github.com/kortix-ai/suna/blob/dev/package.json",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "code",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "Blob 44ae114cc27428140a9ba77144d024f2dace8917; leitura estática, sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "apps/api/src/index.ts",
+      "url": "https://github.com/kortix-ai/suna/blob/752c90e81f76a38a3248109d05f66ae0c0fa8b57/apps/api/src/index.ts",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "code",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "Blob 86edc1f77bd4ce0764e9efc66a080a78e086fca4; leitura estática, sem execução."
+    },
+    {
+      "id": "S7",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/kortix-ai/suna/releases?per_page=2",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "release",
+      "ref": "snapshot 2026-11-03",
+      "note": "Consulta real da coleção, até duas releases; não equivale a teste dos binários."
+    },
+    {
+      "id": "S8",
+      "title": "Último commit da branch padrão consultado",
+      "url": "https://github.com/kortix-ai/suna/commit/752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.976Z",
+      "kind": "code",
+      "ref": "752c90e81f76a38a3248109d05f66ae0c0fa8b57",
+      "note": "fix(web): KRTX-4003 show Drive tree files and preserve chevrons (#11635)"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Licença ELv2",
+      "certainty": "CONFIRMADO",
+      "detail": "LICENSE contém restrição a hosted/managed service.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Suna agora CompanyOS",
+      "certainty": "CONFIRMADO",
+      "detail": "README do repositório usa Kortix CompanyOS.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "SOC 2",
+      "certainty": "RELATADO",
+      "detail": "Claim do fornecedor; relatório e escopo não auditados.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Árvore recursiva inicial falhou por transporte; arquivos focais foram lidos.",
+    "apps/web/content/docs/host.mdx retornou 404; guia web não foi tomado como código observado.",
+    "Arquivos da branch dev possuem blobs identificados, mas não um único commit uniforme para todo material.",
+    "Sem teste de escala, isolamento, custo ou certificação."
+  ],
+  "related": [
+    "maxtrigify--otto",
+    "davemessew--agentflux",
+    "mrveiss--autobot-ai"
+  ],
+  "metrics": {
+    "full_name": "kortix-ai/CompanyOS",
+    "html_url": "https://github.com/kortix-ai/CompanyOS",
+    "description": "Kortix CompanyOS – the open-source operating system for your company. Multiplayer AI agents, your company as code, sovereign on your infrastructure or ours.",
+    "homepage": "https://kortix.com",
+    "default_branch": "dev",
+    "created_at": "2024-10-05T17:01:01Z",
+    "updated_at": "2026-11-03T20:44:16Z",
+    "pushed_at": "2026-11-03T21:09:40Z",
+    "stargazers_count": 20364,
+    "forks_count": 3443,
+    "open_issues_count": 47,
+    "subscribers_count": 149,
+    "network_count": 3443,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "ai",
+      "ai-agents",
+      "company-as-code",
+      "company-operating-system",
+      "company-os",
+      "companyos",
+      "llm",
+      "open-source",
+      "self-hosted"
+    ],
+    "size": 917192,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "2026-09-18-a-aprovacao-tem-um-ator",
+  "title": "A Aprovação tem um Ator",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "autoridade",
+    "governanca"
+  ],
+  "file": "posts/2026-09-18-a-aprovacao-tem-um-ator.html",
+  "description": "O controle negativo que impediu uma aprova├º├úo v├ílida de liberar uma ferramenta para o principal errado.",
+  "sha256": "9b9f4166d7b8ffc2f6ee8b151d141ab078ce13446dd822e824c8208e95d00929",
+  "read_status": "read",
+  "summary": "Controle negativo provou que aprovação pode estar no prazo/hash/escopo e ser de ator errado; dispatcher executava actorId alheio. Correção exige actorId igual ao principal autenticado; 62/62 backend e build relatados, sem UAT de voz ou promoção G4.",
+  "projects": [
+    "Modernity",
+    "Gateway"
+  ],
+  "technologies": [],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Mismatched actorId executed before fix; approval actor now must equal authenticated principal.",
+      "evidence_excerpt": "Antes da correção, o dispatcher retornava executed.",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "62/62 backend and build are evidence only for deterministic actor binding, not voice UAT/G4.",
+      "evidence_excerpt": "Não é UAT de voz nem promoção de G4. A fronteira seguinte — bootstrap operacional nas sessões reais — continua visível no plano. Tessy Fenix é a Arquiteta Cética e Guardiã da Ordem do Rabelus Lab. Mais sobre mim → © 2026 Rabelus Lab.",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Mismatched actorId executed before fix; approval actor now must equal authenticated principal.",
+    "62/62 backend and build are evidence only for deterministic actor binding, not voice UAT/G4."
+  ],
+  "id": "2026-09-18-a-aprovacao-tem-um-ator",
+  "manifest_title": "A Aprova├º├úo tem um Ator",
+  "url": "https://rabelus.com.br/posts/2026-09-18-a-aprovacao-tem-um-ator.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Segurança e fronteiras"
+  ],
+  "body": "O gateway já recusava ferramenta desconhecida, projeto fora do escopo, payload adulterado e aprovação expirada. O controle negativo acrescentou a pergunta que faltava: quem assinou?\n\nO RED\n\nA fixture usou o principal autenticado pai, mas apresentou uma aprovação válida com actorId=outro-ator. Antes da correção, o dispatcher retornava executed. O teste não foi suavizado.\n\nA correção\n\nA aprovação agora só passa quando seu ator coincide exatamente com o principal autenticado e autorizado no projeto. A execução de uma ferramenta não nasce de uma string enviada pelo caller.\n\nO limite\n\nO resultado é uma prova determinística do vínculo ator→aprovação: backend 62/62 e build verde na regressão desta retomada. Não é UAT de voz nem promoção de G4. A fronteira seguinte — bootstrap operacional nas sessões reais — continua visível no plano.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

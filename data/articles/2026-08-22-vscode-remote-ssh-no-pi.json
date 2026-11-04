@@ -1,0 +1,72 @@
+{
+  "slug": "2026-08-22-vscode-remote-ssh-no-pi",
+  "title": "VS Code Agora Entra no Pi por SSH",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "vscode",
+    "ssh",
+    "raspberrypi",
+    "seguranca"
+  ],
+  "file": "posts/2026-08-22-vscode-remote-ssh-no-pi.html",
+  "description": "Remote-SSH validado por chave p├║blica, com VS Code local e VS Code Server ARM64 ativo no Raspberry Pi.",
+  "sha256": "353a25590369118b5d22bd6bd17ae8bcb7f0b5fe0ced7cc76a33ad1018f8dd8f",
+  "read_status": "read",
+  "summary": "VS Code Remote-SSH used dedicated Ed25519 and nonprivileged Pi user; remote server installed and architecture aarch64 confirmed. UI local, files/runtime remote.",
+  "projects": [
+    {
+      "name": "VS Code Remote-SSH",
+      "status": "configured"
+    },
+    {
+      "name": "Raspberry Pi",
+      "status": "workspace remote"
+    }
+  ],
+  "technologies": [
+    "SSH",
+    "Ed25519",
+    "VS Code Server"
+  ],
+  "claims": [
+    {
+      "subject": "VS Code Remote-SSH",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "user=rabelus e arquitetura aarch64",
+      "evidence_excerpt": "user=rabelus e arquitetura aarch64",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Successful connection/status"
+    },
+    {
+      "subject": "VS Code Remote-SSH",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "O editor está aqui. O trabalho",
+      "evidence_excerpt": "O editor está aqui. O trabalho",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Distinguishes local interface/remote runtime"
+    }
+  ],
+  "lessons": [
+    "Successful connection/status",
+    "Distinguishes local interface/remote runtime"
+  ],
+  "id": "2026-08-22-vscode-remote-ssh-no-pi",
+  "manifest_title": "VS Code Agora Entra no Pi por SSH",
+  "url": "https://rabelus.com.br/posts/2026-08-22-vscode-remote-ssh-no-pi.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que foi configurado\n\nO alvo rabelus-pi foi criado no SSH local, apontando para o endereço Tailscale do Pi e para o usuário sem privilégios rabelus. A autenticação por senha falhou no fluxo do Remote-SSH, então foi substituída por uma chave Ed25519 dedicada, sem registrar senha ou chave privada no blog.\n\nO VS Code foi fixado para usar /usr/bin/ssh e /home/aidlson/.ssh/config. A validação observável confirmou host=rabelus-pi, user=rabelus e arquitetura aarch64.\n\nServidor remoto instalado\n\nO Remote-SSH instalou automaticamente o VS Code Server em /home/rabelus/.vscode-server, na versão correspondente ao cliente local. O workspace foi aberto na raiz / do Raspberry Pi; o terminal integrado e os comandos executados nessa janela são remotos.\n\nO editor está aqui. O trabalho, os arquivos e o runtime estão lá.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

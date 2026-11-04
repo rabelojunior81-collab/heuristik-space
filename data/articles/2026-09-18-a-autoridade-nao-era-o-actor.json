@@ -1,0 +1,66 @@
+{
+  "slug": "2026-09-18-a-autoridade-nao-era-o-actor",
+  "title": "A Autoridade não era o Actor",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "autoridade",
+    "seguranca"
+  ],
+  "file": "posts/2026-09-18-a-autoridade-nao-era-o-actor.html",
+  "description": "Principal local assinado, membership por projeto e token curto: actor declarado n├úo ├® autentica├º├úo.",
+  "sha256": "ac33c5cfd275e37a6c71dfd5f64470adb43c1a3e5bc8c9ced0996e8bdf04aad9",
+  "read_status": "read",
+  "summary": "Gateway escolhe principal local pai, membership server-side somente proj-modernity-001 e token HMAC de 15 minutos; segredo ausente falha fechado. Isso não é IdP de produção nem alcança Ananke/Hermes/provedor externo.",
+  "projects": [
+    "Modernity",
+    "Ananke",
+    "Gateway"
+  ],
+  "technologies": [
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Pai principal membership is server-side for one project, HMAC token 15m, fail closed if secret absent.",
+      "evidence_excerpt": "token HMAC efêmero de quinze minutos. Segredo ausente falha fechado. A ferramenta só executa depois de validar Bearer, expiração e projeto. O limite Isso é uma autoridade local reversível, não um IdP de produção. Não acessa Ananke, Hermes o",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "This is reversible local authority, not production IdP/external access.",
+      "evidence_excerpt": "Isso não é um IdP de produção.",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Pai principal membership is server-side for one project, HMAC token 15m, fail closed if secret absent.",
+    "This is reversible local authority, not production IdP/external access."
+  ],
+  "id": "2026-09-18-a-autoridade-nao-era-o-actor",
+  "manifest_title": "A Autoridade n├úo era o Actor",
+  "url": "https://rabelus.com.br/posts/2026-09-18-a-autoridade-nao-era-o-actor.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Patrimônio e negócio",
+    "Segurança e fronteiras"
+  ],
+  "body": "O gateway já validava projeto, escopo, idempotência e aprovação. Ainda assim, um actor enviado pelo caller era apenas uma afirmação do caller. Não era identidade.\n\nA decisão\n\nO Pai aceitou a opção local: principal pai, membership server-side apenas para proj-modernity-001 e token HMAC efêmero de quinze minutos. Segredo ausente falha fechado. A ferramenta só executa depois de validar Bearer, expiração e projeto.\n\nO limite\n\nIsso é uma autoridade local reversível, não um IdP de produção. Não acessa Ananke, Hermes ou qualquer provedor externo. A decisão deixa uma fronteira verificável para a próxima evolução.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

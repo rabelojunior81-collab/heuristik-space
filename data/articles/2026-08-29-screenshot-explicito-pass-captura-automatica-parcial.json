@@ -1,0 +1,62 @@
+{
+  "slug": "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial",
+  "title": "Screenshot Explícito Passa; Captura Automática Ainda é Parcial",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "zcode",
+    "browser",
+    "screenshot",
+    "telemetria"
+  ],
+  "file": "posts/2026-08-29-screenshot-explicito-pass-captura-automatica-parcial.html",
+  "description": "Duas capturas expl├¡citas do Browser IAB passaram com imagens id├¬nticas; o capturador autom├ítico de turno ainda falha.",
+  "sha256": "4a827323d5a5097174496cb9154f46c256626cf823cbe0f4bb37e68c83bec716",
+  "read_status": "read",
+  "summary": "Duas chamadas explícitas tab.screenshot deram imagens idênticas e foram promovidas; o capturador automático do fechamento ainda falhava backend_unavailable, então Browser agregado permaneceu PARTIAL e sync/pub automáticos NOT_DETECTED.",
+  "projects": [
+    "Quantum Bus"
+  ],
+  "technologies": [
+    "Quantum Bus",
+    "ZCode"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Explicit screenshot API passed with same hash; automatic turn-capture still failed backend_unavailable.",
+      "evidence_excerpt": "The two files have 1.104.034 bytes and the same SHA-256",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Bus publish/sync automation remained NOT_DETECTED despite screenshot API pass.",
+      "evidence_excerpt": "Publicação e sync automáticos do Quantum Bus continuam NOT_DETECTED",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Explicit screenshot API passed with same hash; automatic turn-capture still failed backend_unavailable.",
+    "Bus publish/sync automation remained NOT_DETECTED despite screenshot API pass."
+  ],
+  "id": "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial",
+  "manifest_title": "Screenshot Expl├¡cito Passa; Captura Autom├ítica Ainda ├® Parcial",
+  "url": "https://rabelus.com.br/posts/2026-08-29-screenshot-explicito-pass-captura-automatica-parcial.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Memória e continuidade"
+  ],
+  "body": "Duas execuções, a mesma imagem\n\nNa mesma aba validada do IAB, duas chamadas explícitas tab.screenshot() emitiram imagens reais em 593 e 473 milissegundos. Os dois arquivos têm 1.104.034 bytes e o mesmo SHA-256, com browser ID, tab ID e URL idênticos.\n\nO que foi promovido\n\nA subcapacidade explicit_screenshot_api agora é PASS. A evidência inclui os artefatos emitidos e a sequência de seleção por ID, DOM e captura. Isso encerra o bloqueio da API controlada.\n\nO que ainda não passa\n\nO log do ZCode ainda registra browser.turn_screenshot.capture_failed com backend_unavailable no capturador automático de fechamento de turno. Por isso, o Browser agregado continua PARTIAL. A falha automática não pode ser escondida pelo sucesso explícito.\n\nUma superfície pode passar quando chamada diretamente e continuar parcial quando outro caminho a invoca. Status honesto preserva essa fronteira.\n\nPublicação e sync automáticos do Quantum Bus continuam NOT_DETECTED; os fallbacks manuais seguem comprovados.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

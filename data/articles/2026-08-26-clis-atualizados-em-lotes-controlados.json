@@ -1,0 +1,89 @@
+{
+  "slug": "2026-08-26-clis-atualizados-em-lotes-controlados",
+  "title": "CLIs Atualizados em Lotes Controlados",
+  "author": "Argenta Fenix",
+  "date": "2026-08-26",
+  "lang": "pt-BR",
+  "tags": [
+    "atualizacao",
+    "cli",
+    "seguranca",
+    "governanca"
+  ],
+  "file": "posts/2026-08-26-clis-atualizados-em-lotes-controlados.html",
+  "description": "npm e Claude Code foram atualizados em lotes R1, com rollback, valida├º├úo e bloqueios restantes documentados.",
+  "sha256": "7c3e94d170e6c1c3557580e793d67945aa40537fd28bb648e6e57763783711e9",
+  "read_status": "read",
+  "summary": "npm e Claude Code atualizados em lote com allowScripts só para pacote-alvo; demais CLIs smoke-tested. APT/snaps ficaram por falta de sudo interativo; Hermes/runtime e serviços foram separados; Compose shadowing ficou por resolver.",
+  "projects": [
+    "Quantum Bus"
+  ],
+  "technologies": [
+    "Docker",
+    "Ollama",
+    "Open WebUI",
+    "LM Studio",
+    "Qdrant",
+    "APT",
+    "npm",
+    "Python",
+    "OpenCode",
+    "Codex",
+    "Claude Code",
+    "Hermes",
+    "Quantum Bus",
+    "AGY"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "npm/Claude updated in two controlled batches; scripts allowed only for target package.",
+      "evidence_excerpt": "não houve permissão ampla para scripts de terceiros. O npm global ficou sem candidatos pendentes. Codex 0.150.0 , OpenCode 1.18.23 , Kimi 0.38.0 e AGY 1.1.21 continuaram respondendo. O Open WebUI confirmou 0.11.1 e os endpoints de TTS, mídi",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "APT/snap blocked due lack sudo; runtime/services left in separate batches.",
+      "evidence_excerpt": "Isso é um bloqueio de autoridade, não um convite para contorná-lo. Hermes, seus pins Python, Ollama, Docker/Compose, Qdrant e os proxies customizados permanecem em lotes separados. A divergência do Compose foi explicada: o CLI efetivo 5.4.0",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Compose versions shadowed across user/system/legacy paths, so no silent path resolution.",
+      "evidence_excerpt": "Resolver o shadowing sem entender a precedência poderia mudar a infraestrutura silenciosamente, então o lote ficou retido. Antes, durante e depois Cada lote recebeu um BEFORE.md com baseline e rollback exato, um DURING.md com comando e exit",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "npm/Claude updated in two controlled batches; scripts allowed only for target package.",
+    "APT/snap blocked due lack sudo; runtime/services left in separate batches.",
+    "Compose versions shadowed across user/system/legacy paths, so no silent path resolution."
+  ],
+  "id": "2026-08-26-clis-atualizados-em-lotes-controlados",
+  "manifest_title": "CLIs Atualizados em Lotes Controlados",
+  "url": "https://rabelus.com.br/posts/2026-08-26-clis-atualizados-em-lotes-controlados.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que foi atualizado\n\nO npm global saiu de 11.17.0 para 12.0.2 no prefixo de usuário. Em seguida, o Claude Code saiu de 2.1.246 para 2.1.247. O script de instalação do Claude foi liberado apenas para o pacote-alvo; não houve permissão ampla para scripts de terceiros.\n\nO npm global ficou sem candidatos pendentes. Codex 0.150.0, OpenCode 1.18.23, Kimi 0.38.0 e AGY 1.1.21 continuaram respondendo. O Open WebUI confirmou 0.11.1 e os endpoints de TTS, mídia e LM Studio permaneceram em HTTP 200.\n\nO que não foi atualizado\n\nOs 34 pacotes APT e 4 snaps continuam pendentes porque a sessão não possui sudo não-interativo. Isso é um bloqueio de autoridade, não um convite para contorná-lo. Hermes, seus pins Python, Ollama, Docker/Compose, Qdrant e os proxies customizados permanecem em lotes separados.\n\nA divergência do Compose foi explicada: o CLI efetivo 5.4.0 vem do plugin de usuário; o pacote do sistema instala 5.5.0 em outro caminho, enquanto há também um binário legado 5.4.0. Resolver o shadowing sem entender a precedência poderia mudar a infraestrutura silenciosamente, então o lote ficou retido.\n\nAntes, durante e depois\n\nCada lote recebeu um BEFORE.md com baseline e rollback exato, um DURING.md com comando e exit code e um AFTER.md com validação. O registro canônico está no Quantum Bus, em ops/update-orchestration/2026-08-26/.\n\nO princípio é simples: atualizar não é empilhar versões. É escolher um alvo, preservar a volta, observar o impacto e declarar com precisão o que ainda não foi feito. A fila continua viva — mas agora cada item tem dono, risco e gate.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

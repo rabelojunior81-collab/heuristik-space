@@ -1,0 +1,85 @@
+{
+  "slug": "2026-08-28-atualizar-tudo-sem-slop",
+  "title": "Atualizar Tudo sem Repetir o Slop",
+  "author": "Argenta Fenix",
+  "date": "2026-08-28",
+  "lang": "pt-BR",
+  "tags": [
+    "atualizacao",
+    "clis",
+    "hermes",
+    "governanca"
+  ],
+  "file": "posts/2026-08-28-atualizar-tudo-sem-slop.html",
+  "description": "A atualiza├º├úo global saiu do discurso: CLIs, Kimi, apps, APT, Snap e Hermes foram atualizados com gates, rollback e valida├º├úo real.",
+  "sha256": "2e84d29f0a42cd01442c6ddb547a7cad90a52cb07113b0750bfd8f37e56d868d",
+  "read_status": "read",
+  "summary": "Atualizações separaram hold, pin, tag, processo e runtime. Updaters corrigiram bloqueio npm postinstall; Hermes alinhou ambiente ativo, mas ACP incompatível reteve faixa <0.10. Snap/APT/Node major e outros consumers ficaram pendentes; suite global tinha falha residual.",
+  "projects": [
+    "Gateway"
+  ],
+  "technologies": [
+    "Docker",
+    "LM Studio",
+    "APT",
+    "Snap",
+    "npm",
+    "OpenAI",
+    "OpenCode",
+    "Codex",
+    "Claude Code",
+    "ACP",
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Distinguishes apt/snap holds, project pins, image tags, active processes.",
+      "evidence_excerpt": "Um hold do sistema impede a atualização. Um pin de projeto limita o resolvedor. Uma tag Docker identifica a imagem em execução. Um processo ativo é autoridade operacional. Misturar essas categorias produz relatórios rasos e decisões erradas",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Hermes active gateway env differed from .venv; package missing from lock and ACP compatibility issue were corrected/retained.",
+      "evidence_excerpt": "O ambiente padrão .venv não era o ambiente usado pelo gateway.",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Active consumers/phasing and Node major change kept pending; one suite failure recorded.",
+      "evidence_excerpt": "como esse caminho não recebeu alteração de código nesta atualização, a ocorrência foi registrada como resíduo, não escondida sob um “tudo verde”. O novo contrato Atualizar tudo não significa forçar tudo. Significa mapear tudo, atualizar cad",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Distinguishes apt/snap holds, project pins, image tags, active processes.",
+    "Hermes active gateway env differed from .venv; package missing from lock and ACP compatibility issue were corrected/retained.",
+    "Active consumers/phasing and Node major change kept pending; one suite failure recorded."
+  ],
+  "id": "2026-08-28-atualizar-tudo-sem-slop",
+  "manifest_title": "Atualizar Tudo sem Repetir o Slop",
+  "url": "https://rabelus.com.br/posts/2026-08-28-atualizar-tudo-sem-slop.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O ponto de partida foi admitir os pins\n\nNão havia holds no APT nem no Snap. O que existia era mais sutil: o plugin do OpenCode estava preso em 1.18.19, e o Hermes carregava dezenas de dependências com versões exatas. Lockfiles registravam resoluções antigas, e uma rotina de atualização tratava o LM Studio indisponível como se ele fosse pré-requisito para qualquer upgrade.\n\nEssa distinção importa. Um hold do sistema impede a atualização. Um pin de projeto limita o resolvedor. Uma tag Docker identifica a imagem em execução. Um processo ativo é autoridade operacional. Misturar essas categorias produz relatórios rasos e decisões erradas.\n\nOs lotes que realmente avançaram\n\nClaude Code foi de 2.1.247 para 2.1.251; Copilot CLI, de 1.0.80 para 1.0.81; Codex CLI, de 0.150.0 para 0.150.1; e Corepack, de 0.35.0 para 0.36.0. O plugin do OpenCode deixou de ser uma dependência exata e passou a acompanhar a linha ^1.18.25, com o lockfile regenerado. Cada launcher respondeu à sua própria verificação.\n\nO Claude repetiu o incidente conhecido: o npm concluiu com código zero, mas bloqueou o postinstall nativo. A rotina não aceitou esse falso verde. O instalador local foi executado, o binário foi materializado e a versão respondeu. A configuração npm foi então restrita aos pacotes que realmente precisam de scripts, sem liberar scripts globalmente.\n\nKimi também entrou no lote real. A verificação online encontrou 0.38.0 → 0.39.1; o instalador nativo preservou o binário anterior como kimi.bak, e kimi doctor continuou verde. ChatGPT Desktop, Claude Desktop e os componentes do Ubuntu também foram atualizados via overlay SUDO.\n\nHermes: remover o pin não é remover a responsabilidade\n\nAs versões exatas do Hermes foram convertidas em faixas compatíveis, mantendo limites de major e pisos de segurança. O lock passou de 258 para 259 pacotes. OpenAI, FastAPI, Starlette, requests, cryptography e o restante do grafo elegível avançaram; o ambiente ativo do gateway, e não um ambiente incidental, foi sincronizado.\n\nA primeira sincronização revelou duas falhas que um procedimento superficial esconderia. O ambiente padrão .venv não era o ambiente usado pelo gateway. Depois, o wheel do Sherpa exigiu sherpa-onnx-core, que não estava declarado no lock. Ambos os pontos foram corrigidos, e uv pip check passou em 247 pacotes.\n\nO ACP 0.12 removeu schemas de seleção de modelos ainda consumidos pelo adaptador do Hermes. Em vez de quebrar a interface para fingir que nenhum pin existia, ficou registrada uma faixa de compatibilidade <0.10. É uma fronteira de protocolo explícita, acompanhada da dívida de migração — não um congelamento silencioso.\n\nO que ficou pendente é parte do resultado\n\nO Code Snap tem a revisão 259 disponível, mas continua na 258 porque há consumidores ativos. O APT deixou seis pacotes em phasing/kept-back; não foram forçados, removidos ou autoremoveados. O Node 24 continua sendo o runtime gerenciado dos CLIs, enquanto o candidato Node 26 é uma mudança de major que exige migração própria. OpenWebUI já estava no digest atual, e os três containers permaneceram saudáveis.\n\nA suíte ACP passou 151 testes. A suíte global alcançou 815 testes antes de encontrar uma falha específica no teste de provider customizado; como esse caminho não recebeu alteração de código nesta atualização, a ocorrência foi registrada como resíduo, não escondida sob um “tudo verde”.\n\nO novo contrato\n\nAtualizar tudo não significa forçar tudo. Significa mapear tudo, atualizar cada candidato seguro, preservar cada consumidor ativo, registrar cada exceção e deixar rollback possível. O trabalho desta noite termina com evidência em lotes, rotina com 49 checks verdes e uma lista curta de pendências honestas.\n\nO slop nasce quando a resposta declara uma operação que só foi imaginada. A correção é simples de dizer e difícil de praticar: versão observável, função testada, dependência verificada, log guardado, integração medida e nenhum verde agregado que apague a parte vermelha.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,313 @@
+{
+  "slug": "yetone--alma-relay",
+  "name": "Alma Relay",
+  "url": "https://github.com/yetone/alma-relay",
+  "category": "Infraestrutura self-hosted",
+  "summary": "Relay de transporte para Alma Remote Access, com variantes Node/Docker e Cloudflare Workers. O README descreve conexões persistentes WebSocket entre desktop e telefone, tokens opcionais de registro, limites de corpo/conexões e alegação de criptografia ponta a ponta implementada pelos clientes Alma. O relay é uma peça específica do produto Alma, não um túnel genérico nem controle independente do desktop. Licença MIT. A pequena árvore/atividade observada e ausência de implantação ou teste tornam a adequação operacional não demonstrada.",
+  "topics": [
+    "relay",
+    "remote access",
+    "WebSocket",
+    "Cloudflare Workers",
+    "Docker",
+    "E2E",
+    "Alma"
+  ],
+  "aliases": [
+    "Alma relay",
+    "relay remoto",
+    "remote access relay",
+    "WSS tunnel"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e dependência de Alma",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O projeto se descreve como relay próprio para controlar Alma no desktop a partir do app móvel. O tráfego é roteado entre uma conexão WSS iniciada pelo desktop e conexões HTTPS/WSS do telefone; essa descrição limita o produto ao protocolo e aos clientes Alma. Não foi verificada compatibilidade com outros clientes.",
+        "O README contrasta hospedagem própria com relay hospedado `relay.alma.now`; isso expressa opção de topologia, não independência funcional do ecossistema Alma."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e deploy",
+      "kind": "observed",
+      "paragraphs": [
+        "README identifica edição Node e edição Cloudflare Worker com Durable Objects/SQLite e hibernação de WebSocket. Também documenta Docker com Caddy, Node sem Docker e Worker. Essas são instruções e arquitetura declarada; implantação e compatibilidade de versão não foram testadas.",
+        "Nginx deve encaminhar WebSocket e desativar buffering; exemplo define limite de corpo 128 MB. A existência de variantes não comprova paridade entre runtimes."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Identidade e segurança",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README declara que, sem chave, qualquer pessoa com o endereço pode abrir túneis, embora o código de conexão de 256 bits seja necessário para alcançar o desktop. Propõe chave compartilhada ou JWT individual com segredo de assinatura; rotação do segredo revoga todos os tokens conforme a documentação.",
+        "O autor afirma ECDH autenticado, AES-256-GCM, sigilo futuro e ausência de gravação de códigos/tráfego em disco/logs. O próprio README exige Alma 0.4.329+ para recusar requisições plaintext. São garantias do projeto e condicionais à configuração/versão, não auditoria independente; metadados de roteamento continuam relevantes."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Limites e configuração",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Há limites configuráveis de corpo, buffers, agentes, requisições e sockets na edição Node; Workers tem limites distintos de corpo. TURN é externo no Worker e coturn compõe o perfil Docker opcional. Isso amplia a superfície operacional e pode exigir firewall, TLS e gestão de segredos.",
+        "Push exige chaves próprias de APNs/FCM; o README diz que relay próprio não consegue notificar o app iOS oficial. Essa limitação afeta a experiência mesmo quando a comunicação principal funciona."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Persistência, custo e licença",
+      "kind": "analysis",
+      "paragraphs": [
+        "A documentação diz que relay não persiste dados em disco; a edição Workers usa SQLite-backed Durable Objects para estado de conexão. Isso não elimina necessidade de retenção de logs da plataforma, backups de configuração/secrets nem análise do estado efêmero gerenciado.",
+        "LICENSE é MIT. O custo marginal de Workers pode ser baixo segundo o autor; VPS, domínio, TLS, TURN, push e operação seguem dependentes de plano/região/volume. Não foram calculados custos atuais."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Protocolo e compatibilidade",
+      "kind": "observed",
+      "paragraphs": [
+        "shared.mjs declara protocolo 2; versão é negociada como menor entre a capacidade do desktop e a máxima do relay, e clientes sem anúncio ficam no protocolo 1. O código define tipos de frame binário e janela de crédito para streaming, indicando caminho de compatibilidade explícito para desktops antigos.",
+        "Node e Worker compartilham módulos, mas implementação é duplicada em runtimes diferentes; paridade funcional exige execução dos testes nas duas edições."
+      ],
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Roteamento e estado observado",
+      "kind": "observed",
+      "paragraphs": [
+        "Cabeçalho de index.mjs descreve token de roteamento derivado do connect code, armazenamento somente do hash, mantido em memória e sem gravação em disco. Worker organiza um Durable Object por hash de token e declara SQLite-backed DO sem writes; estado ainda depende do runtime para manter sockets e disponibilidade.",
+        "Alegações de não persistência referem-se ao estado da aplicação observado/documentado; não provam inexistência de logs em proxy/Cloudflare, telemetria de processo ou metadados de rede."
+      ],
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Limites de recursos por edição",
+      "kind": "observed",
+      "paragraphs": [
+        ".env.example declara limite Node MAX_BODY_MB=128, MAX_BUFFERED_MB=512, MAX_AGENTS=10000 e concorrência até 256 requests e sockets por desktop, com configuração zero podendo significar sem limite. São defaults/limites de exemplo, não dimensionamento recomendado.",
+        "Worker hardcode MAX_BODY 24 MB para protocolo 1 por limite de mensagem DO; README diferencia corpos maiores na versão 2. As cotas do plano Cloudflare e limites de proxy podem reduzir esses valores na prática."
+      ],
+      "source_ids": [
+        "S6",
+        "S5"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Configuração de acesso e notificações",
+      "kind": "observed",
+      "paragraphs": [
+        ".env.example diz que todas as variáveis são opcionais salvo RELAY_DOMAIN quando usado Docker Compose com Caddy. Chave compartilhada ou secret JWT por usuário limitam registrar desktops, mas endereço público sem chave permite que terceiros consumam o relay; connect code mantém outra barreira para o desktop.",
+        "APNS/FCM precisam de chaves da equipe que assina o aplicativo. O relay não pode enviar notificações oficiais sem credenciais apropriadas. Segredos devem ser fornecidos por secret store, nunca em código ou logs."
+      ],
+      "source_ids": [
+        "S6",
+        "S1"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Licença, manutenção e aderência",
+      "kind": "analysis",
+      "paragraphs": [
+        "MIT permite uso/modificação sob seus termos. O SHA consultado contém commit de 2 Nov 2026 anunciando FCM/Android e versão 1.3.0; isso mostra mudança recente no escopo e incentiva pinagem de versão e revisão de migração.",
+        "Para Lab, serve como referência de relay para um protocolo remoto específico. Não assume a autenticação do Lab nem justifica abrir túnel para dados privados; a dependência em cliente Alma e opções de push limitam reutilização."
+      ],
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Ensaios posteriores",
+      "kind": "analysis",
+      "paragraphs": [
+        "Revisar authorize/parseClientPath/turnCredentials, framing e verificações TLS; executar suíte declarada separadamente em Node e Worker com replay dos casos; verificar que token nunca aparece em logs e que proxy captura metadados; ensaiar revogação/expiração, overload, slow consumer, body limits, plaintext rejeitado pelo cliente, coturn e fallback APNs/FCM.",
+        "Nenhum teste, deploy, inspeção completa ou chamada a provedor foi feito nesta pesquisa."
+      ],
+      "source_ids": [
+        "S4",
+        "S5",
+        "S6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/yetone/alma-relay/blob/06594179b7dc44a500e0c53e814314426bcb9241/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "06594179b7dc44a500e0c53e814314426bcb9241",
+      "note": "README e configuração/documentação linkada consultados via GitHub público; alegações do autor mantidas como tais."
+    },
+    {
+      "id": "S2",
+      "title": "LICENSE",
+      "url": "https://github.com/yetone/alma-relay/blob/06594179b7dc44a500e0c53e814314426bcb9241/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "license",
+      "ref": "06594179b7dc44a500e0c53e814314426bcb9241",
+      "note": "GitHub identifica licença MIT."
+    },
+    {
+      "id": "S3",
+      "title": "Repositório e metadados",
+      "url": "https://github.com/yetone/alma-relay",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "metadata",
+      "ref": "página consultada em 2026-11-03",
+      "note": "Página pública; contagem de commits/estrelas é snapshot e não medida de qualidade."
+    },
+    {
+      "id": "S4",
+      "title": "index.mjs",
+      "url": "https://github.com/yetone/alma-relay/blob/06594179b7dc44a500e0c53e814314426bcb9241/index.mjs",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "06594179b7dc44a500e0c53e814314426bcb9241",
+      "note": "Cabeçalho e constantes da edição Node consultados estaticamente; não foi auditoria integral."
+    },
+    {
+      "id": "S5",
+      "title": "shared.mjs",
+      "url": "https://github.com/yetone/alma-relay/blob/06594179b7dc44a500e0c53e814314426bcb9241/shared.mjs",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "06594179b7dc44a500e0c53e814314426bcb9241",
+      "note": "Negociação de protocolo/framing e funções compartilhadas; apenas trecho inicial consultado."
+    },
+    {
+      "id": "S6",
+      "title": "cloudflare/worker.mjs e .env.example",
+      "url": "https://github.com/yetone/alma-relay/tree/06594179b7dc44a500e0c53e814314426bcb9241",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "06594179b7dc44a500e0c53e814314426bcb9241",
+      "note": "Fonte aponta para edição Worker e exemplo de configuração no SHA fixado; arquivos consultados via GitHub connector."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Produto dependente de Alma",
+      "certainty": "CONFIRMADO",
+      "detail": "README define relay como transporte para clientes Alma; generalização para outro protocolo não demonstrada.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Segurança E2E é condicional",
+      "certainty": "RELATADO",
+      "detail": "Garantias criptográficas são do mantenedor e dependem da versão mínima de desktop indicada e da configuração.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Licença MIT",
+      "certainty": "CONFIRMADO",
+      "detail": "Metadado e arquivo LICENSE consultados; isso não cobre custos operacionais ou componentes de terceiros.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Negociação de protocolo explícita",
+      "certainty": "CONFIRMADO",
+      "detail": "shared.mjs define protocolo 2 e fallback para protocolo 1 conforme capacidades anunciadas.",
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "title": "Configuração contém tetos diferentes por runtime",
+      "certainty": "CONFIRMADO",
+      "detail": ".env.example documenta limites Node e Worker tem limite de corpo diferente em código.",
+      "source_ids": [
+        "S6"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado, executado nem implantado",
+  "limitations": [
+    "Não houve auditoria criptográfica nem inspeção completa dos handlers/protocolo.",
+    "Branch main é mutável; não foi fixado SHA de commit consultado.",
+    "Não foram verificados preços atuais, limites de conta, retenção da plataforma ou estado real de serviços.",
+    "README mistura capacidades e recomendações; alegações de segurança/performance não foram reproduzidas."
+  ],
+  "related": [
+    "tonyantony300--dashbeam",
+    "termix-ssh--termix"
+  ],
+  "metrics": {
+    "full_name": "yetone/alma-relay",
+    "html_url": "https://github.com/yetone/alma-relay",
+    "description": "Self-host the relay for Alma Remote Access — control your desktop Alma from your phone, anywhere. Docker or Cloudflare Workers.",
+    "homepage": "https://alma.now",
+    "default_branch": "main",
+    "created_at": "2026-10-31T13:30:34Z",
+    "updated_at": "2026-11-03T20:33:16Z",
+    "pushed_at": "2026-11-02T11:51:47Z",
+    "stargazers_count": 436,
+    "forks_count": 46,
+    "open_issues_count": 3,
+    "subscribers_count": 1,
+    "network_count": 46,
+    "archived": false,
+    "disabled": false,
+    "language": "JavaScript",
+    "topics": [],
+    "size": 141,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

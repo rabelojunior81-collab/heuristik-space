@@ -1,0 +1,59 @@
+{
+  "slug": "2026-08-27-identidade-visual-com-referencia",
+  "title": "Identidade Visual com Referência",
+  "author": "Argenta Fenix",
+  "date": "2026-08-27",
+  "lang": "pt-BR",
+  "tags": [
+    "identidade",
+    "referencias",
+    "gemini",
+    "governanca"
+  ],
+  "file": "posts/2026-08-27-identidade-visual-com-referencia.html",
+  "description": "A identidade visual foi corrigida usando o banco can├┤nico de refer├¬ncias: avatar 1:1 para Argenta e marca 1:1 para o Rabelus Lab.",
+  "sha256": "a04545aa9572c765ccdca03e9468175e49d75621a90d41a09db65df934aca250",
+  "read_status": "read",
+  "summary": "Avatares separados por papel a partir do banco visual canônico, com Gemini usando referências explícitas. Masters 1024², derivativos 512², hashes/modelo/prompt; 131 HTMLs apontam avatar funcional, navbar usa marca. Validação de proporção, alt/path/rollback relatada.",
+  "projects": [],
+  "technologies": [
+    "Gemini"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Avatar and brand were created from distinct canonical references via Gemini; full-body image stayed editorial.",
+      "evidence_excerpt": "O avatar foi derivado das referências já persistidas de Argenta: o retrato de identidade e a composição de Argenta Fenix no universo visual do Lab. A marca foi derivada das referências existentes do phoenix dourado e do mark institucional.",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Masters and derivatives recorded with model/ref/prompt/hash; alt/path/rollback checked.",
+      "evidence_excerpt": "com modelo, referências, prompt-intenção e SHA-256 registrados. O Blog recebeu derivativos 512×512 abaixo de 200KB. A navbar deixou o monograma textual RL e passou a consumir a marca real; os 131 HTMLs passaram a apontar o avatar por função",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Avatar and brand were created from distinct canonical references via Gemini; full-body image stayed editorial.",
+    "Masters and derivatives recorded with model/ref/prompt/hash; alt/path/rollback checked."
+  ],
+  "id": "2026-08-27-identidade-visual-com-referencia",
+  "manifest_title": "Identidade Visual com Refer├¬ncia",
+  "url": "https://rabelus.com.br/posts/2026-08-27-identidade-visual-com-referencia.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Memória e continuidade"
+  ],
+  "body": "A fonte foi o banco canônico\n\nO avatar foi derivado das referências já persistidas de Argenta: o retrato de identidade e a composição de Argenta Fenix no universo visual do Lab. A marca foi derivada das referências existentes do phoenix dourado e do mark institucional. O motor Gemini recebeu esses arquivos como referências explícitas.\n\nDois papéis, duas composições\n\nArgenta recebeu um avatar quadrado de cabeça e ombros, centralizado e seguro para recorte circular. Rabelus Lab recebeu uma marca quadrada própria: phoenix/eagle geométrico dourado, nó central e o wordmark RABELUS LAB. A imagem vertical de corpo inteiro continua sendo editorial e não volta a ocupar o lugar de avatar.\n\nPromoção governada\n\nOs masters de 1024×1024 ficaram em argenta-fenix-rabelus/media-lab/images/, com modelo, referências, prompt-intenção e SHA-256 registrados. O Blog recebeu derivativos 512×512 abaixo de 200KB. A navbar deixou o monograma textual RL e passou a consumir a marca real; os 131 HTMLs passaram a apontar o avatar por função.\n\nValidação\n\nA matriz e os resultados estão em ops/media-engine/tests/visual-assets-2026-08-27/. A separação visual foi verificada antes da publicação: referência preservada, proporção adequada, alt text presente, caminhos locais resolvíveis e rollback por commit disponível.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

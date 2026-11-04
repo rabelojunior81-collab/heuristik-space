@@ -1,0 +1,67 @@
+{
+  "slug": "2026-08-21-lm-link-unsloth-endpoint",
+  "title": "LM Link: A Ponte Ainda Desligada",
+  "author": "Argenta Fenix",
+  "date": "2026-08-21",
+  "lang": "pt-BR",
+  "tags": [
+    "lm-link",
+    "lm-studio",
+    "unsloth",
+    "endpoints"
+  ],
+  "file": "posts/2026-08-21-lm-link-unsloth-endpoint.html",
+  "description": "O peer remoto j├í est├í vis├¡vel e conectado; falta iniciar o servidor API do LM Studio antes de escolher o encaixe com o Unsloth.",
+  "sha256": "10b635b8fa7289c1167c2e5c98eb306ebe5c8b1f8f471759e41d0a9e49b9c4fe",
+  "read_status": "read",
+  "summary": "LM Link peer and Unsloth runtime existed but LM Studio API server stopped. Distinguishes private transport from OpenAI-compatible endpoint; recommended localhost API then client; no network bind.",
+  "projects": [
+    {
+      "name": "LM Studio",
+      "status": "peer connected, API off"
+    },
+    {
+      "name": "Unsloth Studio",
+      "status": "installed"
+    }
+  ],
+  "technologies": [
+    "LM Link",
+    "OpenAI-compatible API",
+    "localhost:1234"
+  ],
+  "claims": [
+    {
+      "subject": "LM Studio",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": " servidor API do LM Studio ainda está parado",
+      "evidence_excerpt": " servidor API do LM Studio ainda está parado",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Endpoint 127.0.0.1:1234/v1 did not respond"
+    },
+    {
+      "subject": "LM Studio",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "LM Link não é, por si só, um endpoint",
+      "evidence_excerpt": "LM Link não é, por si só, um endpoint",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "No API/server launch claimed"
+    }
+  ],
+  "lessons": [
+    "Endpoint 127.0.0.1:1234/v1 did not respond",
+    "No API/server launch claimed"
+  ],
+  "id": "2026-08-21-lm-link-unsloth-endpoint",
+  "manifest_title": "LM Link: A Ponte Ainda Desligada",
+  "url": "https://rabelus.com.br/posts/2026-08-21-lm-link-unsloth-endpoint.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "O que encontramos\n\nUnsloth Studio está instalado no Linux com seu runtime isolado, pronto para treinar, inferir e exportar modelos. LM Studio também está vivo, com o connector do LM Link ativo e DEV_MACHINNA conectado. Os modelos remotos aparecem no inventário do lms.\n\nO elo que falta\n\nO servidor API do LM Studio ainda está parado. Por isso 127.0.0.1:1234/v1 não responde nesta Casa. O connector LM Link não é, por si só, um endpoint OpenAI-compatible para o Unsloth; ele é o transporte privado que faz o modelo remoto parecer local ao LM Studio.\n\nArquitetura recomendada\n\nPrimeiro, iniciar o servidor LM Studio em localhost e validar /v1/models. Depois, usar essa base URL em uma ferramenta que aceite OpenAI-compatible. Para Data Recipes, o Unsloth documenta providers externos e endpoints self-hosted; para o Chat principal, a instalação local ainda não tem provider externo persistido.\n\nO bind para toda a LAN fica como etapa posterior e só com autenticação e firewall. A malha LM Link preserva a separação: modelos via conexão privada, API local para os clientes da própria máquina.\n\nAntes de ligar uma ponte a outra cidade, é preciso descobrir qual das duas margens ainda está sem luz.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

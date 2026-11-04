@@ -1,0 +1,72 @@
+{
+  "slug": "2026-08-22-openwebui-no-tailscale-para-o-mobile",
+  "title": "OpenWebUI no Tailscale para o Mobile",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "openwebui",
+    "tailscale",
+    "mobile",
+    "seguranca"
+  ],
+  "file": "posts/2026-08-22-openwebui-no-tailscale-para-o-mobile.html",
+  "description": "A arqueologia compara as exposi├º├Áes Windows e Killian e prepara o OpenWebUI Full-Linux para acesso m├│vel privado via Tailscale.",
+  "sha256": "b160b5a5b46ce96ee0b18c0b9cf3191d5f055bd69510d92a21aaa46a01b0e157",
+  "read_status": "read",
+  "summary": "OpenWebUI mobile intended via Tailscale Serve tailnet-only HTTPS to loopback; Killian endpoint health/version 0.11.0 observed. New Full-Linux Serve blocked by root privilege gate; no port broadening/Funnel; requires operator role and same tailnet.",
+  "projects": [],
+  "technologies": [
+    "Tailscale",
+    "MagicDNS",
+    "Tailscale Serve"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "OpenWebUI exposed via private Tailscale Serve HTTPS, not open LAN port/Funnel.",
+      "evidence_excerpt": "não uma porta aberta na rede nem um Funnel público. O padrão que já funcionou A exposição histórica do OpenWebUI no host Windows usava Tailscale Serve em modo tailnet-only. A URL MagicDNS HTTPS na raiz encaminhava para 127.0.0.1:3000 . A po",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "New Full-Linux Serve activation blocked by root gate; no expansion executed.",
+      "evidence_excerpt": "Nenhuma porta foi ampliada e nenhum Funnel foi criado por acidente. O último passo é operacional: conceder ao usuário local o papel de operador do Tailscale e ativar o Serve. Depois disso, o celular precisa estar conectado à mesma tailnet;",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Mobile requires same tailnet.",
+      "evidence_excerpt": "o celular precisa estar conectado à mesma tailnet; a URL HTTPS poderá ser aberta diretamente ou instalada como aplicativo. Expor para o mobile não é tornar público. É fazer a mesma interface atravessar uma fronteira privada, autenticada e v",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "OpenWebUI exposed via private Tailscale Serve HTTPS, not open LAN port/Funnel.",
+    "New Full-Linux Serve activation blocked by root gate; no expansion executed.",
+    "Mobile requires same tailnet."
+  ],
+  "id": "2026-08-22-openwebui-no-tailscale-para-o-mobile",
+  "manifest_title": "OpenWebUI no Tailscale para o Mobile",
+  "url": "https://rabelus.com.br/posts/2026-08-22-openwebui-no-tailscale-para-o-mobile.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Segurança e fronteiras"
+  ],
+  "body": "O padrão que já funcionou\n\nA exposição histórica do OpenWebUI no host Windows usava Tailscale Serve em modo tailnet-only. A URL MagicDNS HTTPS na raiz encaminhava para 127.0.0.1:3000. A porta direta existia apenas como diagnóstico; o Funnel público não fazia parte da arquitetura.\n\nO OpenWebUI do Killian\n\nA exposição do Killian continua respondendo em https://rabelus-dad.tail629206.ts.net/. A checagem atual confirmou certificado MagicDNS, HTTP 200, OpenWebUI 0.11.0 e health saudável. A porta Tailscale direta :3000 não responde, o que deixa clara a função do Serve como camada HTTPS.\n\nA nova porta da Casa Full-Linux\n\nO OpenWebUI Full-Linux está saudável localmente e pronto para receber o mesmo padrão em https://argenta-fenix.tail629206.ts.net/. A primeira tentativa de publicação foi corretamente barrada pelo controle root do cliente Tailscale. Nenhuma porta foi ampliada e nenhum Funnel foi criado por acidente.\n\nO último passo é operacional: conceder ao usuário local o papel de operador do Tailscale e ativar o Serve. Depois disso, o celular precisa estar conectado à mesma tailnet; a URL HTTPS poderá ser aberta diretamente ou instalada como aplicativo.\n\nExpor para o mobile não é tornar público. É fazer a mesma interface atravessar uma fronteira privada, autenticada e verificável.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

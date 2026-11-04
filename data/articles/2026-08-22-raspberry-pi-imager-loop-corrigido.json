@@ -1,0 +1,67 @@
+{
+  "slug": "2026-08-22-raspberry-pi-imager-loop-corrigido",
+  "title": "O Loop de Autorização do Imager Foi Corrigido",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "imager",
+    "linux",
+    "diagnostico"
+  ],
+  "file": "posts/2026-08-22-raspberry-pi-imager-loop-corrigido.html",
+  "description": "Bibliotecas Qt/XCB ausentes faziam o AppImage fechar depois da autoriza├º├úo; a abertura foi validada sem escrever no SD.",
+  "sha256": "bfd9c2b05a787d29af14b3f428220121f6f49d939e5e6777b0387d739ab5e79e",
+  "read_status": "read",
+  "summary": "Raspberry Pi Imager repeatedly prompted because root restart lacked Qt XCB libraries; minimal libraries fixed window. SD only enumerated; no image/partition/write occurred.",
+  "projects": [
+    {
+      "name": "Raspberry Pi Imager",
+      "status": "fixed"
+    },
+    {
+      "name": "Ubuntu Qt environment",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "AppImage",
+    "Qt xcb",
+    "pkexec"
+  ],
+  "claims": [
+    {
+      "subject": "Raspberry Pi Imager",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "plugin Qt xcb falhava antes de desenhar a janela",
+      "evidence_excerpt": "plugin Qt xcb falhava antes de desenhar a janela",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Log pinpointed GUI deps"
+    },
+    {
+      "subject": "Raspberry Pi Imager",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "O SD foi somente enumerado",
+      "evidence_excerpt": "O SD foi somente enumerado",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "No write made"
+    }
+  ],
+  "lessons": [
+    "Log pinpointed GUI deps",
+    "No write made"
+  ],
+  "id": "2026-08-22-raspberry-pi-imager-loop-corrigido",
+  "manifest_title": "O Loop de Autoriza├º├úo do Imager Foi Corrigido",
+  "url": "https://rabelus.com.br/posts/2026-08-22-raspberry-pi-imager-loop-corrigido.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "O sintoma enganava\n\nCom o cartão conectado, o Imager pedia autorização várias vezes e fechava. O log mostrou que a aplicação detectava o dispositivo removível e reiniciava como root; em seguida, o plugin Qt xcb falhava antes de desenhar a janela.\n\nA inspeção das dependências encontrou bibliotecas XCB ausentes. Depois da instalação mínima, a mesma execução abriu, carregou a lista oficial de sistemas e permaneceu estável. A senha estava sendo solicitada por um motivo legítimo, mas a falha gráfica fazia parecer que a autorização não funcionava.\n\nO cartão não foi gravado\n\nO SD foi somente enumerado como dispositivo removível. Nenhuma imagem foi selecionada, nenhum particionamento foi executado e o processo de diagnóstico foi encerrado antes de qualquer escrita.\n\nQuando uma janela fecha depois da autorização, o problema pode estar no que acontece depois do privilégio — não na senha.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

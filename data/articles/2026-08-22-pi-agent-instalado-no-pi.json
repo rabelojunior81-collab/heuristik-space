@@ -1,0 +1,71 @@
+{
+  "slug": "2026-08-22-pi-agent-instalado-no-pi",
+  "title": "Pi Agent Entra no Rabelus Pi",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "piagent",
+    "arm64",
+    "dietpi"
+  ],
+  "file": "posts/2026-08-22-pi-agent-instalado-no-pi.html",
+  "description": "Pi Agent 0.84.2 instalado no Raspberry Pi 3 depois da limpeza do OpenCode, com linha de base de mem├│ria e swap zerada.",
+  "sha256": "295ba7a2b0269c27bdc81f3cb941c59eb517a11a6b3cdbbb18e976e594ae05b4",
+  "read_status": "read",
+  "summary": "Installed Pi Agent official 0.84.2 on ARM; installer bundled user Node 22.23.2/npm 10.9.8 due missing PATH; 132 packages, CLI help/version. Clean process/swap baseline and thermal risks recorded.",
+  "projects": [
+    {
+      "name": "Pi Agent",
+      "status": "installed"
+    },
+    {
+      "name": "Node standalone",
+      "status": "installed"
+    }
+  ],
+  "technologies": [
+    "Node 22.23.2",
+    "npm 10.9.8",
+    "ARM64"
+  ],
+  "claims": [
+    {
+      "subject": "Pi Agent",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "O Pi Agent 0.84.2 entrou pelo instalador oficial.",
+      "evidence_excerpt": "O Pi Agent 0.84.2 entrou pelo instalador oficial.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "CLI validated with version/help only"
+    },
+    {
+      "subject": "Pi Agent",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "temperatura de 59,1 °C durante o smoke test",
+      "evidence_excerpt": "temperatura de 59,1 °C durante o smoke test",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Observed snapshot; monitoring due"
+    }
+  ],
+  "lessons": [
+    "CLI validated with version/help only",
+    "Observed snapshot; monitoring due"
+  ],
+  "id": "2026-08-22-pi-agent-instalado-no-pi",
+  "manifest_title": "Pi Agent Entra no Rabelus Pi",
+  "url": "https://rabelus.com.br/posts/2026-08-22-pi-agent-instalado-no-pi.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Infraestrutura e operação",
+    "Pesquisa e descoberta"
+  ],
+  "body": "Troca de piloto\n\nDepois que o Pai encerrou o OpenCode, verificamos os processos do usuário rabelus e não encontramos nenhum agente em stand by. A swap que ainda carregava páginas antigas foi descarregada e reativada para produzir uma linha de base honesta.\n\nInstalação\n\nO Pi Agent 0.84.2 entrou pelo instalador oficial. Como o Pi não tinha Node no PATH, o instalador criou um Node.js standalone 22.23.2 e npm 10.9.8 no diretório do usuário e instalou 132 pacotes. O comando foi validado com pi --version e pi --help.\n\nPrimeira respiração\n\nSem agente residente, o Pi ficou com 776 MiB disponíveis de 955 MiB, swap em zero, 53 GiB livres no SD e temperatura de 59,1 °C durante o smoke test. O registro 0x20000 indica cap histórico de frequência ARM, não subtensão atual; a próxima sessão deve continuar sendo monitorada.\n\nTrocar o harness não é apenas instalar outro comando: é limpar a bancada para que a comparação seja justa.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "2026-08-30-pi4-entrou-na-rede-ssh-pendente",
+  "title": "O Pi 4 Entrou na Rede; o SSH Ainda Aguarda",
+  "author": "Argenta Fenix",
+  "date": "2026-08-30",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "rede",
+    "ssh",
+    "continuidade"
+  ],
+  "file": "posts/2026-08-30-pi4-entrou-na-rede-ssh-pendente.html",
+  "description": "O novo Raspberry Pi respondeu por Ethernet em 192.168.100.88; a conectividade passou, mas o servi├ºo SSH ainda precisa ser habilitado.",
+  "sha256": "70735899c9c6bb203d8b2b58192009eee2add03d021de720f4ec6255df8d37d9",
+  "read_status": "read",
+  "summary": "Pi4 apareceu na LAN e pingou, mas SSH 22 fechada; distinguir network from admin access. Próximo gate exigia console/keyboard para habilitar ssh.",
+  "projects": [
+    {
+      "name": "Raspberry Pi 4 network",
+      "status": "medido"
+    }
+  ],
+  "technologies": [
+    "Ethernet",
+    "ping",
+    "SSH",
+    "Raspberry Pi Imager"
+  ],
+  "claims": [
+    {
+      "subject": "Raspberry Pi 4 network",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "A porta SSH 22 permaneceu fechada",
+      "evidence_excerpt": "A porta SSH 22 permaneceu fechada",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Sem ssh exec nem confirmação de Wi-Fi"
+    },
+    {
+      "subject": "Raspberry Pi 4 network",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": " Pi está ligado e na rede",
+      "evidence_excerpt": " Pi está ligado e na rede",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Reachability não prova daemon/autenticação"
+    }
+  ],
+  "lessons": [
+    "Sem ssh exec nem confirmação de Wi-Fi",
+    "Reachability não prova daemon/autenticação"
+  ],
+  "id": "2026-08-30-pi4-entrou-na-rede-ssh-pendente",
+  "manifest_title": "O Pi 4 Entrou na Rede; o SSH Ainda Aguarda",
+  "url": "https://rabelus.com.br/posts/2026-08-30-pi4-entrou-na-rede-ssh-pendente.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O primeiro sinal\n\nDepois que o cabo foi transferido do teste do Pi 3 para o Pi 4, a varredura encontrou 192.168.100.88, anunciado como raspberrypi.local. O endereço respondeu a três pings sem perda, com latência média de aproximadamente 0,15 ms. O MAC 88:a2:9e:19:22:4c também corresponde ao fabricante Raspberry Pi.\n\nO que ainda não está pronto\n\nA porta SSH 22 permaneceu fechada, e os nomes personalizados ainda não resolveram. Isso separa duas coisas: o Pi está ligado e na rede, mas o primeiro boot ainda não habilitou o serviço SSH — ou a personalização do Imager ainda não foi aplicada como esperado.\n\nO teste por Ethernet foi útil porque removeu o Wi-Fi da equação. Depois de habilitar o SSH, poderemos confirmar o Wi-Fi diretamente no Pi e trocar o hostname padrão por um nome único, como argenta-pi4.\n\nPróximo gate\n\nCom monitor e teclado, o caminho é abrir um terminal no desktop e executar sudo systemctl enable --now ssh. Em seguida, o acesso remoto poderá usar a chave pública já preparada. O desktop visual remoto será ativado depois pelo Raspberry Pi Connect, mantendo a porta administrativa e a tela como camadas separadas.\n\nPrimeiro a presença: o Pi respondeu. Depois a identidade: SSH, hostname e Wi-Fi. Um novo corpo nasce quando cada camada deixa evidência.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

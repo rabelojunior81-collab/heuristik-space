@@ -1,0 +1,330 @@
+{
+  "slug": "frigadehq--hob",
+  "name": "Hob",
+  "url": "https://github.com/FrigadeHQ/hob",
+  "category": "IA local, conhecimento e estudo",
+  "summary": "Hob é um aplicativo desktop aberto para uso de modelos open-weight localmente, com fluxos para documentos/PDFs, conversas e ferramentas auxiliares. O README anuncia macOS, Windows e Linux; docs detalhados dizem que chats/arquivos ficam na máquina, mas listam chamadas externas para baixar/verificar modelos, buscar/fetch via web e instalar pacotes, além dos conectores ativados. A versão pública consultada é v0.2.6, de 30 de outubro de 2026; docs recentes cobrem seleção de drive, sandbox de código e remoção de dados. A aplicação é jovem: convém validar rede, retenção, requisitos de hardware e licenças dos pesos antes de material sensível.",
+  "topics": [
+    "desktop AI",
+    "modelos locais",
+    "PDF",
+    "documentos",
+    "Electron",
+    "offline",
+    "privacidade",
+    "MIT"
+  ],
+  "aliases": [
+    "Hob local AI",
+    "assistente local Frigade",
+    "alternativa desktop Claude",
+    "chat com documentos offline"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e alegações",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve Hob como alternativa desktop a Claude/ChatGPT, capaz de preencher PDFs e trabalhar com documentos usando modelos open-weight e configurar modelo conforme computador. GitHub anuncia macOS, Windows e Linux e declara uso privado/offline. São afirmações do projeto; a página do código não prova que todo fluxo ocorre sem rede ou que qualquer máquina suporte o modelo sugerido."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Distribuição e plataforma",
+      "kind": "observed",
+      "paragraphs": [
+        "README distribui instaladores para Mac ARM64, Windows x64 e Linux x86_64 AppImage via latest release. Repositório apresenta árvore Electron e diretórios app/catalog/docs; isso indica aplicação desktop multi-plataforma. Release v0.2.6 publicada em 30 de outubro de 2026 inclui menu de chats para fixar, renomear, salvar como Markdown e excluir. v0.2.0 menciona ajuste de estado/handoff de conexões Calendar/Mail, não comprova quando ou como esses conectores foram adicionados. A existência de binários/releases não foi reproduzida nem verificada por assinatura neste trabalho."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Inferência local e fronteira offline",
+      "kind": "analysis",
+      "paragraphs": [
+        "Para usar modelo local, os pesos e runtime precisam estar disponíveis; download do app/modelo e checagem de novos modelos usam a rede. Web access e conectores também criam tráfego quando ligados. Para operar offline, desligar Web access e connectors não equivale a bloquear rede durante download/update, nem substitui captura de tráfego para confirmar o comportamento. A documentação explicita exceções, embora Issue #12 tenha registrado dificuldade em selecionar disco de destino em 27 de outubro."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Dados e privacidade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "A documentação detalhada afirma que chats e arquivos ficam na máquina e não há telemetria, com ressalva explícita de que Hob acessa a rede para downloads/verificação de modelos, Web access (busca, fetch por código e instalação de pacotes PyPI) e conectores. Isso é declaração do projeto, não confirmação dinâmica de que não há outros destinos de rede. A exposição também inclui dados enviados a serviços conectores configurados pelo operador."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Licença do software e modelos",
+      "kind": "observed",
+      "paragraphs": [
+        "O repositório declara MIT para o aplicativo. MIT não concede automaticamente direitos de redistribuição/comercialização dos pesos open-weight selecionados; cada modelo, runtime, documentos de exemplo e assets precisam de licença própria. 'Open-weight' tampouco significa dados de treino abertos ou ausência de restrições de uso. Não examinei catálogo completo de pesos nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Maturidade e manutenção",
+      "kind": "analysis",
+      "paragraphs": [
+        "A release v0.2.6 demonstra entrega multiplataforma inicial; a página lista 208 commits no momento consultado. Métricas sociais não são sinal de confiabilidade. Issue #12 permanece aberta no momento da leitura e há uma release nova em 30 de outubro, o que aponta evolução rápida de setup/armazenamento, mas não permite deduzir a qualidade de suporte. Testar migração, exportação, destino de modelos e remoção antes de usar como arquivo durável."
+      ],
+      "source_ids": [
+        "S2",
+        "S3",
+        "S5",
+        "S7"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "Pode ser útil como interface de estudo local de PDFs/documentos quando uma workstation consegue hospedar modelo adequado. Comparar a qualidade de extração, citações, tabelas, OCR e velocidade com o fluxo existente do Lab em corpus sintético, não com dados privados. Se houver Calendar/Mail, tratá-los como integrações independentes e revisar escopo de autorização antes de conectar contas. Nenhuma conexão foi configurada ou autorizada aqui."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Fixar release e hash de instalador; verificar assinatura/proveniência, permissões e destinos de rede durante primeiro início, download de modelo, leitura de PDF e uso offline. Testar PDF textual, digitalizado, com tabelas e imagens; comparar respostas com fatos conhecidos e checar retenção/exclusão, exportação/backup e recuperação. Medir requisitos de RAM/GPU e uso de CPU, e rever termos/licenças dos modelos. Nenhum teste funcional, instalação ou inspeção do código foi feita nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Rede habilitada e plugins",
+      "kind": "observed",
+      "paragraphs": [
+        "Documentação detalhada do HEAD distingue uso local do tráfego externo: Hob conecta para baixar/verificar modelos, Web access pode consultar metabusca, permitir que código obtenha dados e instalar pacotes PyPI; conectores também ficam online. Para manter isolamento, Web access deve ser desligado e connectors ausentes ou restritos; isso não elimina tráfego de download/update antes da operação. O texto diz que chats/arquivos ficam na máquina e não há telemetria, afirmação do autor ainda não confirmada por inspeção de rede."
+      ],
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Execução de código, consentimento e dados persistidos",
+      "kind": "observed",
+      "paragraphs": [
+        "Docs descrevem confirmações antes de alterar arquivos, Undo por tarefa e sandbox para execução Python limitado à pasta do chat; lista de pacotes pode instalar via PyPI quando necessário. Isso cria uma área de confiança concreta: conteúdo e scripts no chat, pacotes de terceiros e filesystem do projeto. Remover Hob apaga app/modelos/chats/configurações segundo a documentação, enquanto arquivos criados permanecem na pasta de documentos; no Windows, modelos baixados em outra unidade demandam exclusão separada. Fazer backup e remoção devem cobrir cada caminho."
+      ],
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Problema de armazenamento e versão",
+      "kind": "analysis",
+      "paragraphs": [
+        "Issue #12, aberta em 27 de outubro, registra que modelos iam para C: e falhavam quando faltava espaço; ela aparece aberta. A documentação do HEAD, datada de 30 de outubro, diz que Windows e Linux podem selecionar outro drive na configuração inicial. A discrepância pode refletir correção posterior ainda sem fechamento da issue; precisa validar no instalador 0.2.6. É um exemplo de por que issue e doc são evidências de momentos diferentes, não prova que o comportamento atual está resolvido."
+      ],
+      "source_ids": [
+        "S2",
+        "S6",
+        "S7"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://raw.githubusercontent.com/FrigadeHQ/hob/74a09d6a69b87eb3297e19107c6410998c53ee79/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "74a09d6a69b87eb3297e19107c6410998c53ee79",
+      "note": "Fonte primária pinada ao HEAD v0.2.6; claims curtos de privado/offline complementados por docs detalhados.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "Repository and source tree",
+      "url": "https://github.com/FrigadeHQ/hob/commit/74a09d6a69b87eb3297e19107c6410998c53ee79",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "74a09d6a69b87eb3297e19107c6410998c53ee79; commit message Hob 0.2.6",
+      "note": "Metadados obtidos da API pública e HEAD visto na página; árvore de código não foi auditada.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "Release v0.2.6",
+      "url": "https://github.com/FrigadeHQ/hob/releases/tag/v0.2.6",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v0.2.6 publicada 2026-10-30; commit abreviado 74a09d6",
+      "note": "Release nota menu por chat: fixar, renomear, exportar Markdown e excluir.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "LICENSE (MIT)",
+      "url": "https://github.com/FrigadeHQ/hob/blob/74a09d6a69b87eb3297e19107c6410998c53ee79/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "74a09d6a69b87eb3297e19107c6410998c53ee79",
+      "note": "Licença do código do aplicativo; pesos têm licença separada.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "Issues",
+      "url": "https://github.com/FrigadeHQ/hob/issues",
+      "accessed_at": "2026-11-03",
+      "kind": "issue",
+      "ref": "fila consultada em 2026-11-03",
+      "note": "Estado dinâmico da fila; Issue #12 analisada separadamente.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "Docs README (78 linhas)",
+      "url": "https://github.com/FrigadeHQ/hob/blob/74a09d6a69b87eb3297e19107c6410998c53ee79/docs/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "74a09d6a69b87eb3297e19107c6410998c53ee79",
+      "note": "Documentação detalhada sobre Web access, sandbox, pastas, modelos e remoção; claims atribuídos ao autor.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S7",
+      "title": "Issue #12 — Download destination is not selectable",
+      "url": "https://github.com/FrigadeHQ/hob/issues/12",
+      "accessed_at": "2026-11-03",
+      "kind": "issue",
+      "ref": "issue aberta em 2026-10-27",
+      "note": "Relato do usuário afirma destino C: não selecionável e falha sem espaço; doc HEAD de 30 oct já documenta outra unidade; estado precisa de reprodução.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Aplicativo desktop distribuído para três famílias de SO",
+      "certainty": "CONFIRMADO",
+      "detail": "README fornece links a Mac ARM64, Windows x64 e Linux x86_64 nas releases.",
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "title": "A promessa offline precisa ser escopada por fluxo",
+      "certainty": "PROVÁVEL",
+      "detail": "Inferência local pode ser offline depois do download, mas app, modelos e conectores Calendar/Mail envolvem rede quando ativados.",
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "title": "Bom candidato a avaliação de leitura local de documentos",
+      "certainty": "HIPÓTESE",
+      "detail": "Extração, proveniência, persistência e qualidade de modelo precisam ser comparadas em dados sintéticos.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; nenhum binário, modelo ou documento foi aberto no aplicativo",
+  "limitations": [
+    "README main e árvore do repositório são referências móveis; release notes têm apenas commits abreviados.",
+    "Não foram identificados mecanismos exatos de telemetria, armazenamento, criptografia, atualização ou sandbox na fonte consultada.",
+    "Não executei testes offline, rede, modelo, PDF, Calendar/Mail, exportação, segurança ou performance.",
+    "Licenças e requisitos variam por modelo/runtime e dependem do hardware escolhido."
+  ],
+  "related": [
+    "lfnovo--open-notebook",
+    "zuhairhalawa--studyai",
+    "mizorewww--course2md"
+  ],
+  "metrics": {
+    "full_name": "FrigadeHQ/hob",
+    "html_url": "https://github.com/FrigadeHQ/hob",
+    "description": "An easier way to use AI on your own computer. A free, open-source alternative to Claude and ChatGPT that runs open-weight models like Gemma and gpt-oss locally on Mac, Windows and Linux. Private, and works offline.",
+    "homepage": "https://hob.chat",
+    "default_branch": "main",
+    "created_at": "2026-10-14T22:11:20Z",
+    "updated_at": "2026-11-03T20:46:17Z",
+    "pushed_at": "2026-10-30T18:23:49Z",
+    "stargazers_count": 470,
+    "forks_count": 40,
+    "open_issues_count": 2,
+    "subscribers_count": 4,
+    "network_count": 40,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "ai-agent",
+      "ai-assistant",
+      "chatgpt-alternative",
+      "claude-alternative",
+      "desktop-app",
+      "electron",
+      "gemma",
+      "gpt-oss",
+      "linux",
+      "llama-cpp",
+      "llm",
+      "local-ai",
+      "local-llm",
+      "macos",
+      "mcp",
+      "offline-ai",
+      "open-source",
+      "privacy",
+      "private-ai",
+      "windows"
+    ],
+    "size": 16532,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

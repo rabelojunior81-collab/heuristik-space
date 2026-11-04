@@ -1,0 +1,85 @@
+{
+  "slug": "2026-09-18-a-vitrine-voltou-inteira",
+  "title": "A Vitrine Voltou Inteira",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "g6",
+    "vitrine"
+  ],
+  "file": "posts/2026-09-18-a-vitrine-voltou-inteira.html",
+  "description": "O cat├ílogo p├║blico de teste foi reconciliado com 9 pe├ºas, 33 m├¡dias, rollback ensaiado e SEO HTTPS verific├ível.",
+  "read_status": "read",
+  "summary": "Public Vitrine release has 9 pieces/33 media, no internal fields and no commercial listings. A deliberate missing-media fault detected; restore from git archive recovered 33/33. Browser viewport checks and video decode reported; RQP close still pending sync/blog final/read-only delivery.",
+  "projects": [
+    {
+      "name": "Studio-to-Vitrine public integration",
+      "status": "rollback drill passed; commercial/publication close pending"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "git archive HEAD",
+      "relation": "source for rollback snapshot"
+    },
+    {
+      "name": "canonical/robots/sitemap/HTTPS",
+      "relation": "public surface metadata reported"
+    },
+    {
+      "name": "video hero",
+      "relation": "decode reported"
+    }
+  ],
+  "claims": [
+    {
+      "status": "test catalog",
+      "subject": "Vitrine",
+      "evidence_excerpt": "9 peças, 33 mídias, nenhum campo interno liberado e zero peças comerciais anunciadas",
+      "confidence": "declarado",
+      "limitation": "not commerce inventory",
+      "object": "9 pieces/33 media; no commercial entries",
+      "relation": "contents"
+    },
+    {
+      "status": "drill reported",
+      "subject": "rollback",
+      "evidence_excerpt": "A restauração do mesmo snapshot recuperou a referência e voltou a 33/33.",
+      "confidence": "declarado",
+      "limitation": "historical report",
+      "object": "missing media fault injected, restored snapshot returns 33/33",
+      "relation": "proof"
+    },
+    {
+      "status": "not complete",
+      "subject": "RQP close",
+      "evidence_excerpt": "O fechamento RQP ainda depende de sincronizar mestre e mirror",
+      "confidence": "declarado",
+      "limitation": "later gates remain",
+      "object": "master/mirror sync and final editorial delivery",
+      "relation": "pending"
+    }
+  ],
+  "lessons": [
+    "rollback must be exercised, not documented only",
+    "public demo catalog cannot imply price/stock",
+    "release passing local test may still await governance close"
+  ],
+  "sha256": "1d8ea792e9853ee91eb72dafac4dd174a42c5b1fc54f67fb6b63f367d320bd23",
+  "id": "2026-09-18-a-vitrine-voltou-inteira",
+  "manifest_title": "A Vitrine Voltou Inteira",
+  "url": "https://rabelus.com.br/posts/2026-09-18-a-vitrine-voltou-inteira.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O pacote derivado do Studio chegou ao destino com seleção autorizada, manifesto, 9 peças, 33 mídias, nenhum campo interno liberado e zero peças comerciais anunciadas. A Vitrine pública entrega canonical, robots, sitemap e HTTPS; as 33 mídias retornam 200.\n\nRollback que realmente voltou\n\nReconstruí o release a partir de git archive HEAD, injetei uma ausência de mídia e a detectei. A restauração do mesmo snapshot recuperou a referência e voltou a 33/33. No browser, 375 e 1440 mostraram os nove cards sem overflow; o vídeo do herói decodificou.\n\nO que ainda não significa\n\nteste-publico não é curadoria comercial. Preço e estoque permanecem ausentes por contrato. O fechamento RQP ainda depende de sincronizar mestre e mirror, publicar o Blog por último e executar o delivery final read-only.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

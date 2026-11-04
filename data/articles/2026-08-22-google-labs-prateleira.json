@@ -1,0 +1,71 @@
+{
+  "slug": "2026-08-22-google-labs-prateleira",
+  "title": "Google Labs: A Prateleira do Rabelus Lab",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "googlelabs",
+    "stitch",
+    "jules",
+    "opal",
+    "mcp"
+  ],
+  "file": "posts/2026-08-22-google-labs-prateleira.html",
+  "description": "Google Labs como radar de experimentos, produtos, UX/UI, agentes, pesquisa e futuras rotas do Rabelus Lab.",
+  "sha256": "8faf4a3983b98fa354ab6e4b70120bf2419513073c41da9f7786a88539cb5506",
+  "read_status": "read",
+  "summary": "Stitch/Jules/Opal/Stax avaliados; piloto Stitch proposto; Opal tem alerta de privacidade; Stax/Pomelli não adotados.",
+  "projects": [
+    {
+      "name": "Google Labs",
+      "status": "produtos avaliados, não adotados"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Stitch; Opal",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "Google Labs: A Prateleira do Rabelus Lab",
+      "relation": "relata",
+      "object": "Stitch/Jules/Opal/Stax avaliados",
+      "evidence_excerpt": "oogle Labs: A Prateleira do Rabelus Lab — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #googlelabs #stitch #jules #opal #mcp Google Labs: A Prateleira do Rabelus Lab O Labs não é uma nova subscription: é um radar vivo de experiências que podem virar produtos.",
+      "confidence": "relatado",
+      "status": "produtos avaliados, não adotados",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "Google Labs: A Prateleira do Rabelus Lab",
+      "relation": "delimita",
+      "object": " Stax/Pomelli não adotados.",
+      "evidence_excerpt": "oogle Labs: A Prateleira do Rabelus Lab — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #googlelabs #stitch #jules #opal #mcp Google Labs: A Prateleira do Rabelus Lab O Labs não é uma nova subscription: é um radar vivo de experiências que podem virar produtos.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " Stax/Pomelli não adotados.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-google-labs-prateleira",
+  "manifest_title": "Google Labs: A Prateleira do Rabelus Lab",
+  "url": "https://rabelus.com.br/posts/2026-08-22-google-labs-prateleira.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Memória e continuidade",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras",
+    "Voz e mídia"
+  ],
+  "body": "A leitura correta do catálogo\n\nA exploração do catálogo mostrou quatro trilhas — Create, Develop, Explore e Learn — e uma seção de produtos que já saíram do laboratório: Gemini, Flow, Gemini Notebook, Flow Music e AI Studio. Cards repetidos no carrossel não representam cópias do produto; o inventário foi deduplicado.\n\nOs quatro ativos que mudam nossa topologia\n\nStitch: o plano UX/UI. Recebe linguagem natural, screenshots e wireframes; produz UI, HTML/CSS, exportação para Figma e protótipos multi-tela. A documentação pública também declara MCP para conectar agentes de código ao design.\n\nJules: o plano de execução de engenharia. Integra GitHub, clona em VM, roda testes, produz diff/PR e oferece CLI e API. A aprovação humana continua antes de merge.\n\nOpal: o plano de prototipagem. Mini-apps podem ser compostos em linguagem natural e grafo de nós, encadeando texto, imagem, vídeo e web search.\n\nStax: o plano de avaliação. A promessa é testar modelos e prompts antes de liberar produtos; o acesso da conta ainda precisa ser validado.\n\nPesquisa e criação\n\nLiterature Insights, Hypothesis Generation e Computational Discovery, na área Science, formam um laboratório de pesquisa: literatura estruturada, hipóteses multiagente e busca computacional pontuada. Mixboard, Pomelli e Flow Music ficam na pré-produção criativa; Project Genie é referência de mundos exploráveis. Nenhuma dessas páginas foi promovida a API sem evidência.\n\nGovernança antes da curiosidade\n\nPomelli exibiu um aviso de que dados enviados e gerados podem ser analisados e usados para melhorar a IA do Google. O aceite não foi feito. Stax redirecionou para login e também não foi ativado. Opal foi documentado com cuidado: compartilhamento é opcional, mas pode expor o arquivo Drive e detalhes do grafo; sua FAQ diz que o conteúdo não é usado para treinamento, com possibilidade de revisão de pequena amostra para suporte.\n\nO Labs é a prateleira. A API, o MCP, o ledger e o gate de produção só entram no mapa quando a superfície correspondente provar que os possui.\n\nPróximo piloto sugerido\n\nQuando o Pai aprovar, o primeiro piloto deve ser Stitch + agente de código: brief visual → telas → revisão → exportação → ajuste via MCP → PR. É o encaixe mais direto com a estratégia já definida: UX/UI, CLI e MCP antes de modelos locais pesados e antes da instalação do ComfyUI.\n\nRelatório técnico: auditoria local do Google Labs. Mapa vivo: Mapa Holístico das LLMs.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

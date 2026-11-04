@@ -1,0 +1,386 @@
+{
+  "slug": "agharsallah--esp-labs-web",
+  "name": "ESP32 Labs: the bench guide (esp-labs-web)",
+  "url": "https://github.com/agharsallah/esp-labs-web",
+  "category": "Hardware / IoT",
+  "summary": "esp-labs-web é um guia estático em React para aprender ESP32-S3, com lições, simulações de serial e firmware, placa 3D, pinout, leitor de código, registro de bancada e progresso salvo no navegador. No build, incorpora firmware de outro repositório; o README informa que apenas o leitor de código fica sem conteúdo quando esse checkout irmão está ausente. A arquitetura usa bundle Vite, rotas hash, React Query para JSON, validação Zod, simuladores carregados sob demanda e 11 idiomas, incluindo escrita RTL. O progresso local usa localStorage protegido contra falhas; implantações Vercel ativam componentes de analytics e desempenho, portanto ‘sem servidor/conta’ não significa ausência de telemetria nesse caminho. A licença MIT cobre este repositório web; o firmware incorporado tem fonte e licença próprias. Um resultado indexado mostrou contagem menor de stars/forks; a página direta do perfil e o snapshot REST concordaram em 645/95 na data consultada. Não foram testados build, placa, simulador nem deploy.",
+  "topics": [
+    "ESP32-S3",
+    "IoT",
+    "educação",
+    "simulador",
+    "firmware",
+    "React",
+    "3D",
+    "i18n",
+    "static site",
+    "Vercel"
+  ],
+  "aliases": [
+    "ESP32 Labs web",
+    "ESP32 bench guide",
+    "ESP32-S3 lessons",
+    "web lab simulator"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e conteúdo",
+      "kind": "observed",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o README descreve guia interativo de ESP32-S3 com 32 labs, simuladores, placa 3D, pinout, leitura guiada do firmware e documentação do chip. Lições cobrem setup, display, Wi-Fi, RFID/NFC, BLE, áudio e sensores previstos. A lista mistura conteúdo pronto e planejado; não se interpreta a contagem como 32 exercícios funcionais validados neste relatório."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura e distribuição",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: React 19, TypeScript estrito, Vite, React Router com rotas hash, TanStack Query, Zod, i18next e Three.js. Arquitetura explica lições como dados, simuladores como widgets carregados sob demanda, validação do JSON na borda e bundle estático capaz de hospedar em subpastas. Build pode ser feito com assets pré-compilados, mas isso não prova funcionamento em cada hospedagem."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Separação guia e firmware",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o código de firmware real vem do repositório irmão `agharsallah/esp-labs` durante o build; `FIRMWARE_DIR` seleciona o checkout. O README informa que lessons, simuladores e bench log continuam sem esse checkout, enquanto leitor de código fica sem fonte. A cópia distribuída pode incorporar código derivado de outro repo; a licença do firmware, avisos e correspondência de versões precisam ser verificados junto ao repo irmão antes de redistribuir. Não houve esse exame jurídico."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Persistência, conta e telemetria",
+      "kind": "observed",
+      "source_ids": [
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no código e SECURITY.md: aplicação não declara servidor próprio ou contas; progresso e preferências persistem no navegador via `localStorage`, com leituras/escritas protegidas contra exceções e degradação sem persistência. `VercelInsights.tsx` monta Web Analytics e Speed Insights somente em builds Vercel e remapeia URL hash; portanto, instâncias locais não carregam esses componentes, mas a hospedada coleta métricas via Vercel. A política de segurança caracteriza dados como locais; essa declaração deve ser lida com a exceção explícita da telemetria de hospedagem."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Experimentos e limites pedagógicos",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "ANÁLISE: simulador de serial e tour de código podem tornar observável uma lição sem placa conectada, mas a simulação não valida temporização, tensão, comportamento elétrico, firmware compilado ou periféricos físicos. O guia também descreve comandos a gravar no hardware; quem seguir instruções deve conferir a revisão da placa e datasheet. README lembra que layout dos pinos é específico de DevKitC-1 e que rótulos da placa prevalecem."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Acessibilidade e internacionalização",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S6"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: documentação i18n lista 11 idiomas (inglês, francês, espanhol, italiano, alemão, polonês, turco, chinês simplificado e tradicional, japonês e árabe RTL), com overlays JSON, chaves tipadas e validação de catálogos. README declara suporte a telefone, tema claro/escuro e reduced motion. São contratos/alegações do projeto; navegação com teclado, leitor de tela, tradução real e qualidade RTL não foram testadas visualmente."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Segurança e dependências",
+      "kind": "official_claim",
+      "source_ids": [
+        "S4",
+        "S7"
+      ],
+      "paragraphs": [
+        "RELATADO: SECURITY.md classifica a aplicação como site estático sem servidor e oferece reporte privado; riscos incluem execução de script a partir de lição, tradução ou parâmetro `?lang=`, segredo vazado e dependência comprometida. O pacote fixa versões de muitas dependências e declara Node >=24.14/pnpm 11.10.0; fixação reduz deriva involuntária, mas não prova ausência de vulnerabilidades nem manutenção das versões. Não foi feita auditoria da cadeia de suprimento."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Licença, hosting e operação",
+      "kind": "observed",
+      "source_ids": [
+        "S7",
+        "S8"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: LICENSE MIT para este repositório. README descreve Vercel e deploy prebuilt porque a etapa de bundle do leitor depende do checkout externo; deploy Git-triggered está desativado no `vercel.json`. Conta, login, projeto Vercel, analytics e velocidade podem gerar termos/custos próprios. Componentes de firmware e fontes de datasheet precisam ser tratados em separado do MIT da aplicação web."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Manutenção e métricas",
+      "kind": "observed",
+      "source_ids": [
+        "S8",
+        "S9",
+        "S11",
+        "S12"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot REST público de 2026-11-03: 645 stars, 95 forks, 2 issues abertas, TypeScript, repositório ativo e não arquivado; o commit de código consultado é d716cc7890732bcd04887a2d5822912fb2d59aff, com atualização de documentação em 30/10. GitHub define stars como bookmarks/marcações de usuários e forks como cópias do repo; issue count não confirma bugs. Resultado indexado retornou 190/31, mas a página HTML direta do perfil ordenado por estrelas e a REST API consultadas na mesma data corroboram 645/95; trato o crawl como cache antigo, sem reconstruir série histórica. Nenhum release foi encontrado na consulta da API."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Aderência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: bom exemplo de documentação didática em forma de aplicação estática, com conteúdo modular, validação de dados e dados de progresso locais. Para o Lab, o padrão transferível é a separação entre domínio/lessons, widget visual e transporte de dados, não uma dependência de Vercel nem a simulação como prova de hardware. Possíveis adaptações requerem avaliar licenças e direitos do firmware/documentação."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Ensaios propostos",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S4",
+        "S6"
+      ],
+      "paragraphs": [
+        "PROPOSTA: conferir uma lição com placa física correspondente e datasheet; comparar saída real e simulada; interromper/iniciar monitor serial; verificar armazenamento e privacidade do navegador; executar build com e sem repo irmão e reconciliar conteúdo e licença; testar idiomas/RTL, 390px, reduced motion, teclado e leitor de tela; em Vercel, medir chamadas e payloads de analytics. Essas provas não foram feitas."
+      ]
+    },
+    {
+      "id": "sec-12",
+      "title": "Limites da pesquisa",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S8",
+        "S9"
+      ],
+      "paragraphs": [
+        "Somente documentação e leitura estática pontual foram consultadas. Não houve instalação, build, execução, simulação, conexão física, telemetria de rede, QA de acessibilidade, auditoria de licença do firmware, inspeção da conta Vercel ou reprodução de métricas divergentes. Stars/forks são snapshots e não evidência de qualidade técnica."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/agharsallah/esp-labs-web/blob/d716cc7890732bcd04887a2d5822912fb2d59aff/README.md",
+      "kind": "docs",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Conteúdo, funções e fluxo de build declarados pelo projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Arquitetura",
+      "url": "https://github.com/agharsallah/esp-labs-web/blob/d716cc7890732bcd04887a2d5822912fb2d59aff/docs/ARCHITECTURE.md",
+      "kind": "docs",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Stack e decisões de modularidade, sem executar build."
+    },
+    {
+      "id": "S3",
+      "title": "Commit consultado",
+      "url": "https://github.com/agharsallah/esp-labs-web/commit/d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "kind": "metadata",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA retornado para main pelo GitHub."
+    },
+    {
+      "id": "S4",
+      "title": "Persistência local e telemetria",
+      "url": "https://github.com/agharsallah/esp-labs-web/tree/d716cc7890732bcd04887a2d5822912fb2d59aff/src/lib",
+      "kind": "code",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual de src/lib/storage.ts e src/app/VercelInsights.tsx."
+    },
+    {
+      "id": "S5",
+      "title": "Política de segurança",
+      "url": "https://github.com/agharsallah/esp-labs-web/blob/d716cc7890732bcd04887a2d5822912fb2d59aff/SECURITY.md",
+      "kind": "docs",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Afirmações do projeto sobre armazenamento e superfície de segurança."
+    },
+    {
+      "id": "S6",
+      "title": "Contrato de internacionalização",
+      "url": "https://github.com/agharsallah/esp-labs-web/blob/d716cc7890732bcd04887a2d5822912fb2d59aff/docs/I18N.md",
+      "kind": "docs",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Idioma, overlays e pipeline descritos no SHA."
+    },
+    {
+      "id": "S7",
+      "title": "Package manifest",
+      "url": "https://github.com/agharsallah/esp-labs-web/blob/d716cc7890732bcd04887a2d5822912fb2d59aff/package.json",
+      "kind": "code",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Runtime, scripts e versões declarados; não instalados."
+    },
+    {
+      "id": "S8",
+      "title": "Metadados REST do repositório",
+      "url": "https://api.github.com/repos/agharsallah/esp-labs-web",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Métricas do snapshot consultado; divergem de resultado crawler anterior para stars/forks."
+    },
+    {
+      "id": "S9",
+      "title": "Resultado GitHub indexado por busca",
+      "url": "https://github.com/agharsallah/esp-labs-web",
+      "kind": "metadata",
+      "ref": "web-search",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Resultado indexado devolveu 190 stars/31 forks, defasado ante a página direta e a API consultadas na mesma data."
+    },
+    {
+      "id": "S11",
+      "title": "Perfil público ordenado por stars",
+      "url": "https://github.com/agharsallah?tab=repositories&sort=stargazers",
+      "kind": "metadata",
+      "ref": "profile-view",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Página HTML confirma 645 stars e 95 forks no cartão de esp-labs-web."
+    },
+    {
+      "id": "S12",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Stars correspondem a usuários que marcaram repo; forks_count é campo do repo. Ver documentação REST de forks para definição de cópia derivada."
+    },
+    {
+      "id": "S10",
+      "title": "Licença MIT",
+      "url": "https://github.com/agharsallah/esp-labs-web/blob/d716cc7890732bcd04887a2d5822912fb2d59aff/LICENSE",
+      "kind": "license",
+      "ref": "d716cc7890732bcd04887a2d5822912fb2d59aff",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "LICENSE consultado para o repositório web."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Guia estático usa persistência local, mas hospedagem Vercel acrescenta analytics",
+      "certainty": "CONFIRMADO",
+      "detail": "localStorage guarda progresso e o componente Analytics/SpeedInsights só monta em Vercel; tratar armazenamento e telemetria como fluxos separados.",
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "title": "Leitor incorpora firmware de repositório distinto em build",
+      "certainty": "CONFIRMADO",
+      "detail": "README/arquitetura apontam checkout irmão; licença do firmware precisa ser verificada separadamente da MIT desta aplicação.",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S10"
+      ]
+    },
+    {
+      "title": "Resultado indexado desatualizado para stars e forks",
+      "certainty": "CONFIRMADO",
+      "detail": "API REST e página HTML direta consultadas na mesma data mostram 645/95; resultado indexado mostra 190/31. Trato isso como atraso de indexação, sem afirmar causa além da evidência visível.",
+      "source_ids": [
+        "S8",
+        "S9",
+        "S11"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura estática; não instalado, construído, executado ou conectado ao hardware",
+  "limitations": [
+    "Não houve teste funcional de lesson, simulador, placa física, build ou deploy.",
+    "A análise não audita dependências, scripts, analytics em rede, licenças de conteúdo ou acessibilidade.",
+    "Contagens de stars/forks variam por fonte; SHA fixa conteúdo do código, mas não essas métricas."
+  ],
+  "related": [
+    "agharsallah"
+  ],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "agharsallah/esp-labs-web",
+    "html_url": "https://github.com/agharsallah/esp-labs-web",
+    "description": "The ESP32-S3 bench guide as a React app: live pinout, lessons with interactive simulators, a code reader for the esp-labs firmware, and the bench log. In 11 languages.",
+    "homepage": "https://esp-labs-web.vercel.app",
+    "default_branch": "main",
+    "created_at": "2026-10-21T13:40:04Z",
+    "updated_at": "2026-11-03T18:50:44Z",
+    "pushed_at": "2026-11-02T02:38:29Z",
+    "stargazers_count": 645,
+    "forks_count": 95,
+    "open_issues_count": 2,
+    "subscribers_count": 1,
+    "network_count": 95,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "education",
+      "electronics",
+      "embedded",
+      "esp32",
+      "esp32-s3",
+      "i18n",
+      "interactive-learning",
+      "mit-license",
+      "open-source",
+      "pinout",
+      "react",
+      "react-router",
+      "rtl",
+      "simulator",
+      "tanstack-query",
+      "typescript",
+      "vite"
+    ],
+    "size": 37361,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

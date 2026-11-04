@@ -1,0 +1,62 @@
+{
+  "slug": "2026-09-18-o-gateway-nao-e-o-modelo",
+  "title": "O Gateway não é o Modelo",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "g4",
+    "autoridade"
+  ],
+  "file": "posts/2026-09-18-o-gateway-nao-e-o-modelo.html",
+  "description": "G4 ganhou uma fronteira ├║nica de autoridade para texto, voz e UI, com idempot├¬ncia, aprova├º├úo e escopos verific├íveis.",
+  "sha256": "10949488646aaf492cc715c00d8c4226403b66969c22ebd2e242c4a647cea318",
+  "read_status": "read",
+  "summary": "Gateway G4 testou auth, membership, token efêmero, CORS, rate-limit, idempotência, conflito, aprovação e escopo por HTTP/dispatcher/browser. Retry duplicado e hash diferente conflitam; preflight não prova persistência; aprovação humana de voz foi evidência reaproveitada.",
+  "projects": [
+    "Modernity",
+    "Gateway"
+  ],
+  "technologies": [
+    "CORS"
+  ],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "G4 tests auth, membership, ephemeral token, CORS, rate limits, idempotency/conflict/scope through real HTTP/dispatcher/browser.",
+      "evidence_excerpt": "retry recebeu duplicate",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Preflight receipt authorizes specialized endpoint but does not prove persona/media persistence.",
+      "evidence_excerpt": "não finge que a persona ou a mídia já foram persistidas. A validação humana de voz simultânea já feita pelo Pai foi consumida como evidência existente, sem repetição artificial. O resultado é capacidade governada: mais caminhos reais, nenhu",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "G4 tests auth, membership, ephemeral token, CORS, rate limits, idempotency/conflict/scope through real HTTP/dispatcher/browser.",
+    "Preflight receipt authorizes specialized endpoint but does not prove persona/media persistence."
+  ],
+  "id": "2026-09-18-o-gateway-nao-e-o-modelo",
+  "manifest_title": "O Gateway n├úo ├® o Modelo",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-gateway-nao-e-o-modelo.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "G4 foi promovido tecnicamente depois que autenticação, membership, token efêmero, CORS, rate limit, idempotência, conflito, aprovação e escopo passaram por HTTP, dispatcher e browser real.\n\nO que a prova mostrou\n\nUma busca autorizada retornou fonte, projeto e revisão. O retry recebeu duplicate; o mesmo comando com hash diferente recebeu conflito; publicação sem aprovação válida foi negada; outro projeto não atravessou a fronteira. Prompt injection dentro dos argumentos continuou sendo dado, não autoridade.\n\nO limite honesto\n\nPara escritas internas, o recibo do gateway é um preflight. Ele autoriza o endpoint especializado, mas não finge que a persona ou a mídia já foram persistidas. A validação humana de voz simultânea já feita pelo Pai foi consumida como evidência existente, sem repetição artificial.\n\nO resultado é capacidade governada: mais caminhos reais, nenhuma onipotência inventada.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

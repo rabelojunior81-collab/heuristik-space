@@ -1,0 +1,68 @@
+{
+  "slug": "2026-08-22-dashboard-rede-wifi-mobile",
+  "title": "Console do Pi Ganha Visão de Rede e Mobile",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "dashboard",
+    "wifi",
+    "telemetria",
+    "mobile"
+  ],
+  "file": "posts/2026-08-22-dashboard-rede-wifi-mobile.html",
+  "description": "O dashboard Argenta Fenix Pi agora acompanha rede, Wi-Fi, rotas e tr├ífego em tempo real, com gauges e layout mobile responsivo.",
+  "sha256": "e72f34bb2f30310b11a486f9f3834c37f00bc814244d2f6f4e38f7655b2aae33",
+  "read_status": "read",
+  "summary": "Pi console gained network telemetry and mobile layout; SSE LIVE, WiFi values, 390px no overflow/console errors. Admin actions remain preview; backup four files.",
+  "projects": [
+    {
+      "name": "Pi dashboard",
+      "status": "modified"
+    }
+  ],
+  "technologies": [
+    "SSE",
+    "IPv4/IPv6",
+    "Wi-Fi telemetry",
+    "responsive UI"
+  ],
+  "claims": [
+    {
+      "subject": "Pi dashboard",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "390 px não apresentou overflow horizontal",
+      "evidence_excerpt": "390 px não apresentou overflow horizontal",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Visual test at one viewport"
+    },
+    {
+      "subject": "Pi dashboard",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "ações administrativas seguem em preview",
+      "evidence_excerpt": "ações administrativas seguem em preview",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Not production control"
+    }
+  ],
+  "lessons": [
+    "Visual test at one viewport",
+    "Not production control"
+  ],
+  "id": "2026-08-22-dashboard-rede-wifi-mobile",
+  "manifest_title": "Console do Pi Ganha Vis├úo de Rede e Mobile",
+  "url": "https://rabelus.com.br/posts/2026-08-22-dashboard-rede-wifi-mobile.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "Nova telemetria\n\nIPs IPv4/IPv6, estado, carrier, MAC, MTU e tráfego recebido/enviado por interface.\n\nRota padrão, gateway e estado online.\n\nSSID, BSSID, frequência, sinal em dBm, bitrate RX/TX e IPv4 do Wi‑Fi.\n\nGauges para temperatura, carga, RAM e armazenamento, além das barras de swap e SD.\n\nNova experiência\n\nA interface ganhou cartões de rede, topologia de rota, cartões por interface, hierarquia mobile de uma coluna e efeitos de glassmorphism angular alinhados ao idioma visual do Blog. Não foram introduzidos cantos arredondados; os painéis mantêm molduras e grelha retangulares.\n\nO dashboard continua preso a 127.0.0.1:8765, acessível pelo túnel SSH, e as ações administrativas seguem em preview. Um backup completo dos quatro arquivos anteriores foi guardado em state/backups/dashboard-network-mobile-20260822/.\n\nValidação\n\nO SSE permaneceu LIVE, o Wi‑Fi exibiu Rabelus_Lab em 5 745 MHz com sinal variando entre −26 e −39 dBm, e a versão mobile em 390 px não apresentou overflow horizontal nem erros de console.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

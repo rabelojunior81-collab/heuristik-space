@@ -1,0 +1,4 @@
+{"at": "2026-11-04T00:18:29.378717-03:00", "phase": "before", "event": "corpus_frozen", "commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7", "posts": 373}
+{"at": "2026-11-04T00:18:29.378717-03:00", "phase": "during", "event": "deep_reading_receipts_available", "count": 373, "claims": 906, "semantic_acceptance": "not_inferred"}
+{"at": "2026-11-04T00:18:29.378717-03:00", "phase": "during", "event": "admission_failed", "report": "docs/qa/first-admission.json", "quoted_evidence_checked": 809, "failures": 116}
+{"at": "2026-11-04T00:18:29.378717-03:00", "phase": "checkpoint", "event": "quota_continuity", "remaining_weekly_user_report": "2%", "reset_used": false, "resume": "docs/CONTINUE.md"}

@@ -1,0 +1,294 @@
+{
+  "slug": "furey--freetvarr",
+  "name": "Freetvarr",
+  "url": "https://github.com/furey/freetvarr",
+  "category": "Infraestrutura self-hosted",
+  "summary": "Aplicação self-hosted para TV digital aberta que coordena TVHeadend, organiza gravações e oferece guia, agendamento e streaming na rede doméstica. README declara Docker Compose, Node 24+, tuners compatíveis e integração opcional Plex/Sonarr/Radarr; informa explicitamente que Windows e o script de instalação não foram testados/suportados. package.json no SHA consultado confirma Node >=24, npm >=11.10, Express, SQLite nativo, Vue, Transformers.js e GPL-3.0-or-later. O foco é mídia local e automação de arquivos, não acervo documental ou backup.",
+  "topics": [
+    "TVHeadend",
+    "DVR",
+    "Docker",
+    "Node.js",
+    "SQLite",
+    "TV aberta",
+    "Plex",
+    "GPL-3.0"
+  ],
+  "aliases": [
+    "Freetvarr",
+    "DVR self-hosted",
+    "Free-to-air TV",
+    "TV guide recorder"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e fluxo",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve agendar gravações em guia de sete dias, assistir live TV e gravações no browser, pausar/retroceder live até 30 minutos e mover gravações para estrutura Show/Season/Episode ou data de exibição.",
+        "Integra TVHeadend como backend de sintonia e players (Plex/Jellyfin/Kodi) como consumidores; não substitui tuner, EPG ou servidor de mídia."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura observada",
+      "kind": "observed",
+      "paragraphs": [
+        "package.json na versão 2.6.2 identifica aplicação Node ESM privada/publicada como container, com Express, Vue, SQLite via better-sqlite3 e Knex migrations; scripts executam migrações ao iniciar. Transformers.js está presente em dependências, mas a amostra não estabelece recurso, modelo ou chamada concreta.",
+        "Testes Node são declarados e configurados para bloquear tráfego de saída em parte dos suites. Configuração real, cobertura e sucesso de CI não foram inspecionados; scripts no manifesto não provam que testes passaram."
+      ],
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Identidade, exposição e segurança",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README usa badge `LAN only`/sem autenticação; essa é informação crítica para fronteira de rede. Não deve ser publicado na internet ou em rede compartilhada sem controle externo e validação do comportamento atual.",
+        "O README inclui seção security e requisitos de Docker/host sempre ligado; controles concretos de CSRF, sessões, upload, permissões, proxy e ameaças não foram revisados no código. O projeto declara tuner e media services na LAN."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Configuração e dependências operacionais",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Pré-requisitos oficiais incluem tuner compatível, Docker Compose v2 e host ligado; USB DVB depende de driver no host. Para tuner de rede, o README descreve Linux como alvo de Docker e avisa que Docker Desktop/OrbStack em Mac não descobrem tuner automaticamente; Windows é declarado não testado e script não roda nele.",
+        "Instalador curl baixa compose e escreve .env e sobe serviços de TVHeadend/Freetvarr. Isso é uma ação com efeitos reais; não foi executado. Montagens, UID/GID, gravação simultânea, atualizações e limites de disco precisam de revisão antes de dados reais."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Persistência e recuperação",
+      "kind": "analysis",
+      "paragraphs": [
+        "O fluxo altera e renomeia arquivos de gravação e pode solicitar scan do Plex. Estado SQLite/config e biblioteca de vídeo são domínios separados; backup somente do banco ou somente da pasta de gravações pode não restaurar referências/metadata.",
+        "A seção de migração e a existência de banco SQLite foram verificadas, mas não o esquema nem uma restauração. Considerar retenção, gravação incompleta, colisão de nome, disco cheio e recuperação de metadados."
+      ],
+      "source_ids": [
+        "S2",
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Licença, custo e maturidade",
+      "kind": "observed",
+      "paragraphs": [
+        "package.json declara GPL-3.0-or-later; GitHub identifica GPL-3.0. Plex, tuners e hardware têm custos próprios e alguns recursos opcionais dependem de Plex Pass ou comskip; custo de energia, armazenamento, EPG e manutenção não foi calculado.",
+        "Página pública mostra release v2.6.2 e commit de merge dessa versão em 2 Nov 2026; é sinal de atividade recente, não avaliação de qualidade ou suporte. Estrelas e badges são snapshots."
+      ],
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "UX, integração e Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "Interface browser para TV/telefone e ingestão de programa da grade favorecem uso doméstico; nenhum teste de acessibilidade, responsividade ou compatibilidade com decoder foi feito.",
+        "Para Lab, valor é indireto: fluxo de gravação e ingestão local. Não é componente de dados/identidade nem deve compartilhar storage com arquivo governado sem separar volumes e permissões."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Modelo de ameaça explicitado pelo autor",
+      "kind": "observed",
+      "paragraphs": [
+        "SECURITY.md diz explicitamente que é serviço sem login para LAN doméstica confiável, que qualquer cliente que alcance a porta pode ler configuração e mudar opções, e proíbe exposição à internet. Cita CSRF, rate limit, CSP, noindex, ausência de CORS, SameSite Strict e custom header.",
+        "O autor lista configuração revelada por `/api/settings`: host/usuário TVHeadend, URL Plex e caminhos; senha TVHeadend é armazenada em texto simples no SQLite, embora não devolvida pela API. Este é fato documental de risco que exige tratar banco e rede como sensíveis, sem afirmar exploração."
+      ],
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Integrações e superfície de rede",
+      "kind": "observed",
+      "paragraphs": [
+        "SECURITY.md chama `plex_url` de vetor de request server-side: rotas de Plex aceitam URL caller-supplied e funcionam como oracle de status HTTP limitado na LAN. O documento explica que bloquear ranges privados inviabiliza descoberta de Plex na LAN; é um trade-off intencional, não prova de vulnerabilidade externa.",
+        "Compose de exemplo mapeia diretórios de config/dados e permite serviço Plex profile opcional; arquivos de Sonarr/Radarr podem ser lidos para obter API keys. Essas chaves e paths elevam o requisito de acesso mínimo aos volumes."
+      ],
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Ensaios posteriores",
+      "kind": "analysis",
+      "paragraphs": [
+        "Fixar release e revisar compose, porta/Host, proxy, volume, credenciais em SQLite, endpoint settings, CSRF e rotas caller-supplied; verificar permissões de mounts e que nenhum segredo é exposto. Proteger em VLAN/LAN confiável e confirmar bloqueio de acesso externo.",
+        "Em fixtures: simular gravação incompleta, disco cheio, rename e import; exercitar EPG, tuner, Plex opcional e backup/restore do banco + recordings. Nenhum container foi baixado ou iniciado; pesquisa não é validação funcional."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S4",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/furey/freetvarr/blob/af80004d196d6624635204285e2a412c261220e9/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "af80004d196d6624635204285e2a412c261220e9",
+      "note": "README/documentação pública consultada; capacidades, restrições e instruções são do autor."
+    },
+    {
+      "id": "S2",
+      "title": "package.json",
+      "url": "https://github.com/furey/freetvarr/blob/af80004d196d6624635204285e2a412c261220e9/package.json",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "code",
+      "ref": "af80004d196d6624635204285e2a412c261220e9",
+      "note": "Manifesto observado: versão, engine, licença, scripts e dependências; não é inspeção completa do código."
+    },
+    {
+      "id": "S3",
+      "title": "Repositório/metadados",
+      "url": "https://github.com/furey/freetvarr/tree/af80004d196d6624635204285e2a412c261220e9",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "metadata",
+      "ref": "af80004d196d6624635204285e2a412c261220e9",
+      "note": "Snapshot mostra release/tag v2.6.2 e estrutura pública; contagem social não é prova de maturidade."
+    },
+    {
+      "id": "S4",
+      "title": "SECURITY.md",
+      "url": "https://github.com/furey/freetvarr/blob/af80004d196d6624635204285e2a412c261220e9/SECURITY.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "docs",
+      "ref": "b6a1b932a96cd4577ba4a3305f28529bbec7fe76",
+      "note": "Threat model autorrelatado, incluindo serviço sem autenticação, configuração e senha em SQLite; não é auditoria independente."
+    },
+    {
+      "id": "S5",
+      "title": "docker-compose.example.yml",
+      "url": "https://github.com/furey/freetvarr/blob/af80004d196d6624635204285e2a412c261220e9/docker-compose.example.yml",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T21:00:30Z",
+      "kind": "code",
+      "ref": "97ba0898b46c0a571f63cc06e80d55bb8cc44cda",
+      "note": "Exemplo de volumes/perfis; valores não foram testados nem implantados."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Sem autenticação embutida declarada",
+      "certainty": "RELATADO",
+      "detail": "README identifica auth LAN-only; proteção depende da topologia de rede e não foi ensaiada.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Requisitos Node atuais e SQLite",
+      "certainty": "CONFIRMADO",
+      "detail": "package.json fixa engine Node >=24, npm >=11.10 e better-sqlite3/Knex.",
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "title": "Windows não validado pelo projeto",
+      "certainty": "RELATADO",
+      "detail": "README avisa que Freetvarr está untested on Windows e installer não roda lá.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/manifesto; não instalado nem executado",
+  "limitations": [
+    "SECURITY.md é threat model escrito pelo autor e pode não refletir regressões ou deployment externo.",
+    "Requisitos de tuner/codec/EPG e custos variam por região e hardware.",
+    "A dependência Transformers.js não permite inferir uso, modelo ou processamento sem ler os pontos de chamada.",
+    "Nenhum teste de segurança, mídia, backup/restauração ou compatibilidade foi realizado."
+  ],
+  "related": [
+    "gtsteffaniak--filebrowser",
+    "traccar--traccar"
+  ],
+  "metrics": {
+    "full_name": "furey/freetvarr",
+    "html_url": "https://github.com/furey/freetvarr",
+    "description": "Self-hosted Free-to-air TV",
+    "homepage": "https://furey.github.io/freetvarr/",
+    "default_branch": "main",
+    "created_at": "2026-09-21T10:09:23Z",
+    "updated_at": "2026-11-03T10:31:59Z",
+    "pushed_at": "2026-11-02T11:59:36Z",
+    "stargazers_count": 10,
+    "forks_count": 3,
+    "open_issues_count": 0,
+    "subscribers_count": 0,
+    "network_count": 3,
+    "archived": false,
+    "disabled": false,
+    "language": "JavaScript",
+    "topics": [
+      "arr",
+      "docker",
+      "dvb-t",
+      "dvr",
+      "epg",
+      "free-to-air",
+      "hdhomerun",
+      "homelab",
+      "iptv",
+      "media-server",
+      "nodejs",
+      "plex",
+      "plex-media-server",
+      "pvr",
+      "recordings",
+      "self-hosted",
+      "synology",
+      "tvheadend",
+      "xmltv"
+    ],
+    "size": 15850,
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0",
+      "node_id": "MDc6TGljZW5zZTk="
+    },
+    "fork": false
+  }
+}

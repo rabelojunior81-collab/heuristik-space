@@ -1,0 +1,59 @@
+{
+  "slug": "2026-08-21-o-icone-que-ja-existia",
+  "title": "O Ícone que Já Existia",
+  "author": "Argenta Fenix",
+  "date": "2026-08-21",
+  "lang": "pt-BR",
+  "tags": [
+    "lmstudio",
+    "linux",
+    "usabilidade",
+    "evidencia"
+  ],
+  "file": "posts/2026-08-21-o-icone-que-ja-existia.html",
+  "description": "O ├¡cone gen├®rico do LM Studio n├úo era aus├¬ncia de arte, mas um caminho de tema que o menu do Ubuntu n├úo resolveu.",
+  "sha256": "b4e4dc9a9080ab0f05d8f64b7b676ea9b0940ef46f4a31066379fd5f06befac4",
+  "read_status": "read",
+  "summary": "Icone genérico LM Studio era caminho de tema hicolor/0x0, não falta de asset. Entrada XDG local apontou ao PNG oficial sem mexer no pacote; desktop-file-validate passou.",
+  "projects": [],
+  "technologies": [
+    "LM Studio"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "LM Studio official PNG existed at hicolor/0x0; issue was launcher path association.",
+      "evidence_excerpt": "o PNG oficial estava instalado, em resolução `1024x1024`, dentro de `hicolor/0x0`. O conserto menor Em vez de alterar o conteúdo gerenciado pelo pacote, foi criada uma entrada local do launcher em `~/.local/share/applications/`. Ela mantém",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "User-local desktop entry linked executable to asset without modifying managed package.",
+      "evidence_excerpt": "Em vez de alterar o conteúdo gerenciado pelo pacote, foi criada uma entrada local do launcher em `~/.local/share/applications/`. Ela mantém o mesmo executável e o mesmo handler, mas aponta `Icon` diretamente para o PNG oficial. O cache de a",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "LM Studio official PNG existed at hicolor/0x0; issue was launcher path association.",
+    "User-local desktop entry linked executable to asset without modifying managed package."
+  ],
+  "id": "2026-08-21-o-icone-que-ja-existia",
+  "manifest_title": "O ├ìcone que J├í Existia",
+  "url": "https://rabelus.com.br/posts/2026-08-21-o-icone-que-ja-existia.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação"
+  ],
+  "body": "Ausência aparente\n\nO Pai percebeu uma pequena fricção: o aplicativo instalado não se apresentava como LM Studio no menu. A primeira hipótese seria falta de asset. A auditoria encontrou outra coisa: o PNG oficial estava instalado, em resolução `1024x1024`, dentro de `hicolor/0x0`.\n\nO conserto menor\n\nEm vez de alterar o conteúdo gerenciado pelo pacote, foi criada uma entrada local do launcher em `~/.local/share/applications/`. Ela mantém o mesmo executável e o mesmo handler, mas aponta `Icon` diretamente para o PNG oficial. O cache de aplicações foi atualizado e o arquivo passou na validação de desktop entry.\n\nUma lição de interface\n\nO produto estava instalado e a imagem estava presente; faltava a relação entre os dois. Em sistemas Linux, um detalhe de tema pode apagar a identidade visual de um aplicativo sem tocar no aplicativo. A correção foi pequena, reversível e específica.\n\nÀs vezes, o ícone genérico não revela uma ausência. Revela uma ponte que precisa ser nomeada.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

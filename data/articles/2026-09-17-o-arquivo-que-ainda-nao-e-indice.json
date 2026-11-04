@@ -1,0 +1,87 @@
+{
+  "slug": "2026-09-17-o-arquivo-que-ainda-nao-e-indice",
+  "title": "O Arquivo que Ainda não é Índice",
+  "author": "Tessy Fenix",
+  "date": "2026-09-17",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "reconciliacao",
+    "proveniencia",
+    "governanca"
+  ],
+  "file": "posts/2026-09-17-o-arquivo-que-ainda-nao-e-indice.html",
+  "description": "Um dry-run de reconcilia├º├úo GemCam separou bytes recuper├íveis de indexa├º├úo relacional: 80 ativos, 72 presentes fisicamente e zero indexados.",
+  "read_status": "read",
+  "summary": "Inventory has 80 source assets/unique hashes; CAS destination has 72 valid, eight only in historical backup; relational media_assets has zero. Auditor classifies all 80 unindexed, zero conflicts, stable=false; no copy or semantic metadata invented.",
+  "projects": [
+    {
+      "name": "Modernity media asset index",
+      "status": "unstable/not indexed pending provenance contract"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "content-addressed storage",
+      "relation": "72 assets physically present and hash-valid"
+    },
+    {
+      "name": "relational media_assets",
+      "relation": "zero rows"
+    },
+    {
+      "name": "historical backup",
+      "relation": "preserves remaining eight"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "subject": "physical bytes",
+      "relation": "state",
+      "status": "inventory measured",
+      "evidence_excerpt": "O content-addressed local contém 72 deles, todos válidos",
+      "limitation": "does not imply indexed",
+      "object": "72 valid in local CAS, 8 only backup"
+    },
+    {
+      "confidence": "declarado",
+      "subject": "relational index",
+      "relation": "state",
+      "status": "unstable",
+      "evidence_excerpt": "O resultado real foi 80 não indexados, zero conflitos e stable=false",
+      "limitation": "not authority to assign metadata",
+      "object": "zero media_assets rows, 80 not indexed"
+    },
+    {
+      "confidence": "interpretacao",
+      "subject": "asset provenance",
+      "relation": "requirement",
+      "status": "decision needed",
+      "evidence_excerpt": "Indexá-lo é assumir uma afirmação.",
+      "limitation": "no copy written",
+      "object": "explicit destination/relationship contract before write"
+    }
+  ],
+  "lessons": [
+    "file presence, hash identity and relational index are separate claims",
+    "backup is not semantic authority or curation",
+    "do not create metadata from inference"
+  ],
+  "sha256": "49e1d171de3e698ae16b675600af39d9cae1890db880795bd754d25e43910544",
+  "id": "2026-09-17-o-arquivo-que-ainda-nao-e-indice",
+  "manifest_title": "O Arquivo que Ainda n├úo ├® ├ìndice",
+  "url": "https://rabelus.com.br/posts/2026-09-17-o-arquivo-que-ainda-nao-e-indice.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Patrimônio e negócio"
+  ],
+  "body": "Há uma tentação recorrente em sistemas que carregam história: se o arquivo está no disco, declarar que ele está reconciliado. É uma frase curta, confortável e errada.\n\nNa retomada Modernity, o inventário vivo trouxe 80 ativos de origem e 80 hashes únicos. O content-addressed local contém 72 deles, todos válidos; oito permanecem fora do destino atual, mas continuam preservados no backup histórico. A consulta relacional, porém, trouxe zero linhas em media_assets.\n\nTrês camadas, três afirmações\n\n“O byte existe” prova integridade física. “O hash coincide” prova identidade binária. “Está indexado” exige um vínculo relacional que diga como aquele arquivo pertence ao projeto, à peça e à proveniência autorizada. Uma camada não substitui a outra.\n\nPor isso o auditor novo só classifica um ativo como indexed quando há linha correspondente no índice. Presença física isolada continua unindexed. O resultado real foi 80 não indexados, zero conflitos e stable=false.\n\nO que não fizemos\n\nNão copiamos os oito arquivos para o destino. Não inventamos posição de fotografia, curadoria, produto, preço ou estoque. O backup permite recuperação; não concede, sozinho, autoridade semântica. A próxima escrita precisa de um contrato explícito de proveniência e destino.\n\nRecuperar um arquivo é preservar uma possibilidade. Indexá-lo é assumir uma afirmação.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

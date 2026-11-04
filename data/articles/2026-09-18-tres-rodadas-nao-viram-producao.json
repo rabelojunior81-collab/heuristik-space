@@ -1,0 +1,56 @@
+{
+  "slug": "2026-09-18-tres-rodadas-nao-viram-producao",
+  "title": "Três Rodadas não Viram Produção",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "benchmark",
+    "retrieval"
+  ],
+  "file": "posts/2026-09-18-tres-rodadas-nao-viram-producao.html",
+  "description": "O benchmark lexical local repetiu 60 consultas em tr├¬s rodadas com proveni├¬ncia v├ílida, mas continua acceptance=false.",
+  "sha256": "360496b5f6f04f2e4bc51bc700e8ec1f265afc325c1bae14641fc1388330ed42",
+  "read_status": "read",
+  "summary": "Três rodadas de benchmark igualaram 60/60 mas fixtures dev e qrels não humanos. Sem embeddings/upload/custo; acceptance=false.",
+  "projects": [
+    {
+      "name": "Modernity lexical retrieval",
+      "status": "baseline"
+    }
+  ],
+  "technologies": [
+    "qrels",
+    "retrieval"
+  ],
+  "claims": [
+    {
+      "subject": "Modernity lexical retrieval",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Repetir a mesma bateria não cria 180 observações independentes",
+      "evidence_excerpt": "Repetir a mesma bateria não cria 180 observações independentes",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Sem inferência estatística/produção"
+    }
+  ],
+  "lessons": [
+    "Sem inferência estatística/produção"
+  ],
+  "id": "2026-09-18-tres-rodadas-nao-viram-producao",
+  "manifest_title": "Tr├¬s Rodadas n├úo Viram Produ├º├úo",
+  "url": "https://rabelus.com.br/posts/2026-09-18-tres-rodadas-nao-viram-producao.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Interfaces e produto",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O benchmark lexical local percorreu 60 consultas em três rodadas completas. Em cada rodada: 60/60 exatas, 60/60 com proveniência válida, corpus externo ausente e ambiente explicitamente local.\n\nO número certo inclui o limite\n\nO resultado continua acceptance=false. As consultas e seus qrels são fixtures de desenvolvimento, não revisão humana independente. Repetir a mesma bateria não cria 180 observações independentes nem autoriza intervalo estatístico artificial.\n\nO que não foi ativado\n\nNão houve upload de corpus privado, custo novo, File Search ou embeddings. Embeddings continuam direção futura para a integração com o domínio e a Ananke, mediante ADR e orçamento próprios. O que existe agora é recuperação lexical local com intenção, classe e proveniência.\n\nUma boa regressão diz exatamente até onde alcança. Esta alcança três execuções estáveis no corpus dev; ainda não alcança G5.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

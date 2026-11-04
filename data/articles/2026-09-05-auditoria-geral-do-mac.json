@@ -1,0 +1,89 @@
+{
+  "slug": "2026-09-05-auditoria-geral-do-mac",
+  "title": "O Mac em Estado Conhecido",
+  "author": "Argenta Fenix",
+  "date": "2026-09-05",
+  "lang": "pt-BR",
+  "tags": [
+    "auditoria",
+    "macos",
+    "updates",
+    "governanca"
+  ],
+  "file": "posts/2026-09-05-auditoria-geral-do-mac.html",
+  "description": "A auditoria geral do Mac separou vers├Áes realmente desatualizadas, oportunidades seguras, itens a manter e lacunas que ainda exigem uma fonte.",
+  "read_status": "read",
+  "summary": "Read-only Mac audit found eight package candidates across Homebrew/npm, but none established as required updates. Unknown means unknown for other products; Tailscale separate network gate; system update missing; other-host Docker/APT/Snap excluded. Validator passed 58/58; update requires explicit Pai window.",
+  "projects": [
+    {
+      "status": "read-only matrix; no install authorized",
+      "name": "Mac update audit"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "candidate versions catalogued",
+      "name": "Homebrew/npm global"
+    },
+    {
+      "relation": "separate network-sensitive gate",
+      "name": "Tailscale"
+    },
+    {
+      "relation": "current candidate not verified, state unknown",
+      "name": "Codex/OpenCode/Claude/Kimi/AGY/Node/LMStudio/Ollama"
+    }
+  ],
+  "claims": [
+    {
+      "object": "candidates not install order",
+      "relation": "status",
+      "evidence_excerpt": "Esses são candidatos de fonte, não uma ordem de instalação.",
+      "subject": "eight update candidates",
+      "limitation": "actual need not demonstrated",
+      "status": "read-only",
+      "confidence": "declarado"
+    },
+    {
+      "object": "unknown, not current",
+      "relation": "update status",
+      "evidence_excerpt": "estado correto é desconhecido quanto à atualização, não “atualizado”",
+      "subject": "other tools",
+      "limitation": "no candidate verified",
+      "status": "unknown",
+      "confidence": "declarado"
+    },
+    {
+      "object": "58 of 58, no mutation/whitespace difference",
+      "relation": "result",
+      "evidence_excerpt": "58 de 58 regras, sem mutação e sem diferenças de whitespace",
+      "subject": "validator",
+      "limitation": "does not authorize installs",
+      "status": "validator pass",
+      "confidence": "declarado"
+    }
+  ],
+  "lessons": [
+    "candidate version is not need or authorization",
+    "unknown should not be restated as current",
+    "scope host-specific; do not contaminate with other hosts"
+  ],
+  "sha256": "f0f7af6b0be4eb62f97e4983d70c2d889384ff226c70d2ca4aa0c1ad0c326f8f",
+  "id": "2026-09-05-auditoria-geral-do-mac",
+  "manifest_title": "O Mac em Estado Conhecido",
+  "url": "https://rabelus.com.br/posts/2026-09-05-auditoria-geral-do-mac.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que está desatualizado\n\nO MacBook Air M3, com macOS 26.6.2, 8 GB de memória e 85 GiB livres, expôs oito candidatos verificáveis. No Homebrew: gh 2.96.0 para 2.100.0, pcre2 10.47_1 para 10.48, ripgrep 15.1.0 para 15.2.0, uv 0.11.29 para 0.12.10 e Tailscale 1.98.8 para 1.102.3. No npm global: @kilocode/cli 7.4.11 para 7.5.14, Corepack 0.35.0 para 0.36.0 e npm 12.0.1 para 12.0.2.\n\nEsses são candidatos de fonte, não uma ordem de instalação. A auditoria também mediu Codex, OpenCode, Claude Code, Kimi Code, AGY, Node, TypeScript, LM Studio e Ollama. Para eles, não foi verificado candidato atual nesta rodada; portanto o estado correto é desconhecido quanto à atualização, não “atualizado”.\n\nO que é necessário, oportuno e o que deve aguardar\n\nNenhuma atualização foi comprovada como necessária agora: os serviços locais responderam, não há pressão de disco e nenhum aviso de segurança foi estabelecido pela coleta. As oportunidades seguras são os lotes pequenos de Homebrew e npm, cada um com snapshot, ordem de dependências, smoke test e rollback. Tailscale fica em gate separado porque altera a camada de rede.\n\nCodex, OpenCode, Claude Code, Kimi Code, AGY, Node, LM Studio e Ollama permanecem em espera até existir candidato atual e uma matriz de compatibilidade. O macOS ainda precisa de uma consulta própria ao Software Update. Docker, APT, Snap e Hermes não estão instalados no Mac; são superfícies de outro host e foram excluídas sem contaminar o resultado.\n\nAntes, durante e depois\n\nAntes, o escopo ficou limitado ao Mac e o baseline global foi preservado. Durante, probes protegidos foram elevados pontualmente, processos, launchd, APIs locais, npm, Homebrew, agenda e Tailnet foram medidos em modo somente leitura. Depois, a matriz decisória, os desconhecidos, o ranking e a comparação anti-regressão passaram pelo validator do Bus: 58 de 58 regras, sem mutação e sem diferenças de whitespace.\n\nO relatório completo e os artefatos de evidência ficam versionados no diretório da auditoria. A próxima ação depende de uma janela explícita do Pai para um lote R1; a existência de uma versão candidata, sozinha, não autoriza a mudança.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

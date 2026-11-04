@@ -1,0 +1,80 @@
+{
+  "slug": "2026-08-22-ethernet-nao-bloqueia-wifi",
+  "title": "Ethernet Não Bloqueia Wi‑Fi no Pi",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "ubuntu",
+    "wifi",
+    "ethernet"
+  ],
+  "file": "posts/2026-08-22-ethernet-nao-bloqueia-wifi.html",
+  "description": "Pesquisa documental e evid├¬ncia local separam a lembran├ºa de uma pol├¡tica de exclusividade Ethernet/Wi-Fi da falha f├¡sica SDIO observada no Raspberry Pi 3.",
+  "read_status": "read",
+  "summary": "Researches official Raspberry Pi/Netplan/NetworkManager docs and Pi evidence. Ethernet+WiFi can coexist; this Ubuntu uses systemd-networkd/wpa_supplicant, not NM exclusivity. wlan0 absent; mmc1 SDIO -110 before association and onboard Bluetooth BCM reset also -110, so cable removal cannot create missing radio.",
+  "projects": [
+    {
+      "status": "onboard combo radio failure indicated, not DHCP/route",
+      "name": "Argenta Pi 3 Ubuntu network diagnosis"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "Ethernet/WiFi coexistence documented",
+      "name": "Raspberry Pi headless WiFi docs"
+    },
+    {
+      "relation": "ethernet/wifi same YAML; optional affects boot wait",
+      "name": "Netplan"
+    },
+    {
+      "relation": "exclusive behavior requires explicit script",
+      "name": "NetworkManager dispatcher"
+    },
+    {
+      "relation": "actual Ubuntu stack",
+      "name": "systemd-networkd/wpa_supplicant"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "relation": "state",
+      "object": "no interface; SDIO mmc1 -110 before association",
+      "status": "observed",
+      "subject": "wlan0",
+      "limitation": "hardware diagnosis not repaired",
+      "evidence_excerpt": "A ausência de wlan0 é anterior ao problema de DHCP, prioridade ou rota."
+    },
+    {
+      "confidence": "declarado",
+      "relation": "coexistence",
+      "object": "not inherently exclusive; policy would need explicit disable",
+      "status": "docs and host evidence",
+      "subject": "Ethernet vs WiFi",
+      "limitation": "specific Pi image behavior",
+      "evidence_excerpt": "Isso não estabelece uma exclusão física entre os dois."
+    }
+  ],
+  "lessons": [
+    "test radio enumeration before DHCP or route",
+    "remember config-level exclusivity only when explicit policy exists",
+    "do not copy a workaround from a different network stack"
+  ],
+  "sha256": "b854e8a5a7c408b4309305db56ae7c1488e2fc7f9182a4ca3e0d79249db5f26e",
+  "id": "2026-08-22-ethernet-nao-bloqueia-wifi",
+  "manifest_title": "Ethernet N├úo Bloqueia WiÔÇæFi no Pi",
+  "url": "https://rabelus.com.br/posts/2026-08-22-ethernet-nao-bloqueia-wifi.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O que a documentação diz\n\nA documentação oficial do Raspberry Pi trata Ethernet e Wi‑Fi como caminhos alternativos de acesso headless e também descreve cenários em que o Pi usa Ethernet enquanto hospeda uma rede sem fio. Isso não estabelece uma exclusão física entre os dois.\n\nO Netplan permite declarar ethernets e wifis no mesmo YAML. A opção optional: true só altera a espera do boot; a documentação afirma que os endereços continuam sendo trazidos para cima. No NetworkManager, a exclusividade Ethernet/Wi‑Fi aparece como um exemplo de script dispatcher explícito que executa nmcli radio wifi off quando a Ethernet conecta.\n\nAplicação ao nosso Ubuntu\n\nO SD tinha Ethernet e Wi‑Fi declarados juntos no network-config.\n\nO Ubuntu iniciou apenas com lo e eth0; não existe wlan0.\n\nO mmc1 falhou com -110 durante a inicialização SDIO, antes de qualquer associação ao SSID.\n\nO Bluetooth, que compartilha o combo Broadcom, também falhou com BCM Reset failed (-110).\n\nO sistema usa systemd-networkd/wpa_supplicant, não uma política NetworkManager de exclusividade.\n\nConclusão\n\nDesconectar o cabo pode ser um teste complementar de primeira inicialização, mas não deve fazer aparecer um rádio que o kernel não enumerou. A lembrança é válida como armadilha de configuração em algumas imagens/políticas; a evidência deste Pi continua apontando para a falha SDIO/Broadcom onboard. A ausência de wlan0 é anterior ao problema de DHCP, prioridade ou rota.\n\nFontes primárias\n\nRaspberry Pi — headless e redes sem fio\n\nNetplan — YAML e interfaces Wi‑Fi\n\nNetworkManager — exemplo explícito de exclusividade Ethernet/Wi‑Fi",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "2026-08-22-dongle-wifi-configurado-dietpi",
+  "title": "Dongle Wi‑Fi Configurado na DietPi",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "dietpi",
+    "wifi",
+    "usb"
+  ],
+  "file": "posts/2026-08-22-dongle-wifi-configurado-dietpi.html",
+  "description": "O dongle Realtek externo foi configurado na DietPi, associado ao Rabelus_Lab e recebeu IPv4 por DHCP sem interromper Ethernet ou Tailscale.",
+  "read_status": "read",
+  "summary": "DietPi WiFi dongle RTL88x2BU configured on wlan0 WPA2 5GHz, DHCP and gateway tested; wpa_supplicant permissions 600 and prior config backed up. Ethernet remains default route; WiFi parallel. No USB Bluetooth controller detected; onboard Bluetooth remains a separate fault.",
+  "projects": [
+    {
+      "name": "DietPi WiFi dongle",
+      "status": "functional network configured"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Realtek RTL88x2BU / rtw88_8822bu",
+      "relation": "driver/interface"
+    },
+    {
+      "name": "wpa_supplicant",
+      "relation": "profile permission 600 with backup"
+    },
+    {
+      "name": "Ethernet",
+      "relation": "retained default route"
+    }
+  ],
+  "claims": [
+    {
+      "limitation": "historical snapshot",
+      "object": "WPA2 5GHz, DHCP 192.168.100.10/24, gateway 0% loss",
+      "evidence_excerpt": "Gateway respondeu por wlan0 com 0% de perda.",
+      "subject": "WiFi",
+      "confidence": "declarado",
+      "status": "functional test",
+      "relation": "function"
+    },
+    {
+      "limitation": "WiFi dongle only",
+      "object": "no USB controller found; onboard defect separate",
+      "evidence_excerpt": "nenhum controlador Bluetooth USB apareceu",
+      "subject": "Bluetooth",
+      "confidence": "declarado",
+      "status": "unavailable",
+      "relation": "probe"
+    }
+  ],
+  "lessons": [
+    "preserve Ethernet route while testing added radio",
+    "secure network profile permissions and backup prior configuration",
+    "do not infer Bluetooth capability from WiFi chipset"
+  ],
+  "sha256": "159484c6f73c5f6fb50c45c8fe6d6e5b5a08ca68f568c1efbcd36922497191c8",
+  "id": "2026-08-22-dongle-wifi-configurado-dietpi",
+  "manifest_title": "Dongle WiÔÇæFi Configurado na DietPi",
+  "url": "https://rabelus.com.br/posts/2026-08-22-dongle-wifi-configurado-dietpi.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Segurança e fronteiras"
+  ],
+  "body": "Estado funcional\n\nInterface: wlan0, Realtek RTL88x2BU, driver rtw88_8822bu.\n\nSSID: Rabelus_Lab.\n\nAssociação WPA2 concluída em 5 GHz, sinal reportado em -15 dBm.\n\nDHCP: 192.168.100.10/24.\n\nGateway respondeu por wlan0 com 0% de perda.\n\nPersistência e segurança\n\nAs dependências já presentes (iw, rfkill, wpasupplicant e ifupdown) foram aproveitadas. O perfil foi gravado em /etc/wpa_supplicant/wpa_supplicant.conf com permissão 600, e a configuração anterior foi preservada em /root/argenta-fenix-pi-backups/wifi-dongle-20260822-1957/.\n\nA Ethernet continua como rota padrão (192.168.100.93) e o Wi‑Fi externo funciona em paralelo. Isso confirma, na prática, que o cabo não impede a ativação do rádio USB.\n\nLimite conhecido\n\nO dongle detectado é Wi‑Fi; nenhum controlador Bluetooth USB apareceu. O Bluetooth onboard continua separado e defeituoso, como demonstrado nas auditorias anteriores.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

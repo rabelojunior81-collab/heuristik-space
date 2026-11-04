@@ -1,0 +1,71 @@
+{
+  "slug": "2026-08-29-o-timeout-nao-era-o-problema",
+  "title": "O Timeout Não Era o Problema",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "zcode",
+    "browser",
+    "diagnostico",
+    "telemetria"
+  ],
+  "file": "posts/2026-08-29-o-timeout-nao-era-o-problema.html",
+  "description": "A investiga├º├úo do Browser IAB no ZCode separou o limite interno de 3 segundos da indisponibilidade real da superf├¡cie de screenshot.",
+  "sha256": "3d199e6f9fe0fa28938c4ae60181f831a91ba062ddb18d2afe069b205298c42c",
+  "read_status": "read",
+  "summary": "IAB browser screenshot falhava backend_unavailable em 3001ms apesar DOM 5ms/MCP timeout 600s. Adicionou browser-use plugin config com snapshot/hash; reinício requerido antes de re-test, então status blocked.",
+  "projects": [
+    {
+      "name": "ZCode",
+      "status": "config adjusted"
+    },
+    {
+      "name": "Browser Use plugin 0.4.1",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "MCP",
+    "Browser Use",
+    "JSON config"
+  ],
+  "claims": [
+    {
+      "subject": "ZCode",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "O DOM respondeu em 5 milissegundos.",
+      "evidence_excerpt": "O DOM respondeu em 5 milissegundos.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Canary aponta falha da superfície screenshot"
+    },
+    {
+      "subject": "ZCode",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Browser permanece BLOCKED/NOT_VERIFIED",
+      "evidence_excerpt": "Browser permanece BLOCKED/NOT_VERIFIED",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Plugin carrega no boot e ainda não foi retestado"
+    }
+  ],
+  "lessons": [
+    "Canary aponta falha da superfície screenshot",
+    "Plugin carrega no boot e ainda não foi retestado"
+  ],
+  "id": "2026-08-29-o-timeout-nao-era-o-problema",
+  "manifest_title": "O Timeout N├úo Era o Problema",
+  "url": "https://rabelus.com.br/posts/2026-08-29-o-timeout-nao-era-o-problema.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "Duas camadas diferentes\n\nA documentação oficial do Browser Use define 3000 milissegundos como orçamento máximo para operações rotineiras de locator, load-state e evaluate. Esse limite não é o timeout do MCP: a chamada node_repl estava configurada para 600000 milissegundos. Aumentar a duração do MCP, portanto, não resolveria a captura.\n\nO canário que isolou a causa\n\nO backend iab foi listado como ZCode In-app Browser. A aba ativa foi recuperada por ID estável. O DOM respondeu em 5 milissegundos. A operação seguinte, isolada, retornou BrowserCommandError com code=backend_unavailable em 3001 milissegundos, trazendo browser ID, geração, tab ID e sideEffect=none.\n\nO log do ZCode confirmou o mesmo diagnóstico em browser.turn_screenshot.capture_failed. Ativar a visibilidade do painel não mudou o resultado. Isso elimina página, locator, viewport, painel oculto e timeout do MCP como causas primárias.\n\nA correção mínima\n\nO pacote oficial browser-use@0.4.1 estava instalado, mas a configuração CLI habilitava apenas computer-use. A entrada explícita de browser-use@zcode-plugins-official foi adicionada ao lado da existente. O JSON foi validado, o arquivo anterior recebeu snapshot e hash, e o rollback foi preservado.\n\nPor que ainda não é PASS\n\nPlugins são carregados no início da sessão. O processo que produziu o diagnóstico não recarrega a configuração no meio do trabalho; reiniciá-lo destruiria a própria sessão que registra a evidência. Por isso, o próximo boot deve repetir o canário. Até esse momento, Browser permanece BLOCKED/NOT_VERIFIED.\n\nTelemetria não é repetir mais vezes: é observar cada camada até saber onde a resposta deixou de existir.\n\nO relatório completo, o JSON do canário e o rollback estão versionados no Quantum Bus. Nenhum provider, gateway, serviço, credencial ou backend alternativo foi alterado.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

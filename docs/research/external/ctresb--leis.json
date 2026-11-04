@@ -1,0 +1,288 @@
+{
+  "slug": "ctresb--leis",
+  "name": "Legislação brasileira em Markdown (leis)",
+  "url": "https://github.com/ctresb/leis",
+  "category": "Brasil: dados públicos e APIs",
+  "summary": "O repositório organiza legislação brasileira em Markdown, com cabeçalhos estruturados, links de origem e ferramentas de coleta, conversão, contagem e auditoria. O README declara que os textos são conversões automáticas e OCR, recomenda conferir a fonte oficial e ressalva que não substituem Diário Oficial. O plano de escopo distingue universos estimados, índices oficiais, itens faltantes e tipos ainda sem meta; o progresso publicado no SHA consultado alerta que volume não prova integralidade ou qualidade. Há divergência relevante entre as 323.849 normas da base inicial histórica no README, mais de 1,2 milhão de documentos no relatório gerado em 28/10, e os dados do acervo local excluídos do versionamento. O código tem licença MIT, mas o GitHub retorna NOASSERTION para licença do repo; essa diferença deve ser preservada. Não é fonte jurídica suficiente para citar norma sem validação oficial.",
+  "topics": [
+    "legislação brasileira",
+    "normas",
+    "Markdown",
+    "OCR",
+    "dados abertos",
+    "Planalto",
+    "estados",
+    "municípios",
+    "histórico Git"
+  ],
+  "aliases": [
+    "leis em Markdown",
+    "base de legislação",
+    "normas brasileiras",
+    "acervo jurídico"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Objeto e cobertura pretendida",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o projeto reúne atos constitucionais e normas federais, estaduais/distritais, regulatórias, municipais e tratados; o plano inclui jurisprudência vinculante. A organização é por esfera, tipo e ano e pretende permitir navegação em texto simples. A cobertura efetivamente disponível é menor que o objetivo declarado, e a própria documentação identifica lacunas."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Formato dos documentos",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o README exemplifica cabeçalho YAML com título, UF, tipo, número, datas, ementa, situação, revogação, versão textual, publicação, URN, fonte e, quando aplicável, arquivo PDF; depois vem o corpo em Markdown. Um exemplo é a Constituição na raiz, cujo cabeçalho informa origem Planalto, data de obtenção e limites da compilação. A presença de metadados facilita rastreabilidade, mas não certifica fidelidade sem comparar com origem."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Coleta, conversão e proveniência",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o README relata conversões automáticas e OCR para documentos escaneados, indica links de fonte no cabeçalho e descreve que fontes integrais e recibos podem ser versionados com origem, captura e SHA-256. Também declara que `_fonte/` contém originais comprimidos e fica fora do versionamento. `scripts/plano.py` é descrito como fonte única do escopo; `scripts/progresso.py` lê esse plano, conta arquivos e audita pastas fora do plano. Isso documenta um mecanismo de cobertura e proveniência, mas não demonstra que cada captura permaneça acessível ou que o OCR esteja correto."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Integridade e métricas do acervo",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S3"
+      ],
+      "paragraphs": [
+        "RELATADO nos artefatos consultados: README descreve base histórica inicial de 323.849 normas; `PROGRESSO.md`, gerado em 28/10/2026, informa 1.201.847 documentos no acervo medido e cerca de 1,09 milhão frente a metas contadas/estimadas, com 7.637 pendências de integralidade excluídas até validação. O mesmo relatório alerta que volume não prova integralidade ou qualidade. As contagens têm data e universos distintos; não devem ser comparadas como se medissem a mesma unidade. O README informa 133,8 GB no diretório local em 1/11/2026, enquanto dados originais e índices não estão todos no Git."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Limites jurídicos e qualidade",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "paragraphs": [
+        "RELATADO: o projeto avisa que textos não substituem Diário Oficial e que conversões/OCR devem ser conferidas na origem. `scripts/plano.py` esclarece que certas metas são estimativas de dimensionamento e só devem virar número real com índice da fonte, tratamento de duplicatas e recortes. Situação vigente, redações compiladas, revogações, datas de eficácia, regras de transição e anexos exigem consulta à publicação oficial e, em caso de uso jurídico, análise qualificada. Esta pesquisa não verificou atualidade nem correção de qualquer norma."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Reprodução e auditoria",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: a documentação descreve scripts retomáveis, ferramenta de progresso e auditorias da base inicial; informa que o progresso pode ser conferido sem gravar. As auditorias registram hashes das dependências de cada lote e recomendam replay no commit que publicou o lote. Os originais e índices fora do Git são uma dependência de reprodução; sem eles, histórico versionado sozinho pode não permitir reconstruir toda a coleta. Nenhum script foi executado nesta pesquisa."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Licença, financiamento e infraestrutura",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S5"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: `LICENSE` aplica MIT ao código de `scripts/` e afirma que textos de normas públicas não são objeto de proteção autoral segundo o artigo citado pelo mantenedor. A licença do código foi lida; qualquer exceção de fonte/arquivo deve ser avaliada à parte. A API de metadados do GitHub reporta `NOASSERTION`, então não se deve apresentar repositório inteiro como categorizado MIT pelo GitHub. README exibe pedido de apoio via Pix e informa necessidade de espaço para acervo/OCR. O projeto declara não ter financiamento suficiente para infraestrutura; isso é relato do mantenedor, não auditoria financeira."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Estado e métricas do GitHub",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S6",
+        "S7"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público de 2026-11-03: 2.414 stars, 404 forks, 22 issues abertas, branch main, não arquivado; GitHub não identifica linguagem predominante. GitHub define stars como marcações feitas por usuários e forks como cópias no grafo do repositório; o contador de issues abertas não qualifica defeitos. O tamanho informado pela API é 8.582.635 KB e o repositório foi atualizado em 2/11. Métricas medem interesse/cópias e atividade, não qualidade jurídica. A busca de releases não foi concluída; estado de versões não identificado."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: é um exemplo útil de catálogo documental com fonte por item, metadados estruturados, indicadores de lacuna e conversão reprodutível. O aviso sobre OCR e autoridade da fonte oficial é uma boa prática para dados que podem afetar decisões. A escala do acervo, originais externos ao Git e possível fluxo de contribuição/revisão exigem armazenamento, checksums, validação e governança específicos; o formato Markdown não substitui esses controles."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Ensaios propostos e limites",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "PROPOSTA: selecionar amostra estratificada por esfera, tipo, idade, HTML/PDF e OCR; comparar campo a campo com publicação oficial e preservar hashes/recibo; reexecutar auditorias no SHA correspondente; medir duplicatas, anexos ausentes, revogações, vigência e qualidade de OCR; verificar restauração dos artefatos excluídos do Git. Se usado para consulta do Lab, mostrar sempre data de obtenção, fonte oficial e status de validação e evitar aconselhamento jurídico. Nenhuma comparação normativa, execução de scripts, varredura de todo o acervo ou parecer legal ocorreu nesta pesquisa."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/ctresb/leis/blob/c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6/README.md",
+      "kind": "docs",
+      "ref": "c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "README público; números históricos e avisos legais são declarações do projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Relatório PROGRESSO",
+      "url": "https://github.com/ctresb/leis/blob/c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6/PROGRESSO.md",
+      "kind": "docs",
+      "ref": "c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Artefato gerado em 28/10/2026; usa metas estimadas ou medidas, com limitações explícitas."
+    },
+    {
+      "id": "S3",
+      "title": "Plano e mecanismo de progresso",
+      "url": "https://github.com/ctresb/leis/tree/c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6/scripts",
+      "kind": "code",
+      "ref": "c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual de scripts/plano.py e scripts/progresso.py; sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "Constituição da raiz e cobertura",
+      "url": "https://github.com/ctresb/leis/blob/c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6/constituicao.md",
+      "kind": "code",
+      "ref": "c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Exemplo consultado de publicação com metadados de origem e ressalvas; sem validação jurídica."
+    },
+    {
+      "id": "S5",
+      "title": "Licença do código",
+      "url": "https://github.com/ctresb/leis/blob/c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6/LICENSE",
+      "kind": "license",
+      "ref": "c9f21b4ab11aa0d7ca6fe861d75028e94219c2d6",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "MIT para scripts, com texto adicional sobre normas públicas."
+    },
+    {
+      "id": "S6",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/ctresb/leis",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST de contagens, datas, estado e licença reportada como NOASSERTION."
+    },
+    {
+      "id": "S7",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Stars são bookmarks/contagem de usuários que marcaram; forks_count aparece no objeto de repo e forks são cópias derivadas. Ver docs REST de forks."
+    }
+  ],
+  "findings": [
+    {
+      "title": "O próprio projeto não trata o acervo como publicação oficial",
+      "certainty": "CONFIRMADO",
+      "detail": "README adverte que conversões e OCR não substituem Diário Oficial e pede consulta à fonte indicada.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Percentuais e contagens dependem de metas e datas diferentes",
+      "certainty": "CONFIRMADO",
+      "detail": "Relatório gerado em 28/10 separa estimativa, universo contado e documentos sem meta, e declara que volume não comprova qualidade.",
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "title": "Escopo de licença não é uniforme entre API e LICENSE",
+      "certainty": "CONFIRMADO",
+      "detail": "LICENSE aplica MIT a scripts; metadados GitHub retornam NOASSERTION para o repositório. O texto normativo precisa de análise separada.",
+      "source_ids": [
+        "S5",
+        "S6"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura estática pontual; scripts e base não executados",
+  "limitations": [
+    "Nenhum texto legal foi comparado com publicação oficial nem validado quanto à vigência.",
+    "Acervo local, originais e índices não estão todos no Git; o tamanho total local é declaração datada do README.",
+    "A pesquisa não percorreu todas as 1,2 milhão de entradas, fontes, hashes ou auditorias."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "ctresb/leis",
+    "html_url": "https://github.com/ctresb/leis",
+    "description": "Todas as leis do Brasil",
+    "homepage": null,
+    "default_branch": "main",
+    "created_at": "2026-10-15T01:40:37Z",
+    "updated_at": "2026-11-03T21:06:37Z",
+    "pushed_at": "2026-11-02T17:54:35Z",
+    "stargazers_count": 2415,
+    "forks_count": 404,
+    "open_issues_count": 22,
+    "subscribers_count": 50,
+    "network_count": 404,
+    "archived": false,
+    "disabled": false,
+    "language": null,
+    "topics": [],
+    "size": 8582635,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "fork": false
+  }
+}

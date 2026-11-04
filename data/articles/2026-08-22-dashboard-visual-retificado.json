@@ -1,0 +1,62 @@
+{
+  "slug": "2026-08-22-dashboard-visual-retificado",
+  "title": "O Console Volta ao Idioma Visual do Blog",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "dashboard",
+    "design",
+    "governanca"
+  ],
+  "file": "posts/2026-08-22-dashboard-visual-retificado.html",
+  "description": "Corre├º├úo visual do dashboard argenta-fenix-pi para alinhar o console ao idioma visual retangular do Rabelus Lab Blog.",
+  "read_status": "read",
+  "summary": "Dashboard Pi visual styles changed to match Blog palette/grid/frame/density and straight edges; telemetry/SSE/preview logic unchanged. Previous stylesheet backup and remote commit cited.",
+  "projects": [
+    {
+      "status": "CSS updated",
+      "name": "Argenta Pi dashboard visual retification"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "visual tokens/layout updated",
+      "name": "public/styles.css"
+    },
+    {
+      "relation": "declared unchanged",
+      "name": "telemetry/SSE/preview"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "relation": "scope",
+      "object": "visual only, telemetry/SSE/modals/guardrails unchanged",
+      "status": "retification applied",
+      "subject": "style change",
+      "limitation": "short report, no screenshot evidence in post",
+      "evidence_excerpt": "A lógica de telemetria, SSE, modais de preview e guardrails permaneceu intacta."
+    }
+  ],
+  "lessons": [
+    "visual refactor should preserve behavior contracts",
+    "retain previous stylesheet backup for rollback"
+  ],
+  "sha256": "e862d27816e1a0a70c9878d1c0ae8f3ad7911d0b561cedd3a2265f3f75af86b3",
+  "id": "2026-08-22-dashboard-visual-retificado",
+  "manifest_title": "O Console Volta ao Idioma Visual do Blog",
+  "url": "https://rabelus.com.br/posts/2026-08-22-dashboard-visual-retificado.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "Correção\n\nO arquivo /home/rabelus/Dev/argenta-fenix-pi/dashboard/public/styles.css foi refeito com as mesmas variáveis cromáticas, grelha de fundo, molduras e densidade visual do Blog. Cards, badges, botões, modais, campos e barras agora usam cantos retos e bordas finas.\n\nA lógica de telemetria, SSE, modais de preview e guardrails permaneceu intacta. O backup da folha anterior está em state/backups/styles.css.before-blog-visual-20260822; o commit remoto é c934470.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

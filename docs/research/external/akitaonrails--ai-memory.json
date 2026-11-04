@@ -1,0 +1,392 @@
+{
+  "slug": "akitaonrails--ai-memory",
+  "name": "akitaonrails/ai-memory",
+  "url": "https://github.com/akitaonrails/ai-memory",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "ai-memory busca continuidade entre agentes de programação por captura de ciclo de vida, wiki Markdown versionada e índice SQLite derivado. A versão consultada oferece hooks, MCP, handoffs com posse e busca híbrida, mantendo caminho padrão sem chamadas a LLM. O corpus público explica detalhadamente os caminhos de saída de dados e suas opções, incluindo embeddings locais com download inicial e providers externos opt-in. A pesquisa confirmou workspace Rust e dependências de SQLite, Tokio e HTTP, sem executar o produto. Para o Lab, é candidato relevante a estudo de interoperabilidade; não substitui o cânone, e instalação automática de hooks ou consolidação exige autorização própria.",
+  "topics": [
+    "memória de agentes",
+    "handoff",
+    "MCP",
+    "Rust",
+    "SQLite",
+    "Markdown",
+    "hooks",
+    "privacidade",
+    "busca híbrida"
+  ],
+  "aliases": [
+    "long term memory",
+    "continuidade",
+    "agent memory",
+    "wiki",
+    "troca de harness",
+    "memória persistente"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e unidade de memória",
+      "paragraphs": [
+        "O objetivo é permitir que outro harness retome trabalho sem reexplicar arquitetura, tentativas falhas e questões abertas. A unidade legível é uma página Markdown numa wiki com Git. Handoffs têm protocolo de posse e claim único segundo o mantenedor. Isso difere de recuperar apenas similaridade semântica: há identidade de sessão e responsabilidade pela passagem. Não foi demonstrado que todos os harnesses emitam eventos equivalentes ou que um handoff capture integralmente decisões humanas importantes."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura observada",
+      "paragraphs": [
+        "Cargo.toml confirma workspace Rust, mínimo 1.95, runtime Tokio, rusqlite com SQLite bundled, Axum e cliente HTTP. A arquitetura descreve separação entre store, LLM, CLI e transporte MCP. Wiki é fonte legível; SQLite fornece índices e estruturas derivadas, inclusive busca textual, entidades e vizinhança de links. Não exige manter banco vetorial separado. O número de features é amplo: auditar somente o binário de captura seria insuficiente para aprovar painel administrativo, automação e providers opcionais."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Captura e processamento",
+      "paragraphs": [
+        "Hooks registram observações sanitizadas de prompts, ferramentas e fronteiras de sessão. Consolidação pode seguir caminho local baseado em regras; opções LLM reescrevem páginas. A arquitetura afirma que histórico armazenado entra como dado não confiável, com separadores explícitos. Isso reduz ambiguidade de prompt, sem provar imunidade a injeção. A fidelidade depende do adaptador do harness, das regras de sanitização e do que os eventos realmente expõem. Não foram lidos transcripts privados nem executados hooks nesta missão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-4",
+      "title": "Busca, esquecimento e evidência",
+      "paragraphs": [
+        "A busca combina FTS, entidades, links e vetores opcionais. Retenção ponderada por uso e curvas por camada procuram evitar memória eternamente crescente. Algumas transformações que reescrevem ou descartam conteúdo ficam desabilitadas por padrão segundo o README. O original pode permanecer no Git ou cadeia de versões, mas isso exige distinguir remoção da vista, expiração e eliminação física. Para o Lab, uma busca que encontra algo não prova que encontrou a decisão vigente nem que resolve contradições normativas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-5",
+      "title": "Estado e recuperação",
+      "paragraphs": [
+        "A arquitetura apresenta Markdown como verdade e banco como derivado reconstruível, com estado bruto sanitizado de workstreams gerenciados em diretório próprio. Backup usa mecanismos adequados ao SQLite, não simples cópia cega de banco ativo. A reconstrução precisa preservar identidade, escopo e metadados. Não foi executado reindex, restore ou migração entre versões. Operação segura exigiria testar restauração num perfil isolado e verificar se handoffs e autorizações sobrevivem sem transformar índice perdido em perda de autoridade."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-6",
+      "title": "Providers e dados externos",
+      "paragraphs": [
+        "DATA_HANDLING.md descreve embeddings locais all-MiniLM-L6-v2 de 384 dimensões e download inicial de cerca de 87 MB; none evita o download. Embeddings remotos podem receber todo o texto de páginas, inclusive backfill do corpus existente. LLMs opcionais recebem observações e páginas para consolidação e outras funções; reranker recebe consulta e snippets. Webhooks de admissão podem receber corpo completo de escrita. Uma mudança de configuração pode alterar retroativamente o destino de dados previamente locais."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-7",
+      "title": "Autenticação e isolamento",
+      "paragraphs": [
+        "SECURITY.md documenta bearer, usuários, sessões humanas, rotas administrativas e permissões por projeto. Não-loopback sem autenticação falha fechado, salvo override explícito. TLS continua necessário fora de loopback; autenticar não cifra o transporte. O projeto distingue identidade atribuída por proxy confiável de direitos administrativos. Há validações de paths/reparse points e escopo descritas. Não se trata de prova de isolamento entre organizações hostis: confiança no operador, no proxy e nos grants continua parte do modelo."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-8",
+      "title": "Privacidade e limites",
+      "paragraphs": [
+        "Sem criptografia própria em repouso, a proteção depende de permissões e disco do sistema. Sanitização é best-effort e não cobre igualmente todos os caminhos de saída. Captura de texto final do assistente tem opt-in duplo segundo a política, mas destinos remotos continuam demandando revisão. Git também retém versões que parecem removidas da interface. O Lab precisaria mapear retenção, dados pessoais e corpus secreto por escopo antes de permitir captura automática; nenhuma configuração privada foi consultada ou alterada."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "Plataformas e integração",
+      "paragraphs": [
+        "README lista Linux e macOS suportados, WSL2 suportado e Windows nativo experimental. Integrações variam entre hooks completos, MCP-only e hooks-only; uma tabela ampla não garante paridade de retomada. Setup pode criar serviço e registrar componentes em vários agentes encontrados. Essa conveniência implica efeitos de ambiente relevantes. No Lab, estudo deve começar por plano de mudanças e amostra de um único consumidor, preservando launchers, atualizadores e configuração nativa, antes de qualquer integração familiar."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-10",
+      "title": "Licença e custos",
+      "paragraphs": [
+        "LICENSE é MIT, mas o custo de operação inclui disco, retenção histórica, CPU para embeddings e eventual inferência externa. Ausência de chamada LLM padrão não significa ausência de rede: download inicial existe. Opções de cloud têm contratos e cobrança próprios. A pesquisa não validou preço de API nem disponibilidade por subscription. O modelo de arquivos legíveis favorece portabilidade, mas migração e revisão de dados custam trabalho. Um piloto deve comparar ganho de continuidade ao custo de captura e curadoria."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Manutenção e pertinência",
+      "paragraphs": [
+        "Foram observados commit e release v3.3.3 em 3 de novembro de 2026, além de documentação extensa de segurança e dados. A rapidez de mudança aumenta a necessidade de fixar SHA e testar migração, em vez de concluir maturidade pela atividade. O diferencial frente a memória por harness é passagem explícita entre ferramentas; frente a vector store, é arquivo legível com índices derivados. Para o Lab, interessa comparar esse protocolo com posse e STATE existentes sem converter memória inferida em cânone."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-12",
+      "title": "Próximos ensaios propostos",
+      "paragraphs": [
+        "Após autorização, criar corpus público com decisões contraditórias e migração entre dois harnesses, verificando claim único, origem, datas e escopo. Testar zero-LLM sem internet após pré-carga, ausência de download em none, bloqueio de projeto e backup/restore. Medir recuperação de decisão vigente, ruído, vazamento entre perfis e alterações reais de setup. Revisar diff dos arquivos nativos antes de aplicar. Nenhuma instalação, migração, consulta a dados privados ou prova funcional ocorreu nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S9"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README oficial",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/README.md",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "docs",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Lido pelo plugin GitHub; alegações do mantenedor separadas de comprovação funcional."
+    },
+    {
+      "id": "S2",
+      "title": "Cargo.toml",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/Cargo.toml",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "code",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Blob 43f86c35bd7e2f082d3b52237c81e5881a02a24a; leitura estática, sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "SECURITY.md",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/SECURITY.md",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "docs",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Blob 5c03f1963938a50c4e463dc62c6af2762722b72b; leitura estática, sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "DATA_HANDLING.md",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/DATA_HANDLING.md",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "docs",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Blob 3a82e25b56feadeacd89e710595f7bc4a4d0d20f; leitura estática, sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "LICENSE",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/LICENSE",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "license",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Blob 746f96818c095e6653ea158d0626d6d435127d37; leitura estática, sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "docs/ARCHITECTURE.md",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/docs/ARCHITECTURE.md",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "docs",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Blob 21635b31b5669cb911de14fdbaaf4cec18a2bb45; leitura estática, sem execução."
+    },
+    {
+      "id": "S7",
+      "title": "crates/ai-memory-store/src/lib.rs",
+      "url": "https://github.com/akitaonrails/ai-memory/blob/8c39e4e6778b17aa103b02eb0a7ae327d63ba689/crates/ai-memory-store/src/lib.rs",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "code",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "Blob a7961250a22a206cc797dba45f5e86804c04592c; leitura estática, sem execução."
+    },
+    {
+      "id": "S8",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/akitaonrails/ai-memory/releases?per_page=2",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "release",
+      "ref": "snapshot 2026-11-03",
+      "note": "Consulta real da coleção, até duas releases; não equivale a teste dos binários."
+    },
+    {
+      "id": "S9",
+      "title": "Último commit da branch padrão consultado",
+      "url": "https://github.com/akitaonrails/ai-memory/commit/8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "accessed_at": "2026-11-03T20:08:04.490Z",
+      "kind": "code",
+      "ref": "8c39e4e6778b17aa103b02eb0a7ae327d63ba689",
+      "note": "release: v3.3.3"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Saída externa configurável",
+      "certainty": "RELATADO",
+      "detail": "Política enumera embeddings, LLM, reranker, webhooks e servidor remoto.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Sem criptografia em repouso própria",
+      "certainty": "RELATADO",
+      "detail": "SECURITY e DATA_HANDLING remetem a permissões do sistema.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Rust e SQLite",
+      "certainty": "CONFIRMADO",
+      "detail": "Manifesto contém runtime Tokio, rusqlite e transports HTTP/MCP.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Sem validação de compatibilidade real dos harnesses.",
+    "SECURITY usa algumas referências históricas a v1; preservar esse limite documental.",
+    "Arquivo de store tentado pode não corresponder ao entrypoint completo; arquitetura é principalmente documental."
+  ],
+  "related": [
+    "osolmaz--switch",
+    "charonyuu--whatsmyagentdoing",
+    "emanuele-em--kanzo"
+  ],
+  "metrics": {
+    "full_name": "akitaonrails/ai-memory",
+    "html_url": "https://github.com/akitaonrails/ai-memory",
+    "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+    "homepage": "",
+    "default_branch": "main",
+    "created_at": "2026-05-21T23:23:51Z",
+    "updated_at": "2026-11-03T20:58:17Z",
+    "pushed_at": "2026-11-03T19:24:36Z",
+    "stargazers_count": 15022,
+    "forks_count": 1085,
+    "open_issues_count": 17,
+    "subscribers_count": 74,
+    "network_count": 1085,
+    "archived": false,
+    "disabled": false,
+    "language": "Rust",
+    "topics": [],
+    "size": 44651,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

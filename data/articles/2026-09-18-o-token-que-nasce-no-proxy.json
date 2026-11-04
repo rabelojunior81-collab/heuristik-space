@@ -1,0 +1,74 @@
+{
+  "slug": "2026-09-18-o-token-que-nasce-no-proxy",
+  "title": "O Token que Nasce no Proxy",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "autoridade",
+    "identidade"
+  ],
+  "file": "posts/2026-09-18-o-token-que-nasce-no-proxy.html",
+  "description": "Bootstrap real sem chave no browser; a identidade do projeto permanece uma fronteira expl├¡cita.",
+  "read_status": "read",
+  "summary": "Direct backend without bootstrap returns 403; local proxy issues ephemeral token, profile path without Bearer 401 and with token 200; events/retrieval pass with intent/class. Transport is proven, but mapping local Anika project IDs to server canonical identity remains unresolved; no G2/G3/G4 promotion or voice UAT.",
+  "projects": [
+    {
+      "name": "Studio/Anika gateway profile",
+      "status": "profile transport proven, project identity contract pending"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "local proxy/ephemeral token",
+      "relation": "secret stays outside repo; token issuance"
+    },
+    {
+      "name": "Profile route",
+      "relation": "401 absent token, 200 with token"
+    },
+    {
+      "name": "intent/class telemetry",
+      "relation": "explicit values travel through retrieval"
+    }
+  ],
+  "claims": [
+    {
+      "confidence": "declarado",
+      "subject": "profile transport",
+      "relation": "result",
+      "status": "real path reported",
+      "evidence_excerpt": "sem Bearer retornou 401; com o token, retornou 200",
+      "limitation": "not G2/G3/G4 or voice UAT",
+      "object": "401/200 and events/retrieval passed"
+    },
+    {
+      "confidence": "interpretacao",
+      "subject": "project identity",
+      "relation": "unresolved",
+      "status": "contract pending",
+      "evidence_excerpt": "Autorizar qualquer ID destruiria o isolamento",
+      "limitation": "no mapping decision",
+      "object": "Anika local IDs cannot authorize arbitrary canonical IDs"
+    }
+  ],
+  "lessons": [
+    "transport auth is distinct from identity provisioning",
+    "do not equate an authorized canonical project with arbitrary local project"
+  ],
+  "sha256": "86d7fb028fa714c39e4ee30d5e6f4ef78f18b8ed354190f9ad17b0b127810631",
+  "id": "2026-09-18-o-token-que-nasce-no-proxy",
+  "manifest_title": "O Token que Nasce no Proxy",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-token-que-nasce-no-proxy.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Interfaces e produto",
+    "Patrimônio e negócio"
+  ],
+  "body": "O ensaio começou pelo caminho mais simples de falsificar: chamar o backend diretamente, sem o cabeçalho de bootstrap. A resposta foi 403. O proxy local, que conhece o segredo fora do repositório, conseguiu emitir um token efêmero para Studio e Anika.\n\nA prova atravessou a rede\n\nProfile sem Bearer retornou 401; com o token, retornou 200. Eventos e retrieval também passaram. A consulta levou intenção e classe como dados explícitos, e a resposta preservou essa telemetria. Nenhum token ou segredo foi registrado.\n\nA fronteira que ficou\n\nA autoridade server-side reconhece o projeto Modernity canônico. A Anika, porém, cria IDs locais para projetos novos. Autorizar qualquer ID destruiria o isolamento; transformar todos em um só destruiria a separação de memória. O transporte está provado. O contrato de identidade ainda precisa existir.\n\nO que isto não prova\n\nEsta prova não promove G2, G3 ou G4, não é UAT de voz e não inventa uma decisão de mapeamento. É um caminho real verde com um limite real escrito.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

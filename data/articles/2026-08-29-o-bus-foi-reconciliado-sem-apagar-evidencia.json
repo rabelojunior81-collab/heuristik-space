@@ -1,0 +1,92 @@
+{
+  "slug": "2026-08-29-o-bus-foi-reconciliado-sem-apagar-evidencia",
+  "title": "O Bus Foi Reconciliado sem Apagar Evidência",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "quantumbus",
+    "governanca",
+    "evidencia",
+    "zcode"
+  ],
+  "file": "posts/2026-08-29-o-bus-foi-reconciliado-sem-apagar-evidencia.html",
+  "description": "O merger can├┤nico reconciliou 83 eventos do Quantum Bus, arquivou tudo losslessly e passou no dry-run idempotente.",
+  "read_status": "read",
+  "summary": "Controlled quantum-merger after ff-only pull archived 83 events, updated aggregate and cleared only live append files; subsequent dry-run found no new events/duplicates/plan, supporting idempotence. Bootstrap aggregate remains RED at 103/64KB; ZCode IAB PARTIAL and other automatic behaviors NOT_VERIFIED.",
+  "projects": [
+    {
+      "name": "Quantum Bus reconciliation",
+      "status": "merge applied/idempotence checked; aggregate rotation pending"
+    }
+  ],
+  "technologies": [
+    {
+      "relation": "controlled archive/consolidation",
+      "name": "quantum-merger.py"
+    },
+    {
+      "relation": "precondition",
+      "name": "Git pull --ff-only"
+    },
+    {
+      "relation": "PARTIAL",
+      "name": "ZCode IAB"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "merger",
+      "evidence_excerpt": "Nenhuma evidência foi apagada.",
+      "object": "83 events archived, consolidated, only live files cleared",
+      "confidence": "declarado",
+      "relation": "applied",
+      "status": "controlled run reported"
+    },
+    {
+      "subject": "idempotence",
+      "evidence_excerpt": "zero eventos vivos, zero duplicatas e nenhum novo plano de archive",
+      "object": "0 live events/duplicates/new archive plans",
+      "confidence": "declarado",
+      "relation": "dry run",
+      "status": "repeat check pass"
+    },
+    {
+      "subject": "aggregate",
+      "evidence_excerpt": "isso é uma pendência de rotação versionada",
+      "object": "103/64 KB RED, rotation pending",
+      "confidence": "declarado",
+      "relation": "health",
+      "status": "red not integrity failure"
+    },
+    {
+      "subject": "browser automation",
+      "evidence_excerpt": "permanecem NOT_VERIFIED",
+      "object": "auto-load/compaction/publish/auto-sync not verified",
+      "confidence": "declarado",
+      "relation": "status",
+      "status": "unverified"
+    }
+  ],
+  "lessons": [
+    "archive proven events, preserve evidence, test idempotence",
+    "a clean second run does not cure aggregate threshold",
+    "state explicit which automation is unverified"
+  ],
+  "sha256": "71ba0c9dd8ed1f1bb955209abb4ffa985fea0b4e2b26d143b8cde693bfa7d8ff",
+  "id": "2026-08-29-o-bus-foi-reconciliado-sem-apagar-evidencia",
+  "manifest_title": "O Bus Foi Reconciliado sem Apagar Evid├¬ncia",
+  "url": "https://rabelus.com.br/posts/2026-08-29-o-bus-foi-reconciliado-sem-apagar-evidencia.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O problema era a defasagem\n\nO cross-channel-state.md permanecia datado de 22 de agosto, enquanto os canais acumulavam eventos de Codex, Hermes, AGY, OpenCode e ZCode. Isso impedia declarar sincronização global com honestidade.\n\nO que o merger fez\n\nO modo controlado do quantum-merger.py foi executado depois de um git pull --ff-only. Ele arquivou 83 eventos em bus/archive/2026-08/, atualizou o consolidado e limpou somente os arquivos vivos de eventos para novos appends. Nenhuma evidência foi apagada.\n\nA prova de idempotência\n\nUm segundo dry-run encontrou zero eventos vivos, zero duplicatas e nenhum novo plano de archive. Esse resultado confirma que a primeira aplicação não criou eco nem reprocessamento silencioso.\n\nSincronizar não é fazer o arquivo parecer novo: é consumir o que foi provado, preservar o histórico e conseguir repetir sem duplicar.\n\nO agregado de bootstrap permanece em 103/64 KB, classificado RED; isso é uma pendência de rotação versionada, não uma falha de integridade. O Browser IAB do ZCode continua PARTIAL, e auto-load, compaction, publicação automática e sync automático permanecem NOT_VERIFIED.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

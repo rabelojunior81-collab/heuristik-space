@@ -1,0 +1,340 @@
+{
+  "slug": "brasilapi--brasilapi",
+  "name": "BrasilAPI",
+  "url": "https://github.com/BrasilAPI/BrasilAPI",
+  "category": "Brasil: dados públicos e APIs",
+  "summary": "BrasilAPI oferece endpoints HTTP para dados e serviços brasileiros, incluindo CEP, CNPJ, bancos, câmbio e outras fontes. O guia de contribuição condiciona novos endpoints a fontes públicas/gratuitas e estáveis e tenta evitar banco próprio ou serviço pago, refletindo uma operação enxuta. O código pontual do endpoint CNPJ encaminha requisição à Minha Receita com timeout de cinco segundos e traduz indisponibilidade do provedor; é, portanto, uma integração que herda disponibilidade e semântica de terceiro. O pacote consultado ainda declara Node 24 e Next.js 12, embora contenha dependências adicionais de versões recentes; não se deve inferir runtime suportado sem resolver e testar o lockfile. Licença MIT. Nenhum endpoint foi chamado nesta pesquisa.",
+  "topics": [
+    "API",
+    "dados brasileiros",
+    "CEP",
+    "CNPJ",
+    "bancos",
+    "câmbio",
+    "serverless",
+    "fontes públicas"
+  ],
+  "aliases": [
+    "Brasil API",
+    "API Brasil",
+    "CEP Brasil",
+    "consulta CNPJ",
+    "dados públicos brasileiros"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o projeto disponibiliza endpoints brasileiros agrupados por domínio e versão; o README lista dados como CEP, CNPJ, bancos e câmbio e o repositório contém diretórios de API, serviços, documentação OpenAPI e testes. A existência de endpoint não garante a mesma cobertura para todos os estados/provedores, nem substitui fonte oficial para decisão cadastral ou legal."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura e protocolo",
+      "kind": "observed",
+      "source_ids": [
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: endpoints são handlers HTTP sob `pages/api`, delegando a services; `GET /api/cnpj/v1/[cnpj]` encaminha ao service e responde com status e dados. A documentação estabelece estrutura handler/service/teste e OpenAPI 3.0. Metadados do pacote declaram Node 24.x e Next.js 12.x, com outras dependências; versão declarada não foi comparada a requisitos do deploy atual."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Provedor e degradação",
+      "kind": "observed",
+      "source_ids": [
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no código do SHA consultado: `services/cnpj.js` envia requisição para `minhareceita.org/{cnpj}` via Axios, define timeout de 5 segundos e usa AbortController para limitar conexão e requisição. Falhas 5xx, ausência de resposta ou abortamento são convertidos em `ServiceUnavailableError`; o handler marca `Cache-Control: no-store` neste caso. Esse contrato mostra dependência externa e tratamento delimitado, não confirma disponibilidade, correção dos dados, rate limits ou comportamento sob carga."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Cache e atualidade",
+      "kind": "observed",
+      "source_ids": [
+        "S5"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: middleware `middlewares/cache.js` documenta `max-age=0`, `s-maxage` do proxy e `stale-while-revalidate` público. O comentário descreve cache de um dia para algumas respostas como exemplo de decisão antiga e menciona invalidação no deploy. Política concreta é chamada por endpoint; o trecho não prova que todo dado esteja atualizado nem que a fonte original corrija erros. O cache de informações cadastrais precisa considerar data de referência, origem, TTL e indisponibilidade."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Confiabilidade e observabilidade",
+      "kind": "analysis",
+      "source_ids": [
+        "S3",
+        "S4",
+        "S6"
+      ],
+      "paragraphs": [
+        "ANÁLISE: uma API agregadora uniformiza contratos e erros, mas pode esconder diferenças de fonte, cobertura, data, normalização e limites. Os testes de contrato listados no repositório são uma pista de governança; a presença de testes não equivale à execução atual nem a validação de dados upstream. É importante preservar proveniência por endpoint, tornar ausência de dados diferente de resposta vazia e expor falha de fornecedor sem atribuí-la ao consumidor."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Licença e sustentabilidade",
+      "kind": "official_claim",
+      "source_ids": [
+        "S2",
+        "S7"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: licença MIT em LICENSE. O guia de endpoints afirma que o projeto é open source e sem financiamento e proíbe dependência de banco próprio, storage ou serviço pago; a hospedagem declarada usa Vercel. O README inclui links de comunidade/apoio. São decisões e declarações do projeto; não houve auditoria de financiamento, orçamento, contrato de host ou continuidade do domínio."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Manutenção e métricas",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S6",
+        "S8",
+        "S10"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público 2026-11-03: 11.460 stars, 803 forks, 101 issues abertas, JavaScript, branch main e repositório não arquivado; push em 3/11. GitHub define stars como marcação de interesse e forks como cópias do repo; issues abertas são contador, não diagnóstico de defeitos. GitHub reconhece MIT. A API e o projeto existem desde 2020. Atividade não prova estabilidade de cada endpoint. A busca de releases não foi examinada em detalhe e suporte por versão não foi identificado nesta amostra."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Aderência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "ANÁLISE: pode reduzir trabalho de integração com fontes brasileiras, mas acrescenta uma camada intermediária e fonte upstream cujo status pode mudar. Para fluxo de alto impacto, registrar URL oficial, data/hora, provedor retornado, status de cache, TTL e fallback; validar em amostra com a fonte original. Um contrato simples de API não torna dado oficial ou autoritativo."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "source_ids": [
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "paragraphs": [
+        "PROPOSTA: para endpoint escolhido, conferir OpenAPI, validação de entrada, rate limiting, cache, origem upstream, uso de dados pessoais, termos do provedor, timeout/retry e tratamento de respostas obsoletas; comparar resultados com fonte oficial em casos válidos, inválidos, inexistentes e indisponíveis; executar testes de contrato do SHA e atualizar matriz de versões/runtime antes de integrar. Não chamar endpoint nem processar CPF/CNPJ real nesta pesquisa."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Limites da pesquisa",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "A análise é documental e estática, centrada em CNPJ e no guia de contribuição. Não houve requisição HTTP, validação de payload, teste de carga, revisão de todos os endpoints, auditoria de disponibilidade, segurança, privacidade, atualidade, custo de infraestrutura ou aceitação humana. Os totais do GitHub são retrato temporal."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Contrato de resposta e testes declarados",
+      "kind": "observed",
+      "source_ids": [
+        "S9"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: `tests/cnpj-v1.test.js` declara testes para CORS aberto, consulta de empresa conhecida, CNPJ válido não encontrado e entrada inválida com respostas 404/400. O caso de sucesso espera razão social específica. O próprio cabeçalho classifica o arquivo como E2E e utiliza `global.SERVER_URL`; isso implica dependência do ambiente de teste e/ou resposta upstream. A presença de teste não demonstra que tenha sido executado no SHA nem que todos os resultados upstream estejam sob controle do projeto."
+      ]
+    },
+    {
+      "id": "sec-12",
+      "title": "Fontes de dados públicas não são necessariamente oficiais",
+      "kind": "analysis",
+      "source_ids": [
+        "S3",
+        "S6"
+      ],
+      "paragraphs": [
+        "ANÁLISE: o guia pede fonte pública, gratuita, estável, mantida e documentada; é uma triagem de produto útil, mas esses critérios não significam que a fonte seja órgão oficial ou que os dados tenham garantias de atualização. Exemplo do CNPJ consulta `minhareceita.org`, não a Receita Federal diretamente. Para resultado de negócio, distinguir agregador/provedor, autoridade originária, data de atualização e limites de uso. Não foi consultada a fonte upstream nem feita avaliação contratual."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/README.md",
+      "kind": "docs",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "README oficial e lista de endpoints; não é garantia de disponibilidade."
+    },
+    {
+      "id": "S2",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/BrasilAPI/BrasilAPI",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST de estrelas, forks, issues, branch e licença."
+    },
+    {
+      "id": "S3",
+      "title": "Service CNPJ",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/services/cnpj.js",
+      "kind": "code",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura estática de timeout, provedor e tradução de indisponibilidade."
+    },
+    {
+      "id": "S4",
+      "title": "Handler CNPJ",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/pages/api/cnpj/v1/%5Bcnpj%5D.js",
+      "kind": "code",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura estática do handler e mapeamento de alguns erros."
+    },
+    {
+      "id": "S5",
+      "title": "Middleware de cache",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/middlewares/cache.js",
+      "kind": "code",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Comentário e implementação de Cache-Control; TTL por endpoint não inferido."
+    },
+    {
+      "id": "S6",
+      "title": "Guia de endpoints",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/docs/ENDPOINT_GUIDE.md",
+      "kind": "docs",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Requisitos e processo de contribuição declarados pelo projeto."
+    },
+    {
+      "id": "S7",
+      "title": "Licença MIT",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/LICENSE",
+      "kind": "license",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Texto da licença consultado no SHA."
+    },
+    {
+      "id": "S8",
+      "title": "Commit consultado",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/commit/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "kind": "metadata",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA retornado para main pelo GitHub."
+    },
+    {
+      "id": "S9",
+      "title": "Teste E2E do endpoint CNPJ",
+      "url": "https://github.com/BrasilAPI/BrasilAPI/blob/0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b/tests/cnpj-v1.test.js",
+      "kind": "code",
+      "ref": "0c229b4e56d0c8f789e1162b6a71d6ea1d54fc8b",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura do contrato declarado, sem execução."
+    },
+    {
+      "id": "S10",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Stars como bookmarks/contagem de usuários que marcaram; forks_count é campo do repo. Ver docs REST de forks para definição de fork."
+    }
+  ],
+  "findings": [
+    {
+      "title": "CNPJ é proxy de fonte externa e tem timeout explícito",
+      "certainty": "CONFIRMADO",
+      "detail": "Service consulta Minha Receita com timeout de 5s e traduz falhas de transporte/5xx para indisponibilidade.",
+      "source_ids": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Cache não é prova de atualidade",
+      "certainty": "CONFIRMADO",
+      "detail": "Middleware instrui cache público e stale-while-revalidate; TTL deve ser entendido por endpoint e fonte.",
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "title": "Guia impõe limite de dependência paga",
+      "certainty": "RELATADO",
+      "detail": "Guia oficial exige fonte pública e gratuita e diz não poder arcar com infra paga; política declarada, não auditoria financeira.",
+      "source_ids": [
+        "S6"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura estática do endpoint CNPJ; nenhum endpoint chamado",
+  "limitations": [
+    "Não foram testados endpoints, payloads, disponibilidade, atualidade ou cobertura dos provedores.",
+    "Não houve auditoria de dados pessoais, rate limits, cache por rota, dependências ou deploy.",
+    "Snapshots de métricas e SHA têm data de consulta; licença MIT cobre o repositório, não automaticamente dados upstream."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "BrasilAPI/BrasilAPI",
+    "html_url": "https://github.com/BrasilAPI/BrasilAPI",
+    "description": "Vamos transformar o Brasil em uma API?",
+    "homepage": "https://brasilapi.com.br",
+    "default_branch": "main",
+    "created_at": "2020-01-30T04:48:16Z",
+    "updated_at": "2026-11-03T20:29:36Z",
+    "pushed_at": "2026-11-03T13:04:01Z",
+    "stargazers_count": 11460,
+    "forks_count": 803,
+    "open_issues_count": 101,
+    "subscribers_count": 239,
+    "network_count": 803,
+    "archived": false,
+    "disabled": false,
+    "language": "JavaScript",
+    "topics": [],
+    "size": 7846,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

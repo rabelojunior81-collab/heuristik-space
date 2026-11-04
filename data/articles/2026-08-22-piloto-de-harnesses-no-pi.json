@@ -1,0 +1,79 @@
+{
+  "slug": "2026-08-22-piloto-de-harnesses-no-pi",
+  "title": "Qual Harness Cabe no Pi?",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "harness",
+    "arm64",
+    "piloto"
+  ],
+  "file": "posts/2026-08-22-piloto-de-harnesses-no-pi.html",
+  "description": "Uma compara├º├úo de custo de hardware e compatibilidade ARM64 para escolher o primeiro harness de agente no Raspberry Pi 3.",
+  "sha256": "39c1c1012ded395f8c5f9aba0dc6bd1036a7ccc2dfb7a0759b8d01eb9f1d4968",
+  "read_status": "read",
+  "summary": "Pi3 de 1GB comparou OpenCode ARM64, Pi Agent Node22, Kimi onedir, Hermes maior; Codex/Claude exigem 4GB+ oficialmente. Piloto proposto mede RSS/RAM/swap/CPU/temperatura/espaço/SD em mesma tarefa, um harness por vez.",
+  "projects": [
+    "Pi Agent",
+    "Gateway"
+  ],
+  "technologies": [
+    "npm",
+    "Python",
+    "OpenCode",
+    "Codex",
+    "Pi Agent",
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "considerado",
+      "object": "Pi3 pilot ranked OpenCode/Pi Agent/Kimi/Hermes based on RAM/architecture, not fame.",
+      "evidence_excerpt": "O melhor piloto não é o agente mais famoso: é o que deixa memória, energia e cartão suficientes para o trabalho. A regra do hardware O Pi 3 tem 1 GB de RAM. O modelo remoto faz a inferência, mas o cliente local ainda precisa manter runtime,",
+      "confidence": "interpretacao",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Codex/Claude CLIs excluded from first trial due official 4GB+ RAM requirement.",
+      "evidence_excerpt": "publicam requisito de 4 GB ou mais de RAM. Eles podem ter binários ARM64 e talvez iniciar, mas o Pi está abaixo do envelope oficial. Não são escolhas responsáveis para o piloto inicial. Como decidir com evidência Um harness por vez, sempre",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "considerado",
+      "object": "Same task/repo and one harness at a time with resource metrics proposed.",
+      "evidence_excerpt": "Um harness por vez, sempre o mesmo repositório e tarefa. Medimos RSS, RAM disponível, swap, CPU, temperatura, espaço e escrita no SD. Aquele que preservar estabilidade ganha o próximo ciclo. O piloto não precisa provar que o Pi faz tudo; pr",
+      "confidence": "interpretacao",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Pi3 pilot ranked OpenCode/Pi Agent/Kimi/Hermes based on RAM/architecture, not fame.",
+    "Codex/Claude CLIs excluded from first trial due official 4GB+ RAM requirement.",
+    "Same task/repo and one harness at a time with resource metrics proposed."
+  ],
+  "id": "2026-08-22-piloto-de-harnesses-no-pi",
+  "manifest_title": "Qual Harness Cabe no Pi?",
+  "url": "https://rabelus.com.br/posts/2026-08-22-piloto-de-harnesses-no-pi.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "A regra do hardware\n\nO Pi 3 tem 1 GB de RAM. O modelo remoto faz a inferência, mas o cliente local ainda precisa manter runtime, contexto, busca, processos filhos, sessões e, às vezes, navegador. O custo real aparece nos picos, não apenas no prompt parado.\n\nO ranking preliminar\n\nOpenCode CLI: binário ARM64 e pouca bagagem; candidato mais econômico, com teste obrigatório por relatos históricos de incompatibilidade em Raspberry Pi.\n\nPi Agent CLI: mínimo e extensível, mas baseado em Node 22 e dependências npm; bom segundo piloto.\n\nKimi CLI: ARM64 explícito e artefato onedir; custo moderado de Python/uv e armazenamento.\n\nHermes: poderoso, mas Python + Node + ffmpeg + browser/gateway o tornam grande para o primeiro ensaio; usar apenas headless depois.\n\nFora do primeiro ensaio\n\nCodex CLI e Claude CLI publicam requisito de 4 GB ou mais de RAM. Eles podem ter binários ARM64 e talvez iniciar, mas o Pi está abaixo do envelope oficial. Não são escolhas responsáveis para o piloto inicial.\n\nComo decidir com evidência\n\nUm harness por vez, sempre o mesmo repositório e tarefa. Medimos RSS, RAM disponível, swap, CPU, temperatura, espaço e escrita no SD. Aquele que preservar estabilidade ganha o próximo ciclo.\n\nO piloto não precisa provar que o Pi faz tudo; precisa revelar o que ele faz bem sem perder o fôlego.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

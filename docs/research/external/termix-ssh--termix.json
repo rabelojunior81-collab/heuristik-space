@@ -1,0 +1,338 @@
+{
+  "slug": "termix-ssh--termix",
+  "name": "Termix",
+  "url": "https://github.com/Termix-SSH/Termix",
+  "category": "Infraestrutura self-hosted",
+  "summary": "Termix é uma plataforma de administração de servidores, com inventário de hosts, credenciais, usuários, compartilhamento e sessões. Na revisão consultada, SSH, arquivos, desktop remoto e métricas são funções de plugins; o núcleo e cada plugin têm responsabilidades e repositórios separados. Há distribuição web, desktop e móvel e bancos SQLite, PostgreSQL e MySQL. Isso aproxima Termix de um console operacional compartilhado, com ganho de conveniência e concentração de acesso privilegiado. Para o Lab, a hipótese é organizar conexões e papéis, preservando entrada nativa SSH e recuperação fora do painel. A pesquisa não abriu sessões remotas, não importou chaves e não verificou criptografia ou isolamento por teste.",
+  "topics": [
+    "SSH",
+    "SFTP",
+    "administração",
+    "credenciais",
+    "plugins",
+    "RBAC",
+    "desktop remoto",
+    "self-hosted"
+  ],
+  "aliases": [
+    "Termius alternativo",
+    "terminal web",
+    "gestão de servidores",
+    "server management",
+    "cofre de conexões"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Domínio e núcleo",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README define núcleo para hosts, credenciais, usuários, permissões, compartilhamento e sessões. Funções de operação ficam em plugins ativáveis ou removíveis. A distinção importa porque comparar o produto com um simples terminal SSH esconde sua dimensão de identidade e inventário. Salvar todos os acessos em um painel facilita uso cotidiano, mas também faz desse painel uma dependência importante para administração e recuperação."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura observada",
+      "kind": "observed",
+      "paragraphs": [
+        "O repositório possui frontend, backend TypeScript, desktop Electron, migrações e SDK de plugins. O manifesto descreve scripts de desenvolvimento e empacotamento; o código de conexão de banco distingue dialetos e configuração de URL. Essa organização mostra produto com estado e ciclo de migração, não apenas um frontend sem persistência. Não foi verificada a equivalência de recursos entre pacotes móveis, desktop e servidor nem a execução em qualquer plataforma."
+      ],
+      "source_ids": [
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "SSH e extensibilidade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O terminal SSH oficial tem repositório próprio, assim como arquivos e outros plugins. O núcleo fornece acesso e contexto, mas uma capacidade instalada precisa ser avaliada na sua versão específica. Comunidade e registries adicionais ampliam opções e cadeia de confiança. Uma tela de catálogo não certifica revisão de código, permissões mínimas ou compatibilidade. Qualquer ensaio do Lab deve registrar núcleo, plugin e backend remoto, evitando atribuir problema de uma camada à outra."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Autenticação e sessões",
+      "kind": "observed",
+      "paragraphs": [
+        "A leitura de core-auth e da árvore confirma módulo próprio de autenticação, emissão de sessões, métodos de login e políticas. O README anuncia contas locais, revogação de sessões, dispositivos confiáveis, API keys e auditoria. A existência desses mecanismos é diferente de comprovar suas garantias em todas as rotas. Não foram testados expiração, logout simultâneo, revogação de token, recuperação de conta ou restrição de API por usuário."
+      ],
+      "source_ids": [
+        "S4",
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Papéis e credenciais",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O autor descreve níveis connect, view, edit e manage para hosts, pastas e credenciais e criptografia por usuário. Permitir conexão sem revelar um segredo é um objetivo operacional específico, que exige teste de exportação, logs e uso indireto. Um usuário autorizado a conectar pode executar ações remotas de grande alcance mesmo sem ler a senha. Separar permissão de painel de privilégio no sistema remoto continua indispensável."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Persistência e sincronização",
+      "kind": "observed",
+      "paragraphs": [
+        "O núcleo declara SQLite como padrão e suporte a PostgreSQL e MySQL; o módulo connect.ts implementa a fronteira de conexão. O README anuncia cópia offline da conta no desktop quando vinculado ao servidor. Isso multiplica superfícies persistentes e exige entender quais segredos e sessões permanecem em cada dispositivo. Backup somente do banco remoto pode não representar tudo; revogação no servidor precisa ser confrontada com comportamento offline e restauração."
+      ],
+      "source_ids": [
+        "S5",
+        "S1"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Deploy e dependências",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O exemplo oficial usa container, porta8080 e volume em /app/data. Rodar na mesma rede administrada é conveniente, mas uma falha dessa rede pode tornar o painel indisponível; o autor oferece VPS como alternativa. VPS muda residência de credenciais e tráfego e possui custo próprio. Nenhuma topologia foi escolhida nesta pesquisa. TLS, proxy, firewall e acesso de emergência são decisões de implantação, não consequências automáticas de usar Docker."
+      ],
+      "source_ids": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Segurança e cadeia de plugins",
+      "kind": "analysis",
+      "paragraphs": [
+        "O risco relevante é concentração: hosts, chaves, compartilhamentos e sessão remota se encontram numa aplicação extensível. A licença e o código aberto permitem inspeção, mas não comprovam proteção contra vazamento ou plugin comprometido. O catálogo de variáveis ajuda inventariar opções, sem provar que uma instalação concreta está configurada corretamente. O ensaio deve começar sem credenciais reais e sem acesso à LAN de produção, com destino descartável e privilégio mínimo."
+      ],
+      "source_ids": [
+        "S1",
+        "S4",
+        "S6"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Licença e custo",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE contém Apache2.0. O README declara ausência de planos pagos e financiamento por doações. Isso é modelo comercial informado pelo autor, não garantia eterna de disponibilidade. Operar requer host, atualização, armazenamento, backup e eventualmente VPS. Plugins e componentes têm suas próprias licenças e contratos a conferir antes de redistribuição. Nenhum cálculo de custo total ou parecer jurídico foi realizado nesta pesquisa."
+      ],
+      "source_ids": [
+        "S3",
+        "S1"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Manutenção e releases",
+      "kind": "observed",
+      "paragraphs": [
+        "O commit consultado atualiza cask de26.11.0. A coleção de releases inclui26.11.1-beta.1 e26.11.0; a beta alerta sobre mudanças de banco e necessidade de backup. O release estável relata correções de escrita de banco e autenticação combinada. Essas notas mostram quais caminhos o mantenedor alterou, sem provar desempenho ou ausência de regressão. O objeto que entra em teste deve ser uma versão fixada, incluindo pins de plugins."
+      ],
+      "source_ids": [
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Alternativas e pertinência",
+      "kind": "analysis",
+      "paragraphs": [
+        "SSH nativo com configuração de hosts preserva um caminho simples e auditável; Termix acrescenta interface, compartilhamento e organização. FileBrowser Quantum resolve gestão de arquivos por web, sem substituir terminal; krd controla desktop macOS pelo terminal e tem outra fronteira. A hipótese para o Lab é reduzir dispersão de acessos operacionais, desde que não transforme personalização em bloqueio do cliente nativo ou concentre credenciais sem recuperação comprovada."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Criar host descartável com chaves temporárias e verificar conexão, host key, interrupção e reconexão. Testar os quatro níveis com dois usuários, vazamento por exportação e logs, revogação, modo offline e restauração de banco. Desativar plugin e conferir o que deixa de funcionar. Medir atualização e rollback entre versões fixadas. Usabilidade por teclado, idioma e erros também precisa de prova; nenhuma conexão ou instalação foi executada nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S4",
+        "S5",
+        "S8"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/Termix-SSH/Termix/blob/6b06059411e517e4038531ddae756c7530516e13/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "docs",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S2",
+      "title": "package.json",
+      "url": "https://github.com/Termix-SSH/Termix/blob/6b06059411e517e4038531ddae756c7530516e13/package.json",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "code",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/Termix-SSH/Termix/blob/6b06059411e517e4038531ddae756c7530516e13/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "license",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S4",
+      "title": "src/backend/auth/core-auth.ts",
+      "url": "https://github.com/Termix-SSH/Termix/blob/6b06059411e517e4038531ddae756c7530516e13/src/backend/auth/core-auth.ts",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "code",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S5",
+      "title": "src/backend/database/db/connect.ts",
+      "url": "https://github.com/Termix-SSH/Termix/blob/6b06059411e517e4038531ddae756c7530516e13/src/backend/database/db/connect.ts",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "code",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S6",
+      "title": "env.catalog.json",
+      "url": "https://github.com/Termix-SSH/Termix/blob/6b06059411e517e4038531ddae756c7530516e13/env.catalog.json",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "code",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY."
+    },
+    {
+      "id": "S7",
+      "title": "Commit consultado",
+      "url": "https://github.com/Termix-SSH/Termix/commit/6b06059411e517e4038531ddae756c7530516e13",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.612Z",
+      "kind": "metadata",
+      "ref": "6b06059411e517e4038531ddae756c7530516e13",
+      "note": "chore: bump Homebrew cask to 26.11.0"
+    },
+    {
+      "id": "S8",
+      "title": "Releases consultadas",
+      "url": "https://github.com/Termix-SSH/Termix/releases/tag/v26.11.1-beta.1",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:09:41.614Z",
+      "kind": "release",
+      "ref": "não identificado",
+      "note": "v26.11.1-beta.1; v26.11.0"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Funções em plugins",
+      "certainty": "RELATADO",
+      "detail": "README atual separa núcleo e ferramentas operacionais em plugins.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Bancos alternativos",
+      "certainty": "CONFIRMADO",
+      "detail": "Há módulo de conexão por dialeto e declaração de SQLite/PostgreSQL/MySQL.",
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "title": "Concentração de acesso",
+      "certainty": "HIPÓTESE",
+      "detail": "Compartilhar painel de credenciais altera o impacto operacional de falhas e exige bancada segregada.",
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Nenhum teste funcional, de segurança, desempenho ou recuperação foi executado.",
+    "Custos e serviços terceiros dependem da conta, região, volume e condições vigentes; valores do autor são alegações datadas.",
+    "A análise estática amostra o mecanismo e não certifica segurança, privacidade, conformidade ou adequação operacional."
+  ],
+  "related": [
+    "gtsteffaniak--filebrowser",
+    "zzjcool--krd",
+    "yetone--alma-relay"
+  ],
+  "metrics": {
+    "full_name": "Termix-SSH/Termix",
+    "html_url": "https://github.com/Termix-SSH/Termix",
+    "description": "Self-hosted, plugin-based server management.",
+    "homepage": "https://termix.site/",
+    "default_branch": "main",
+    "created_at": "2024-11-25T02:46:36Z",
+    "updated_at": "2026-11-03T20:40:46Z",
+    "pushed_at": "2026-11-03T15:23:13Z",
+    "stargazers_count": 15810,
+    "forks_count": 765,
+    "open_issues_count": 10,
+    "subscribers_count": 50,
+    "network_count": 765,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "docker",
+      "homelab",
+      "plugins",
+      "rdp",
+      "remote-desktop",
+      "self-hosted",
+      "server-management",
+      "sftp",
+      "ssh",
+      "terminal",
+      "termix",
+      "vnc"
+    ],
+    "size": 86772,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

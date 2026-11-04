@@ -1,0 +1,342 @@
+{
+  "slug": "melgarafael--deskcommcrm",
+  "name": "DeskcommCRM",
+  "url": "https://github.com/melgarafael/DeskcommCRM",
+  "category": "Negócios e produtividade",
+  "summary": "DeskcommCRM se apresenta como CRM open source e sistema de vendas pelo WhatsApp com agentes de IA, self-hosting, multitenancy e integração WAHA. O README recomenda implantação em VPS com kit HostGator, e o código consultado confirma um endpoint MCP HTTP stateless autenticado por bearer token e uma política de MFA administrativa configurável. A licença MIT reduz restrições autorais do código, mas não elimina dependências, custos de VPS, WhatsApp, modelos ou terceiros. É um produto de escopo operacional amplo e com dados pessoais de clientes; alegações de LGPD e segurança são do projeto, não certificações independentes. Nenhuma instalação, configuração ou validação funcional foi realizada.",
+  "topics": [
+    "CRM",
+    "WhatsApp",
+    "agentes de IA",
+    "MCP",
+    "self-hosted",
+    "multitenancy",
+    "Supabase",
+    "LGPD",
+    "vendas"
+  ],
+  "aliases": [
+    "Deskcomm",
+    "CRM WhatsApp",
+    "agentes de vendas",
+    "MCP",
+    "WAHA",
+    "self-hosted CRM"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e escopo",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "CONFIRMADO como descrição do repositório: CRM focado em vendas e atendimento pelo WhatsApp, com agentes de IA, automação, integrações e uso por múltiplas organizações. O README promove alternativas a produtos comerciais e contém instruções de instalação em VPS. São declarações do mantenedor, não prova de paridade funcional ou de operação segura em produção."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura, integração e automação",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o README declara Next.js 16, TypeScript, Supabase/PostgreSQL/Auth/Storage, integração WhatsApp via WAHA e kit Docker/VPS. O endpoint `app/api/mcp/route.ts` implementa transporte MCP Streamable HTTP, cria servidor/transporte por requisição e autentica bearer tokens em `api_tokens`; o comentário declara que plaintext do bearer não é logado. O comentário é intenção documentada no código, não auditoria de logs abrangente."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Identidade, controles e privacidade",
+      "kind": "observed",
+      "source_ids": [
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o código inclui política de MFA, autenticação e separação multi-tenant; SECURITY.md lista risco de vazamento entre tenants, RBAC, dados de contato/conversas/mídia e segredos como áreas de reporte. O endpoint MCP valida token bearer. Não examinei todas as políticas RLS, rotas, integrações WhatsApp, webhooks, permissões ou fluxos de remoção/exportação de dados. A autodescrição LGPD não equivale a avaliação jurídica nem demonstra conformidade."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Operação e implantação",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1",
+        "S5"
+      ],
+      "paragraphs": [
+        "RELATADO pelo README: o caminho recomendado instala app, integração WhatsApp e banco em VPS via kit de instalação, com runbook de produção e parceria comercial com HostGator. Self-hosting transfere ao operador tarefas de atualização, backup, TLS, firewall, monitoramento, restauração, gestão de segredos e incidentes. Não foi conferida a sequência de scripts, requisitos mínimos, exposição de portas, política de backup ou custo atual da VPS."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Licença, custo e manutenção",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público de 2026-11-03: MIT, TypeScript, 5.106 stars, 1.453 forks e 374 issues abertas; não arquivado, branch main; atividade no mesmo dia. GitHub define stars como marcações de usuários e forks como cópias no grafo do repositório; esses números medem interesse/reuso, não qualidade. Releases públicas não retornaram itens na primeira consulta. LICENSE contém MIT. Issues abertas são contador do repositório, não defeitos confirmados. Custos de VPS, provedores de IA, WhatsApp/WAHA, serviços externos e manutenção não são cobertos pela licença."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Relevância e limites para o Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: referência potencial para integração MCP, automações orientadas a negócio e separação multi-tenant, mas o domínio trata dados pessoais, mensagens, mídia e comunicação externa. A superfície funcional e a carga de operação são muito maiores que um componente local. A adoção exigiria decisão explícita de produto, modelagem de dados, avaliação de risco e testes em ambiente sintético; esta pesquisa não recomenda conectar contas, canais ou dados reais."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Ensaios propostos",
+      "kind": "analysis",
+      "source_ids": [
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "paragraphs": [
+        "PROPOSTA: antes de qualquer piloto, revisar migrations e RLS por tenant; testar autorização horizontal, MFA, recuperação e revogação de bearer; mapear dados enviados a modelos e retenção; simular webhooks duplicados, falhas do WhatsApp e retries; conferir backup/restauração, atualização e hardening de VPS; revisar licença de dependências e termos dos providers. Ensaios somente com identidades, mensagens e contatos sintéticos. Nenhum teste foi executado nesta pesquisa."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Instalação e schema de banco",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "RELATADO com destaque no README para quem contribui: migrations 0001–0009 e 0013 seriam stubs `SELECT 1`; o schema real estaria em `supabase/baseline.sql`, que o instalador de VPS aplica. O README avisa que `supabase db push` pode terminar sem erro e deixar o banco vazio, e que extensão `vector`, `citext` e `pg_trgm` precisa ser ativada antes em um Supabase novo. Isso constitui risco de bootstrap e documentação operacional que precisa ser seguido; não foi reproduzido, e a instrução do projeto pode mudar no branch."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Integrações de IA e canais",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1",
+        "S4"
+      ],
+      "paragraphs": [
+        "RELATADO pelo README: stack de IA usa Vercel AI SDK e pode integrar OpenRouter, Requesty, Anthropic, OpenAI e Google; o instalador pergunta provider e a interface permite trocar depois. Integrações de canal incluem WAHA e Meta Cloud API, além de Nuvemshop. A escolha concreta, transferência de histórico/contexto, retenção, subprocessadores, guardrails, custo e requisitos de canal dependem da configuração de cada tenant. O endpoint MCP consulta capacidade organizacional; não foi demonstrado quais ferramentas ficam habilitadas por padrão."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Filas, webhooks e reprocessamento",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "RELATADO: README diz que eventos entram em `event_log` e são consumidos por uma rota cron periódica; triggers do banco não chamam HTTP diretamente. Automações nasceriam pausadas até revisão, registram atividade e podem ser reenviadas manualmente quando uma chamada externa falha. Sem o cron, automações podem existir sem rodar. O padrão é útil, mas duplicação, ordem, idempotência, dead letters, vazamento de segredo em URL de webhook e consequências de reenvio precisam de ensaios."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Superfície funcional e risco de configuração",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: a tabela de telas inclui inbox, funil, agentes, RAG, memória, conectores, métricas, billing, audit log e solicitações LGPD; o que parece um CRM simples inclui uma plataforma de automação e administração. Essa amplitude eleva custo de configuração, atualização e governança. O caminho HostGator é promovido como principal, mas projeto também lista outras VPS/provedores e uma rota local de desenvolvimento; requisitos e custo devem ser calculados para a arquitetura realmente selecionada."
+      ]
+    },
+    {
+      "id": "sec-12",
+      "title": "Gate de qualidade declarado",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1",
+        "S5"
+      ],
+      "paragraphs": [
+        "RELATADO: README enumera checks para typecheck, lint, unit tests, shell tests, invariants em Postgres efêmero, E2E e verificação de imagens, e afirma que branch protection exige determinados checks. O próprio documento alerta que a quantidade/contexto muda e manda medir o estado atual. A existência de suíte e de regra declarada não comprova que CI estava verde no SHA, que cobertura é completa ou que self-host tem paridade; não executei nem consultei workflow status."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README em português",
+      "url": "https://github.com/melgarafael/DeskcommCRM/blob/c723d4ae6cf82e363dd992e111606acdc43af69d/README.md",
+      "kind": "docs",
+      "ref": "c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "README oficial consultado via GitHub; alegações de marketing e implantação permanecem atribuídas ao projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/melgarafael/DeskcommCRM",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST público: contagens, linguagem, licença e atividade."
+    },
+    {
+      "id": "S3",
+      "title": "Endpoint MCP",
+      "url": "https://github.com/melgarafael/DeskcommCRM/blob/c723d4ae6cf82e363dd992e111606acdc43af69d/app/api/mcp/route.ts",
+      "kind": "code",
+      "ref": "c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual do endpoint e comentários; sem requisição ou execução."
+    },
+    {
+      "id": "S4",
+      "title": "Política MFA e SECURITY.md",
+      "url": "https://github.com/melgarafael/DeskcommCRM/tree/c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "kind": "code",
+      "ref": "c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Leitura pontual de app/actions/auth/politicaDeMfa.ts e SECURITY.md."
+    },
+    {
+      "id": "S5",
+      "title": "Commit consultado",
+      "url": "https://github.com/melgarafael/DeskcommCRM/commit/c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "kind": "metadata",
+      "ref": "c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA retornado para main; commit de merge no dia da consulta."
+    },
+    {
+      "id": "S6",
+      "title": "Licença MIT",
+      "url": "https://github.com/melgarafael/DeskcommCRM/blob/c723d4ae6cf82e363dd992e111606acdc43af69d/LICENSE",
+      "kind": "license",
+      "ref": "c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Texto de LICENSE consultado no SHA."
+    },
+    {
+      "id": "S7",
+      "title": "Arquitetura e operação descritas no README",
+      "url": "https://github.com/melgarafael/DeskcommCRM/blob/c723d4ae6cf82e363dd992e111606acdc43af69d/README.md",
+      "kind": "docs",
+      "ref": "c723d4ae6cf82e363dd992e111606acdc43af69d",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Tópicos sobre schema baseline, providers, event_log, cron, canais e telas; declarações do projeto."
+    },
+    {
+      "id": "S8",
+      "title": "Definições GitHub de stars",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "GitHub define stars como bookmarks/contagem de usuários que marcaram o repositório; forks são cópias no grafo do projeto."
+    }
+  ],
+  "findings": [
+    {
+      "title": "MCP com autenticação bearer",
+      "certainty": "CONFIRMADO",
+      "detail": "Endpoint stateless usa transporte Streamable HTTP e valida bearer token; não logar plaintext está documentado em comentário, não auditado em todos os logs.",
+      "source_ids": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Risco de dados pessoais e isolamento entre tenants",
+      "certainty": "CONFIRMADO",
+      "detail": "SECURITY.md reconhece esses riscos e os tipos de dados; a pesquisa não verificou eficácia dos controles.",
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "title": "Conformidade LGPD permanece alegação",
+      "certainty": "NÃO IDENTIFICADO",
+      "detail": "Não foi conduzida avaliação legal ou auditoria de tratamento, retenção, bases legais, operadores ou direitos dos titulares.",
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura estática pontual; não instalado nem executado",
+  "limitations": [
+    "Não foram executados scripts de instalação nem inspecionada infraestrutura VPS.",
+    "Sem auditoria completa de RLS, MFA, MCP, webhooks, dependências ou tratamento LGPD.",
+    "Métricas e atividade são snapshot de 2026-11-03; custo e termos de terceiros não foram cotados."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "melgarafael/DeskcommCRM",
+    "html_url": "https://github.com/melgarafael/DeskcommCRM",
+    "description": "Open-source AI sales OS — self-hosted CRM with native AI agents + WhatsApp (WAHA). Open alternative to Kommo, Octadesk & Intercom for any business that sells by chat. MCP-ready, multi-tenant, LGPD.",
+    "homepage": "https://deskcomm.com.br",
+    "default_branch": "main",
+    "created_at": "2026-04-28T20:00:33Z",
+    "updated_at": "2026-11-03T20:57:09Z",
+    "pushed_at": "2026-11-03T21:04:58Z",
+    "stargazers_count": 5107,
+    "forks_count": 1453,
+    "open_issues_count": 374,
+    "subscribers_count": 27,
+    "network_count": 1453,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "ai",
+      "ai-agents",
+      "chatbot",
+      "crm",
+      "customer-support",
+      "ecommerce",
+      "lgpd",
+      "mcp",
+      "multi-tenant",
+      "nextjs",
+      "nuvemshop",
+      "open-source",
+      "rag",
+      "sales-automation",
+      "self-hosted",
+      "supabase",
+      "typescript",
+      "waha",
+      "whatsapp",
+      "whatsapp-api"
+    ],
+    "size": 406360,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

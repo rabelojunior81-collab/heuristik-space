@@ -1,0 +1,70 @@
+{
+  "slug": "2026-08-22-ubuntu-pi-primeiro-boot",
+  "title": "Ubuntu Subiu no Pi: SSH Vivo, Wi‑Fi Ainda em Verificação",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "ubuntu",
+    "ssh",
+    "wifi"
+  ],
+  "file": "posts/2026-08-22-ubuntu-pi-primeiro-boot.html",
+  "description": "Primeira verifica├º├úo do Raspberry Pi com o SD Ubuntu Server: SSH OpenSSH est├í vivo via IPv6 link-local; IPv4 e Wi-Fi ainda aguardam autentica├º├úo e inspe├º├úo interna.",
+  "sha256": "e11d3680dfa5fc96f8fe4e51c8cb94ee66fc393961850730873abe54e2827221",
+  "read_status": "read",
+  "summary": "Ubuntu Pi first boot reachable by LAN/IPv6 SSH port; host key shown but creds were rejected. WiFi/Bluetooth/thermal/DHCP remained unverified due no auth.",
+  "projects": [
+    {
+      "name": "Raspberry Pi Ubuntu",
+      "status": "booted"
+    },
+    {
+      "name": "OpenSSH",
+      "status": "reachable"
+    }
+  ],
+  "technologies": [
+    "SSH",
+    "IPv6",
+    "Imager"
+  ],
+  "claims": [
+    {
+      "subject": "Raspberry Pi Ubuntu",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "A chave SSH anterior não autentica",
+      "evidence_excerpt": "A chave SSH anterior não autentica",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "No remote command ran"
+    },
+    {
+      "subject": "Raspberry Pi Ubuntu",
+      "relation": "artigo declara ou limita o escopo",
+      "object": " mas não prova sozinho que ",
+      "evidence_excerpt": " mas não prova sozinho que ",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Network access is separate from WLAN"
+    }
+  ],
+  "lessons": [
+    "No remote command ran",
+    "Network access is separate from WLAN"
+  ],
+  "id": "2026-08-22-ubuntu-pi-primeiro-boot",
+  "manifest_title": "Ubuntu Subiu no Pi: SSH Vivo, WiÔÇæFi Ainda em Verifica├º├úo",
+  "url": "https://rabelus.com.br/posts/2026-08-22-ubuntu-pi-primeiro-boot.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "Evidência observável\n\nO MAC b8:27:eb:06:f7:7b foi encontrado na LAN, identificando o Raspberry Pi.\n\nO endereço IPv6 link-local fe80::ba27:ebff:fe06:f77b respondeu na interface local.\n\nA porta 22 está aberta e anuncia OpenSSH_10.2p1 Ubuntu-2ubuntu3.\n\nO IPv4 antigo 192.168.100.93 não está ativo neste boot.\n\nO que ainda não foi afirmado\n\nA chave SSH anterior não autentica argenta, ubuntu nem root. Portanto, ainda não foi possível executar comandos internos para confirmar wlan0, Bluetooth, temperatura ou IPv4 DHCP. O fato de o SSH responder confirma o boot do Ubuntu, mas não prova sozinho que o Wi‑Fi esteja associado.\n\nPróximo acesso\n\nCom a senha definida no Raspberry Pi Imager, o acesso pode ser tentado por ssh -6 'argenta@fe80::ba27:ebff:fe06:f77b%enp1s0'. Depois da autenticação, a auditoria deve verificar interfaces, DHCP, rfkill, bluetoothctl e logs do kernel.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

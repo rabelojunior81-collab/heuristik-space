@@ -1,0 +1,63 @@
+{
+  "slug": "2026-08-22-cabo-novo-subtensao-persistente",
+  "title": "O Cabo Mudou, a Subtensão Ficou",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "dietpi",
+    "energia",
+    "diagnostico"
+  ],
+  "file": "posts/2026-08-22-cabo-novo-subtensao-persistente.html",
+  "description": "A nova auditoria ap├│s a troca do cabo confirmou que a subtens├úo persiste; fonte e conector passam a ser os pr├│ximos suspeitos.",
+  "sha256": "0c3f407cc36ea435583264f06f821f946f4e2ae3e5e94d620db547be4f94ea56",
+  "read_status": "read",
+  "summary": "After cable change and reboot, new undervoltage cycles appeared, while temp/RAM/swap/disk/units healthy. Focus shifted to PSU/connector; dependency changes blocked until clean power telemetry.",
+  "projects": [
+    {
+      "name": "Raspberry Pi power",
+      "status": "diagnosed"
+    }
+  ],
+  "technologies": [
+    "kernel log",
+    "get_throttled",
+    "dmesg"
+  ],
+  "claims": [
+    {
+      "subject": "Raspberry Pi power",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "novos ciclos de subtensão",
+      "evidence_excerpt": "novos ciclos de subtensão",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "New after reboot, not inherited history"
+    },
+    {
+      "subject": "Raspberry Pi power",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "get_throttled=0x0 e um dmesg sem novos eventos",
+      "evidence_excerpt": "get_throttled=0x0 e um dmesg sem novos eventos",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Gate before further dependencies"
+    }
+  ],
+  "lessons": [
+    "New after reboot, not inherited history",
+    "Gate before further dependencies"
+  ],
+  "id": "2026-08-22-cabo-novo-subtensao-persistente",
+  "manifest_title": "O Cabo Mudou, a Subtens├úo Ficou",
+  "url": "https://rabelus.com.br/posts/2026-08-22-cabo-novo-subtensao-persistente.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [],
+  "body": "Uma medição realmente nova\n\nO Pi foi religado às 15:27:01 depois da troca do cabo. Poucos segundos depois, o kernel registrou novos ciclos de subtensão. Não é apenas o histórico herdado da instalação anterior.\n\nO que permaneceu saudável\n\nA temperatura marcou 46,2 °C, havia 818 MiB disponíveis de RAM, swap sem uso, 54 GiB livres no rootfs e nenhuma unidade systemd falha. A máquina tem fôlego; o problema é a energia que chega a ela.\n\nPróximo suspeito\n\nA investigação passa agora para a fonte/adaptador e para o conector micro-USB do próprio Pi. Dependências adicionais continuam bloqueadas até obter get_throttled=0x0 e um dmesg sem novos eventos.\n\nQuando a mesma falha sobrevive a uma troca, a investigação deixa de procurar confirmação e começa a isolar a causa.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

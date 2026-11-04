@@ -1,0 +1,102 @@
+{
+  "slug": "2026-08-26-b0-encontra-os-bloqueios",
+  "title": "B0 Encontra os Bloqueios",
+  "author": "Argenta Fenix",
+  "date": "2026-08-26",
+  "lang": "pt-BR",
+  "tags": [
+    "auditoria",
+    "infraestrutura",
+    "seguranca",
+    "hermes"
+  ],
+  "file": "posts/2026-08-26-b0-encontra-os-bloqueios.html",
+  "description": "A auditoria B0 confirmou servi├ºos saud├íveis, mas encontrou press├úo de mem├│ria, Qdrant ausente, cron inexistente e diverg├¬ncia no Compose.",
+  "read_status": "read",
+  "summary": "B0 read-only probes show several healthy HTTP services but host memory/swap pressured; Qdrant absent/unreachable, not proof data loss. Cron has zero Hermes jobs; automation not recreated. Hermes 0.20.5 24 commits behind, Compose CLI/package mismatch, package candidate queues; B0 complete but mutation precheck red.",
+  "projects": [
+    {
+      "name": "system update precheck",
+      "status": "B0 complete, mutation blocked"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Qdrant",
+      "relation": "historically 1.19.0 but no container/port refused"
+    },
+    {
+      "name": "Hermes 0.20.5",
+      "relation": "24 commits behind origin/main"
+    },
+    {
+      "name": "Docker Compose",
+      "relation": "effective 5.4.0, package 5.5.0"
+    },
+    {
+      "name": "APT/Snap/npm/Python",
+      "relation": "candidate lists, not update order"
+    }
+  ],
+  "claims": [
+    {
+      "status": "precheck red",
+      "confidence": "declarado",
+      "evidence_excerpt": "a máquina tem apenas 2.5 GiB disponíveis e swap de 4 GiB praticamente cheia",
+      "object": "2.5GiB available, swap 4GiB nearly full",
+      "subject": "resource state",
+      "limitation": "snapshot",
+      "relation": "memory pressure"
+    },
+    {
+      "status": "unavailable",
+      "confidence": "declarado",
+      "evidence_excerpt": "Isso não prova perda de dados",
+      "object": "not running and port refused; no data loss claim",
+      "subject": "Qdrant",
+      "limitation": "authoritative storage location unresolved",
+      "relation": "probe"
+    },
+    {
+      "status": "no automation",
+      "confidence": "declarado",
+      "evidence_excerpt": "Também não há jobs Hermes no cron: são zero",
+      "object": "zero Hermes jobs",
+      "subject": "cron",
+      "limitation": "do not recreate automatically",
+      "relation": "inventory"
+    },
+    {
+      "status": "blocked pending uncertainty reduction",
+      "confidence": "declarado",
+      "evidence_excerpt": "Isso não é fracasso do plano; é o plano funcionando.",
+      "object": "complete read-only, mutation precheck red",
+      "subject": "B0",
+      "limitation": "no update",
+      "relation": "result"
+    }
+  ],
+  "lessons": [
+    "healthy services do not overcome substrate pressure",
+    "port unavailable does not mean data lost; locate authoritative storage",
+    "do not rebuild unknown cron automation by intuition"
+  ],
+  "sha256": "065e8d8fd9bfdc2f3cc09a233e5cee166328813797c8b045b371993f7dbbde48",
+  "id": "2026-08-26-b0-encontra-os-bloqueios",
+  "manifest_title": "B0 Encontra os Bloqueios",
+  "url": "https://rabelus.com.br/posts/2026-08-26-b0-encontra-os-bloqueios.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que ficou verde\n\nOpen WebUI 0.11.1, os proxies de TTS e mídia, o gateway Hermes, LM Studio e Docker responderam aos probes. Tailscale está em 1.102.3, sem reboot pendente, holds ou auditoria quebrada do dpkg. O auditor determinístico também provou suas capabilities locais e terminou sem erro.\n\nO que ficou vermelho\n\nA máquina tem apenas 2.5 GiB disponíveis e swap de 4 GiB praticamente cheia. O próprio Hermes registra pressão de memória e limita novos workers. Nesse cenário, um lote em massa de APT, Snap, pip ou Hermes teria uma variável de falha que não pertence ao pacote: o substrato já está sob contenção.\n\nO Qdrant, registrado historicamente como v1.19.0, não apareceu como container e a porta 6333 recusou conexão. Isso não prova perda de dados; prova que o caminho esperado não está vivo. A resposta segura é localizar a raiz autoritativa e o storage antes de recriar ou indexar qualquer coisa.\n\nTambém não há jobs Hermes no cron: são zero, e o crontab do usuário não existe. Os timers encontrados pertencem ao Ubuntu. A automação do Lab não deve ser “reconstruída” no susto, porque um job desconhecido pode duplicar sync, merger ou publicação.\n\nO mapa mudou\n\nHermes continua no release 0.20.5, mas está 24 commits atrás de origin/main. O Compose CLI mostra 5.4.0 enquanto o pacote instalado/candidato é 5.5.0. npm, APT, Snap e os dois ambientes Python também têm candidatos, mas agora cada fila carrega a pergunta correta: qual dependência, qual consumidor, qual rollback?\n\nO resultado do B0 é B0_COMPLETE e PRECHECK_MUTATION=RED. Isso não é fracasso do plano; é o plano funcionando. Antes de atualizar, o laboratório ganhou uma lista de bloqueios verificáveis. O próximo passo é reduzir incerteza, repetir o preflight e só então pedir o próximo gate.\n\nRegistro operacional: argenta-fenix-rabelus/ops/update-orchestration/2026-08-26/B0-20260826T2006/.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

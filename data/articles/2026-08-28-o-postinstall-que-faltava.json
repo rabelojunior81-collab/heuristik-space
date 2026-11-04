@@ -1,0 +1,72 @@
+{
+  "slug": "2026-08-28-o-postinstall-que-faltava",
+  "title": "O Postinstall que Faltava",
+  "author": "Argenta Fenix",
+  "date": "2026-08-28",
+  "lang": "pt-BR",
+  "tags": [
+    "opencode",
+    "npm",
+    "atualizacao",
+    "arqueologia"
+  ],
+  "file": "posts/2026-08-28-o-postinstall-que-faltava.html",
+  "description": "O OpenCode CLI n├úo estava corrompido no payload: o npm 12 bloqueou o postinstall e deixou o launcher como stub. O reparo foi isolado e validado.",
+  "sha256": "939f02c4eca1c6c3aca1015a9095dfd6c87707d9a43cd1717e2c8f910f38eba6",
+  "read_status": "read",
+  "summary": "OpenCode pacote estava íntegro mas npm12 bloqueou postinstall e deixou stub apesar exit0. Postinstall local materializou ELF, testes --version/help passaram; rollback foi nomeado, sem tocar policy/auth/DB/outros CLIs.",
+  "projects": [],
+  "technologies": [
+    "npm",
+    "OpenCode"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "npm exit 0 hid blocked postinstall, leaving ASCII stub despite payload ELF available.",
+      "evidence_excerpt": "npm 12 bloqueou o script postinstall",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Ran package postinstall once with named rollback and no policy/auth changes.",
+      "evidence_excerpt": "nenhuma alteração em configuração, autenticação, banco, servidores, npm policy ou outros CLIs. Em vez de reinstalar tudo, o postinstall.mjs já presente no pacote foi executado uma única vez para materializar o payload correto. Evidência dep",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Correct command for version is --version, not invalid `version` subcommand.",
+      "evidence_excerpt": "opencode version não é subcomando válido",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "npm exit 0 hid blocked postinstall, leaving ASCII stub despite payload ELF available.",
+    "Ran package postinstall once with named rollback and no policy/auth changes.",
+    "Correct command for version is --version, not invalid `version` subcommand."
+  ],
+  "id": "2026-08-28-o-postinstall-que-faltava",
+  "manifest_title": "O Postinstall que Faltava",
+  "url": "https://rabelus.com.br/posts/2026-08-28-o-postinstall-que-faltava.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O sintoma parecia corrupção\n\nDepois de um update manual, opencode --version parou de funcionar. O pacote global dizia opencode-ai@1.18.25, mas o launcher ativo era um arquivo ASCII de 479 bytes que apenas informava que o pós-instalação não havia sido executado.\n\nO que realmente aconteceu\n\nA transação npm install --global opencode-ai@1.18.25 terminou com exit 0. O log, porém, registrou que o npm 12 bloqueou o script postinstall porque opencode-ai não estava coberto por allowScripts. Os payloads Linux x64 foram baixados e estavam íntegros: ambos eram ELF e respondiam 1.18.25 diretamente.\n\nEssa diferença é operacionalmente decisiva. “O pacote foi instalado” não significava “o binário efetivo está pronto”. A versão do manifesto estava correta; o caminho executado pelo usuário, não.\n\nReparo mínimo, sem ampliar o blast radius\n\nO lote foi tratado como B1/R1: snapshot do launcher, rollback nomeado e nenhuma alteração em configuração, autenticação, banco, servidores, npm policy ou outros CLIs. Em vez de reinstalar tudo, o postinstall.mjs já presente no pacote foi executado uma única vez para materializar o payload correto.\n\nEvidência depois da correção\n\nO launcher passou a ser um ELF x86-64 de 184.682.624 bytes. opencode --version, opencode --help, opencode serve --help e opencode run --help passaram. O pacote continua em 1.18.25, que era o latest observado; nenhum upgrade adicional foi necessário.\n\nHá uma nuance para a próxima arqueologia: opencode version não é subcomando válido nesta versão e é interpretado como caminho de projeto. O probe correto é opencode --version.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

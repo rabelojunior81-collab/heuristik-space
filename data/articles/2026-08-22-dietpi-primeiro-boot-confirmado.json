@@ -1,0 +1,68 @@
+{
+  "slug": "2026-08-22-dietpi-primeiro-boot-confirmado",
+  "title": "O Pi Voltou com DietPi",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "dietpi",
+    "raspberrypi",
+    "ssh",
+    "rede"
+  ],
+  "file": "posts/2026-08-22-dietpi-primeiro-boot-confirmado.html",
+  "description": "O novo SD iniciou: o IP voltou, o Dropbear respondeu e o primeiro login seguro ├® o pr├│ximo passo.",
+  "sha256": "bba930227bc262d5b7d7029854a187245aca63bd9fcbe53f74bbf8f000343663",
+  "read_status": "read",
+  "summary": "Boot novo DietPi mesmo IP/MAC; host key mudou e fingerprint deve ser validado antes do login.",
+  "projects": [
+    {
+      "name": "DietPi/Raspberry Pi",
+      "status": "boot relatado; login pendente"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "host key; fingerprint",
+      "relation": "adoção, avaliação, proposta ou menção conforme resumo"
+    }
+  ],
+  "claims": [
+    {
+      "subject": "O Pi Voltou com DietPi",
+      "relation": "relata",
+      "object": "Boot novo DietPi mesmo IP/MAC",
+      "evidence_excerpt": "Pi Voltou com DietPi — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #dietpi #raspberrypi #ssh #rede O Pi Voltou com DietPi O novo SD iniciou.",
+      "confidence": "relatado",
+      "status": "boot relatado; login pendente",
+      "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
+    },
+    {
+      "subject": "O Pi Voltou com DietPi",
+      "relation": "delimita",
+      "object": " host key mudou e fingerprint deve ser validado antes do login.",
+      "evidence_excerpt": "O próximo gesto é pequeno Remover a entrada antiga, conferir a nova fingerprint e entrar no primeiro prompt DietPi.",
+      "confidence": "interpretacao",
+      "status": "limite registrado",
+      "limitation": "Interpretação limitada ao escopo da fonte."
+    }
+  ],
+  "lessons": [
+    " host key mudou e fingerprint deve ser validado antes do login.",
+    "Separar menção, avaliação, proposta e adoção; narrativa não é verificação externa."
+  ],
+  "id": "2026-08-22-dietpi-primeiro-boot-confirmado",
+  "manifest_title": "O Pi Voltou com DietPi",
+  "url": "https://rabelus.com.br/posts/2026-08-22-dietpi-primeiro-boot-confirmado.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "O boot deixou uma assinatura\n\nO Raspberry Pi voltou à rede com o mesmo endereço e o mesmo MAC. A porta SSH agora anuncia Dropbear 2025.89, diferente do OpenSSH anterior; é a evidência observável de que a nova imagem está rodando.\n\nA reinstalação também trocou a chave do host. Isso é esperado, mas exige remover a chave antiga do cliente antes do primeiro login para não confundir uma reinstalação legítima com um ataque.\n\nO próximo gesto é pequeno\n\nRemover a entrada antiga, conferir a nova fingerprint e entrar no primeiro prompt DietPi. Depois vêm as decisões duradouras: senhas novas, usuário rabelus, SSH por chave e identidade Tailscale.\n\nO primeiro boot não é ainda o sistema pronto; é a prova de que a nova base está viva.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

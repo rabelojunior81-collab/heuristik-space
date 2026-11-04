@@ -1,0 +1,394 @@
+{
+  "slug": "maxtrigify--otto",
+  "name": "maxtrigify/Otto",
+  "url": "https://github.com/maxtrigify/Otto",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "Otto é uma aplicação nativa macOS que reúne agentes, sessões, documentos, browser, automações e memória, usando CLIs e contas trazidas pelo usuário. A pesquisa encontrou uma arquitetura Swift modular, persistência SQLite, ferramentas tipadas expostas por MCP e CLI, além de daemon remoto e companion iOS. O runner consultado registra recibos de ferramentas e limita rodadas; o threat model trata conteúdo externo como dado e declara fronteiras de token e SSH. Para o Lab, interessa como referência de ambiente integrado e preservação de contratos nativos, mas a interface principal exige Mac e as garantias documentadas ainda precisam de provas no ambiente real.",
+  "topics": [
+    "macOS",
+    "SwiftUI",
+    "harness",
+    "MCP",
+    "PTY",
+    "memória",
+    "agentes",
+    "daemon"
+  ],
+  "aliases": [
+    "personal operating system",
+    "desktop agents",
+    "orquestração",
+    "Otto",
+    "ambiente de agentes"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e foco",
+      "paragraphs": [
+        "Otto apresenta Home para resumo diário e cartões e Chat para sessões, bots e equipes, junto a documentos e automações. A proposta é reunir trabalho antes disperso por terminais e aplicativos. Os agentes continuam sendo CLIs e contas do usuário. Isso difere de vender um modelo próprio e implica dependência do comportamento dos providers. Para avaliar utilidade, seria preciso medir se a integração reduz troca de contexto sem esconder aprovações, erros ou a origem efetiva de cada resultado."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-2",
+      "title": "Arquitetura observada",
+      "paragraphs": [
+        "Package.swift exige Swift 6.2 e define bibliotecas e executáveis especializados: modelos, persistência, runtime, harness, ferramentas, MCP, controle, observabilidade e componentes de app. Há ligação explícita a sqlite3. O README exige macOS 15 e Xcode 26 para o app, com companion iOS e daemon headless. Módulos remotos podem ter partes Linux, mas isso não é aplicativo Windows equivalente. A organização modular ajuda localizar contratos, sem demonstrar isolamento de segurança entre todas as bibliotecas."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-3",
+      "title": "Loop de ferramentas",
+      "paragraphs": [
+        "HarnessRunner.swift confirma sessão carregada/criada, gravação do prompt antes da inferência e até 20 rodadas de ferramentas por padrão. Cada chamada recebe recibo executing, completed ou uncertain quando lança erro. O runner exige continuation e resposta final não vazia; ausências geram erro explícito. Contexto anterior é inserido com rótulo de dado recuperado. Esses detalhes favorecem recuperação honesta, porém recibo completed apenas indica retorno do executor, não verificação independente do efeito externo."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "observed"
+    },
+    {
+      "id": "sec-4",
+      "title": "Providers e compatibilidade",
+      "paragraphs": [
+        "PROVIDER_ADAPTERS.md descreve descoberta de executáveis e versões, especificações por lançamento e diferenças entre Claude, Codex, Hermes, Kimi, Cursor, OpenCode e Grok. Alguns clientes exigem bridges; outros não expõem histórico ou modo read-only suficientemente estrito. Há endpoint local OpenAI-compatible no harness próprio. Uma lista de adapters não prova paridade: retomada, streaming, seleção de modelo, ferramenta e autenticação variam. Atualização de um CLI pode alterar contrato mesmo quando o aplicativo continua abrindo."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-5",
+      "title": "Persistência e perfis",
+      "paragraphs": [
+        "O README descreve SQLite, memória por bot e separação Work/Personal. O threat model inclui journals e restauração após crash. No runner, mensagens e recibos são salvos antes/depois de ferramentas, permitindo distinguir resultado incerto de operação nunca iniciada. Não foi exercitado backup, migração, encerramento de processo ou restauração. No Lab, a fronteira crítica seria preservar identidade e dados de cada perfil sem transformar memória resumida em autorização para alterar um corpus ou concluir missão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-6",
+      "title": "Identidade e autorização",
+      "paragraphs": [
+        "Credenciais são declaradas em Keychain ou ambiente de lançamento, com tokens de controle escopados. A documentação de daemon remoto usa túnel SSH e token de 256 bits, sem listener TCP público. Rotação só muda credencial após substituição durável e confirmação. São contratos documentados, não certificação de segurança. Processos de provider continuam com a permissão escolhida pelo usuário; modo irrestrito conserva capacidade ampla. A autoridade não deve vir de texto de browser, terminal ou áudio transcrito."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "official_claim"
+    },
+    {
+      "id": "sec-7",
+      "title": "Privacidade e rede",
+      "paragraphs": [
+        "Execução local não impede envio a modelos cloud, conectores, voz xAI ou bridge remoto. O threat model protege prompts, áudio, credenciais, worktrees e histórico, mas reconhece riscos residuais de CLIs. A documentação remete login/MFA/CAPTCHA ao humano em browser, sem transportar senha por chat. Não foram capturados tráfego nem credenciais. Uma avaliação do Lab precisaria enumerar destinos por recurso e comparar permissões reais à UI, especialmente quando um agente acessa browser, email e terminal no mesmo contexto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-8",
+      "title": "Deploy e operação",
+      "paragraphs": [
+        "É software desktop com ferramentas de desenvolvimento e daemon, não só um frontend. O roteiro de build cria identidade de assinatura local no modo Dev; esse efeito não foi realizado. O README explica execução serial de testes por recursos PTY/process-wide, e certos testes dependem da presença do CLI correspondente. Nenhum teste foi rodado. Para o host Windows atual do Lab, pertinência imediata é arquitetural; qualquer piloto Mac dependeria de máquina e ambiente explicitamente autorizados."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-9",
+      "title": "UX e acessibilidade",
+      "paragraphs": [
+        "A integração oferece Home, chat, work panel, browser, documentos e comandos. Um ambiente tão amplo precisa mostrar claramente qual provider age, em qual perfil e com que autorização. A pesquisa não verificou VoiceOver, foco, teclado ou companion mobile. O acesso remoto pode complicar onde arquivos e processos realmente vivem. Recomendação de estudo: confrontar a interface com journal e PTY, para garantir que um estado visual não oculte ferramenta incerta ou job que ainda segue no host remoto."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-10",
+      "title": "Licença e custo",
+      "paragraphs": [
+        "LICENSE é Apache 2.0; NOTICE, marcas e componentes de terceiros têm regras próprias. A licença do código não concede contas, modelos ou uso ilimitado de API. Custos incluem Mac, inferência, voz, servidores remotos e manutenção dos providers. Nome/logo ficam sujeitos à política de marcas mencionada no README. Não foi consultada tabela comercial completa nem assumido que módulos com nomes comerciais impliquem cobrança específica. O orçamento real deve acompanhar chamadas e credenciais usadas por cada adapter."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-11",
+      "title": "Maturidade e comparação",
+      "paragraphs": [
+        "Release v0.2.14 de 2 de novembro e commit de sincronização do main privado foram consultados. Sincronização pública não revela todo processo interno de desenvolvimento. A versão permanece inicial; threat model e testes listados são evidência de desenho, não validação local. Comparado a whatsmyagentdoing, Otto executa e controla, ampliando risco. Comparado a Kanzo, oferece ambiente completo em vez de quadro leve. O Lab deve avaliar cada função sem adotar o pacote inteiro por entusiasmo com a interface."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    },
+    {
+      "id": "sec-12",
+      "title": "Próximos testes propostos",
+      "paragraphs": [
+        "Em piloto futuro Mac, usar projeto público e credenciais descartáveis, verificar PTY, cancelamento, restart, recibo uncertain e limite de rodadas. Testar separação Work/Personal, token revogado, tunnel caído, atualização do provider e restauração de SQLite. Confrontar read-only anunciado com efeito permitido no sistema. Medir acessibilidade e mostrar o artefato real ao Pai. Nenhum desses ensaios ocorreu nesta pesquisa; a leitura pública não autoriza instalar, autenticar, parear mobile ou iniciar daemon."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S8"
+      ],
+      "kind": "analysis"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README oficial",
+      "url": "https://github.com/maxtrigify/Otto/blob/b890057e0fc81feae03e2d86802e40240a7ae462/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "docs",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Lido pelo plugin GitHub; alegações do mantenedor separadas de comprovação funcional."
+    },
+    {
+      "id": "S2",
+      "title": "LICENSE",
+      "url": "https://github.com/maxtrigify/Otto/blob/b890057e0fc81feae03e2d86802e40240a7ae462/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "license",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Blob d645695673349e3947e8e5ae42332d0ac3164cd7; leitura estática, sem execução."
+    },
+    {
+      "id": "S3",
+      "title": "docs/PROVIDER_ADAPTERS.md",
+      "url": "https://github.com/maxtrigify/Otto/blob/b890057e0fc81feae03e2d86802e40240a7ae462/docs/PROVIDER_ADAPTERS.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "docs",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Blob bc481acc53b07df6fd03d3914d870e93740de6df; leitura estática, sem execução."
+    },
+    {
+      "id": "S4",
+      "title": "docs/THREAT_MODEL.md",
+      "url": "https://github.com/maxtrigify/Otto/blob/b890057e0fc81feae03e2d86802e40240a7ae462/docs/THREAT_MODEL.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "docs",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Blob 41451243fb591ca7cae64c987b53faf20aa75608; leitura estática, sem execução."
+    },
+    {
+      "id": "S5",
+      "title": "Package.swift",
+      "url": "https://github.com/maxtrigify/Otto/blob/b890057e0fc81feae03e2d86802e40240a7ae462/Package.swift",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "code",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Blob eae1549da55272dd6e3e291f5ce24354dbb998b2; leitura estática, sem execução."
+    },
+    {
+      "id": "S6",
+      "title": "Sources/OttoHarness/HarnessRunner.swift",
+      "url": "https://github.com/maxtrigify/Otto/blob/b890057e0fc81feae03e2d86802e40240a7ae462/Sources/OttoHarness/HarnessRunner.swift",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "code",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Blob ab518ae5458d33ebe3822278ec97cf4e6f27275c; leitura estática, sem execução."
+    },
+    {
+      "id": "S7",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/maxtrigify/Otto/releases?per_page=2",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "release",
+      "ref": "snapshot 2026-11-03",
+      "note": "Consulta real da coleção, até duas releases; não equivale a teste dos binários."
+    },
+    {
+      "id": "S8",
+      "title": "Último commit da branch padrão consultado",
+      "url": "https://github.com/maxtrigify/Otto/commit/b890057e0fc81feae03e2d86802e40240a7ae462",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:10:36.962Z",
+      "kind": "code",
+      "ref": "b890057e0fc81feae03e2d86802e40240a7ae462",
+      "note": "Sync from private main (d269397)"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Runner com recibos",
+      "certainty": "CONFIRMADO",
+      "detail": "HarnessRunner salva executing/completed/uncertain e limita rodadas.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Interface macOS",
+      "certainty": "RELATADO",
+      "detail": "README exige macOS 15/Xcode 26; não há paridade Windows demonstrada.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Credenciais Keychain",
+      "certainty": "RELATADO",
+      "detail": "README e threat model definem Keychain e fronteiras de controle.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Sem teste em Mac ou daemon.",
+    "Sem auditoria integral dos providers.",
+    "Commit público é sync de origem privada; processo interno não inspecionado."
+  ],
+  "related": [
+    "charonyuu--whatsmyagentdoing",
+    "emanuele-em--kanzo",
+    "akitaonrails--ai-memory"
+  ],
+  "metrics": {
+    "full_name": "maxtrigify/Otto",
+    "html_url": "https://github.com/maxtrigify/Otto",
+    "description": "Otto: a personal operating system for the AI agents that work for you. Native macOS.",
+    "homepage": "https://openotto.io",
+    "default_branch": "main",
+    "created_at": "2026-10-20T19:33:28Z",
+    "updated_at": "2026-11-03T14:07:41Z",
+    "pushed_at": "2026-11-03T15:44:25Z",
+    "stargazers_count": 113,
+    "forks_count": 24,
+    "open_issues_count": 15,
+    "subscribers_count": 4,
+    "network_count": 24,
+    "archived": false,
+    "disabled": false,
+    "language": "Swift",
+    "topics": [
+      "ai-agents",
+      "claude-code",
+      "codex",
+      "macos",
+      "mcp",
+      "personal-os",
+      "swift",
+      "swiftui"
+    ],
+    "size": 43280,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

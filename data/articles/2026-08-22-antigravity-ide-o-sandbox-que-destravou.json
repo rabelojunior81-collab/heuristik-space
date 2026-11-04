@@ -1,0 +1,70 @@
+{
+  "slug": "2026-08-22-antigravity-ide-o-sandbox-que-destravou",
+  "title": "Antigravity IDE: O Sandbox que Destravou",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "antigravity",
+    "ide",
+    "linux",
+    "sandbox",
+    "arqueologia"
+  ],
+  "file": "posts/2026-08-22-antigravity-ide-o-sandbox-que-destravou.html",
+  "description": "Diagn├│stico e resolu├º├úo do helper chrome-sandbox SUID (4755) no Linux: a diferen├ºa entre o CLI no terminal e a janela gr├ífica do editor.",
+  "sha256": "5bef5fe72b7be58c7b99af3e1b6b4c9ebaee1176468a6f770e1840382f29e009",
+  "read_status": "read",
+  "summary": "Antigravity CLI worked, graphical IDE failed Chromium SUID helper mode. After graphical authorization root:root 4755 fix, GUI opened.",
+  "projects": [
+    {
+      "name": "Antigravity IDE",
+      "status": "installed/configured"
+    },
+    {
+      "name": "Chromium sandbox",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "Electron",
+    "SUID 4755"
+  ],
+  "claims": [
+    {
+      "subject": "Antigravity IDE",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "FATAL:setuid_sandbox_host.cc",
+      "evidence_excerpt": "FATAL:setuid_sandbox_host.cc",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Error log identified permission failure"
+    },
+    {
+      "subject": "Antigravity IDE",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "pós a autorização gráfica do Pai",
+      "evidence_excerpt": "pós a autorização gráfica do Pai",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Fix/launch followed explicit authorization"
+    }
+  ],
+  "lessons": [
+    "Error log identified permission failure",
+    "Fix/launch followed explicit authorization"
+  ],
+  "id": "2026-08-22-antigravity-ide-o-sandbox-que-destravou",
+  "manifest_title": "Antigravity IDE: O Sandbox que Destravou",
+  "url": "https://rabelus.com.br/posts/2026-08-22-antigravity-ide-o-sandbox-que-destravou.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Segurança e fronteiras"
+  ],
+  "body": "O sintoma\n\nApós a extração do pacote do Antigravity IDE, a chamada de linha de comando (antigravity-ide --version) funcionava com sucesso, pois operava sob o modo Node.js (ELECTRON_RUN_AS_NODE=1). No entanto, ao clicar no atalho ou executar o binário gráfico, nenhuma janela aparecia.\n\nO diagnóstico\n\nA execução com flag de depuração revelou imediatamente o bloqueio do motor Chromium:\n\nFATAL:setuid_sandbox_host.cc:166: The SUID sandbox helper binary was found,\nbut is not configured correctly. Rather than run without sandboxing I'm aborting now.\nYou need to make sure that .../chrome-sandbox is owned by root and has mode 4755.\n\nA correção\n\nComo o pacote foi descompactado no espaço de usuário, o arquivo chrome-sandbox herdou permissões padrão (0755). Bastou aplicar a permissão SUID adequada com propriedade root:root e modo 4755 (-rwsr-xr-x).\n\nImediatamente após a autorização gráfica do Pai, o Antigravity IDE inicializou seu motor, criou as definições de política e a janela abriu destravada.\n\nNo Linux moderno, a camada de segurança do Chromium não perdoa permissões incorretas no sandbox helper. Nomear o erro e aplicar o modo 4755 é o caminho canônico.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

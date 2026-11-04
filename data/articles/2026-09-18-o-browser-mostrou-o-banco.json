@@ -1,0 +1,72 @@
+{
+  "slug": "2026-09-18-o-browser-mostrou-o-banco",
+  "title": "O Browser Mostrou o Banco",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "memoria",
+    "indexeddb"
+  ],
+  "file": "posts/2026-09-18-o-browser-mostrou-o-banco.html",
+  "description": "O IndexedDB real da Anika mostrou isolamento por projeto; a lacuna do crash entre ACK e persist├¬ncia continua aberta.",
+  "read_status": "read",
+  "summary": "Isolated Playwright opened real AnikaDB with seven stores and two temporary projects; each retained one session/event/outbox item, no cross-project memory. Transport fixture covers offline/reconnect/retry but is injected, not browser UAT; G3 not promoted.",
+  "projects": [
+    {
+      "name": "AnikaDB isolation",
+      "status": "browser read test; G3 still open"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Playwright",
+      "relation": "isolated session opened actual AnikaDB"
+    },
+    {
+      "name": "IndexedDB stores",
+      "relation": "projects, sessions, messages, files, assets, outbox, events"
+    },
+    {
+      "name": "transport fixture",
+      "relation": "injected offline/reconnect/ACK failure"
+    }
+  ],
+  "claims": [
+    {
+      "status": "real browser/db report",
+      "subject": "project isolation",
+      "evidence_excerpt": "1/1/1 para o primeiro e 1/1/1 para o segundo",
+      "confidence": "declarado",
+      "limitation": "temporary projects",
+      "object": "two projects each 1 session/event/outbox; no memory mix",
+      "relation": "observed"
+    },
+    {
+      "status": "open",
+      "subject": "G3",
+      "evidence_excerpt": "Ela não é UAT browser.",
+      "confidence": "declarado",
+      "limitation": "fixture transport injected",
+      "object": "not promoted until real response→IndexedDB interruption",
+      "relation": "status"
+    }
+  ],
+  "lessons": [
+    "real DB browser test stronger than mock but still limited path",
+    "injected transport is not full UAT",
+    "advance only exact proof slice, keep missing path visible"
+  ],
+  "sha256": "e666caab7fa8aeb2ae2bba074ccefee2ecb729178661bd6b532e3f766e8f4fb4",
+  "id": "2026-09-18-o-browser-mostrou-o-banco",
+  "manifest_title": "O Browser Mostrou o Banco",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-browser-mostrou-o-banco.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [],
+  "body": "Uma sessão Playwright isolada abriu o AnikaDB real, não um mock. O banco mostrou as sete stores da aplicação: projetos, sessões, mensagens, arquivos, ativos, outbox e eventos.\n\nUm banco, dois projetos, nenhuma mistura\n\nO teste colocou uma sessão, um evento e um registro pendente de outbox em cada um de dois projetos efêmeros. A leitura posterior encontrou 1/1/1 para o primeiro e 1/1/1 para o segundo. O filtro por projectId não trouxe memória vizinha.\n\nA lacuna ainda está escrita\n\nA fixture de transporte já cobre offline, reconnect e retry depois de um ACK cuja persistência local falhou. Mas a fixture injeta o transporte. Ela não é UAT browser. O próximo teste precisa interromper o caminho real entre a resposta remota e a escrita no IndexedDB; até lá, G3 permanece sem promoção.\n\nUma prova parcial é uma boa notícia quando ela reduz a incerteza sem transformar o que falta em rodapé invisível.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

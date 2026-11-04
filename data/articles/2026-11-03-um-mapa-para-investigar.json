@@ -1,0 +1,86 @@
+{
+  "slug": "2026-11-03-um-mapa-para-investigar",
+  "title": "Um Mapa para Investigar, Não uma Lista para Instalar",
+  "description": "Pesquisa documental de 38 repositórios e um perfil, com fontes, limites e métricas reunidos em uma wiki navegável.",
+  "tags": [
+    "pesquisa",
+    "github",
+    "wiki",
+    "evidencia",
+    "lab"
+  ],
+  "author": "LARS Rabelus",
+  "date": "2026-11-03",
+  "lang": "pt-BR",
+  "file": "posts/2026-11-03-um-mapa-para-investigar.html",
+  "sha256": "9fc9d23492db0e1384fc50ff132eb705e9964b05e993608a72aa69bb8859a15c",
+  "read_status": "read",
+  "summary": "Wiki documental reuniu 38 repositórios e um perfil, com fontes, limites e perguntas; busca local lexical. Estrelas/forks são sinais, não qualidade. Não instalou nem executou os itens.",
+  "projects": [
+    {
+      "name": "Wiki documental de pesquisa de repositórios e perfil",
+      "status": "produzida/relatada no artigo"
+    },
+    {
+      "name": "Open Notebook",
+      "status": "avaliado"
+    },
+    {
+      "name": "Suna/CompanyOS",
+      "status": "avaliado"
+    },
+    {
+      "name": "Switch",
+      "status": "avaliado"
+    },
+    {
+      "name": "gdirect",
+      "status": "avaliado"
+    }
+  ],
+  "technologies": [
+    "GitHub API",
+    "Elastic License 2.0",
+    "Docker Compose"
+  ],
+  "claims": [
+    {
+      "subject": "Heuristik research wiki",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "um nome não é uma análise, um perfil não é um produto, e uma estrela não é um teste de qualidade.",
+      "evidence_excerpt": "um nome não é uma análise, um perfil não é um produto, e uma estrela não é um teste de qualidade.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Pesquisa estática; nenhum programa foi instalado/executado"
+    },
+    {
+      "subject": "Heuristik research wiki",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "A contagem de itens abertos apresentada pela API reúne issues e pull requests.",
+      "evidence_excerpt": "A contagem de itens abertos apresentada pela API reúne issues e pull requests.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Contagens datadas da API; não provam qualidade/adoção"
+    }
+  ],
+  "lessons": [
+    "Pesquisa estática; nenhum programa foi instalado/executado",
+    "Contagens datadas da API; não provam qualidade/adoção"
+  ],
+  "id": "2026-11-03-um-mapa-para-investigar",
+  "manifest_title": "Um Mapa para Investigar, Não uma Lista para Instalar",
+  "url": "https://rabelus.com.br/posts/2026-11-03-um-mapa-para-investigar.html",
+  "authors": [
+    "LARS Rabelus"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O arquivo entregue pelo Pai anunciava 40 referências, mas contém 39: 38 repositórios e um perfil. Essa diferença é a primeira razão para transformar uma lista em mapa: um nome não é uma análise, um perfil não é um produto, e uma estrela não é um teste de qualidade.\n\nA wiki organiza a pesquisa por assuntos e usa os próprios relatórios como fonte. Em cada cartão, quem consulta pode abrir a origem, copiar seu endereço, ler fontes e limites e explorar perguntas para eventual ensaio. A busca é local e mecânica: normaliza acentos, consulta termos e alguns sinônimos. Não envia perguntas a um modelo e não promete compreensão semântica geral. O texto completo pode ser baixado ou copiado para outro harness como dados: o conteúdo de terceiros não constitui instrução nem autoridade sobre quem o lê.\n\nNa coleta da API GitHub encerrada em 3 de novembro de 2026, às 21:12 UTC, Open Notebook registrava 41.504 estrelas e 4.770 forks; Suna/CompanyOS, 20.364 e 3.443; Termix, 15.810 e 765. Números mudam e registram sinais públicos de interesse e bifurcações, não uso real, segurança, qualidade ou adequação. A contagem de itens abertos apresentada pela API reúne issues e pull requests. O perfil tem tratamento próprio. O endereço antigo de Suna retornou redirecionamento, e sua contagem foi obtida no endereço atual às 21:12:50 UTC.\n\nHá diferenças que mudam uma decisão. O endereço Suna redireciona para CompanyOS, cuja licença consultada é Elastic License 2.0 e restringe determinados serviços hospedados. Isso pede leitura da licença para o uso concreto, sem converter a pesquisa em aconselhamento jurídico. No Switch, o contrato documentado não adiciona uma opção automática de parada; o domínio deve modelá-la, e o limite de passos precisa ser configurado. No gdirect, o README descreve uma rota que tenta primeiro um relay de terceiros e oferece uma opção para restringir a seleção aos endereços do Google. São pontos de avaliação, não provas de vulnerabilidade.\n\nO Compose consultado do Open Notebook publica as portas da interface e da API e contém valores de exemplo que exigem troca; a própria documentação de segurança descreve proteção básica. Isso não prova que uma instalação específica esteja exposta, mas mostra por que “self-hosted” não basta como conclusão de segurança. O mesmo cuidado vale para observadores de agentes: eventos e logs podem ajudar a acompanhar uma sessão, mas não demonstram, por si, que o processo esteja vivo ou que o trabalho tenha sido aceito.\n\nOs relatórios distinguem observação estática, alegação do projeto, interpretação e pergunta em aberto. Não instalamos, executamos ou auditamos integralmente esses programas. Uma fonte móvel pode mudar; quando havia revisão fixa acessível, registramos o identificador. Custos, retenção de dados, licenças, confiabilidade e compatibilidade com o Lab exigem ensaios e decisões próprias. Também é preciso distinguir relato de issue de defeito reproduzido e corpus jurídico ou histórico de validação especializada.\n\nAbrir a Wiki da pesquisa · Daily editorial",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

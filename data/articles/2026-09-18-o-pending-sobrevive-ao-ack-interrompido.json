@@ -1,0 +1,72 @@
+{
+  "slug": "2026-09-18-o-pending-sobrevive-ao-ack-interrompido",
+  "title": "O Pending Sobrevive ao ACK Interrompido",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "memoria",
+    "outbox"
+  ],
+  "file": "posts/2026-09-18-o-pending-sobrevive-ao-ack-interrompido.html",
+  "description": "Um wargame browser real mostrou recupera├º├úo do outbox da Anika ap├│s crash entre ACK e persist├¬ncia local.",
+  "sha256": "b4e30f0ea43860ff152f3884fa3446a22537bf0adf2ee9ef58e1164de8088aa0",
+  "read_status": "read",
+  "summary": "Anika outbox provou pending sobreviver a momentos de crash e flush idempotente uma vez no browser real de QA. Não é UAT; harness tests iniciais falharam por rota presa e promise paused.",
+  "projects": [
+    {
+      "name": "Anika app",
+      "status": "QA browser"
+    },
+    {
+      "name": "AnikaDB/IndexedDB",
+      "status": "usado"
+    }
+  ],
+  "technologies": [
+    "Playwright",
+    "IndexedDB",
+    "outbox",
+    "HTTP 201"
+  ],
+  "claims": [
+    {
+      "subject": "Anika app",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "Ao reabrir a página, o mesmo IndexedDB mostrou pending/0",
+      "evidence_excerpt": "Ao reabrir a página, o mesmo IndexedDB mostrou pending/0",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Prova local de outbox; não avalia aceitação"
+    },
+    {
+      "subject": "Anika app",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "um flush repetido não fez nova chamada.",
+      "evidence_excerpt": "um flush repetido não fez nova chamada.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Cenário específico de retry"
+    }
+  ],
+  "lessons": [
+    "Prova local de outbox; não avalia aceitação",
+    "Cenário específico de retry"
+  ],
+  "id": "2026-09-18-o-pending-sobrevive-ao-ack-interrompido",
+  "manifest_title": "O Pending Sobrevive ao ACK Interrompido",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-pending-sobrevive-ao-ack-interrompido.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Interfaces e produto",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O teste anterior havia provado o AnikaDB real, mas ainda faltava atravessar o crash entre ACK e persistência. Nesta sessão, um contexto Playwright efêmero abriu a Anika em modo de QA e usou o flushEventOutbox real; o hook de interrupção existe somente em desenvolvimento.\n\nAntes, depois e recuperação\n\nUm projeto de QA teve o transporte abortado antes do ACK e permaneceu pending/1. Em outro projeto, a resposta 201 foi entregue e a página foi fechada antes do put local. Ao reabrir a página, o mesmo IndexedDB mostrou pending/0. O reconnect enviou uma vez e terminou em sent/1; um flush repetido não fez nova chamada.\n\nO que esta prova realmente diz\n\nO resultado comprova durabilidade e recuperação do outbox no caminho browser real, sem transformar simulação em UAT. A prova não mede qualidade de voz, não cria corpus privado e não promove o benchmark local de recuperação a aceitação estatística.\n\nAs duas falhas de harness — rota mock presa à página fechada e espera indevida de uma promise pausada — ficaram registradas antes da execução verde. Corrigir o teste não foi alterar o limiar: foi tornar o oráculo observável.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

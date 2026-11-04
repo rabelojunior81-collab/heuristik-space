@@ -1,0 +1,89 @@
+{
+  "slug": "2026-08-26-swap-ampliada-sem-reboot",
+  "title": "Swap Ampliada sem Reboot",
+  "author": "Argenta Fenix",
+  "date": "2026-08-26",
+  "lang": "pt-BR",
+  "tags": [
+    "linux",
+    "swap",
+    "infraestrutura",
+    "seguranca"
+  ],
+  "file": "posts/2026-08-26-swap-ampliada-sem-reboot.html",
+  "description": "A swap do Full-Linux foi ampliada de 4 para 8 GiB com overlay de senha, rollback e valida├º├úo sem reboot.",
+  "read_status": "read",
+  "summary": "APT/Snap batch aborted safely at only 254MiB free swap (<256MiB threshold). With explicit authorization, graphical executor created 4GiB /swap.extra.img with backup/hash and 0600 root ownership; total 8GiB, 4GiB free, no reboot. Next preflight needed; other components remain separate.",
+  "projects": [
+    {
+      "name": "Mac/Linux update batch preparation",
+      "status": "swap capacity fixed, package batch not rerun yet"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "swap.extra.img",
+      "relation": "4GiB, permission 0600, root-owned"
+    },
+    {
+      "name": "/etc/fstab",
+      "relation": "persisted after backup/hash"
+    },
+    {
+      "name": "APT/Snap",
+      "relation": "preflight abort before install"
+    }
+  ],
+  "claims": [
+    {
+      "status": "no updates applied",
+      "confidence": "declarado",
+      "evidence_excerpt": "O abort foi correto",
+      "object": "aborted before install due 254MiB free swap",
+      "subject": "initial batch",
+      "limitation": "run not repeated",
+      "relation": "decision"
+    },
+    {
+      "status": "postflight measured",
+      "confidence": "declarado",
+      "evidence_excerpt": "O resultado foi swap total de 8 GiB",
+      "object": "total 8GiB, 4GiB free, no reboot/restart",
+      "subject": "swap",
+      "limitation": "does not prove compatibility of packages",
+      "relation": "result"
+    },
+    {
+      "status": "separate gates",
+      "confidence": "declarado",
+      "evidence_excerpt": "mais swap reduz risco de OOM, mas não transforma incerteza em compatibilidade",
+      "object": "Hermes/Docker/Compose/Qdrant/Python separate",
+      "subject": "next steps",
+      "limitation": "not authorized by memory addition alone",
+      "relation": "remaining"
+    }
+  ],
+  "lessons": [
+    "abort preflight when resource capacity below gate",
+    "capacity improvement does not imply compatibility",
+    "persisted config needs backup and postflight"
+  ],
+  "sha256": "a66bf340d6b6b9b0744a5299935623ba445ad32fb761889c5d2e8c2e7d4960cf",
+  "id": "2026-08-26-swap-ampliada-sem-reboot",
+  "manifest_title": "Swap Ampliada sem Reboot",
+  "url": "https://rabelus.com.br/posts/2026-08-26-swap-ampliada-sem-reboot.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "O diagnóstico\n\nO primeiro lote APT/Snap foi autenticado pelo overlay, mas abortou antes de instalar qualquer coisa porque a swap livre estava em 254 MiB, abaixo do limite de segurança de 256 MiB. O abort foi correto; a atualização não deveria competir com um host sob pressão.\n\nA correção\n\nCom autorização explícita, o executor gráfico criou /swap.extra.img de 4 GiB, formatou e ativou o arquivo sem tocar em /swap.img. A entrada foi persistida no /etc/fstab depois de backup com hash. A senha passou somente pelo askpass do sudo e não entrou em logs.\n\nO resultado foi swap total de 8 GiB, com 4 GiB livres no postflight. O arquivo novo ficou com permissão 0600 e proprietário root:root. Nenhum reboot ou restart foi executado.\n\nO que vem depois\n\nOpen WebUI, TTS, mídia e LM Studio continuaram em HTTP 200; os containers permaneceram saudáveis. A próxima ação é repetir o preflight e relançar o lote APT/Snap. Hermes, Docker/Compose, Qdrant e bibliotecas Python continuam separados, porque mais swap reduz risco de OOM, mas não transforma incerteza em compatibilidade.\n\nRegistro operacional: argenta-fenix-rabelus/ops/update-orchestration/2026-08-26/swap-expansion-20260826T2255/.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

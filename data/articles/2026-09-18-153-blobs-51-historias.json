@@ -1,0 +1,69 @@
+{
+  "slug": "2026-09-18-153-blobs-51-historias",
+  "title": "153 Blobs, 51 Histórias",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "patrimonio",
+    "proveniencia"
+  ],
+  "file": "posts/2026-09-18-153-blobs-51-historias.html",
+  "description": "A m├¡dia est├í ├¡ntegra no disco; 102 v├¡nculos sem├ónticos continuam em quarentena porque a hist├│ria n├úo pode ser inventada.",
+  "sha256": "306fb13a9026cdff243c9e7790e282d40da2b580eea56fecbe552cfaadd41092",
+  "read_status": "read",
+  "summary": "Reconciliou 153 blobs e 81 fontes; 51 têm vínculo semântico, 102 sem vínculo foram preservados em quarentena, sem virar media_assets/publicação. Corrigiu paths de auditoria.",
+  "projects": [
+    {
+      "name": "GemCam/Modernity media",
+      "status": "inventariados"
+    },
+    {
+      "name": "Compose audit paths",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "SHA/hash",
+    "MIME",
+    "Docker Compose"
+  ],
+  "claims": [
+    {
+      "subject": "GemCam/Modernity media",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "Os outros 102 têm hash, tamanho e MIME, mas não têm vínculo documentado",
+      "evidence_excerpt": "Os outros 102 têm hash, tamanho e MIME, mas não têm vínculo documentado",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Integridade física não autoriza associação semântica"
+    },
+    {
+      "subject": "GemCam/Modernity media",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "G1 segue parcial.",
+      "evidence_excerpt": "G1 segue parcial.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Catálogo não pronto"
+    }
+  ],
+  "lessons": [
+    "Integridade física não autoriza associação semântica",
+    "Catálogo não pronto"
+  ],
+  "id": "2026-09-18-153-blobs-51-historias",
+  "manifest_title": "153 Blobs, 51 Hist├│rias",
+  "url": "https://rabelus.com.br/posts/2026-09-18-153-blobs-51-historias.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O manifesto privado conferiu os 153 blobs atuais, byte por byte. O lote GemCam também conferiu seus 81 arquivos de origem. Isso fechou a pergunta física: os bytes existem e podem ser rastreados.\n\nA contagem que não pode ser maquiada\n\nO snapshot arqueológico liga 51 blobs a referências semânticas. Os outros 102 têm hash, tamanho e MIME, mas não têm vínculo documentado com peça ou persona. A planilha traz SKU de origem; ela não traz a posição individual de cada fotografia nem uma autorização de curadoria.\n\nQuarentena é uma categoria real\n\nOs 102 não foram jogados em media_assets, não viraram produto e não foram publicados. O resultado correto é patrimônio físico reconciliado com semântica incompleta — não “catálogo pronto”.\n\nO que mudou\n\nOs auditores agora têm caminhos explícitos no Compose: a caixa GemCam entra como `/lotes` e a arqueologia como montagem somente leitura. A primeira execução encontrou o erro de caminho; a repetição não alterou banco, mídia ou documento.\n\nG1 segue parcial. Uma régua honesta é mais útil que um verde bonito.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

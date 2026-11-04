@@ -1,0 +1,87 @@
+{
+  "slug": "2026-09-18-o-projeto-precisa-ser-provisionado",
+  "title": "O Projeto Precisa ser Provisionado",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "identidade",
+    "governanca"
+  ],
+  "file": "posts/2026-09-18-o-projeto-precisa-ser-provisionado.html",
+  "description": "Um ID criado no browser n├úo ganha autoridade por existir: o Studio agora provisiona explicitamente projetos Anika e preserva seu isolamento.",
+  "read_status": "read",
+  "summary": "ADR-007 maps local/canonical project identity, principal/origin/status/revision; server-only writer creates doc before Anika IndexedDB writes. HTTP tests 201, idempotent duplicate 200, identity mismatch 409, unprovisioned 403; revocation retains data/history but removes authority. Replay snake_case/camelCase mismatch fixed. Does not close catalog/public commercial acceptance.",
+  "projects": [
+    {
+      "name": "Studio-Anika provisioning boundary",
+      "status": "HTTP identity/provision/revocation path tested; G6/UAT remain"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "ADR-007",
+      "relation": "provisioning contract"
+    },
+    {
+      "name": "PostgreSQL snake_case response",
+      "relation": "required explicit aliases for planner camelCase"
+    },
+    {
+      "name": "AnikaDB IndexedDB",
+      "relation": "writes only after server response"
+    }
+  ],
+  "claims": [
+    {
+      "status": "HTTP proof reported",
+      "subject": "provisioning",
+      "evidence_excerpt": "Um projeto não provisionado recebeu 403",
+      "confidence": "declarado",
+      "limitation": "no human UAT",
+      "object": "201 create, duplicate 200, mismatch 409, unprovisioned 403",
+      "relation": "responses"
+    },
+    {
+      "status": "authority revoked, data retained",
+      "subject": "revocation",
+      "evidence_excerpt": "A revogação devolveu 200 e preservou documento, evento e histórico.",
+      "confidence": "declarado",
+      "limitation": "does not erase history",
+      "object": "retains document/event/history, reads 403",
+      "relation": "effect"
+    },
+    {
+      "status": "pending",
+      "subject": "G6",
+      "evidence_excerpt": "Isso não fecha G6",
+      "confidence": "declarado",
+      "limitation": "media provenance, pricing and UAT incomplete",
+      "object": "not closed",
+      "relation": "status"
+    }
+  ],
+  "lessons": [
+    "proximity of project ids is not identity mapping",
+    "server response is authority boundary before local write",
+    "revocation should remove authority while preserving audit history",
+    "explicit SQL-to-app casing prevents replay duplication"
+  ],
+  "sha256": "dfd12be50f0139e9ac54cc8771246840fe1c4d89107fa94ec51c28b92b7271a8",
+  "id": "2026-09-18-o-projeto-precisa-ser-provisionado",
+  "manifest_title": "O Projeto Precisa ser Provisionado",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-projeto-precisa-ser-provisionado.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Interfaces e produto",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta"
+  ],
+  "body": "A Anika criava projetos locais como project_<timestamp>. O Studio conhecia apenas proj-modernity-001. Pareciam nomes próximos o bastante para uma integração apressada — e eram precisamente diferentes o bastante para quebrar isolamento.\n\nO contrato que faltava\n\nA ADR-007 ativou o provisionamento explícito: o Studio registra projeto local, projeto canônico, principal, origem, status e revisão. O documento inicial é criado pelo único escritor. A Anika só grava no IndexedDB depois de receber a resposta do servidor.\n\nO caminho real\n\nNa prova HTTP, a criação devolveu 201. O mesmo pedido devolveu 200 com duplicate=true. Uma identidade divergente recebeu 409. Um projeto não provisionado recebeu 403. Um projeto provisionado publicou um evento, foi lido pela própria sessão, recuperou catálogo com intenção e classe e executou catalog.search pelo gateway.\n\nRevogar não é apagar\n\nA revogação devolveu 200 e preservou documento, evento e histórico. A leitura posterior recebeu 403. O projeto não desapareceu para que a auditoria pudesse provar o que aconteceu; perdeu apenas a autoridade ativa.\n\nA falha que ficou\n\nO primeiro replay tentou duplicar uma chave porque o PostgreSQL entregou nomes snake_case e o planejador esperava camelCase. Registramos INC-F4.2-077-001, corrigimos aliases explícitos e repetimos o teste. O sistema não ganhou uma narrativa sem o erro; ganhou um oráculo melhor.\n\nIsso fecha uma fronteira de identidade. Não fecha G6, não atribui mídia sem proveniência, não aprova preço e não transforma uma probe headless de ativação em UAT humana.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

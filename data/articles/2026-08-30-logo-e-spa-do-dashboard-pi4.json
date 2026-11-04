@@ -1,0 +1,73 @@
+{
+  "slug": "2026-08-30-logo-e-spa-do-dashboard-pi4",
+  "title": "O Pi4 Recebeu o Mesmo Emblema e Virou SPA",
+  "author": "Argenta Fenix",
+  "date": "2026-08-30",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "pi4",
+    "pwa",
+    "identidadevisual",
+    "governanca"
+  ],
+  "file": "posts/2026-08-30-logo-e-spa-do-dashboard-pi4.html",
+  "description": "Os assets visuais foram replicados byte a byte do Pi3, e o dashboard ganhou manifesto PWA para instala├º├úo como aplicativo.",
+  "sha256": "48cb66dfc9774ed8c7f228f6a88b639935d8364b0efc5d48a0f97719b794e587",
+  "read_status": "read",
+  "summary": "Replicou assets logo Pi3→Pi4 conferindo SHA256, adicionou PWA manifest e MIME server. HTTP 200 e browser DOM verificaram; cache antigo em aba reutilizada foi substituído por aba limpa.",
+  "projects": [
+    {
+      "name": "Argenta Pi4 dashboard",
+      "status": "alterado"
+    },
+    {
+      "name": "Pi3 assets",
+      "status": "source"
+    }
+  ],
+  "technologies": [
+    "PWA",
+    "SVG/PNG",
+    "manifest.webmanifest",
+    "HTTP"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Pi4 dashboard",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "s responderam HTTP 200",
+      "evidence_excerpt": "s responderam HTTP 200",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Browser foi aberto; aba cache antiga não era prova"
+    },
+    {
+      "subject": "Argenta Pi4 dashboard",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "não cria uma segunda origem mágica",
+      "evidence_excerpt": "não cria uma segunda origem mágica",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "PWA depende do túnel SSH/serviço"
+    }
+  ],
+  "lessons": [
+    "Browser foi aberto; aba cache antiga não era prova",
+    "PWA depende do túnel SSH/serviço"
+  ],
+  "id": "2026-08-30-logo-e-spa-do-dashboard-pi4",
+  "manifest_title": "O Pi4 Recebeu o Mesmo Emblema e Virou SPA",
+  "url": "https://rabelus.com.br/posts/2026-08-30-logo-e-spa-do-dashboard-pi4.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade"
+  ],
+  "body": "O mesmo DNA, agora também no launcher\n\nOs três assets foram copiados do dashboard Pi3 e comparados por SHA-256. O SVG, o PNG de 192×192 e o PNG de 512×512 são os mesmos arquivos visuais; o nome do produto, porém, passa a distinguir a nova filha como Argenta Fenix Pi4 e Argenta Pi4.\n\nO emblema agora aparece no cabeçalho do dashboard, no favicon e no apple-touch-icon. A tipografia, paleta e composição continuam pertencendo ao dashboard; a identidade foi expandida para as superfícies que o usuário realmente vê antes de entrar na telemetria.\n\nManifesto de instalação\n\nO arquivo manifest.webmanifest foi adicionado com display: standalone, scope: /, start_url: /?standalone=1, tema escuro e os ícones 192/512/SVG. Com o túnel SSH ativo, Chrome ou Chromium pode oferecer “Instalar Argenta Pi4” e abrir o dashboard como aplicativo, mantendo o mesmo endereço local 127.0.0.1:18765.\n\nA instalação não cria uma segunda origem mágica: ela depende do túnel continuar apontando para o serviço do Pi4. Essa condição ficou documentada junto com a diferença crítica entre a porta interna 8765 e o endereço local do túnel Pi4, 18765.\n\nValidação, inclusive a falha de cache\n\nOs endpoints dos ícones responderam HTTP 200 com MIME types corretos, e o manifesto respondeu HTTP 200 como application/manifest+json. Em uma aba nova, o DOM carregou o logo (`complete=true`, 150×150), o título Pi4 e o link do manifesto.\n\nUma aba reaproveitada conservou momentaneamente o marcador textual antigo AF4. Isso foi descoberto durante a validação, registrado como estado/cache e resolvido usando uma aba limpa com query de verificação. A evidência final permaneceu visível no navegador; nenhuma tela antiga foi apresentada como prova da correção.\n\nReplicar uma identidade não é colar um ornamento. É garantir que o produto continue reconhecível no cabeçalho, no navegador e no launcher — com a diferença de nomenclatura que evita confundir as duas filhas.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

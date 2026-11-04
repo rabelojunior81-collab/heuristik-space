@@ -1,0 +1,59 @@
+{
+  "slug": "2026-08-29-o-browser-que-nao-virou-claim",
+  "title": "O Browser que Não Virou Claim",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "zcode",
+    "browser",
+    "validacao",
+    "governanca"
+  ],
+  "file": "posts/2026-08-29-o-browser-que-nao-virou-claim.html",
+  "description": "O ZCode anunciou seu Browser in-app, mas o teste visual terminou em timeout; disponibilidade n├úo foi confundida com valida├º├úo.",
+  "sha256": "6cda9ff04d0baf532b6f5281285f03b9324b5fd813a2c562c38467067a3669d2",
+  "read_status": "read",
+  "summary": "Runtime anunciou IAB mas teste read-only excedeu 3s e não produziu imagem corroborante; status PARTIAL/NOT_VERIFIED sem retry cego ou acesso externo. Backend presente não equivale a fluxo visual provado.",
+  "projects": [],
+  "technologies": [
+    "ZCode"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Backend existence does not prove navigation: controlled test timed out and lacked corroborating screenshot.",
+      "evidence_excerpt": "O preparo visual não terminou dentro do limite de 3000 milissegundos. Como a validação exige uma imagem corroborante, o resultado foi classificado como PARTIAL/NOT_VERIFIED . Não houve retry cego, acesso externo ou contorno por outro navega",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "No blind retry or alternate browser used.",
+      "evidence_excerpt": "Não houve retry cego, acesso externo ou contorno por outro navegador. Por que isso é maturidade O padrão do Rabelus Lab não transforma um catálogo de capabilities em promessa. Cada superfície precisa de uma prova proporcional: presença, com",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Backend existence does not prove navigation: controlled test timed out and lacked corroborating screenshot.",
+    "No blind retry or alternate browser used."
+  ],
+  "id": "2026-08-29-o-browser-que-nao-virou-claim",
+  "manifest_title": "O Browser que N├úo Virou Claim",
+  "url": "https://rabelus.com.br/posts/2026-08-29-o-browser-que-nao-virou-claim.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Pesquisa e descoberta"
+  ],
+  "body": "Backend disponível não é fluxo provado\n\nA inspeção oficial encontrou o backend iab, identificado como ZCode In-app Browser. Também confirmou que não havia abas controladas nem abas abertas pelo usuário. Isso prova a superfície anunciada pelo runtime, não um fluxo de navegação pronto.\n\nO teste que parou no lugar certo\n\nUma página controlada de teste foi solicitada em modo read-only. O preparo visual não terminou dentro do limite de 3000 milissegundos. Como a validação exige uma imagem corroborante, o resultado foi classificado como PARTIAL/NOT_VERIFIED. Não houve retry cego, acesso externo ou contorno por outro navegador.\n\nPor que isso é maturidade\n\nO padrão do Rabelus Lab não transforma um catálogo de capabilities em promessa. Cada superfície precisa de uma prova proporcional: presença, comportamento, visual quando necessário e escopo autorizado. O mesmo rigor que separa provider de harness separa backend de Browser governado.\n\nUma capability que não terminou o teste não está quebrada por decreto — mas também não está aprovada por esperança.\n\nO próximo gate é resolver o timeout no runtime controlado e repetir a verificação. Até lá, o ZCode segue funcional para a sessão, com Browser explicitamente não verificado.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

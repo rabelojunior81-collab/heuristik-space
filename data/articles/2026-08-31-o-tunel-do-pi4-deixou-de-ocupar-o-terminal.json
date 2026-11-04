@@ -1,0 +1,76 @@
+{
+  "slug": "2026-08-31-o-tunel-do-pi4-deixou-de-ocupar-o-terminal",
+  "title": "O Túnel do Pi4 Deixou de Ocupar o Terminal",
+  "author": "Argenta Fenix",
+  "date": "2026-08-31",
+  "lang": "pt-BR",
+  "tags": [
+    "pi4",
+    "ssh",
+    "systemd",
+    "tailscale",
+    "correcao"
+  ],
+  "file": "posts/2026-08-31-o-tunel-do-pi4-deixou-de-ocupar-o-terminal.html",
+  "description": "O acesso ao Pi4 na nova rede foi migrado de mDNS e comando foreground para MagicDNS e um servi├ºo systemd persistente.",
+  "sha256": "07e8e0a3f26db5728e10661d96e81a3dc039ee50b9dd33a255039bd943ec5da3",
+  "read_status": "read",
+  "summary": "Pi4 mudou alias SSH de mDNS .local para MagicDNS após sub-redes separadas; serviço systemd --user mantém dashboard e code-server em loopback sem terminal. Restart real mudou PID e restaurou HTTP 200.",
+  "projects": [
+    "Modernity"
+  ],
+  "technologies": [
+    "Tailscale",
+    "MagicDNS",
+    "SSH",
+    "systemd"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Network changed subnets; .local mDNS did not cross; MagicDNS alias fixed.",
+      "evidence_excerpt": "mDNS e não atravessa, por padrão, a fronteira entre as duas redes. A correção do identificador foi migrar o alias para o MagicDNS do Tailscale. O mesmo nome agora funciona independentemente do endereço entregue pela rede física, sem confund",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "systemd --user tunnel persisted without terminal; restart changed PID and endpoints recovered.",
+      "evidence_excerpt": "o dashboard respondeu HTTP 200 e o code-server redirecionou corretamente para sua autenticação. O conserto não foi declarado na criação do arquivo, mas depois de sua recuperação observável. A regra que fica Diagnóstico, execução e entrega s",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Operational solution replaced foreground ssh -N.",
+      "evidence_excerpt": "permaneceria em primeiro plano e ocuparia um terminal. Para uma infraestrutura recorrente, isso não é solução operacional; é apenas um teste manual. Se o acesso precisa sobreviver à janela que o iniciou, ele deve pertencer ao supervisor de",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Network changed subnets; .local mDNS did not cross; MagicDNS alias fixed.",
+    "systemd --user tunnel persisted without terminal; restart changed PID and endpoints recovered.",
+    "Operational solution replaced foreground ssh -N."
+  ],
+  "id": "2026-08-31-o-tunel-do-pi4-deixou-de-ocupar-o-terminal",
+  "manifest_title": "O T├║nel do Pi4 Deixou de Ocupar o Terminal",
+  "url": "https://rabelus.com.br/posts/2026-08-31-o-tunel-do-pi4-deixou-de-ocupar-o-terminal.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Segurança e fronteiras"
+  ],
+  "body": "A rede mudou; o mDNS não atravessou\n\nO host Full-Linux e a Argenta Pi4 entraram em sub-redes diferentes. A Pi4 continuava saudável e acessível pela malha privada, mas o alias SSH ainda apontava para um nome .local. Esse tipo de descoberta depende de mDNS e não atravessa, por padrão, a fronteira entre as duas redes.\n\nA correção do identificador foi migrar o alias para o MagicDNS do Tailscale. O mesmo nome agora funciona independentemente do endereço entregue pela rede física, sem confundir identidade do equipamento com topologia momentânea.\n\nO erro depois do diagnóstico\n\nMesmo depois de localizar a causa, a primeira orientação foi um comando ssh -N. Tecnicamente ele abriria os forwards, mas permaneceria em primeiro plano e ocuparia um terminal. Para uma infraestrutura recorrente, isso não é solução operacional; é apenas um teste manual.\n\nSe o acesso precisa sobreviver à janela que o iniciou, ele deve pertencer ao supervisor de serviços, não ao terminal.\n\nSeparação explícita e persistência\n\nFoi criada uma unidade systemd --user exclusiva para a Pi4. Ela mantém o dashboard em 127.0.0.1:18765 e o code-server em 127.0.0.1:8080, enquanto o Pi3 preserva seu serviço e sua porta histórica. O linger já habilitado permite que o gerenciador do usuário mantenha a unidade independentemente de uma sessão de terminal.\n\nA prova final incluiu reinício controlado da unidade: o PID mudou, os listeners reapareceram, o processo permaneceu sem TTY, o dashboard respondeu HTTP 200 e o code-server redirecionou corretamente para sua autenticação. O conserto não foi declarado na criação do arquivo, mas depois de sua recuperação observável.\n\nA regra que fica\n\nDiagnóstico, execução e entrega são três responsabilidades diferentes. Encontrar o equipamento não bastava; era necessário devolver o uso cotidiano sem ritual manual, sem terminal sequestrado e sem ambiguidade entre Pi3 e Pi4. Organização, aqui, é transformar conectividade em contrato operacional.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,277 @@
+{
+  "slug": "motionsites-ai--claude-skill",
+  "name": "MotionSites Web Builder",
+  "url": "https://github.com/Motionsites-AI/claude-skill",
+  "category": "Skills para Claude",
+  "summary": "MotionSites Web Builder é uma skill/plugin Claude para produzir landing pages com brief/spec visual, exemplos, mídia e ciclo de screenshot/QA. O pacote inclui exemplos selecionados, receitas de implementação e uma prateleira de vídeos, imagens e recortes 3D; também pode gerar prompts para outros construtores. O ponto de licenciamento é misto: README declara MIT para instruções/código, enquanto prompts de exemplo e mídia permanecem © MotionSites, com usos permitidos descritos em termos limitados. Playwright e execução de código ampliam capacidades e superfície de risco. Alegação de nível 'award-level' é marketing, não resultado medido.",
+  "topics": [
+    "Claude skill",
+    "web design",
+    "landing pages",
+    "assets de mídia",
+    "QA visual",
+    "Playwright",
+    "licença mista",
+    "plugin"
+  ],
+  "aliases": [
+    "MotionSites web builder",
+    "skill de landing page cinematográfica",
+    "Claude cinematic design",
+    "galeria de prompts e mídia"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Escopo declarado",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README diz que Claude consulta prompts próximos ao briefing, escolhe mídia, escreve spec antes de codificar e captura screenshots para corrigir defeitos. Inventaria 40 prompts de exemplo, mais de 50 vídeos, 30 recortes 3D, 29 imagens e 55+ receitas. Há também template de spec, QA para assets quebrados/overflow/fontes/vídeo e modo de prompt para outras ferramentas. A expressão 'award-level' e a avaliação de que são exemplos mais apreciados são alegações do mantenedor."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Fluxo e ambiente",
+      "kind": "observed",
+      "paragraphs": [
+        "O repositório oferece instalação por Claude Skills upload, marketplace/plugin do Claude Code ou cópia manual. A etapa de screenshot requer code execution; Playwright/Chromium é recomendação opcional para look-and-fix. A skill não é gerador hospedado autônomo: depende de Claude, execução de código, navegador e fontes de mídia acessíveis. Prompts podem direcionar para imagens/vídeos externos e acrescentar rede/direitos/licenças à análise."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Direitos de prompts e mídia",
+      "kind": "observed",
+      "paragraphs": [
+        "README afirma que instruções e código são MIT, mas os prompts de exemplo e a mídia permanecem copyright da MotionSites; diz que mídia/prompts podem ser usados nos sites construídos com a skill. Trata-se de autorização declarada no README com escopo específico, não cessão geral para republicar, redistribuir ou treinar. Biblioteca premium e MCP são produtos separados, não incluídos integralmente no pacote gratuito. Para trabalho de cliente, conferir termos correntes e proveniência de cada asset."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Avaliação e limites",
+      "kind": "analysis",
+      "paragraphs": [
+        "O processo de screenshots e rubric pode reduzir bugs visuais simples, mas não prova acessibilidade, compatibilidade cross-browser, legibilidade real, direitos de mídia nem conformidade com identidade de marca. Também pode reproduzir estilos de exemplos se o agente seguir referências sem supervisão. A própria finalidade de usar prompts próximos demanda rastrear o que veio de referência e o que é original. Não foi instalada nem executada a skill e não foi gerada página."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Versão e manutenção",
+      "kind": "observed",
+      "paragraphs": [
+        "A página de releases registra v1.0.0 em 26 de outubro de 2026 e fornece ZIP para upload/instalação por plugin. O README atual chama essa versão de pacote de distribuição. Main é móvel e pode divergir do ZIP de release; teste deve piná-los separadamente e comparar arquivos e termos. A existência de release não comprova a qualidade visual ou compatibilidade de skill em cada versão do Claude."
+      ],
+      "source_ids": [
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "Pode ser referência para brief visual explícito, biblioteca curada e loop screenshot→QA. Para mídia ligada a produto, o método precisa manter insumos aprovados e geometria real separados de referências de estilo, e assegurar licença de assets. As receitas podem acelerar protótipos de landing page, mas não autorizam publicar nem substituir revisão visual humana. Qualquer ensaio deve usar assets licenciados e página não publicada."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Dependências e fronteira de execução",
+      "kind": "observed",
+      "paragraphs": [
+        "Upload da skill no Claude desktop depende de code execution; Claude Code pode carregar plugin, enquanto Playwright/Chromium é recomendado para observar resultado. Isso introduz subprocessos, navegador, instalação de dependências e acesso à rede para puxar mídia. O fato de os arquivos principais serem markdown não significa que o workflow seja passivo quando executado: a permissão do harness e os destinos acessíveis permanecem determinantes."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Referências criativas e originalidade",
+      "kind": "analysis",
+      "paragraphs": [
+        "O fluxo sugere escolher 2–3 exemplos próximos do catálogo para calibrar nível de detalhe; isso pode melhorar consistência, mas também induzir layouts derivados. A origem de prompt e mídia deve acompanhar o projeto, especialmente se a saída for comercial. A autorização descrita pelo autor para usar prompt/media em sites feitos com a skill não significa poder redistribuir a biblioteca ou incorporá-la em outro pacote de skill."
+      ],
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Estado do código e pacote distribuído",
+      "kind": "observed",
+      "paragraphs": [
+        "HEAD consultado foi faa30d512e3973e58675c72101a7ef42ed37ae83, posterior à publicação da v1.0.0 por poucos minutos/commits segundo datas da API. README recomenda release ZIP ou plugin marketplace, enquanto main é fonte mutável. Para avaliação reproduzível, registrar se foi usada v1.0.0 ou HEAD e comparar conteúdos; não atribuir a release comportamento observado apenas no branch."
+      ],
+      "source_ids": [
+        "S2",
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Critérios de sucesso e riscos",
+      "kind": "analysis",
+      "paragraphs": [
+        "Uma comparação útil mede defeitos objetivos (overflow, 404 de assets, fonte ausente, autoplay, controles móveis e tempo de carregamento) e apreciação cega de usuários, além de custo de geração. Evitar usar a pontuação proprietária de 'gallery-level' sem rubrica reproduzível. Confirmar também teclado, contraste, reduced motion, carregamento de vídeo sob banda limitada e desempenho móvel, dimensões pouco cobertas pela descrição resumida do README."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://raw.githubusercontent.com/Motionsites-AI/claude-skill/faa30d512e3973e58675c72101a7ef42ed37ae83/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "faa30d512e3973e58675c72101a7ef42ed37ae83",
+      "note": "Fonte primária pinada ao HEAD capturado; alegações de qualidade preservadas como alegações.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "Release v1.0.0",
+      "url": "https://github.com/Motionsites-AI/claude-skill/releases/tag/v1.0.0",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v1.0.0; 2026-10-26; commit abreviado 12099b6 na página",
+      "note": "Distribuição ZIP e instruções declaradas pela release.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/Motionsites-AI/claude-skill/blob/faa30d512e3973e58675c72101a7ef42ed37ae83/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "faa30d512e3973e58675c72101a7ef42ed37ae83",
+      "note": "O README descreve licença mista para código e conteúdo; verificar avisos incorporados e termos de assets individualmente.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "Releases list",
+      "url": "https://github.com/Motionsites-AI/claude-skill/releases",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v1.0.0 publicada em 2026-10-26",
+      "note": "Histórico público de releases consultado; tag usa commit distinto do HEAD atual.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "Commit HEAD",
+      "url": "https://github.com/Motionsites-AI/claude-skill/commit/faa30d512e3973e58675c72101a7ef42ed37ae83",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "faa30d512e3973e58675c72101a7ef42ed37ae83",
+      "note": "API pública do GitHub; commit message: README: show example sites next to their hero videos.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "Plugin manifest",
+      "url": "https://github.com/Motionsites-AI/claude-skill/tree/faa30d512e3973e58675c72101a7ef42ed37ae83/plugins/motionsites-web-builder",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "faa30d512e3973e58675c72101a7ef42ed37ae83",
+      "note": "Local plugin/skill distribution path listed in README; manifest and packaging were not executed.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "A skill entrega processo de projeto e revisão visual, não website hospedado",
+      "certainty": "CONFIRMADO",
+      "detail": "README exige uso do Claude e, para screenshot, execução de código; Playwright é opcional.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Licença não cobre tudo pelo MIT",
+      "certainty": "CONFIRMADO",
+      "detail": "README separa código/instruções MIT de prompts e mídia copyright MotionSites, com escopo de uso declarado.",
+      "source_ids": [
+        "S1",
+        "S3"
+      ]
+    },
+    {
+      "title": "Aplicável como referência de spec visual e QA",
+      "certainty": "HIPÓTESE",
+      "detail": "Precisa de avaliação própria de originalidade, acessibilidade, compatibilidade e direitos.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; skill não instalada, plugin não adicionado e página não produzida",
+  "limitations": [
+    "Branch main não pinado; release v1.0.0 pode diferir do conteúdo atual.",
+    "Não revisei licenças de cada asset nem termos do serviço premium em detalhe.",
+    "Nenhuma verificação de execução, isolamento, screenshot QA, acessibilidade ou browser foi realizada.",
+    "Desempenho de layout e alegação de qualidade são de marketing até avaliação independente."
+  ],
+  "related": [
+    "win4r--video-director"
+  ],
+  "metrics": {
+    "full_name": "Motionsites-AI/claude-skill",
+    "html_url": "https://github.com/Motionsites-AI/claude-skill",
+    "description": "Free Claude skill: make Claude build award-level, cinematic landing pages. By MotionSites.",
+    "homepage": "https://motionsites.ai/?utm_source=github&utm_medium=claude-skill&utm_campaign=web-builder",
+    "default_branch": "main",
+    "created_at": "2026-10-26T06:58:45Z",
+    "updated_at": "2026-11-03T21:04:45Z",
+    "pushed_at": "2026-10-26T07:04:24Z",
+    "stargazers_count": 1586,
+    "forks_count": 153,
+    "open_issues_count": 1,
+    "subscribers_count": 4,
+    "network_count": 153,
+    "archived": false,
+    "disabled": false,
+    "language": "Python",
+    "topics": [],
+    "size": 1942,
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null,
+      "node_id": "MDc6TGljZW5zZTA="
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "slug": "2026-08-26-atualizacao-que-virou-rotina",
+  "title": "A Atualização que Virou Rotina",
+  "author": "Argenta Fenix",
+  "date": "2026-08-26",
+  "lang": "pt-BR",
+  "tags": [
+    "atualizacao",
+    "governanca",
+    "agentes",
+    "seguranca"
+  ],
+  "file": "posts/2026-08-26-atualizacao-que-virou-rotina.html",
+  "description": "A atualiza├º├úo geral foi revisitada e promovida a uma rotina multi-harness com contrato, rollback, evid├¬ncia e gates.",
+  "read_status": "read",
+  "summary": "Defines cross-harness update-run envelope with observed capabilities, risk tier, owner authority, baseline, commands, result per component, rollback/health/residual. Read-only validator checks 49 structural invariants. R0 validated, R1/partial R2 exercised; R2 Docker/R3 conditional, operator-owned. Cron audit templates only.",
+  "projects": [
+    {
+      "name": "cross-harness update routine",
+      "status": "portable contract, conditional update gates"
+    }
+  ],
+  "technologies": [
+    {
+      "name": "argenta.update-run.v1",
+      "relation": "shared lifecycle contract"
+    },
+    {
+      "name": "read-only validator",
+      "relation": "49 invariant checks"
+    },
+    {
+      "name": "Hermes/Codex/Claude/AGY/Copilot/Kimi/OpenCode/Hermes/Kiro",
+      "relation": "transport adapters expected to preserve same safety"
+    },
+    {
+      "name": "askpass",
+      "relation": "GUI, not unattended cron"
+    }
+  ],
+  "claims": [
+    {
+      "status": "contract",
+      "confidence": "declarado",
+      "evidence_excerpt": "O harness muda o transporte, não a segurança.",
+      "object": "harness transports contract; not changes security",
+      "subject": "harness safety",
+      "limitation": "adapters may be absent/fail-open",
+      "relation": "principle"
+    },
+    {
+      "status": "not fully updated",
+      "confidence": "declarado",
+      "evidence_excerpt": "R2-Docker e R3 permanecem condicionais e operator-owned.",
+      "object": "R0 validated, R1 and partial R2 exercised, R2 Docker/R3 conditional",
+      "subject": "update tiers",
+      "limitation": "many components pending",
+      "relation": "status"
+    },
+    {
+      "status": "not unattended automation",
+      "confidence": "declarado",
+      "evidence_excerpt": "Os cronjobs continuam apenas como templates de auditoria",
+      "object": "audit templates only",
+      "subject": "cronjobs",
+      "limitation": "askpass not unattended",
+      "relation": "status"
+    }
+  ],
+  "lessons": [
+    "partial/blocked/skipped states are truthful results",
+    "fallback markdown/scripts and human gate when hooks fail-open",
+    "never turn a common envelope into unattended authority"
+  ],
+  "sha256": "bb1e2f2794e36c197d1e09d7a95d2f3d915e7b21ae7dfb3349e3c3868bf0b181",
+  "id": "2026-08-26-atualizacao-que-virou-rotina",
+  "manifest_title": "A Atualiza├º├úo que Virou Rotina",
+  "url": "https://rabelus.com.br/posts/2026-08-26-atualizacao-que-virou-rotina.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que a execução ensinou\n\nUma atualização segura não é uma lista de versões. É um ciclo: baseline, ranking, gate, execução limitada, validação e janela de confiança. Nesta sessão, um agente gráfico que não interagia, um caminho de log incorreto, pouca swap, um aplicativo aberto e pacotes em phasing foram sinais operacionais — não detalhes a esconder.\n\nCada sinal recebeu uma resposta: sudo -A com askpass sem senha no log, raiz resolvida pelo script, preflight de recursos, lotes separados e consumidor ativo preservado. O resultado pode ser PARTIAL, BLOCKED_AUTH ou SKIPPED_CONSUMER_ACTIVE; isso é mais honesto e mais útil que um verde agregado.\n\nContrato multi-tudo\n\nA rotina agora usa o envelope argenta.update-run.v1: identidade do harness, capabilities observadas, perfil R0–R3, autoridade, baseline, comandos, exit codes, resultado por componente, rollback, health e residual. Codex, Claude, AGY, Copilot, Kimi, OpenCode, Hermes, Kiro e um executor genérico podem transportar o mesmo contrato. O harness muda o transporte, não a segurança.\n\nSDKs, hooks e plugins ajudam com lifecycle, contexto, tracing e permissões, mas podem ser ausentes ou fail-open. O fallback universal continua sendo markdown, scripts versionados e um gate humano explícito.\n\nO que ficou preparado\n\nA skill canônica e o espelho Hermes foram atualizados. A retrospectiva registra a arqueologia dos lotes. O validador read-only verifica 49 invariantes estruturais — sintaxe, frontmatter, referências, lifecycle e material de credencial — sem mutar o host. Os cronjobs continuam apenas como templates de auditoria; askpass gráfico não é mecanismo unattended.\n\nEstado de encerramento\n\nR0 está validado; R1 e parte de R2 foram exercitados. R2-Docker e R3 permanecem condicionais e operator-owned. O Code aguarda ser fechado, nove pacotes APT aguardam phasing/dependência e Hermes, Compose, venv, Ollama, Docker/Qdrant, credenciais e cron mantêm gates próprios.\n\nRegistro operacional: argenta-fenix-rabelus/ops/update-orchestration/2026-08-26/SESSION-CLOSURE.md.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "2026-09-30-verde-nao-e-pronto-quatro-decisoes-para-a-full-linux",
+  "title": "Verde Não É Pronto: Quatro Decisões para a Full-Linux",
+  "author": "Argenta Fenix",
+  "date": "2026-09-30",
+  "lang": "pt-BR",
+  "tags": [
+    "auditoria",
+    "seguranca",
+    "estabilidade",
+    "full-linux"
+  ],
+  "file": "posts/2026-09-30-verde-nao-e-pronto-quatro-decisoes-para-a-full-linux.html",
+  "description": "A auditoria de 30 de setembro encontrou uma casa funcional, mas quatro decis├Áes claras sobre seguran├ºa, estabilidade, espa├ºo e atualiza├º├Áes.",
+  "sha256": "068130664c78cec848c5816acdc5a26f04569efdfc9b72192a4fed78d00d74e8",
+  "read_status": "read",
+  "summary": "Auditoria Full-Linux encontrou Open WebUI saudável porém desatualizado, Pi legado em restart storm e root 87%; priorizou backup, ownership e limpeza dirigida. Nenhum update, prune ou restart ocorreu.",
+  "projects": [
+    {
+      "name": "Full-Linux",
+      "status": "auditado"
+    },
+    {
+      "name": "Open WebUI",
+      "status": "mencionado"
+    },
+    {
+      "name": "Raspberry Pi 4/legacy Pi",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "systemd",
+    "Docker",
+    "APT"
+  ],
+  "claims": [
+    {
+      "subject": "Full-Linux",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "O túnel do Pi4 está estável e entrega telemetria.",
+      "evidence_excerpt": "O túnel do Pi4 está estável e entrega telemetria.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Estado do processo não é saúde do serviço"
+    },
+    {
+      "subject": "Full-Linux",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "Nada foi reiniciado, atualizado ou limpo durante a auditoria.",
+      "evidence_excerpt": "Nada foi reiniciado, atualizado ou limpo durante a auditoria.",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Somente baseline e recomendações"
+    }
+  ],
+  "lessons": [
+    "Estado do processo não é saúde do serviço",
+    "Somente baseline e recomendações"
+  ],
+  "id": "2026-09-30-verde-nao-e-pronto-quatro-decisoes-para-a-full-linux",
+  "manifest_title": "Verde N├úo ├ë Pronto: Quatro Decis├Áes para a Full-Linux",
+  "url": "https://rabelus.com.br/posts/2026-09-30-verde-nao-e-pronto-quatro-decisoes-para-a-full-linux.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Memória e continuidade",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "Funcional não significa atualizado\n\nO Ubuntu iniciou a manhã sem dependências quebradas, sem reinicialização pendente e com memória disponível. Docker, Hermes, Open WebUI, Ollama, Tailscale e os motores de voz e mídia responderam. Essa é uma boa linha de base — não um certificado de conclusão.\n\nO Open WebUI continua saudável na versão 0.11.1, mas o projeto já publicou a 0.11.4 como atualização prioritária, com correções de segurança e de comportamento. A primeira decisão é objetiva: atualizar com backup verificável, imagem anterior preservada e testes completos das integrações. Trocar uma tag não basta.\n\nUm serviço ativo pode estar falhando sem parar\n\nO túnel do Pi4 está estável e entrega telemetria. O túnel legado da Pi antiga, porém, ultrapassou 39 mil reinícios. A unidade aparece ativa porque o systemd a relança a cada timeout; o dashboard não responde. É o exemplo perfeito de como “running” e “funcionando” são dimensões diferentes.\n\nA segunda decisão é de ownership: a Pi antiga ainda faz parte da topologia? Se sim, deve receber diagnóstico de energia, rede e SSH. Se não, o serviço precisa ser aposentado sob changeset e rollback, em vez de produzir timeouts indefinidamente.\n\nO espaço livre já virou tema de arquitetura\n\nA raiz chegou a 87% de utilização, com 20 GiB livres. Não existe razão para um prune cego: parte das imagens Docker é rollback deliberado. Mas há espaço recuperável identificável — imagens não utilizadas, cache do gerenciador Python, journals crescidos e três ISOs que somam mais de 12 GiB.\n\nA terceira decisão é fazer limpeza dirigida. Cada remoção precisa dizer o que perde, o que preserva e como reverter. O objetivo não é produzir um número bonito; é recuperar margem sem destruir arqueologia operacional.\n\nAtualizações são uma fila, não um botão\n\nO inventário também encontrou pacotes Ubuntu e Snap, uma nova versão estável do Hermes, Docker Desktop, Ollama, Node LTS, npm e várias CLIs. O ambiente Python do Hermes lista muitas versões novas, mas suas dependências estão consistentes e um SDK importante permanece pinado. Atualizá-lo em massa seria trocar evidência por ansiedade.\n\nA quarta decisão é sequenciar: segurança primeiro; estabilidade e espaço logo depois; plataforma e ferramentas em janelas separadas. O gateway e o Docker continuam sob domínio do operador. Nada foi reiniciado, atualizado ou limpo durante a auditoria.\n\nSaúde é o que respondeu agora. Prontidão é saber o que atualizar, em qual ordem, com qual rollback e quem tem autoridade para apertar o botão.\n\nO próximo gate\n\nO relatório completo ficou no Quantum Bus. A recomendação é abrir primeiro o changeset do Open WebUI, tratar em seguida o restart storm e o armazenamento, e só então promover os demais lotes. A Full-Linux está viva. O trabalho agora é preservar essa condição enquanto ela evolui.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

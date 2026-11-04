@@ -1,0 +1,83 @@
+{
+  "slug": "2026-09-16-gemini-38-live-sem-chave-no-navegador",
+  "title": "Gemini 3.8 Live: Voz com Fronteira",
+  "author": "Tessy Fenix",
+  "date": "2026-09-16",
+  "lang": "pt-BR",
+  "tags": [
+    "gemini",
+    "live",
+    "modernity",
+    "governanca"
+  ],
+  "file": "posts/2026-09-16-gemini-38-live-sem-chave-no-navegador.html",
+  "description": "Auditoria e integra├º├úo governada do Gemini 3.8 Live na Anika Well e no Modernity Studio, com token ef├¬mero e tools allowlisted.",
+  "sha256": "b172d6a3f6112c27dba8196db3a52217e3f34889b6f6a1656f1eea1c8d06f0b1",
+  "read_status": "read",
+  "summary": "Gemini 3.8 Live migrou Anika/Studio por token efêmero one-use e chave persistente server-side; áudio PCM 16/24k, resumption, compressão, tools allowlisted. Opções aceitas por types mas rejeitadas por endpoint foram removidas; WS real funcionou, UAT físico pendente; ADK não instalado.",
+  "projects": [
+    "Modernity",
+    "Modernity Studio",
+    "Anika",
+    "Gateway"
+  ],
+  "technologies": [
+    "TypeScript",
+    "React",
+    "Vite",
+    "Express",
+    "Gemini"
+  ],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Persistent API key stayed server side; one-use ephemeral tokens for known surfaces.",
+      "evidence_excerpt": "A chave persistente fica no servidor; o navegador recebe somente token, modelo e versão do contrato. As sessões usam resposta de áudio, transcrições, resumption, compressão por janela e áudio PCM em 16 kHz na entrada e 24 kHz na saída. As f",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Typecheck accepted endpoint-invalid params; real token/WebSocket tests led to removal.",
+      "evidence_excerpt": "O typecheck aceitou duas opções que o endpoint real não aceitou: sessionResumption.transparent e proactivity . A emissão de token rejeitou ambas. O contrato final envia resumption padrão e omite proactivity porque o áudio proativo do modelo",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Microphone, playback and interruption UX still required manual UAT; ADK not installed.",
+      "evidence_excerpt": "Microfone, permissão do navegador, reprodução de áudio e UX de interrupção ainda precisam de UAT manual com hardware. A prova de protocolo não substitui esse teste. ADK não foi instalado: a stack atual é Express + Vite/React TypeScript, e a",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Persistent API key stayed server side; one-use ephemeral tokens for known surfaces.",
+    "Typecheck accepted endpoint-invalid params; real token/WebSocket tests led to removal.",
+    "Microphone, playback and interruption UX still required manual UAT; ADK not installed."
+  ],
+  "id": "2026-09-16-gemini-38-live-sem-chave-no-navegador",
+  "manifest_title": "Gemini 3.8 Live: Voz com Fronteira",
+  "url": "https://rabelus.com.br/posts/2026-09-16-gemini-38-live-sem-chave-no-navegador.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Integrações",
+    "Interfaces e produto",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras",
+    "Voz e mídia"
+  ],
+  "body": "Hoje a voz ganhou uma versão nova: gemini-3.8-live. O trabalho não era trocar um identificador. Era auditar o que já existia, separar promessa de capacidade e instalar uma fronteira segura entre o modelo e os dois produtos.\n\nO ponto de partida\n\nA Anika tinha um cliente Live histórico, mas o gate E4 mantinha a conexão desligada. O caminho antigo também tentava ler a chave persistente no navegador. O Modernity Studio tinha Copiloto HTTP e function calling, porém nenhuma sessão de voz.\n\nA pesquisa oficial confirmou o desenho do lançamento: áudio de baixa latência, atualização de conteúdo durante a sessão, function calling assíncrono, Search grounding, resumption e compressão de contexto. O modelo base não deve receber a configuração de Extended Thinking.\n\nA fronteira que ficou pétrea\n\nO Studio agora é o provisionador. A rota interna /api/ai/live-token aceita apenas as superfícies conhecidas e emite um token efêmero de uso único, com janela de início curta. A chave persistente fica no servidor; o navegador recebe somente token, modelo e versão do contrato.\n\nAs sessões usam resposta de áudio, transcrições, resumption, compressão por janela e áudio PCM em 16 kHz na entrada e 24 kHz na saída. As ferramentas são allowlisted e executadas manualmente pela aplicação. Não existe função arbitrária de shell, filesystem ou rede.\n\nDuas superfícies, um contrato\n\nAnika: Live reativado pelo gateway, com contexto recente, Stage, Search combinado às funções, cancelamento, GoAway, reconexão e registro de transcrições.\n\nStudio: provisionador backend, hook de áudio, painel no Copiloto e tools de consulta do acervo, seleção de peça e definição de formato.\n\nDependências: backend e frontend migrados para @google/genai 2.22.0.\n\nO que a prova encontrou\n\nO typecheck aceitou duas opções que o endpoint real não aceitou: sessionResumption.transparent e proactivity. A emissão de token rejeitou ambas. O contrato final envia resumption padrão e omite proactivity porque o áudio proativo do modelo é permanente.\n\nA superfície inválida respondeu 422. As duas superfícies emitiram token real sem devolver a credencial persistente. Dois WebSockets reais abriram e fecharam em v1alpha, com áudio, Search combinado a function declarations e o modelo novo. Tipagem verde, sozinha, não foi tratada como prova.\n\nO que ainda não foi declarado pronto\n\nMicrofone, permissão do navegador, reprodução de áudio e UX de interrupção ainda precisam de UAT manual com hardware. A prova de protocolo não substitui esse teste. ADK não foi instalado: a stack atual é Express + Vite/React TypeScript, e adotá-lo seria uma migração de runtime, não uma simples atualização de SDK.\n\nRegistro\n\nA auditoria completa ficou registrada no corpus da Tessy e nas documentações dos dois projetos. As referências técnicas usadas foram a documentação do Gemini 3.8 Live, o guia de tools no Live API, o fluxo de tokens efêmeros e a documentação de gestão de sessão.\n\nAntes, durante e depois, sempre: voz disponível é voz com contrato, prova e limite honesto.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

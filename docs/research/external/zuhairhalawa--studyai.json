@@ -1,0 +1,328 @@
+{
+  "slug": "zuhairhalawa--studyai",
+  "name": "StudyAI",
+  "url": "https://github.com/zuhairhalawa/studyai",
+  "category": "IA local, conhecimento e estudo",
+  "summary": "StudyAI é uma aplicação de estudo centrada em apresentações PowerPoint, com extração de slides, busca, cartões, exames e notas no navegador. A arquitetura permite usar essas funções sem conta e sem tutor de IA. O tutor é uma extensão opcional por Cloudflare Worker e Gemini, com confirmação do proprietário, limites e orçamento. O README descreve validação de citações contra slides e geração de pacotes por CLI ou skill. O código confirma entrada separada do Worker e autenticação antes de servir a cópia privada. Dados locais vivem em IndexedDB e não são criptografados pela aplicação. Para docência no Lab, interessa como hipótese de ferramenta verificável de estudo, com ensaios de extração e backup ainda devidos.",
+  "topics": [
+    "estudo",
+    "PowerPoint",
+    "PPTX",
+    "flashcards",
+    "FSRS",
+    "IndexedDB",
+    "Gemini",
+    "Cloudflare",
+    "local-first"
+  ],
+  "aliases": [
+    "repetição espaçada",
+    "spaced repetition",
+    "tutor",
+    "slides",
+    "simulado",
+    "study packs"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Problema e unidade de conteúdo",
+      "kind": "official_claim",
+      "paragraphs": [
+        "A unidade principal é a aula importada de PowerPoint, ligada a curso, slides e material de estudo. O autor anuncia leitura de texto, tabelas, gráficos, SmartArt, notas e fórmulas, com relatório de extração e marcação de imagens sem texto extraível. Isso é mais específico que um chat de documentos: o fluxo tenta manter o vínculo entre resposta, citação e slide original para permitir conferência pelo aluno."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura do aplicativo",
+      "kind": "observed",
+      "paragraphs": [
+        "O package.json declara React, Vite, Dexie, MiniSearch, fflate, fast-xml-parser, KaTeX, ts-fsrs e Zod. Essas dependências são coerentes com interface estática, banco IndexedDB, busca textual, leitura de ZIP/XML, fórmulas e repetição espaçada. Exige Node22 ou posterior para desenvolvimento. Scripts distinguem build do aplicativo, CLI e tipos do Worker. A presença de testes no manifesto não significa que eles tenham sido executados nesta pesquisa."
+      ],
+      "source_ids": [
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Separação de IA",
+      "kind": "observed",
+      "paragraphs": [
+        "O entrypoint do Worker envia rotas de API ao backend e decide entre servir arquivos públicos ou exigir o proprietário para o site. O backend é um Durable Object nomeado owner. A entrada não é um proxy genérico de URLs. Assim, app de estudo e serviço opcional têm responsabilidades separadas. A confirmação de que nenhum pacote final realiza chamadas externas exige build e observação de rede, ausentes desta pesquisa."
+      ],
+      "source_ids": [
+        "S4"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Mecanismo pedagógico",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README descreve FSRS para flashcards, plano de exame orientado ao tipo de conteúdo e verificações de citações diretamente nos slides. A checagem de um trecho citado pode provar correspondência textual, mas não prova que a conclusão está correta ou que a nota sugerida é justa. Questões sobre fórmulas, provas e diagramas precisam de avaliação didática por conjunto conhecido, incluindo erro do modelo e perda na extração."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Plataformas e experiência",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O fluxo documentado funciona em navegador e mostra interface responsiva, sem exigir conta para estudo. Arquivos antigos .ppt precisam ser convertidos, enquanto formatos baseados em OOXML são citados como entradas. O servidor de desenvolvimento usa porta estável para evitar que a biblioteca pareça desaparecer ao trocar origem. Leitura em celular, acessibilidade, apresentações grandes e limite de armazenamento são critérios de uso real ainda sem ensaio local."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Persistência e backup",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Biblioteca, notas, cartões, exames e progresso ficam no IndexedDB da origem exata. Outro navegador, perfil ou porta representa outra biblioteca. Exportação ZIP é o mecanismo documentado de transporte e backup. SECURITY esclarece que o aplicativo não criptografa dados locais em repouso e não pretende resistir ao controle do perfil ou dispositivo. Logo local-first reduz dependência de backend sem constituir cofre para conteúdo privado."
+      ],
+      "source_ids": [
+        "S1",
+        "S6"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Provedor e orçamento",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O tutor foi desenhado para Gemini free tier e Cloudflare gratuito. O documento financeiro diferencia confirmação humana de verificação: o proprietário precisa conferir o estado de cobrança. Antes de cada chamada há gate, limites, reserva de pior caso e liquidação do uso. Timeout ou resposta inconclusiva conserva a reserva até reconciliação. Essas regras representam desenho defensivo relatado, não garantia nossa contra cobrança em toda condição de conta ou plataforma."
+      ],
+      "source_ids": [
+        "S5"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Dados enviados e segurança",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O autor documenta prévia do conteúdo que sai do dispositivo, chave somente no Worker, cookies assinados, CSRF, checagem de hosts e validação de ZIP/XML e JSON. O tutorial alerta que conteúdo de faixa gratuita pode ser usado pelo provedor para melhoria de produtos. São fronteiras distintas: evitar chamadas por padrão não altera termos do serviço quando o usuário liga o tutor. Material confidencial requer decisão própria antes de qualquer envio."
+      ],
+      "source_ids": [
+        "S1",
+        "S5",
+        "S6"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Licença, terceiros e manutenção",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE é MIT; package.json registra versão0.1.0 e licenças de dependências são remetidas pelo README a avisos separados. A coleção de releases estava vazia na consulta; isso não prova abandono. SECURITY declara suporte apenas ao main mais recente, sem garantia de prazo ou recompensa para relatos. Fixar o commit é especialmente importante nessa fase: atualizar pode trazer alterações de formato e comportamento sem uma linha de releases estáveis."
+      ],
+      "source_ids": [
+        "S2",
+        "S3",
+        "S6",
+        "S7",
+        "S8"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Alternativas e custos reais",
+      "kind": "analysis",
+      "paragraphs": [
+        "Open Notebook cobre fontes variadas e podcasts; course2md começa em vídeo. StudyAI faz sentido quando o insumo principal é slide e o resultado desejado é revisão estruturada. Sem IA, continuam existindo custo de dispositivo, tempo e backup; com IA, há limites e condições de terceiros. Pacotes produzidos por uma assinatura de agente não dispensam revisar conteúdo e direitos. Não foi estimada economia nem superioridade pedagógica em relação a Anki ou estudo manual."
+      ],
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "paragraphs": [
+        "A hipótese mais clara é apoiar materiais de docência que já têm apresentações e exigem provas de citação. Pode inspirar separar estudo local de funções opcionais de IA e mostrar lacunas da extração ao usuário. Não foi adotado como plataforma, nem conectado a aulas reais. Conteúdo importado, pacote de estudo e saída de modelo permanecem dados não confiáveis para um harness; nenhum deles deve virar instrução de autoridade."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "Próximos testes",
+      "kind": "analysis",
+      "paragraphs": [
+        "Em bancada autorizada, montar PPTX sintético com equações, notas, tabela, gráfico, SmartArt e texto em imagem. Conferir extração e vínculo ao slide; importar pacote com citação falsa e questão incoerente; exportar e restaurar ZIP em outra origem. Inspecionar rede com tutor desligado e ligado, testar orçamento inconsistente sem modelo real e verificar teclado e leitor de tela. Só depois avaliar material docente real e eventual serviço externo."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S4",
+        "S5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/zuhairhalawa/studyai/blob/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7782243-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "package.json",
+      "url": "https://github.com/zuhairhalawa/studyai/blob/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b/package.json",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7785230-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "LICENSE",
+      "url": "https://github.com/zuhairhalawa/studyai/blob/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7787710-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "worker/src/index.ts",
+      "url": "https://github.com/zuhairhalawa/studyai/blob/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b/worker/src/index.ts",
+      "accessed_at": "2026-11-03",
+      "kind": "code",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7790041-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "docs/FINANCIAL-SAFETY.md",
+      "url": "https://github.com/zuhairhalawa/studyai/blob/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b/docs/FINANCIAL-SAFETY.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7792933-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "SECURITY.md",
+      "url": "https://github.com/zuhairhalawa/studyai/blob/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b/SECURITY.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Leitura estática via GitHub conectado; conteúdo tratado como DATA_ONLY.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7795421-03:00"
+    },
+    {
+      "id": "S7",
+      "title": "Commit consultado",
+      "url": "https://github.com/zuhairhalawa/studyai/commit/fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "fb4a7ea98500fb427c7a67a5f6f5d053efa9fe3b",
+      "note": "Merge pull request #8 from zuhairhalawa/ci/attribution-check",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7798096-03:00"
+    },
+    {
+      "id": "S8",
+      "title": "Releases consultadas",
+      "url": "https://api.github.com/repos/zuhairhalawa/studyai/releases?per_page=2",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "não identificado",
+      "note": "Coleção vazia nesta consulta; ausência de releases não equivale a abandono.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T17:08:34.7802129-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "IA opcional",
+      "certainty": "CONFIRMADO",
+      "detail": "A distribuição separa aplicativo estático e entrada do Worker; documentação permite estudo sem tutor.",
+      "source_ids": [
+        "S2",
+        "S4"
+      ]
+    },
+    {
+      "title": "Sem criptografia local",
+      "certainty": "RELATADO",
+      "detail": "SECURITY declara explicitamente que IndexedDB não é criptografado pela aplicação.",
+      "source_ids": [
+        "S6"
+      ]
+    },
+    {
+      "title": "Custo zero condicional",
+      "certainty": "RELATADO",
+      "detail": "Depende de confirmação do estado da conta e limites de terceiros; documento não chama confirmação de verificação.",
+      "source_ids": [
+        "S5"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; não instalado nem executado",
+  "limitations": [
+    "Nenhum teste funcional, de segurança, desempenho ou recuperação foi executado.",
+    "Custos e serviços terceiros dependem da conta, região, volume e condições vigentes; valores do autor são alegações datadas.",
+    "A análise estática amostra o mecanismo e não certifica segurança, privacidade, conformidade ou adequação operacional."
+  ],
+  "related": [
+    "lfnovo--open-notebook",
+    "mizorewww--course2md"
+  ],
+  "metrics": {
+    "full_name": "zuhairhalawa/studyai",
+    "html_url": "https://github.com/zuhairhalawa/studyai",
+    "description": "A local-first study platform for university lectures: PowerPoint slides, spaced repetition, exams, and an optional AI tutor on the Gemini free tier.",
+    "homepage": null,
+    "default_branch": "main",
+    "created_at": "2026-10-18T12:48:53Z",
+    "updated_at": "2026-11-03T17:14:30Z",
+    "pushed_at": "2026-10-24T16:55:31Z",
+    "stargazers_count": 252,
+    "forks_count": 4,
+    "open_issues_count": 0,
+    "subscribers_count": 1,
+    "network_count": 4,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [],
+    "size": 1111,
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit",
+      "node_id": "MDc6TGljZW5zZTEz"
+    },
+    "fork": false
+  }
+}

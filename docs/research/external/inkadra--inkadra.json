@@ -1,0 +1,356 @@
+{
+  "slug": "inkadra--inkadra",
+  "name": "Inkadra",
+  "url": "https://github.com/inkadra/inkadra",
+  "category": "Negócios e produtividade",
+  "summary": "Inkadra é um espaço visual self-hosted para cinema e fotografia: moodboards, storyboards, listas de planos e revisão de cliente em canvas infinito. O README marca o projeto como desenvolvimento inicial e avisa que versões pré-1.0 podem quebrar compatibilidade e não são recomendadas para trabalho que não possa ser perdido. Decisões versionadas especificam AGPL-3.0-only para a aplicação e licenças por componente, além de controles de autenticação, colaboração, mídia e edição. A interface parece pertinente a fluxos criativos do Lab, mas não há evidência aqui de maturidade operacional, acessibilidade ou confiabilidade para produção. Métricas pequenas no GitHub são apenas snapshot; nenhuma implantação ou teste foi realizado.",
+  "topics": [
+    "storyboard",
+    "moodboard",
+    "fotografia",
+    "cinema",
+    "self-hosted",
+    "canvas",
+    "colaboração",
+    "AGPL"
+  ],
+  "aliases": [
+    "Inkadra",
+    "board para cinema",
+    "moodboard",
+    "storyboard",
+    "infinite canvas"
+  ],
+  "sections": [
+    {
+      "id": "sec-1",
+      "title": "Produto e domínio",
+      "kind": "observed",
+      "source_ids": [
+        "S1"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o README descreve workspace visual para pessoas que fazem filmes e fotografia, reunindo referências, storyboards, shot lists e revisão com cliente num canvas infinito self-hosted. Lista notas, imagens, arquivos, links, tarefas, paletas, colunas, setas e organização visual. A descrição caracteriza o escopo pretendido, não demonstra adequação a fluxos profissionais."
+      ]
+    },
+    {
+      "id": "sec-2",
+      "title": "Maturidade e continuidade",
+      "kind": "official_claim",
+      "source_ids": [
+        "S1",
+        "S2"
+      ],
+      "paragraphs": [
+        "RELATADO pelo mantenedor: estágio inicial, em direção à versão 1.0; releases pré-1.0 podem mudar entre versões menores e ainda não são recomendadas para trabalho que não pode ser perdido. O aviso é especialmente relevante para projetos audiovisuais com produção e revisão de cliente. Não foi confirmada existência de releases estáveis, SLA, compatibilidade de migração ou plano de suporte."
+      ]
+    },
+    {
+      "id": "sec-3",
+      "title": "Arquitetura e operação",
+      "kind": "observed",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: há Dockerfile e compose.yaml no repositório; o README apresenta implantação self-hosted e documentação de upgrades. O tree contém um monorepo com apps de servidor, mobile e clipper de navegador. Esta estrutura sugere mais de uma superfície de cliente, mas não foram validados o contrato completo entre elas, requisitos, volume, autenticação entre componentes nem compatibilidade de versões. Nenhum container foi executado."
+      ]
+    },
+    {
+      "id": "sec-4",
+      "title": "Decisões sobre dados e recursos",
+      "kind": "observed",
+      "source_ids": [
+        "S3"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: o repositório mantém decisões numeradas para modelo de dados, autenticação, arquivos/mídia, colaboração, edição em servidor, storyboards/busca, revisão e compartilhamento. Isso dá rastreabilidade arquitetural e merece leitura antes de uma prova de conceito. O nome de uma decisão não prova que seu contrato esteja corretamente implementado; não foram revisadas as rotas e migrações que a executam."
+      ]
+    },
+    {
+      "id": "sec-5",
+      "title": "Licenciamento",
+      "kind": "observed",
+      "source_ids": [
+        "S4",
+        "S5"
+      ],
+      "paragraphs": [
+        "CONFIRMADO: a decisão 0007 escolhe AGPL-3.0-only para Inkadra e lista licenças permitidas para dependências de produção; CI executa `pnpm check:licenses`. A decisão 0008 trata licenças por componente, e a badge do README resume AGPL-3.0/MPL-2.0. Isso indica que componentes auxiliares podem ter termos distintos; cada pacote deve ser examinado antes de reutilização. Não é análise jurídica."
+      ]
+    },
+    {
+      "id": "sec-6",
+      "title": "Segurança e reporte",
+      "kind": "official_claim",
+      "source_ids": [
+        "S6"
+      ],
+      "paragraphs": [
+        "RELATADO: SECURITY.md pede reporte privado de vulnerabilidades e informa que até 1.0 apenas a release mais recente recebe correções. O processo e a janela de suporte dependem da manutenção do projeto. Não foram avaliados controles de upload, links externos, autorização multiusuário, isolamento entre clientes, retenção de arquivos ou gestão de credenciais."
+      ]
+    },
+    {
+      "id": "sec-7",
+      "title": "Métricas e manutenção",
+      "kind": "observed",
+      "source_ids": [
+        "S2",
+        "S7",
+        "S11"
+      ],
+      "paragraphs": [
+        "CONFIRMADO no snapshot público 2026-11-03: 9 stars, 1 fork, 8 issues abertas, TypeScript, repositório não arquivado, branch main; último push foi 2026-11-03. GitHub define stars como marcações de usuários e forks como cópias do repositório; contagem de issues abertas não confirma bugs. O GitHub associa AGPL-3.0. A documentação aponta pipeline de CI e publicação de release, mas não se interpretam contagens como prova de adoção, segurança ou estabilidade. Não examinei as issues uma a uma."
+      ]
+    },
+    {
+      "id": "sec-8",
+      "title": "Acessibilidade e colaboração",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3"
+      ],
+      "paragraphs": [
+        "ANÁLISE: canvas infinito e organização espacial podem ajudar leitura visual e comentários de cliente, mas não foram testados zoom, teclado, leitor de tela, navegação sem arraste, sincronização concorrente ou histórico de revisão. Para uso audiovisual real, confiabilidade de mídia, resolução, direitos e recuperação após exclusão são critérios centrais não respondidos pelo README."
+      ]
+    },
+    {
+      "id": "sec-9",
+      "title": "Pertinência ao Lab",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S4"
+      ],
+      "paragraphs": [
+        "ANÁLISE: vale observar a organização de referências e cenas, e a maneira como o projeto registra decisões de arquitetura e segmenta licenças. A implantação própria pode preservar controle sobre arquivos, mas também transfere operação e backup ao Lab. A fase inicial e a licença AGPL tornam inadequado inferir prontidão para dados de cliente ou incorporação direta ao Blog. Nenhuma adoção é recomendada por este relatório."
+      ]
+    },
+    {
+      "id": "sec-10",
+      "title": "Próximos ensaios e limites",
+      "kind": "analysis",
+      "source_ids": [
+        "S1",
+        "S3",
+        "S6",
+        "S7"
+      ],
+      "paragraphs": [
+        "PROPOSTA: criar instância descartável com imagens sintéticas; ensaiar importação, miniaturas, upload/download, concorrência, autorização de convidado, compartilhamento externo, exportação, exclusão e recuperação de backup; percorrer upgrades entre versões e restauração. Validar teclado, leitor de tela e viewport móvel. Rever security advisories e dependências, e mapear dados transmitidos pelo clipper. Aqui houve leitura documental e de decisões, sem execução, instalação, teste visual, análise completa do código ou aceite."
+      ]
+    },
+    {
+      "id": "sec-11",
+      "title": "Mídia, metadados e retenção",
+      "kind": "official_claim",
+      "source_ids": [
+        "S8"
+      ],
+      "paragraphs": [
+        "RELATADO em decisão de arquitetura aceita: o sistema prevê upload tus em blocos de até 50 MiB, armazenamento local ou S3, checksum, detecção de tipo por bytes, orientação EXIF, thumbnails WebP e remoção de uploads incompletos após 24h. A mesma decisão observa que metadados de câmera podem revelar localização residencial e define que thumbnails não carreguem metadados. São controles projetados, não comprovadamente implementados/testados. Arquivos originais continuam sensíveis, especialmente no self-host e em buckets compartilhados."
+      ]
+    },
+    {
+      "id": "sec-12",
+      "title": "Autorização e colaboração planejadas",
+      "kind": "official_claim",
+      "source_ids": [
+        "S9",
+        "S10"
+      ],
+      "paragraphs": [
+        "RELATADO em decisão 0011 aceita: papéis owner/editor/commenter/viewer podem valer para projeto e board, com herança e concessão por subárvore; espectadores/comentadores teriam conexões read-only e o servidor colaborativo revalidaria permissões em intervalos de até 30 segundos. A decisão 0013 sobre comentários, aprovações, links de convidado e versões está marcada Proposed, não Accepted. Não converter decisões em prova de implementação; a seção de projeto está evoluindo e os contratos precisam ser confirmados no código e em testes antes de confiar documentos de cliente."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/README.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Descrição de produto, estágio, stack e implantação, atribuída ao projeto."
+    },
+    {
+      "id": "S2",
+      "title": "Metadados do repositório",
+      "url": "https://api.github.com/repos/inkadra/inkadra",
+      "kind": "metadata",
+      "ref": "main",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Snapshot REST público de métricas, licença e datas."
+    },
+    {
+      "id": "S3",
+      "title": "Árvore e decisões de arquitetura",
+      "url": "https://github.com/inkadra/inkadra/tree/01385431511c0c22f08dc3da6fc24f156fc778d3/docs/decisions",
+      "kind": "code",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Árvore do monorepo e conjunto de decisões numeradas consultados."
+    },
+    {
+      "id": "S4",
+      "title": "Decisão de licença 0007",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/docs/decisions/0007-licence.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Decisão declara AGPL-3.0-only e enforcement em CI."
+    },
+    {
+      "id": "S5",
+      "title": "Decisão de licenças por componente 0008",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/docs/decisions/0008-licences-per-component.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Registro de licenciamento por componente; leitura documental."
+    },
+    {
+      "id": "S6",
+      "title": "Política de segurança",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/SECURITY.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Canal de reporte e versão suportada declarados pelo projeto."
+    },
+    {
+      "id": "S7",
+      "title": "Commit consultado",
+      "url": "https://github.com/inkadra/inkadra/commit/01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "kind": "metadata",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "SHA retornado pelo GitHub para main."
+    },
+    {
+      "id": "S8",
+      "title": "Decisão 0009: arquivos e mídia",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/docs/decisions/0009-files-and-media.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Decisão aceita descreve controles planejados para upload, EXIF, thumbnails e limpeza; não testados."
+    },
+    {
+      "id": "S9",
+      "title": "Decisão 0011: colaboração e acesso",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/docs/decisions/0011-collaboration-and-access.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Decisão aceita descreve hierarquia de papéis e autorização colaborativa."
+    },
+    {
+      "id": "S10",
+      "title": "Decisão 0013: revisão e compartilhamento",
+      "url": "https://github.com/inkadra/inkadra/blob/01385431511c0c22f08dc3da6fc24f156fc778d3/docs/decisions/0013-review-and-sharing.md",
+      "kind": "docs",
+      "ref": "01385431511c0c22f08dc3da6fc24f156fc778d3",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "Decisão está marcada Proposed; não é prova de funcionalidade implementada."
+    },
+    {
+      "id": "S11",
+      "title": "Definições GitHub de stars e forks",
+      "url": "https://docs.github.com/en/rest/activity/starring?apiVersion=2026-03-10",
+      "kind": "docs",
+      "ref": "current",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "note": "GitHub define star como bookmark; schema REST contém forks_count. Ver documentação REST de forks para cópias derivadas."
+    }
+  ],
+  "findings": [
+    {
+      "title": "O mantenedor alerta contra uso em trabalho insubstituível",
+      "certainty": "RELATADO",
+      "detail": "README recomenda não confiar ainda em trabalho que não possa ser perdido e alerta para breaking changes pré-1.0.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Licença da aplicação e componentes deve ser diferenciada",
+      "certainty": "CONFIRMADO",
+      "detail": "Registros de decisão separam AGPL-3.0-only da aplicação e licenças de componentes/dependências.",
+      "source_ids": [
+        "S4",
+        "S5"
+      ]
+    },
+    {
+      "title": "Correções de segurança limitadas à release atual antes de 1.0",
+      "certainty": "RELATADO",
+      "detail": "Política no SECURITY.md; não verificada por incidentes ou releases reais.",
+      "source_ids": [
+        "S6"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental e leitura de decisões; não instalado nem executado",
+  "limitations": [
+    "Não houve teste de upload, concorrência, compartilhamento, recuperação ou acessibilidade.",
+    "Não foi auditado código, dependências, segurança ou comportamento dos componentes mobile/browser.",
+    "O estágio pré-1.0 é aviso do projeto e o snapshot de métricas é datado."
+  ],
+  "related": [],
+  "recorded_at": "2026-11-03T21:18:15+00:00",
+  "metrics": {
+    "full_name": "inkadra/inkadra",
+    "html_url": "https://github.com/inkadra/inkadra",
+    "description": "Self-hosted boards for film and photography: moodboards, storyboards, shot lists and client review on an infinite canvas.",
+    "homepage": null,
+    "default_branch": "main",
+    "created_at": "2026-10-23T08:39:53Z",
+    "updated_at": "2026-11-03T14:37:30Z",
+    "pushed_at": "2026-11-03T20:03:06Z",
+    "stargazers_count": 9,
+    "forks_count": 1,
+    "open_issues_count": 8,
+    "subscribers_count": 0,
+    "network_count": 1,
+    "archived": false,
+    "disabled": false,
+    "language": "TypeScript",
+    "topics": [
+      "collaboration",
+      "docker",
+      "filmmaking",
+      "infinite-canvas",
+      "moodboard",
+      "photography",
+      "self-hosted",
+      "shot-list",
+      "storyboard",
+      "yjs"
+    ],
+    "size": 46222,
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0",
+      "node_id": "MDc6TGljZW5zZTE="
+    },
+    "fork": false
+  }
+}

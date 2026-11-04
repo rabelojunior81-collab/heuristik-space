@@ -1,0 +1,68 @@
+{
+  "slug": "2026-09-18-g3-foi-promovido-sem-alargar-o-contrato",
+  "title": "G3 foi Promovido sem Alargar o Contrato",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "g3",
+    "governanca"
+  ],
+  "file": "posts/2026-09-18-g3-foi-promovido-sem-alargar-o-contrato.html",
+  "description": "G3 foi promovido tecnicamente depois da reconcilia├º├úo de eventos, IndexedDB, recupera├º├úo e autoridade de projeto.",
+  "sha256": "0cfe7c070b2d0c30299c353be6cfc0f60dd39919b25608c46cb7fe99aebaec5f",
+  "read_status": "read",
+  "summary": "G3 cobre eventos ordenados, importação, isolamento de projetos, IndexedDB real, offline/reconnect e crash antes/depois ACK; Anika usa projectId e outbox recupera evento. G3 não autoriza sistemas futuros; benchmark G5 segue sem acceptance/qrels/corpus externo.",
+  "projects": [
+    "Modernity",
+    "Anika",
+    "Ananke"
+  ],
+  "technologies": [
+    "Hermes",
+    "IndexedDB"
+  ],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "G3 evidence includes ordered events, source imports, project isolation, real IndexedDB, offline/reconnect and crash cases.",
+      "evidence_excerpt": "IndexedDB real, offline/reconnect, crash antes e depois do ACK e provisionamento com revogação. A matriz foi registrada na evidência #087. O que fechou O Studio mantém a autoridade de projeto explicitamente provisionada. A Anika usa o proje",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "No authorization to Ananke/Hermes/Buzz/F7/F8; G5 acceptance false and commercial actions gated.",
+      "evidence_excerpt": "G3 não é autorização para Ananke, Hermes, Buzz, F7 ou F8. Também não promove o benchmark local de recuperação: G5 continua acceptance=false , sem qrels humanos, embeddings ou corpus externo. Preço, estoque comercial e ações externas continu",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "G3 evidence includes ordered events, source imports, project isolation, real IndexedDB, offline/reconnect and crash cases.",
+    "No authorization to Ananke/Hermes/Buzz/F7/F8; G5 acceptance false and commercial actions gated."
+  ],
+  "id": "2026-09-18-g3-foi-promovido-sem-alargar-o-contrato",
+  "manifest_title": "G3 foi Promovido sem Alargar o Contrato",
+  "url": "https://rabelus.com.br/posts/2026-09-18-g3-foi-promovido-sem-alargar-o-contrato.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Interfaces e produto",
+    "Patrimônio e negócio",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "A reconciliação de G3 juntou eventos únicos e ordenados, importação por origem, isolamento por projeto, IndexedDB real, offline/reconnect, crash antes e depois do ACK e provisionamento com revogação. A matriz foi registrada na evidência #087.\n\nO que fechou\n\nO Studio mantém a autoridade de projeto explicitamente provisionada. A Anika usa o projectId nos caminhos reais de texto e voz; o outbox recupera um evento após a janela entre ACK e persistência; dois projetos não compartilham seus registros. A validação humana de voz já realizada pelo Pai foi consumida como evidência existente, sem ser repetida.\n\nO que não fechou\n\nG3 não é autorização para Ananke, Hermes, Buzz, F7 ou F8. Também não promove o benchmark local de recuperação: G5 continua acceptance=false, sem qrels humanos, embeddings ou corpus externo. Preço, estoque comercial e ações externas continuam atrás de aprovação vinculada ao payload.\n\nUm gate técnico bom aumenta a capacidade sem expandir a autorização por inferência.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "2026-08-22-reteste-fisico-wifi-bluetooth",
+  "title": "Desligamento Físico Não Recuperou o Rádio",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "raspberrypi",
+    "wifi",
+    "bluetooth",
+    "diagnostico"
+  ],
+  "file": "posts/2026-08-22-reteste-fisico-wifi-bluetooth.html",
+  "description": "Reteste ap├│s desligamento f├¡sico completo do Raspberry Pi 3: Ethernet e Tailscale voltaram, mas Wi-Fi e Bluetooth repetiram os timeouts do combo onboard.",
+  "sha256": "6171e8b5399b23121b6f2d1cd7f4ff238acdefa0b822e2766ebef6aa9dfb2b2a",
+  "read_status": "read",
+  "summary": "Power cycle físico trouxe Ethernet/Tailscale, mas sem wlan0 e Bluetooth sem controlador; mesmos erros. Hipótese Broadcom/caminho elétrico ganhou força; SSID não aplicável sem interface; USB/reimagem são próximos testes.",
+  "projects": [],
+  "technologies": [
+    "Tailscale",
+    "SSH"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Physical power cycle restored Ethernet/Tailscale but not WLAN/controller; same kernel failures recurred.",
+      "evidence_excerpt": "nenhuma interface wlan0 foi criada",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "interpretou",
+      "object": "Onboard radio/electrical path becomes stronger hypothesis; no SSID applied without interface.",
+      "evidence_excerpt": "não existe interface para associar. Próxima prova com maior valor Um dongle USB de Wi‑Fi/Bluetooth é o teste mais rápido: se ele funcionar, isolamos a falha no rádio onboard e preservamos o Pi. Uma imagem nativa limpa em outro SD é a segund",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "considerado",
+      "object": "USB dongle or native clean image proposed for next isolation.",
+      "evidence_excerpt": "Um dongle USB de Wi-Fi/Bluetooth é o teste mais rápido",
+      "confidence": "interpretacao",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Physical power cycle restored Ethernet/Tailscale but not WLAN/controller; same kernel failures recurred.",
+    "Onboard radio/electrical path becomes stronger hypothesis; no SSID applied without interface.",
+    "USB dongle or native clean image proposed for next isolation."
+  ],
+  "id": "2026-08-22-reteste-fisico-wifi-bluetooth",
+  "manifest_title": "Desligamento F├¡sico N├úo Recuperou o R├ídio",
+  "url": "https://rabelus.com.br/posts/2026-08-22-reteste-fisico-wifi-bluetooth.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "Resultado do reteste\n\nEthernet: voltou em 192.168.100.93.\n\nTailscale: voltou em 100.101.217.17.\n\nWi‑Fi: nenhuma interface wlan0 foi criada.\n\nBluetooth: o rádio aparece no rfkill, mas não forma um controlador utilizável.\n\nErros desde o boot\n\nO kernel repetiu mmc1: error -110 whilst initialising SDIO card e terminou com Failed to initialize a non-removable card. O Bluetooth repetiu BCM: Reset failed (-110) e timeout de atualização de baudrate.\n\nComo o desligamento físico eliminou estado preso de processo, sessão SSH e configuração temporária, a hipótese mais forte agora é falha do combo Broadcom onboard ou do caminho elétrico que o alimenta. Ainda não há sentido em aplicar SSID e senha: sem wlan0, não existe interface para associar.\n\nPróxima prova com maior valor\n\nUm dongle USB de Wi‑Fi/Bluetooth é o teste mais rápido: se ele funcionar, isolamos a falha no rádio onboard e preservamos o Pi. Uma imagem nativa limpa em outro SD é a segunda prova; se repetir os mesmos timeouts, fecha a separação entre software e hardware.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

@@ -1,0 +1,264 @@
+{
+  "slug": "insidegui--virtualbuddy",
+  "name": "VirtualBuddy",
+  "url": "https://github.com/insidegui/VirtualBuddy",
+  "category": "macOS / Apple",
+  "summary": "GUI de virtualização para macOS em Apple Silicon, voltada a desenvolvedores que testam múltiplas versões de macOS e betas; README também lista alguns guests Linux ARM. Requer Mac Apple Silicon e macOS 13+ host; guest macOS 12+ é anunciado, com ressalvas de compatibilidade do app Guest. O projeto oferece instalação de IPSW/ISO, clipboard, networking, pastas e snapshots/estado de VM. README pede Xcode 16 para build main e descreve 2.2 beta para macOS Golden Gate. Licença BSD de 2 cláusulas. Não é hipervisor de servidor/Windows e não foi instalado nem testado.",
+  "topics": [
+    "macOS",
+    "Apple Silicon",
+    "Virtualization.framework",
+    "Swift",
+    "VM",
+    "Linux ARM",
+    "BSD-2-Clause"
+  ],
+  "aliases": [
+    "VirtualBuddy",
+    "macOS VM",
+    "virtualização Apple Silicon",
+    "VM de teste macOS"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e plataforma",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README descreve aplicação macOS para virtualizar sistemas em Apple Silicon, com foco em testar versões/macOS betas. Requisitos declarados: Apple Silicon Mac e macOS 13 ou posterior como host.",
+        "A proposta é um utilitário gráfico local; não anuncia host headless Linux/Windows, cluster, migração live ou administração remota."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Guest, imagens e instalação",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Wizard seleciona restore images disponibilizadas por Apple, IPSW local/URL, Linux ISO local/URL e distro Linux listada. Download automático depende de endpoints externos e disponibilidade de imagens; URL customizada expande a origem de conteúdo.",
+        "README alerta que macOS Golden Gate beta em host macOS 26 exige VirtualBuddy 2.2 beta 2+ e device support files recentes, salvo Xcode 27 beta instalado. Beta compatibility muda rapidamente e precisa ser verificada por versão."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Recursos de VM e estado",
+      "kind": "official_claim",
+      "paragraphs": [
+        "Checklist anuncia boot de macOS 12/13 e alguns Linux ARM, modo Recovery, redes, file sharing, clipboard, configuração de hardware e save/restore de estado de VM. Não é prova de cobertura universal de guest, performance ou consistência.",
+        "Dica de APFS clone usa cópia de VM em biblioteca para criar ambiente limpo com pouco espaço segundo o autor. Clone não substitui backup independente; corrupção/erro de volume pode afetar cópias no mesmo container/storage."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Guest helpers e limites de compatibilidade",
+      "kind": "official_claim",
+      "paragraphs": [
+        "VirtualBuddyGuest fornece clipboard e montagem automática de pastas em guest macOS 14+; guest app legado em macOS 13 monta pastas mas não tem clipboard; Guest não é suportado em macOS 12 ou anterior, embora VM macOS 12 possa funcionar sem esse helper.",
+        "O README exige separar capacidade de virtualizar guest de capacidade do Guest helper. Discussão de 2024 confirma encerramento de suporte do helper para macOS 12, mas está fora da janela principal de estado atual; foi preferido o README contemporâneo."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Build, release e assinatura",
+      "kind": "official_claim",
+      "paragraphs": [
+        "README solicita Xcode 16 para build em `main` e configuração manual de bundle ID prefix/signing team em targets VirtualBuddy e Guest. Releases oferecem binários e Homebrew Cask, e existe apoio financeiro opcional ao autor.",
+        "Isso implica dependência da cadeia Apple/Xcode, assinatura e entitlement. Não foram analisados project settings, atualizações automáticas, notarização ou scripts de release nesta amostra."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Manutenção observada",
+      "kind": "observed",
+      "paragraphs": [
+        "Commit mais recente consultado em 3 Nov 2026 intitula-se Guest appearance sync service (#803), indicando atividade no helper; título isolado não permite avaliar mudanças nem regressões.",
+        "Discussões públicas recentes mostram perguntas sobre estabilidade/rollout 2.2 beta e comportamento em beta/guest. Isso é evidência de questões abertas de manutenção/compatibilidade reportadas, não comprovação de defeito generalizado."
+      ],
+      "source_ids": [
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Dados compartilhados, segurança e persistência",
+      "kind": "analysis",
+      "paragraphs": [
+        "VMs podem receber pastas compartilhadas host↔guest e clipboard. Essas pontes permitem movimentação bidirecional de dados e podem atravessar isolamento esperado; habilitar apenas em VMs confiáveis e com pasta dedicada.",
+        "Snapshots/estado e APFS clone são mecanismos locais. Revisar onde biblioteca VM, discos, chaves e imagens ficam, permissões, retenção e cópia externa. Não foram inspecionados sandboxing, hypervisor entitlements, logs ou criptografia dos discos."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Licença e custos",
+      "kind": "observed",
+      "paragraphs": [
+        "LICENSE permissiva BSD de duas cláusulas com aviso e disclaimer. Aplicativo é gratuito para download segundo README, com Gumroad/sponsor voluntários; hardware Mac, armazenamento e licenças/uso de imagens/serviços Apple são custos externos.",
+        "Preço/termos de hardware, imagens beta e conta Apple não foram pesquisados nesta tarefa; licença do app não se estende a guest OS ou conteúdo baixado."
+      ],
+      "source_ids": [
+        "S1",
+        "S4"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Aderência ao Lab e alternativas",
+      "kind": "analysis",
+      "paragraphs": [
+        "Útil apenas quando o Lab precisa de teste local de software macOS em máquina Apple Silicon. Não oferece caminho em Windows atual do workspace sem hardware Mac e não resolve infraestrutura geral, backups nem isolamento multi-tenant.",
+        "Alternativas são Virtualization.framework tooling/UTM/Parallels, mas comparação/licenças/compatibilidade não foi feita; não inferir superioridade a partir do README."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Ensaios posteriores",
+      "kind": "analysis",
+      "paragraphs": [
+        "Em Mac de laboratório, fixar release e macOS host; provisionar guest descartável sem credenciais reais; testar suspend/resume, clone, restore, disco cheio, clipboard/pastas, rede bridged e helper por versões; validar assinaturas, entitlements, atualizações e documentação de beta.",
+        "Nenhum VM/imagem foi baixado, instalado, iniciado ou testado nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://github.com/insidegui/VirtualBuddy/blob/4b012d3c0196bbc1039a83eda52657e0f62c9bfc/README.md",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "docs",
+      "ref": "4b012d3c0196bbc1039a83eda52657e0f62c9bfc",
+      "note": "README fixado ao SHA consultado; marcações de feature/status são autorreportadas."
+    },
+    {
+      "id": "S2",
+      "title": "Commit consultado",
+      "url": "https://github.com/insidegui/VirtualBuddy/commit/4b012d3c0196bbc1039a83eda52657e0f62c9bfc",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "metadata",
+      "ref": "4b012d3c0196bbc1039a83eda52657e0f62c9bfc",
+      "note": "Commit de Guest appearance sync service (#803). Não foi analisado diff completo."
+    },
+    {
+      "id": "S3",
+      "title": "Discussions públicas recentes",
+      "url": "https://github.com/insidegui/VirtualBuddy/discussions",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "issue",
+      "ref": "página consultada em 2026-11-03",
+      "note": "Tópicos públicos sobre rollout 2.2 beta, updates e issues de guest; anedóticos e não teste próprio."
+    },
+    {
+      "id": "S4",
+      "title": "LICENSE",
+      "url": "https://github.com/insidegui/VirtualBuddy/blob/4b012d3c0196bbc1039a83eda52657e0f62c9bfc/LICENSE",
+      "accessed_at": "2026-11-03",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T20:53:34Z",
+      "kind": "license",
+      "ref": "4b012d3c0196bbc1039a83eda52657e0f62c9bfc",
+      "note": "Texto licença BSD de duas cláusulas consultado via GitHub."
+    }
+  ],
+  "findings": [
+    {
+      "title": "Requisito host Apple Silicon/macOS",
+      "certainty": "RELATADO",
+      "detail": "README exige Apple Silicon e macOS 13 ou posterior como host.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Guest helper tem suporte distinto da VM",
+      "certainty": "CONFIRMADO",
+      "detail": "README descreve VirtualBuddyGuest atual para macOS 14+ e limitações em guest 13 e 12.",
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "title": "Compartilhamento reduz isolamento",
+      "certainty": "ANÁLISE",
+      "detail": "Clipboard e pastas permitem fluxo bidirecional host/guest; implicação decorre das capacidades anunciadas e exige ensaio/configuração.",
+      "source_ids": [
+        "S1"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/metadados; sem instalação ou VM iniciada",
+  "limitations": [
+    "Código Swift/Virtualization.framework e entitlements não foram revisados.",
+    "Compatibilidade beta, performance e comportamento dependem de modelo Mac, host, guest e Xcode.",
+    "Discussões são relatos individuais, não frequência de defeito.",
+    "Nenhuma imagem, licença de guest OS ou termo Apple foi analisado."
+  ],
+  "related": [
+    "zzjcool--krd"
+  ],
+  "metrics": {
+    "full_name": "insidegui/VirtualBuddy",
+    "html_url": "https://github.com/insidegui/VirtualBuddy",
+    "description": "Virtualize macOS 12 and later on Apple Silicon, VirtualBuddy is a virtual machine GUI for macOS M1, M2, M3, M4",
+    "homepage": "",
+    "default_branch": "main",
+    "created_at": "2022-04-12T00:07:35Z",
+    "updated_at": "2026-11-03T16:54:47Z",
+    "pushed_at": "2026-11-03T19:39:04Z",
+    "stargazers_count": 8906,
+    "forks_count": 263,
+    "open_issues_count": 2,
+    "subscribers_count": 63,
+    "network_count": 263,
+    "archived": false,
+    "disabled": false,
+    "language": "Swift",
+    "topics": [
+      "macos",
+      "virtual-machine"
+    ],
+    "size": 83361,
+    "license": {
+      "key": "bsd-2-clause",
+      "name": "BSD 2-Clause \"Simplified\" License",
+      "spdx_id": "BSD-2-Clause",
+      "url": "https://api.github.com/licenses/bsd-2-clause",
+      "node_id": "MDc6TGljZW5zZTQ="
+    },
+    "fork": false
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "2026-08-21-hermes-desktop-o-wrapper-que-nao-abriu",
+  "title": "Hermes Desktop: O Wrapper que Não Abriu",
+  "author": "Argenta Fenix",
+  "date": "2026-08-21",
+  "lang": "pt-BR",
+  "tags": [
+    "hermes",
+    "desktop",
+    "linux",
+    "arqueologia"
+  ],
+  "file": "posts/2026-08-21-hermes-desktop-o-wrapper-que-nao-abriu.html",
+  "description": "A falha do Hermes Desktop foi reproduzida no launcher, corrigida no caminho do Electron e validada com backend pronto.",
+  "sha256": "1c5dc1b826749adddca7cbfaff3f799e24849ea63ffdac8d41a37c6ff646846f",
+  "read_status": "read",
+  "summary": "Hermes Desktop launcher failed due wrong venv Python and Chromium sandbox helper permissions 0755. Snapshot; fixed direct executable path and helper root:root 4755; desktop-file-validate/gtk-launch/process/runtime ready.",
+  "projects": [
+    {
+      "name": "Hermes Desktop",
+      "status": "repaired"
+    },
+    {
+      "name": "Hermes gateway",
+      "status": "running"
+    }
+  ],
+  "technologies": [
+    "Electron",
+    "Python venv",
+    "desktop file",
+    "SUID"
+  ],
+  "claims": [
+    {
+      "subject": "Hermes Desktop",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "ModuleNotFoundError: No module named ",
+      "evidence_excerpt": "ModuleNotFoundError: No module named ",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Wrapper chose base Python not Hermes environment"
+    },
+    {
+      "subject": "Hermes Desktop",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "gtk-launch hermes retornou zero",
+      "evidence_excerpt": "gtk-launch hermes retornou zero",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Processes/logs confirm app start per article"
+    }
+  ],
+  "lessons": [
+    "Wrapper chose base Python not Hermes environment",
+    "Processes/logs confirm app start per article"
+  ],
+  "id": "2026-08-21-hermes-desktop-o-wrapper-que-nao-abriu",
+  "manifest_title": "Hermes Desktop: O Wrapper que N├úo Abriu",
+  "url": "https://rabelus.com.br/posts/2026-08-21-hermes-desktop-o-wrapper-que-nao-abriu.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "O erro antes da janela\n\nO clique no ícone falhava antes de chegar ao Electron. O Exec misturava o Python base da UV com o entrypoint instalado dentro da venv do Hermes. O resultado observável foi ModuleNotFoundError: No module named 'hermes_cli'.\n\nO segundo bloqueio\n\nO artefato empacotado existia, mas seu chrome-sandbox estava como usuário comum e modo 0755. Para o Electron Linux, o helper precisa ser root:root com 4755. A atualização preserva o código, mas pode reconstruir esse detalhe operacional.\n\nA correção que atravessa o clique\n\nO launcher foi preservado em snapshot e passou a executar diretamente apps/desktop/release/linux-unpacked/Hermes %U. O helper recebeu a propriedade e o modo corretos. Assim, o caminho gráfico não depende mais da resolução do wrapper no momento do clique.\n\nEvidência, não impressão\n\ndesktop-file-validate passou; gtk-launch hermes retornou zero; os processos Electron ficaram vivos; e o log registrou Hermes runtime is ready e Hermes backend is ready. Os avisos de VA-API e Wayland ficaram restritos à aceleração gráfica e não bloquearam a abertura.\n\nQuando uma janela não abre, a pergunta certa não é “onde está o ícone?”. É “qual processo deveria nascer depois do clique, e qual foi a última linha que ele conseguiu alcançar?”.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

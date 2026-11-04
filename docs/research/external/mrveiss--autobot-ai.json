@@ -1,0 +1,325 @@
+{
+  "slug": "mrveiss--autobot-ai",
+  "name": "AutoBot-AI",
+  "url": "https://github.com/mrveiss/AutoBot-AI",
+  "category": "Agentes de IA, harnesses e orquestração",
+  "summary": "AutoBot-AI é uma plataforma self-hosted ampla para chat, RAG, grafo de conhecimento, workflows, automação de navegador/desktop e operação de infraestrutura distribuída pelo Service Lifecycle Manager (SLM). O README descreve core, control plane e módulos separados, com Docker Compose para avaliação e instalador privilegiado para o control plane. A documentação de arquitetura referencia FastAPI, Redis, Postgres, ChromaDB, Ollama e workers, com provedores cloud opcionais. A promessa de privacidade não é uma garantia geral: depende do provedor e da topologia. O escopo e a cadência de alterações muito altos tornam necessário fixar commit e testar uma fatia pequena antes de qualquer adoção.",
+  "topics": [
+    "plataforma de agentes",
+    "RAG",
+    "grafo de conhecimento",
+    "SLM",
+    "RBAC",
+    "infraestrutura distribuída",
+    "Ollama",
+    "Apache-2.0"
+  ],
+  "aliases": [
+    "AutoBot",
+    "plataforma agentic self-hosted",
+    "Service Lifecycle Manager",
+    "agentes com governança"
+  ],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Produto e alegações",
+      "kind": "official_claim",
+      "paragraphs": [
+        "O README apresenta AutoBot como infraestrutura controlada pelo operador, com chat, base RAG, grafo de memória, gateway multi-LLM com fallback, governança, módulos e gestão de frota. Chama a solução de privada e compatível com requisitos de governança, mas também esclarece que não reivindica certificação de conformidade. Essas frases delimitam intenção e desenho declarado, não verificação independente de privacidade, conformidade, desempenho ou segurança."
+      ],
+      "source_ids": [
+        "S1"
+      ]
+    },
+    {
+      "id": "s2",
+      "title": "Arquitetura e operação",
+      "kind": "observed",
+      "paragraphs": [
+        "A documentação descreve camadas Core, SLM e módulos. O quickstart distingue instalar o control plane SLM com shell privilegiado de subir Compose para avaliação/desenvolvimento; a própria página declara que o SLM não é a plataforma inteira e provisiona nós da frota. A arquitetura enumera frontend, backend FastAPI, Redis, PostgreSQL, ChromaDB, Ollama opcional, monitoramento e browser automation. Trata-se de um sistema distribuído com requisitos e estados de serviço distintos, não de um único binário local."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s3",
+      "title": "Provedores, dados e limites locais",
+      "kind": "observed",
+      "paragraphs": [
+        "O README oferece gateway para modelos locais e hospedados, com fallback configurável. A página de arquitetura enumera Ollama local e API OpenAI cloud como opções. Portanto self-hosting da plataforma não implica inferência local nem elimina transferências; isso depende dos papéis, fallback e endpoints configurados. A alegação de controle de dados deve ser verificada por captura de tráfego, configuração e logs em uma instalação isolada. Não foi avaliado código de cada conector nem política externa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s4",
+      "title": "Escala, manutenção e sinais de risco",
+      "kind": "observed",
+      "paragraphs": [
+        "O repositório é de superfície excepcionalmente ampla, com documentação para deployment, funções de infraestrutura, governance, autenticação e múltiplos serviços. Uma issue pública arquivada descreve status de agentes retornando 503 em modo single_user por dependência de PostgreSQL e fragmentação entre registries; é um relato específico e datado, não prova do estado presente após correções. O registro de issues muito ativo e o volume de componentes aumentam custo de atualização, revisão e regressão. É preciso verificar branch/commit e changelog em vez de tomar issue isolada como estado atual."
+      ],
+      "source_ids": [
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s5",
+      "title": "Licença e custo total",
+      "kind": "observed",
+      "paragraphs": [
+        "O projeto declara Apache License 2.0. A licença não remove custos de servidores, GPU, armazenamento, backups, operação da frota, observabilidade e eventuais APIs de modelo. A própria tabela de requisitos separa control plane dos nós de plataforma, com requisitos mínimos diferentes. A noção de zero custo marginal de inferência local, presente na proposta modular, não inclui hardware nem suporte operacional."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s6",
+      "title": "Pertinência e próximos ensaios",
+      "kind": "analysis",
+      "paragraphs": [
+        "Pode ser referência de arquitetura para separar agentes, serviços, memória e governança; para o Lab, a aderência funcional precisa ser reduzida a um caso verificável. Proposta de ensaio: revisão de um commit pinado, Compose de avaliação em rede isolada, autenticação/RBAC por perfil, coleta de destinos de rede, ingestão de documentos sintéticos e restauração de cada store. Avaliar também degradar quando Postgres/Redis/model gateway falham. Nenhuma instalação, execução de comandos sugeridos pelo projeto ou teste funcional foi realizado nesta pesquisa."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "id": "s7",
+      "title": "Modelo de implantação e risco de privilégio",
+      "kind": "observed",
+      "paragraphs": [
+        "README distingue control plane SLM da plataforma instalada nos nós e recomenda instalador de uma linha com sudo bash em host Ubuntu dedicado; alternativa Compose é rotulada como avaliação/desenvolvimento. Esse fluxo precisa de revisão de script e checksum antes de executar, porque ele opera com privilégio elevado e configura administração de frota. Não tratamos o comando de instalação no README como procedimento validado nem instalamos dependências."
+      ],
+      "source_ids": [
+        "S1",
+        "S5"
+      ]
+    },
+    {
+      "id": "s8",
+      "title": "Requisitos e custo de operação",
+      "kind": "observed",
+      "paragraphs": [
+        "O README separa requisitos mínimos: SLM 2 cores/1.5 GB/20 GB, plataforma 4 cores/8 GB/20 GB e recomendação 8+ cores/16+ GB/50+ GB, com Ubuntu/Docker mínimos distintos. Hardware é apenas uma parte do custo: múltiplas VMs, stores, backups, monitoramento, atualização de modelos e serviços de rede adicionam carga. GPU aparece como aceleração recomendada, não requisito absoluto em modo CPU."
+      ],
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "id": "s9",
+      "title": "Mudança de arquitetura e documentação",
+      "kind": "analysis",
+      "paragraphs": [
+        "A visão de arquitetura consultada declara ser mapa central com data 2025-12-13, enquanto README/HEAD foram atualizados em novembro de 2026. Por isso, tecnologias descritas no architecture overview podem ser mapa histórico parcial e não substituem inventário atual de services/Compose. A diferença de datas é uma lacuna de documentação a reconciliar antes de confiar no diagrama para segurança ou planejamento."
+      ],
+      "source_ids": [
+        "S1",
+        "S2",
+        "S5"
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Estado do projeto e reprodutibilidade",
+      "kind": "observed",
+      "paragraphs": [
+        "O HEAD consultado em 2026-11-03 foi 6f8c8d9f82df2bbeecbc0d3778396af38cec6a06; a API oficial lista releases até v0.10.0 (2026-09-28), portanto release tagged e main têm janela de desenvolvimento posterior relevante. Uma comparação deve piná-los separadamente, revisar migrações e registrar hashes de imagens/container. A issue #10511 é datada e marcada closed; ela motiva checagem de regressão no single_user, mas não sustenta alegação de bug atual."
+      ],
+      "source_ids": [
+        "S3",
+        "S4",
+        "S6",
+        "S7"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "README.md",
+      "url": "https://raw.githubusercontent.com/mrveiss/AutoBot-AI/6f8c8d9f82df2bbeecbc0d3778396af38cec6a06/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "6f8c8d9f82df2bbeecbc0d3778396af38cec6a06",
+      "note": "Fonte primária pinada ao HEAD capturado via API oficial; quickstart e declarações tratados como afirmações do autor.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S2",
+      "title": "Architecture overview",
+      "url": "https://github.com/mrveiss/AutoBot-AI/blob/6f8c8d9f82df2bbeecbc0d3778396af38cec6a06/docs/architecture/README.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "6f8c8d9f82df2bbeecbc0d3778396af38cec6a06; documento indica atualização 2025-12-13",
+      "note": "Mapa de arquitetura publicado no commit pinado; documento pode ser histórico em relação ao HEAD.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S3",
+      "title": "Issue #10511 — status endpoint em single_user",
+      "url": "https://github.com/mrveiss/AutoBot-AI/issues/10511",
+      "accessed_at": "2026-11-03",
+      "kind": "issue",
+      "ref": "issue #10511, apresentada como closed",
+      "note": "Relato de bug concreto mantido como dado histórico; não inferir que permanece aberto/sem correção.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S4",
+      "title": "LICENSE / licença Apache-2.0",
+      "url": "https://github.com/mrveiss/AutoBot-AI/blob/6f8c8d9f82df2bbeecbc0d3778396af38cec6a06/LICENSE",
+      "accessed_at": "2026-11-03",
+      "kind": "license",
+      "ref": "6f8c8d9f82df2bbeecbc0d3778396af38cec6a06",
+      "note": "Licença declarada no repositório no HEAD pinado.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S5",
+      "title": "INSTALL.md / opções de instalação",
+      "url": "https://github.com/mrveiss/AutoBot-AI/blob/6f8c8d9f82df2bbeecbc0d3778396af38cec6a06/INSTALL.md",
+      "accessed_at": "2026-11-03",
+      "kind": "docs",
+      "ref": "6f8c8d9f82df2bbeecbc0d3778396af38cec6a06",
+      "note": "Requisitos e quickstart conforme commit capturado; não executados.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S6",
+      "title": "Commit HEAD consultado",
+      "url": "https://github.com/mrveiss/AutoBot-AI/commit/6f8c8d9f82df2bbeecbc0d3778396af38cec6a06",
+      "accessed_at": "2026-11-03",
+      "kind": "metadata",
+      "ref": "6f8c8d9f82df2bbeecbc0d3778396af38cec6a06",
+      "note": "Commit HEAD obtido da API pública do GitHub; commit message merge PR #20715.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    },
+    {
+      "id": "S7",
+      "title": "Releases API/list",
+      "url": "https://github.com/mrveiss/AutoBot-AI/releases",
+      "accessed_at": "2026-11-03",
+      "kind": "release",
+      "ref": "v0.10.0 latest published 2026-09-28; queried via GitHub public API on 2026-11-03",
+      "note": "Releases tagged e HEAD main são referências distintas; release publicada pode anteceder amplamente o commit observado.",
+      "access_precision": "day",
+      "recorded_at": "2026-11-03T18:08:41-03:00"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Sistema distribuído com dependências separadas",
+      "certainty": "CONFIRMADO",
+      "detail": "README e architecture map descrevem SLM, nós de plataforma e vários serviços/bases, com Compose apenas como rota de quick evaluation/dev.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "title": "Privacidade depende de escolhas de inferência e configuração",
+      "certainty": "CONFIRMADO",
+      "detail": "Documentação oferece provedores cloud e locais; hospedagem própria não implica todo processamento local.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    },
+    {
+      "title": "Issue single_user ilustra risco de integração, mas não estado atual",
+      "certainty": "CONFIRMADO",
+      "detail": "Issue #10511 descreve dependência de Postgres e respostas 503; deve-se verificar correção no commit avaliado.",
+      "source_ids": [
+        "S3"
+      ]
+    },
+    {
+      "title": "Aderência como base unificada para agentes do Lab",
+      "certainty": "HIPÓTESE",
+      "detail": "A amplitude pode ser excessiva; um teste com escopo mínimo deve provar utilidade, custo e operabilidade.",
+      "source_ids": [
+        "S1",
+        "S2"
+      ]
+    }
+  ],
+  "test_status": "Pesquisa documental/estática; nenhum deploy, instalação ou teste de terceiros executado",
+  "limitations": [
+    "Branch main é móvel; não foi pinado SHA, analisado histórico completo nem revisada a superfície de código de ponta a ponta.",
+    "Issue pública é evidência de relato histórico e não confirma defeito atual.",
+    "Sem revisão de segurança, teste de tráfego, RBAC, restauração, qualidade RAG, compatibilidade, conformidade ou desempenho.",
+    "Requisitos de infra e disponibilidade de serviços podem mudar; custo de provedores depende de carga e contratos."
+  ],
+  "related": [
+    "davemessew--agentflux",
+    "polterguy--magic",
+    "frigadehq--hob"
+  ],
+  "metrics": {
+    "full_name": "mrveiss/AutoBot-AI",
+    "html_url": "https://github.com/mrveiss/AutoBot-AI",
+    "description": "Self-hosted, agentic AI you own — voice, vision-driven browser & computer control, visual workflows, human-in-the-loop approvals, multi-user RBAC, and a knowledge graph. Runs on your infrastructure. Your data. Your AI.",
+    "homepage": "https://mrveiss.github.io/AutoBot-AI/",
+    "default_branch": "main",
+    "created_at": "2025-06-22T15:14:33Z",
+    "updated_at": "2026-11-03T21:08:57Z",
+    "pushed_at": "2026-11-03T21:05:11Z",
+    "stargazers_count": 34,
+    "forks_count": 27,
+    "open_issues_count": 2790,
+    "subscribers_count": 1,
+    "network_count": 27,
+    "archived": false,
+    "disabled": false,
+    "language": "Python",
+    "topics": [
+      "agentic",
+      "agentic-framework",
+      "agentic-os",
+      "ai-agent",
+      "ai-agents",
+      "ai-commerce",
+      "ai-company",
+      "ai-governance",
+      "ai-memory",
+      "ai-memory-system",
+      "computer-use",
+      "knowledge-graph",
+      "multi-agent",
+      "orchestration",
+      "rag",
+      "rbac",
+      "self-hosted",
+      "voice-ai",
+      "workflow-automation"
+    ],
+    "size": 304305,
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0",
+      "node_id": "MDc6TGljZW5zZTI="
+    },
+    "fork": false
+  }
+}

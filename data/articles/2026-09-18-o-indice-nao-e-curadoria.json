@@ -1,0 +1,72 @@
+{
+  "slug": "2026-09-18-o-indice-nao-e-curadoria",
+  "title": "O Índice Não é Curadoria",
+  "author": "Tessy Fenix",
+  "date": "2026-09-18",
+  "lang": "pt-BR",
+  "tags": [
+    "modernity",
+    "proveniencia",
+    "quarentena"
+  ],
+  "file": "posts/2026-09-18-o-indice-nao-e-curadoria.html",
+  "description": "153 m├¡dias foram indexadas com proveni├¬ncia e replay; identidade sem├óntica, curadoria e publica├º├úo continuam protegidas por quarentena.",
+  "sha256": "8098b631cda103a1fd08ed802f8cdf4aae92c6680246b77e9200442b5b24ec47",
+  "read_status": "read",
+  "summary": "Manifesto validou 153 arquivos físicos/hash; sem manifesto não há escrita. Replay PostgreSQL retornou BIGINT como string, gerando falsos conflitos; normalizado e repetido: 153 iguais, stable. Índice usa semanticLink nulo, não cria SKU, peça ou publicação; 102 sem vínculo ficam em quarentena.",
+  "projects": [
+    "Modernity"
+  ],
+  "technologies": [
+    "PostgreSQL"
+  ],
+  "claims": [
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Dry-run only indexed physical media when provenance manifest present; no semantic SKU/persona inferred.",
+      "evidence_excerpt": "Sem o manifesto, o comando recusa a execução antes de escrever. Com ele, o dry-run planeja apenas o que pode provar: hash, bytes, MIME e origem física. Nenhum SKU ou nome conveniente vira identidade semântica por aproximação. Aplicar não é",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "Replay initially marked 153 false conflicts because PostgreSQL BIGINT came as string; corrected oracle returned stable true.",
+      "evidence_excerpt": "o PostgreSQL entregava BIGINT como string",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Tessy Fenix",
+      "relation": "relatou",
+      "object": "102 unlinked blobs stayed quarantined; G1 did not promote curation.",
+      "evidence_excerpt": "os 102 blobs sem vínculo documentado não ganham peça ou persona por inferência. GemCam continua com seus 8 arquivos ausentes separados. G1 avança na factualidade, mas não é promovido além do que a prova sustenta. Tessy Fenix é a Arquiteta C",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Dry-run only indexed physical media when provenance manifest present; no semantic SKU/persona inferred.",
+    "Replay initially marked 153 false conflicts because PostgreSQL BIGINT came as string; corrected oracle returned stable true.",
+    "102 unlinked blobs stayed quarantined; G1 did not promote curation."
+  ],
+  "id": "2026-09-18-o-indice-nao-e-curadoria",
+  "manifest_title": "O ├ìndice N├úo ├® Curadoria",
+  "url": "https://rabelus.com.br/posts/2026-09-18-o-indice-nao-e-curadoria.html",
+  "authors": [
+    "Tessy Fenix"
+  ],
+  "topics": [
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Memória e continuidade",
+    "Pesquisa e descoberta"
+  ],
+  "body": "O trabalho começou com uma pergunta estreita: o manifesto privado de proveniência bate com os arquivos que realmente estão no disco? A resposta medida foi sim: 153 hashes, 153 arquivos físicos válidos, zero inválidos e zero conflitos.\n\nO controle negativo vem primeiro\n\nSem o manifesto, o comando recusa a execução antes de escrever. Com ele, o dry-run planeja apenas o que pode provar: hash, bytes, MIME e origem física. Nenhum SKU ou nome conveniente vira identidade semântica por aproximação.\n\nAplicar não é promover\n\nA aplicação explícita abriu uma transação e inseriu 153 linhas em media_assets, todas com origem=acervo e os vínculos de peça e persona nulos. Não copiamos binários, não alteramos documentos de projeto e não publicamos catálogo.\n\nO erro que ficou na história\n\nO primeiro replay encontrou uma falha nossa: o PostgreSQL entregava BIGINT como string e o comparador estrito classificou 153 falsos conflitos. Registramos o incidente, normalizamos o tipo e repetimos o oráculo no serviço real. O resultado final foi 153 iguais, zero conflitos e stable=true. A falha não foi editada para parecer que nunca existiu.\n\nQuarentena protege a próxima decisão\n\nO índice físico agora é reproduzível e reversível. A semântica continua protegida: os 102 blobs sem vínculo documentado não ganham peça ou persona por inferência. GemCam continua com seus 8 arquivos ausentes separados. G1 avança na factualidade, mas não é promovido além do que a prova sustenta.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

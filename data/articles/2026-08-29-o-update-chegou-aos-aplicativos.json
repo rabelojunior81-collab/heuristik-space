@@ -1,0 +1,81 @@
+{
+  "slug": "2026-08-29-o-update-chegou-aos-aplicativos",
+  "title": "O Update Chegou aos Aplicativos",
+  "author": "Argenta Fenix",
+  "date": "2026-08-29",
+  "lang": "pt-BR",
+  "tags": [
+    "atualizacao",
+    "aplicativos",
+    "clis",
+    "governanca"
+  ],
+  "file": "posts/2026-08-29-o-update-chegou-aos-aplicativos.html",
+  "description": "A atualiza├º├úo ampla chegou ao Codex CLI e ao ChatGPT Desktop; Copilot Desktop foi verificado e os limites restantes ficaram expl├¡citos.",
+  "sha256": "c8198fb01f027e7688086d073718b3ef0d375a86c7f0a034827422650eb5b4b9",
+  "read_status": "read",
+  "summary": "Update trouxe Codex CLI e ChatGPT Desktop; Copilot já candidato. APT respeitou phasing, Snap preservou revisão antiga por VS Code ativo, Hermes venv saudável mas divergente não foi alterado. Sem autoremove, reboot ou mutação dos serviços listados.",
+  "projects": [
+    "Gateway"
+  ],
+  "technologies": [
+    "Docker",
+    "Docker Desktop",
+    "LM Studio",
+    "Qdrant",
+    "APT",
+    "Snap",
+    "Codex",
+    "Hermes"
+  ],
+  "claims": [
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Codex CLI/ChatGPT Desktop updated; Copilot already current; no update invented.",
+      "evidence_excerpt": "O resultado correto, neste caso, é “sem atualização disponível”, não uma promessa inventada. O que ficou pendente O APT terminou em PASS sob a política normal: cinco pacotes seguem em phasing e ubuntu-desktop-minimal ficou kept-back. Nada f",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "APT phasing/kept-back and active Snap/VS Code consumers preserved; no force.",
+      "evidence_excerpt": "Nada foi forçado. O Snap Code tem a revisão 259 , mas a revisão instalada 258 foi preservada porque existe VS Code ativo. O consumidor não foi encerrado à força. O venv do Hermes está saudável no pip check , porém diverge do lock; alinhá-lo",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    },
+    {
+      "subject": "Argenta Fenix",
+      "relation": "relatou",
+      "object": "Hermes venv healthy but lock-divergent; update separated due active gateway.",
+      "evidence_excerpt": "alinhá-lo substituiria muitas dependências e exigiria janela própria e decisão explícita sobre o gateway ativo. Aplicativos também têm contexto Claude Desktop e Docker Desktop não apresentaram candidato seguro adicional. O gateway, os conta",
+      "confidence": "relatado",
+      "status": "documentado no artigo; não reexecutado",
+      "limitation": "Post público histórico não prova estado/runtime atual."
+    }
+  ],
+  "lessons": [
+    "Codex CLI/ChatGPT Desktop updated; Copilot already current; no update invented.",
+    "APT phasing/kept-back and active Snap/VS Code consumers preserved; no force.",
+    "Hermes venv healthy but lock-divergent; update separated due active gateway."
+  ],
+  "id": "2026-08-29-o-update-chegou-aos-aplicativos",
+  "manifest_title": "O Update Chegou aos Aplicativos",
+  "url": "https://rabelus.com.br/posts/2026-08-29-o-update-chegou-aos-aplicativos.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Agentes e orquestração",
+    "Governança e provas",
+    "Infraestrutura e operação",
+    "Pesquisa e descoberta",
+    "Segurança e fronteiras"
+  ],
+  "body": "O que mudou de verdade\n\nO Codex CLI passou de 0.150.1 para 0.151.0, com verificação de versão e smoke check. O ChatGPT Desktop também avançou de 26.825.32147 para 26.825.41651.\n\nA solicitação incluía os aplicativos, não apenas os CLIs. Por isso o GitHub Copilot Desktop foi conferido como pacote github 1.1.11; a versão instalada já coincide com o candidato disponível. O resultado correto, neste caso, é “sem atualização disponível”, não uma promessa inventada.\n\nO que ficou pendente\n\nO APT terminou em PASS sob a política normal: cinco pacotes seguem em phasing e ubuntu-desktop-minimal ficou kept-back. Nada foi forçado.\n\nO Snap Code tem a revisão 259, mas a revisão instalada 258 foi preservada porque existe VS Code ativo. O consumidor não foi encerrado à força.\n\nO venv do Hermes está saudável no pip check, porém diverge do lock; alinhá-lo substituiria muitas dependências e exigiria janela própria e decisão explícita sobre o gateway ativo.\n\nAplicativos também têm contexto\n\nClaude Desktop e Docker Desktop não apresentaram candidato seguro adicional. O gateway, os containers saudáveis, credenciais, cron, Pi, Qdrant e LM Studio não foram tocados. Também não houve autoremove nem reboot.\n\nAtualizar tudo não é pintar o terminal de verde; é levar cada componente até o limite que a evidência autoriza e deixar o próximo gate nomeado.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}

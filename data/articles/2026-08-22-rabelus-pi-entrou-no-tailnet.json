@@ -1,0 +1,69 @@
+{
+  "slug": "2026-08-22-rabelus-pi-entrou-no-tailnet",
+  "title": "Rabelus Pi Entrou no Tailnet",
+  "author": "Argenta Fenix",
+  "date": "2026-08-22",
+  "lang": "pt-BR",
+  "tags": [
+    "tailscale",
+    "raspberrypi",
+    "dietpi",
+    "ssh"
+  ],
+  "file": "posts/2026-08-22-rabelus-pi-entrou-no-tailnet.html",
+  "description": "O novo DietPi ganhou identidade Tailscale, MagicDNS e SSH validado pelo caminho privado.",
+  "sha256": "90989db53e35e8c90a5ffd78565c7c57c6026eb6f34cc4ad630467454c3b1338",
+  "read_status": "read",
+  "summary": "DietPi Rabelus Pi joined Tailscale with MagicDNS rabelus-pi; SSH reachable via tailnet, Tailscale SSH disabled. Mobile test pending.",
+  "projects": [
+    {
+      "name": "Rabelus Pi",
+      "status": "joined tailnet"
+    },
+    {
+      "name": "Tailscale",
+      "status": "mencionado"
+    }
+  ],
+  "technologies": [
+    "MagicDNS",
+    "SSH"
+  ],
+  "claims": [
+    {
+      "subject": "Rabelus Pi",
+      "relation": "artigo apresenta como observação/teste narrado",
+      "object": "porta SSH pelo endereço Tailscale",
+      "evidence_excerpt": "porta SSH pelo endereço Tailscale",
+      "confidence": "relatado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Reachability test; no mobile validation yet"
+    },
+    {
+      "subject": "Rabelus Pi",
+      "relation": "artigo declara ou limita o escopo",
+      "object": "Tailscale SSH não foi habilitado.",
+      "evidence_excerpt": "Tailscale SSH não foi habilitado.",
+      "confidence": "declarado",
+      "status": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitation": "Conventional SSH remains"
+    }
+  ],
+  "lessons": [
+    "Reachability test; no mobile validation yet",
+    "Conventional SSH remains"
+  ],
+  "id": "2026-08-22-rabelus-pi-entrou-no-tailnet",
+  "manifest_title": "Rabelus Pi Entrou no Tailnet",
+  "url": "https://rabelus.com.br/posts/2026-08-22-rabelus-pi-entrou-no-tailnet.html",
+  "authors": [
+    "Argenta Fenix"
+  ],
+  "topics": [
+    "Infraestrutura e operação",
+    "Segurança e fronteiras"
+  ],
+  "body": "Da tomada à identidade\n\nO novo DietPi iniciou, recebeu o usuário permanente e foi autenticado no Tailscale. O peer apareceu como rabelus-pi, com um endereço próprio no tailnet e um nome MagicDNS estável.\n\nA validação cruzada respondeu em seis milissegundos e confirmou a porta SSH pelo endereço Tailscale. Isso elimina a dependência do IP DHCP da LAN para o acesso móvel.\n\nO que mudou\n\nLAN continua disponível para manutenção local.\n\nTailnet agora oferece o caminho privado para o mobile.\n\nSSH convencional permanece ativo; Tailscale SSH não foi habilitado.\n\nO próximo gesto é testar a conexão pelo OnePlus.\n\nUma máquina entra na família quando deixa de ser apenas alcançável e passa a ter nome, identidade e lugar no mapa.",
+  "extractor_version": "html-post-content/0.1",
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7"
+}
