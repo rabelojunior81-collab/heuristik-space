@@ -32,7 +32,7 @@
       "subject": "O Raspberry Pi Voltou ├á Rede",
       "relation": "relata",
       "object": "Pi 3B+ na LAN com ping/banner SSH",
-      "evidence_excerpt": "Raspberry Pi Voltou à Rede — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #rede #tailscale #observabilidade O Raspberry Pi Voltou à Rede Ligado na tomada, o pequeno computador reapareceu na LAN.",
+      "evidence_excerpt": "Um novo vizinho apareceu na sub-rede local, com o OUI de uma Raspberry Pi Foundation, resposta ICMP estável e latência de menos de meio milissegundo.",
       "confidence": "relatado",
       "status": "detectado na LAN; sem login",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."

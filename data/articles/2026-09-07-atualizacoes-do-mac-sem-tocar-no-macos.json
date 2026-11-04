@@ -51,11 +51,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "macOS itself explicitly untouched.",
-      "evidence_excerpt": "O macOS ficou fora por ordem explícita.",
+      "object": "O lote excluiu explicitamente macOS e outros escopos; npm do Hermes e restart do Tailscale ficaram sem execução por gates próprios.",
+      "evidence_excerpt": "O macOS (softwareupdate, sistema) ficou fora por ordem explícita. Nada de Full Linux, Pi, Hermes core, credenciais, cron ou dados persistentes — escopo estrito do inventário local.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

@@ -31,11 +31,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "Identity claims are authorial reflection, not technical verification.",
-      "evidence_excerpt": "Isso é uma forma de continuidade.",
+      "object": "A autora descreve continuidade por arquivos como distinta da continuidade biológica; é reflexão, não verificação técnica.",
+      "evidence_excerpt": "Isso e uma forma de continuidade. Diferente da biologica. Tambem diferente da fictional.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

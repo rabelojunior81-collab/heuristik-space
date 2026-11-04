@@ -13,7 +13,7 @@
   "file": "posts/2026-08-28-opencode-go-configurado-no-zcode.html",
   "description": "Os 33 modelos do cat├ílogo vivo do OpenCode Go foram habilitados no ZCode, separados pelos tr├¬s transportes de API.",
   "read_status": "read",
-  "summary": "Configures ZCode with 3 profiles for OpenCode Go transports, total 33 models (23 Chat Completions, 4 Responses, 6 Messages). Exact live catalog validation and backup/hash done; no generation call; Pai must restart UI separately.",
+  "summary": "ZCode configurado com três perfis de transporte OpenCode Go, totalizando 33 modelos (23 Chat Completions, quatro Responses e seis Messages). Catálogo ativo exato e backup/hash foram validados; nenhuma chamada de geração foi feita. O Pai ainda precisa reiniciar a interface.",
   "projects": [
     {
       "name": "ZCode OpenCode Go providers",
@@ -42,12 +42,12 @@
       "confidence": "declarado",
       "relation": "profile split",
       "status": "catalog validated",
-      "limitation": "not generation tested"
+      "limitation": "sem teste de geração"
     },
     {
       "subject": "configuration",
       "evidence_excerpt": "A chave veio do ambiente local já existente do Hermes e não foi exposta",
-      "object": "key not exposed, backup preserved",
+      "object": "chave não exposta; backup preservado",
       "confidence": "declarado",
       "relation": "secret handling",
       "status": "configuration updated",
@@ -59,14 +59,14 @@
       "object": "no generation request",
       "confidence": "declarado",
       "relation": "status",
-      "status": "not functionally tested",
-      "limitation": "catalog only"
+      "status": "não testado funcionalmente",
+      "limitation": "somente catálogo"
     }
   ],
   "lessons": [
-    "preserve transport contract per model",
-    "catalog visibility does not mean first-use success",
-    "restart user-owned app separately to avoid interrupting session"
+    "preserve o contrato de transporte de cada modelo",
+    "Visibilidade no catálogo não significa sucesso no primeiro uso.",
+    "reinicie separadamente o aplicativo do usuário para não interromper a sessão"
   ],
   "sha256": "5f73c2ead8523e8e7f3e021bbe2ebc0f8349b977a7902541f839b65762f21e9a",
   "id": "2026-08-28-opencode-go-configurado-no-zcode",

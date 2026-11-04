@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-04T16:06:17.034891+00:00",
+  "surface": "Codex in-app browser",
+  "tested_files": {
+    "assets/family/author-tessy.jpg": "023e13e4957200b7b7e3c59945e2446002649054a9ee75bca4c85b8b39c8c373",
+    "assets/brand/heuristik-banner.svg": "aeb8d3da7c78117eb0b73c5e66cebb3dfc3d96b3c85df3d4fef1faf04c5d2d7d",
+    "data/knowledge.json": "e375df41b2fab66f656996d38da567fc39cca4150cbb3add129c6ab6a14b1f99",
+    "assets/fonts/atkinson-hyperlegible-next.ttf": "5a455d1cfa099b601ab70751bb9673e8fe1854dc4500c80e1a220d0d75e31745",
+    "assets/media/2026-10-05-apresentacao-turma-ia-internal-curta.mp3": "8a6a0949b5ad6f990ccdc317bca2739b6401f8ba6308474f8e15f00e35d41fbb",
+    "index.html": "a0af8535c5b0cc84b6cbf027ec3cea8f6bf490ebefd2f81d644b53a1504d4a75",
+    "assets/family/rabelus-lab-mark-1x1-v1.jpg": "44e756a5adc8ac184da0d8ab1417528a9182443a7b325b96939d0da5bb73479d",
+    "data/context.txt": "9007345fb0e9a04a0cb7b0a471d9ed6fe238b57545ad01b5efc249f72e590600",
+    "app.js": "031821055802a44a72c37b199fb74d9a58864e4668aa10a83cc74b1841941a98",
+    "assets/family/author-buddy-fenix.jpg": "6b46d6feadbf8c66fadf7eee80a46cca18f9e5edf9e55c6f9966261ac7d20671",
+    "assets/fonts/OFL.txt": "aca6a428580965d2297d1b718042dd427c2a9443ece3b0d02d758e161e0c4030",
+    "styles.css": "98354d78d0ce145b9a20a1e41cb9464d27dcdd5e8e9c85d12b61f4bc48f18d81",
+    "assets/family/author-killian.jpg": "96d29a02d74e4658eed3d1dc2059d7fff378359aba6ff0b64ba43a51b693f7f7",
+    "assets/brand/heuristik-mark.svg": "4d86e6c58aa745924591deca1ff252acfdc6e3989ad01ecdb1d04906403fb22a",
+    "assets/family/argenta-avatar-1x1-v1.jpg": "3808deb4414e5212bcb1b2101107af9fa4ff5f429a3758b22f89a5ac2585c188"
+  },
+  "checks": [
+    "Search voz returned13results before filters",
+    "Combined Voz e mídia + LARS returned2results",
+    "Clear returned24entries",
+    "Sources paginated36to72",
+    "Christian Fenix filter returned3sources",
+    "Six paths; voice path opened using Enter",
+    "Nested source opened and Escape restored originating card focus",
+    "CtrlK focused search",
+    "Repository URL copied: https://github.com/lfnovo/open-notebook",
+    "Detail link copied with ficha/node/modernity fragment",
+    "General DATA_ONLY context copied with1325884characters and full reference sections",
+    "Empty result/reset worked",
+    "Malformed encoded route and missing ID showed explicit messages",
+    "Lazy source loading failure visible and recovery removed error",
+    "Fixture main data failure produced controlled state",
+    "Hostile title/script remained text; no injected element or execution marker",
+    "javascript reference URL reduced to #",
+    "Clipboard denial fixture selected entire1325884character fallback",
+    "Reduced motion matched with card transition0s; emulation restored",
+    "Audio was paused and autoplay false"
+  ],
+  "viewports": [
+    {
+      "width": 375,
+      "height": 812,
+      "scroll_width": 360,
+      "broken_images": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scroll_width": 375,
+      "broken_images": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scroll_width": 1425,
+      "broken_images": 0
+    }
+  ],
+  "visible_edition": {
+    "sources": 373,
+    "relations": 55,
+    "qualified_sources": 45
+  },
+  "fixture": "scripts/make_ui_fixture.py; unchanged app.js and explicit transport/data mocks; isolated localhost8780; server stopped after tests",
+  "limits": [
+    "Download transport and exact served bytes validated by HTTP/Docker; native browser save completion was not observable (download event timeouts). No download history inspected after browser URL policy rejection.",
+    "No formal accessibility certification, low-end mobile benchmark, host reboot or audio listening acceptance.",
+    "Screenshots emitted natively in this in-app task; viewport override reset.",
+    "Parent UI code/styles unchanged across the final Blog-survey metadata refresh; final edition load and coverage rechecked."
+  ],
+  "human_acceptance": "NOT_INFERRED"
+}

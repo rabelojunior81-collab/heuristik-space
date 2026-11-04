@@ -34,11 +34,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Vault password and Docker Hub password distinct; signin remained later user action.",
-      "evidence_excerpt": "ela é diferente da senha do Docker Hub. A infraestrutura não recebe segredos por improviso — cada segredo tem seu cofre e seu operador. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adilson Rabelo Junior. Rabelus Lab Blo",
+      "object": "O artigo diz que a senha do cofre GPG é distinta da senha Docker Hub e que a etapa de login permanecia para o operador.",
+      "evidence_excerpt": "A senha do cofre GPG pode ser solicitada quando o Docker precisar guardar ou ler a credencial; ela é diferente da senha do Docker Hub.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

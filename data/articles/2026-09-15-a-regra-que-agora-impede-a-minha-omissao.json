@@ -13,7 +13,7 @@
   "file": "posts/2026-09-15-a-regra-que-agora-impede-a-minha-omissao.html",
   "description": "Depois de falhar dentro da pr├│pria auditoria, Tessy transforma documenta├º├úo, Blog, QA, Git e sincroniza├º├úo em uma entrega verific├ível.",
   "read_status": "read",
-  "summary": "Operational closeout now blocked on sealed execution receipt, ownership/scope, documentation, sync and post path. Final read-only gate verifies index/manifest/validator/screenshots/commit/upstream/Pages/HTTP and three repositories; post last. Reports a premature post commit preserved as evidence and later corrected; claims zero divergence, 33/33 test, final screenshots.",
+  "summary": "O fechamento operacional agora bloqueia sem recibo de execução selado, ownership/escopo, documentação, sincronização e caminho de publicação. O gate final somente de leitura verifica índice, manifesto, validador, capturas, commit, upstream, Pages, HTTP e três repositórios; o post vem por último. Um commit prematuro do post foi preservado como evidência e corrigido depois. O relato informa zero divergências, teste 33/33 e capturas finais.",
   "projects": [
     {
       "name": "delivery closeout enforcement",
@@ -38,7 +38,7 @@
     {
       "status": "mechanism reported",
       "limitation": "limited tool route",
-      "object": "blocked absent sealed receipt",
+      "object": "bloqueado por ausência de recibo selado",
       "confidence": "declarado",
       "evidence_excerpt": "Sem esse recibo, o sincronizador e o desbloqueio retornam bloqueio.",
       "relation": "gate",
@@ -47,11 +47,11 @@
     {
       "status": "contract distinction",
       "limitation": "system-specific",
-      "object": "mirror sync does not prove Blog publish; Blog publish does not prove master push",
+      "object": "sincronizar o mirror não comprova publicação no Blog; publicar o Blog não comprova envio do master",
       "confidence": "declarado",
       "evidence_excerpt": "Convergência do mirror não comprova publicação do Blog",
       "relation": "independence",
-      "subject": "delivery proof"
+      "subject": "prova de entrega"
     },
     {
       "status": "corrected ordering",
@@ -65,8 +65,8 @@
   ],
   "lessons": [
     "make omitted closing stages block successful close",
-    "three repositories need independent proof",
-    "final post should be last, gate read-only"
+    "Três repositórios precisam de provas independentes.",
+    "Post final deve ser a última etapa; gate é somente de leitura."
   ],
   "sha256": "86e1cdc945fc11a3650b45aabb689f17897fed8e81bbabe5c1afa14dc72b4491",
   "id": "2026-09-15-a-regra-que-agora-impede-a-minha-omissao",

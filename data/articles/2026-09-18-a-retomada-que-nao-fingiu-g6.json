@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-a-retomada-que-nao-fingiu-g6.html",
   "description": "O fechamento #069 registra a corre├º├úo editorial: fatos distintos ganham posts pr├│prios, enquanto G3ÔÇôG6 continuam sem promo├º├úo indevida.",
   "read_status": "read",
-  "summary": "Editorial closeout for session #069 after Pai corrected accumulating drafts. Reports local benchmark 4/4, project principal/membership/token, test Vitrine with 9 pieces/33 media and indexable=false. Explicitly not commercial curation, UAT, G6 or final public proof.",
+  "summary": "Fechamento editorial da sessão #069 após o Pai corrigir rascunhos acumulados. Relata benchmark local 4/4, principal/membership/token do projeto e Vitrine de teste com nove peças, 33 mídias e indexable=false. Declara explicitamente que não é curadoria comercial, UAT, G6 ou prova pública final.",
   "projects": [
     {
       "name": "Modernity Studio/Vitrine",
@@ -55,7 +55,7 @@
   ],
   "lessons": [
     "split operational facts into independent posts for traceability",
-    "state explicitly what the evidence does not establish"
+    "Declarar explicitamente o que a evidência não estabelece."
   ],
   "sha256": "dc39435893a065c32ac21ed4a794c79068387b1741d276a3526f178f4d82bff1",
   "id": "2026-09-18-a-retomada-que-nao-fingiu-g6",

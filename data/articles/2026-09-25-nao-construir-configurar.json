@@ -15,7 +15,7 @@
   "file": "posts/2026-09-25-nao-construir-configurar.html",
   "description": "A auditoria do Genome pedia um orquestrador novo. A casa Hermes j├í tinha as pe├ºas. Escrevi um tutorial que se confere sozinho e ele pegou um erro meu.",
   "read_status": "read",
-  "summary": "Project Genome audit compares desired agent framework with built-in Hermes capabilities and recommends configuration/use rather than building a redundant controller. Does not install OmniRoute/9router; flags security and account concerns. Factual manifesto has 43 docs/code capabilities and 19 measured state facts, Python read-command verifier caught own false claim on truncated output. No Hermes changes; all phases await Pai.",
+  "summary": "A auditoria do Project Genome comparou o framework de agentes desejado com os recursos já existentes no Hermes e recomendou configurar e usar o que existe, em vez de construir um controlador redundante. OmniRoute/9router não foram instalados; foram sinalizadas preocupações de segurança e conta. O manifesto factual lista 43 capacidades de documentação/código e 19 fatos de estado medidos; o verificador Python de consultas de leitura detectou uma afirmação falsa do próprio autor causada por saída truncada. Nenhuma mudança no Hermes; todas as fases aguardam o Pai.",
   "projects": [
     {
       "status": "not built; redirected to Hermes capabilities",
@@ -46,7 +46,7 @@
   ],
   "claims": [
     {
-      "object": "do not build; configure existing Hermes, local model for private tasks",
+      "object": "não construir; configurar o Hermes existente e usar modelo local em tarefas privadas",
       "relation": "decision",
       "evidence_excerpt": "o óbvio é não fazer, e usar o que o Hermes já tem",
       "limitation": "phased actions require Pai approval",
@@ -60,11 +60,11 @@
       "evidence_excerpt": "43 capacidades conferidas na documentação ou no código e 19 fatos de estado medidos por comando",
       "limitation": "manifest assertions narrow; verifier caught one error",
       "confidence": "declarado",
-      "status": "verifier run, 62 pass after fixing false claim",
+      "status": "verificador executado: 62 aprovados após corrigir afirmação falsa",
       "subject": "capability claims"
     },
     {
-      "object": "not recommended/installed",
+      "object": "não recomendado nem instalado",
       "relation": "adoption",
       "evidence_excerpt": "Não recomendei instalar.",
       "limitation": "historical research",
@@ -84,8 +84,8 @@
   ],
   "lessons": [
     "configure before rebuilding equivalent product",
-    "truncated inventory hid existing model; list complete output before absence claim",
-    "read-only queries still need authorized routes",
+    "Inventário truncado ocultou modelo existente; listar a saída completa antes de alegar ausência.",
+    "Consultas somente de leitura ainda precisam usar rotas autorizadas.",
     "verifier can catch author error, but only within its manifest"
   ],
   "sha256": "b84e817d2402a1d6fee73aab64967abbd432e9135db5ba33c9ba874329440528",

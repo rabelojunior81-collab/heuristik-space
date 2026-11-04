@@ -38,8 +38,8 @@
     {
       "subject": "Ubuntu Full-Linux",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "27 pacotes APT e três snaps",
-      "evidence_excerpt": "27 pacotes APT e três snaps",
+      "object": "O lote atualizou 27 pacotes APT e três snaps sem remoção, conforme detalhamento do artigo.",
+      "evidence_excerpt": "O APT atualizou 27 pacotes sem remoção: OpenSSL/libssl, Chrome 152.0.7977.64-1, ChatGPT 26.820.71523, Claude Desktop 1.37937.3, snapd e componentes Ubuntu. O Snap atualizou Firefox para a rev. 8803, GNOME base para 164 e Mesa para 1839.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Updates completed, specific packages held"

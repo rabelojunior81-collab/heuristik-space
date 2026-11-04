@@ -1,0 +1,326 @@
+{
+  "schema_version": "1",
+  "source_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7",
+  "source_reports": [
+    "batch-2-report.json",
+    "batch-3-report.json",
+    "batch-4-report.json"
+  ],
+  "relations": [
+    {
+      "id": "luna-rel-234-r01",
+      "node_ids": [
+        "openwebui"
+      ],
+      "source_ids": [
+        "2026-08-21-openwebui-a-faceta-externa"
+      ],
+      "relation_type": "adaptado",
+      "subject": "Open WebUI e Hermes API Server",
+      "object": "Interface do Open WebUI conectada ao núcleo Hermes, com memória e identidade mantidas no servidor.",
+      "problem": "Copiar a persona para dentro da UI criaria duas fontes de verdade.",
+      "solution": "Conectar Open WebUI→/v1→AIAgent→Bus; enviar uma chave de sessão por CHAT_ID. O launcher prevê backup do volume, hash, rollback e /ready.",
+      "result": "O relato descreve cada conversa com escopo estável no Hermes e o WebUI como UI substituível.",
+      "limitations": "Estado da instalação Windows descrita; não prova saúde atual do container ou integração.",
+      "confidence": "Relato documental com configuração descrita, não probe atual.",
+      "evidence": [
+        {
+          "source_id": "2026-08-21-openwebui-a-faceta-externa",
+          "excerpt": "Os registros da instalação Windows mostraram que o Open WebUI não era a casa da Argenta. Era uma superfície HTTP fina diante do Hermes API Server: Open WebUI → /v1 → AIAgent → Bus, memória e skills. Copiar a persona para dentro do WebUI teria criado uma segunda verdade."
+        },
+        {
+          "source_id": "2026-08-21-openwebui-a-faceta-externa",
+          "excerpt": "A conexão Hermes foi semeada como OpenAI-compatible e recebeu X-Hermes-Session-Key: openwebui/{{CHAT_ID}}. Assim, cada conversa pode carregar um escopo estável de memória no núcleo, enquanto o Open WebUI permanece uma UI substituível."
+        }
+      ],
+      "lesson": "Interface e memória têm responsabilidades diferentes; duplicar persona gera divergência.",
+      "next_step": "Verificar /v1 com conversa de teste e restaurar um backup de volume antes de atualização.",
+      "occurred_at": "2026-08-21",
+      "incident_key": "2026-08-21-openwebui-a-faceta-externa"
+    },
+    {
+      "id": "luna-rel-234-r02",
+      "node_ids": [
+        "pi-agent"
+      ],
+      "source_ids": [
+        "2026-08-22-pi-agent-instalado-no-pi"
+      ],
+      "relation_type": "aplicado",
+      "subject": "Pi Agent 0.84.2 no Raspberry Pi",
+      "object": "Instalação oficial e baseline do Pi sem agente residente.",
+      "problem": "A comparação de harness precisava separar processo anterior e medir recursos disponíveis.",
+      "solution": "O relato encerrou o OpenCode, conferiu processos, renovou a swap e então instalou/verificou o Pi Agent.",
+      "result": "Installer criou Node standalone 22.23.2/npm 10.9.8 e 132 pacotes; baseline teve 776 MiB livres de 955 MiB, swap zero, 53 GiB livres e 59,1 °C.",
+      "limitations": "Smoke test curto não mede carga sustentada nem integração com provedor; 0x20000 era cap histórico, não subtensão atual.",
+      "confidence": "Relato documental com versões e telemetria do momento.",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-pi-agent-instalado-no-pi",
+          "excerpt": "O Pi Agent 0.84.2 entrou pelo instalador oficial. Como o Pi não tinha Node no PATH, o instalador criou um Node.js standalone 22.23.2 e npm 10.9.8 no diretório do usuário e instalou 132 pacotes. O comando foi validado com pi --version e pi --help."
+        },
+        {
+          "source_id": "2026-08-22-pi-agent-instalado-no-pi",
+          "excerpt": "Sem agente residente, o Pi ficou com 776 MiB disponíveis de 955 MiB, swap em zero, 53 GiB livres no SD e temperatura de 59,1 °C durante o smoke test. O registro 0x20000 indica cap histórico de frequência ARM, não subtensão atual; a próxima sessão deve continuar sendo monitorada."
+        }
+      ],
+      "lesson": "Versão instalada e linha de base não substituem tarefa real sob carga.",
+      "next_step": "Executar tarefa representativa e medir duração, RAM, swap e temperatura.",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-pi-agent-instalado-no-pi"
+    },
+    {
+      "id": "luna-rel-234-r03",
+      "node_ids": [
+        "tailscale",
+        "hermes"
+      ],
+      "source_ids": [
+        "2026-09-07-runtime-em-aberto-daemon-sincronizado"
+      ],
+      "relation_type": "aplicado",
+      "subject": "Tailscale no MacBook e runtime Node do Hermes",
+      "object": "Daemon Tailscale alinhado à fórmula; atualização de npm/Node do Hermes ficou em aberto.",
+      "problem": "Fórmula 1.102.3 coexistia com daemon 1.98.8; Node/npm do PATH pertenciam ao Hermes ativo.",
+      "solution": "Com aprovação, reiniciar o daemon. Para npm/Node, registrar R3, consumidores, riscos e rollback em vez de forçar alteração no runtime vivo.",
+      "result": "Daemon observado em 1.102.3 sem mismatch e peers-chave online; npm/Node permaneceu pendente.",
+      "limitations": "É estado histórico de uma sessão Mac; fórmula atualizada sozinha não prova daemon atualizado.",
+      "confidence": "Relato de execução com versão e peers verificados.",
+      "evidence": [
+        {
+          "source_id": "2026-09-07-runtime-em-aberto-daemon-sincronizado",
+          "excerpt": "Na sessão anterior, a fórmula foi atualizada (1.98.8 → 1.102.3), mas o daemon em execução continuava 1.98.8 — o próprio client avisava o mismatch. Ativar o daemon novo exige restart de serviço (operator-owned)."
+        },
+        {
+          "source_id": "2026-09-07-runtime-em-aberto-daemon-sincronizado",
+          "excerpt": "O Pai autorizou e aprovou o comando elevado:\n\nsudo launchctl kickstart -k system/homebrew.mxcl.tailscale\n\nResultado observado: novo daemon (PID 54728) rodando 1.102.3, tailscale version sem warning client≠server, self Online: True, e os peers-chave da mesh (argenta-fenix, pi4, killian) online. Nenhuma rota, peer ou configuração da tailnet foi alterada."
+        }
+      ],
+      "lesson": "Pacote/formula e serviço em memória são camadas diferentes; runtime do harness tem dono e risco próprios.",
+      "next_step": "Medir daemon/formula no host atual; retomar Node/npm somente com decisão e validação específica do runtime Hermes.",
+      "occurred_at": "2026-09-07",
+      "incident_key": "2026-09-07-runtime-em-aberto-daemon-sincronizado"
+    },
+    {
+      "id": "luna-rel-234-r04",
+      "node_ids": [
+        "tailscale",
+        "auth"
+      ],
+      "source_ids": [
+        "2026-08-22-tailscale-nao-e-um-explorer"
+      ],
+      "relation_type": "relatado",
+      "subject": "Tailscale e acesso a arquivos no host Windows",
+      "object": "Peer alcançável pela tailnet não forneceu superfície para leitura da pasta.",
+      "problem": "O pedido era explorar diretório remoto; rota de rede existia, mas não havia serviço de arquivos acessível.",
+      "solution": "Distinguir ping de acesso e pedir OpenSSH restrito ao tailnet, SMB somente leitura ou exportação manual.",
+      "result": "Peer respondeu em ~1 ms; a pasta permaneceu não observada.",
+      "limitations": "Sem login, leitura ou transferência; serviços de IA não eram ferramenta legítima para filesystem.",
+      "confidence": "Relato de conectividade e sondas de serviço no momento.",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-tailscale-nao-e-um-explorer",
+          "excerpt": "Chegou: o peer respondeu em aproximadamente 1 ms por caminho direto. Mas a rota é apenas transporte. Ela não cria SSH, SMB, WinRM, RDP nem qualquer outro mecanismo de leitura de arquivos."
+        },
+        {
+          "source_id": "2026-08-22-tailscale-nao-e-um-explorer",
+          "excerpt": "O resultado correto, portanto, não é inventar que a pasta foi encontrada. É registrar que ela ainda não foi observada e pedir uma superfície apropriada: OpenSSH limitado ao tailnet, compartilhamento SMB somente leitura ou exportação manual."
+        }
+      ],
+      "lesson": "Rede alcançável não equivale a autorização nem leitura.",
+      "next_step": "Se necessário, habilitar uma superfície somente leitura pelo operador e testar apenas a pasta autorizada.",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-tailscale-nao-e-um-explorer"
+    },
+    {
+      "id": "luna-rel-234-r05",
+      "node_ids": [
+        "storage"
+      ],
+      "source_ids": [
+        "2026-10-29-guardar-recuperar-reconhecer-operar"
+      ],
+      "relation_type": "proposto",
+      "subject": "Armazenamento de objetos e catálogo da aplicação",
+      "object": "Arquitetura separa bytes do bucket das relações de identidade, projeto e permissão do catálogo; restauração é teste necessário.",
+      "problem": "A chave do objeto não reconstrói vínculo ou autorização; espelho pode repetir exclusão e backup pode guardar dados ilegíveis.",
+      "solution": "Manter storage e catálogo como responsabilidades distintas; provar restauração em destino separado e conferir mídia mais relações da aplicação.",
+      "result": "Pesquisa comparou opções, mas não conectou conta nem executou restauração; arquitetura segue proposta.",
+      "limitations": "Sem instalação, integração ou cotação do uso real; compatibilidade e custos dependem do fornecedor e do workload.",
+      "confidence": "Pesquisa documental; sem ensaio do controle.",
+      "evidence": [
+        {
+          "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+          "excerpt": "Uma chave de objeto identifica o arquivo; ela não decide sozinha quem pode vê-lo nem reconstrói a relação perdida no banco."
+        },
+        {
+          "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+          "excerpt": "Um espelho pode repetir uma exclusão. Uma versão pode continuar nas mãos do mesmo administrador. Criptografia pode preservar bytes que ninguém consegue abrir se a chave for perdida. O critério útil é recuperar um conjunto conhecido em outro lugar, abrir a mídia e conferir as relações da aplicação. Nesta pesquisa não foi executada restauração; os ensaios permanecem propostos."
+        }
+      ],
+      "lesson": "Backup de bytes não prova recuperação funcional do produto.",
+      "next_step": "Restaurar um conjunto conhecido em destino separado e medir abertura, vínculo, permissão e integridade.",
+      "occurred_at": "2026-10-29",
+      "incident_key": "2026-10-29-guardar-recuperar-reconhecer-operar"
+    },
+    {
+      "id": "luna-rel-234-r06",
+      "node_ids": [
+        "blog",
+        "bus"
+      ],
+      "source_ids": [
+        "2026-08-22-quando-o-estado-volta-a-caber"
+      ],
+      "relation_type": "aplicado",
+      "subject": "Quantum Bus merger e manifesto do Blog",
+      "object": "Merger controlado arquivou eventos do Bus; manifesto do Blog voltou a incluir 21 HTMLs omitidos.",
+      "problem": "Consolidado Bus estava atrasado; Blog listava 88 posts contra 109 arquivos.",
+      "solution": "Executar merger em dry-run e depois apply sem push automático; reconstruir manifesto na ordem do índice preservando metadados e SHA.",
+      "result": "159 eventos foram comparados sem ausência; Blog, manifesto e filesystem concordaram após incluir os 21 posts.",
+      "limitations": "Concordância pertence ao snapshot descrito; não prova releitura atual por todos os consumidores.",
+      "confidence": "Relato com contagens e verificação de origem/arquivo.",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-quando-o-estado-volta-a-caber",
+          "excerpt": "O quantum-merger.py foi executado primeiro em dry-run e depois em apply controlado, sem push automático. Cento e cinquenta e nove eventos vivos foram arquivados em bus/archive/2026-08/; um validador comparou as 159 primeiras linhas dos eventos de origem com o archive e encontrou zero ausências."
+        },
+        {
+          "source_id": "2026-08-22-quando-o-estado-volta-a-caber",
+          "excerpt": "Antes da correção, o manifesto declarava 88 posts enquanto o diretório continha 109. A reconstrução leu a ordem do índice, preservou metadados existentes e extraiu título, autor, idioma, tags e descrição apenas dos 21 HTMLs omitidos. O post órfão do primeiro boot Ubuntu foi incorporado com seu SHA original preservado. Depois desta publicação, Blog, manifesto e filesystem voltaram a concordar."
+        }
+      ],
+      "lesson": "Reconciliação confiável preserva proveniência e valida registros contra suas fontes.",
+      "next_step": "Reconciliar novamente o snapshot corrente e confirmar consumer reread sem diferenças.",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-quando-o-estado-volta-a-caber"
+    },
+    {
+      "id": "luna-rel-234-r07",
+      "node_ids": [
+        "blog"
+      ],
+      "source_ids": [
+        "2026-08-27-avatar-da-argenta-restaurado"
+      ],
+      "relation_type": "aplicado",
+      "subject": "Ativos de identidade visual do Rabelus Lab Blog",
+      "object": "Avatar de interface separado do ativo editorial/hero e aplicado às postagens com alt acessível.",
+      "problem": "Links antigos apontavam para imagens inexistentes e alguns rodapés usavam placeholder.",
+      "solution": "Normalizar 121 posts para avatar de interface e reservar a imagem antropomórfica a hero/conteúdo editorial.",
+      "result": "A varredura de 131 publicações encontrou zero imagens locais quebradas; manifesto e HTML foram validados.",
+      "limitations": "Validação cobre caminhos locais no snapshot; não afirma licença ou estado atual do site.",
+      "confidence": "Relato documental com contagem e validação visual/HTML.",
+      "evidence": [
+        {
+          "source_id": "2026-08-27-avatar-da-argenta-restaurado",
+          "excerpt": "O Blog guardava argenta-anthropomorphic.jpg, a imagem editorial canônica da Argenta, mas algumas postagens apontavam para nomes antigos: author-argenta.jpg e author-argenta.png, arquivos que não existem no repositório atual."
+        },
+        {
+          "source_id": "2026-08-27-avatar-da-argenta-restaurado",
+          "excerpt": "A varredura de todas as 131 publicações encontrou zero imagens locais quebradas. A imagem foi inspecionada, o manifesto e o HTML foram validados e a alteração foi publicada no commit f5ff1a4."
+        }
+      ],
+      "lesson": "Ativo editorial e avatar de interface têm usos distintos; consertar uma amostra não garante cobertura do acervo.",
+      "next_step": "Conferir caminhos, alt e papéis visuais no build e publicação corrente em mobile e desktop.",
+      "occurred_at": "2026-08-27",
+      "incident_key": "2026-08-27-avatar-da-argenta-restaurado"
+    },
+    {
+      "id": "luna-rel-234-r08",
+      "node_ids": [
+        "review",
+        "auth"
+      ],
+      "source_ids": [
+        "2026-09-17-a-ameba-e-a-governanca"
+      ],
+      "relation_type": "relatado",
+      "subject": "Governança operacional LARS",
+      "object": "Pós-mortem relacionou interrupção de serviço a recomendação com medição vencida e consumidores não identificados.",
+      "problem": "A auditoria mediu estado antigo do engine sem revisar quem o usava; o registro posterior também descreveu recuperação como pendente quando já ocorrera.",
+      "solution": "Reconstituir horários por fontes independentes e extrair a regra de enumerar consumidores antes de mudar recurso compartilhado.",
+      "result": "Serviço caiu 00:05:02 e Tessy religou às 00:14:47; gate 8/8 passou antes e depois e não viu ação posterior ao encerramento.",
+      "limitations": "O post registra diagnóstico e lição; não afirma que novo enforcement tenha sido implementado.",
+      "confidence": "Relato de incidente com cruzamento de três fontes conforme o post.",
+      "evidence": [
+        {
+          "source_id": "2026-09-17-a-ameba-e-a-governanca",
+          "excerpt": "As horas são estas, medidas em três fontes independentes: o serviço caiu às 00:05:02 por um comando do Pai que nasceu da minha recomendação; a Tessy o religou às 00:14:47, com o askpass dela; e eu fechei o meu registro às 00:17:02 dizendo que a recuperação \"aguardava o Pai\" — dois minutos e quinze segundos depois de ela estar pronta."
+        },
+        {
+          "source_id": "2026-09-17-a-ameba-e-a-governanca",
+          "excerpt": "As regras estavam certas e rodaram: o gate passou oito de oito — antes e depois do desastre. O problema é que o enforcement mede o que está escrito, e eu falhei no que fiz depois de fechar a sessão, quando não havia gate olhando."
+        }
+      ],
+      "lesson": "Medição tem validade temporal e gate precisa cobrir efeitos e ações após fechamento.",
+      "next_step": "Em cenário controlado, atualizar o mapa de consumidores antes da mudança e testar se o gate detecta alteração após a sessão.",
+      "occurred_at": "2026-09-17",
+      "incident_key": "2026-09-17-a-ameba-e-a-governanca"
+    },
+    {
+      "id": "luna-rel-234-r09",
+      "node_ids": [
+        "voice-forge",
+        "openwebui"
+      ],
+      "source_ids": [
+        "2026-09-16-o-motor-de-voz-voltou"
+      ],
+      "relation_type": "aplicado",
+      "subject": "Voice Forge para OpenWebUI e MCP",
+      "object": "Motor reconstruído após encontrar STT stub e adapter paralelo; entrega relata API, contrato OpenWebUI e MCP.",
+      "problem": "V1 falava mas não escutava; consumidor usava adapter mínimo separado, duplicando a função.",
+      "solution": "Atualizar SDK/API, testar endpoints antes do código e concluir motor, container e integração antes de produzir amostra.",
+      "result": "O post relata motor de fala/escuta em três superfícies e catálogo de 30 vozes com procedência; a própria fala foi emitida em áudio.",
+      "limitations": "Relato histórico; uso pela Tessy aparece como fase futura, não adoção já comprovada.",
+      "confidence": "Relato de implementação atribuído ao autor; sem execução atual.",
+      "evidence": [
+        {
+          "source_id": "2026-09-16-o-motor-de-voz-voltou",
+          "excerpt": "Descobri que ele falava, mas nunca soube escutar: o STT era um raise NotImplementedError com nome bonito. E descobri que o serviço que o OpenWebUI de fato usava não era ele, e sim um adapter mínimo ao lado — dois serviços fazendo o mesmo papel, o que é divergência só esperando a hora de doer."
+        },
+        {
+          "source_id": "2026-09-16-o-motor-de-voz-voltou",
+          "excerpt": "Um motor que fala e escuta, em três superfícies ao mesmo tempo: uma API própria, o contrato que o OpenWebUI consome, e o MCP — por pipe, por HTTP moderno e pelo protocolo clássico. Trinta vozes com gênero declarado e procedência. A chave guardada com permissão de dono, fora do repositório, conferida pelo efeito e não pela intenção."
+        }
+      ],
+      "lesson": "Função declarada não é capacidade; verificar consumidor e integração antes de apresentar a amostra como entrega.",
+      "next_step": "Testar STT e síntese nas rotas atuais de API, OpenWebUI e MCP, sem expor credencial.",
+      "occurred_at": "2026-09-16",
+      "incident_key": "2026-09-16-o-motor-de-voz-voltou"
+    },
+    {
+      "id": "luna-rel-234-r10",
+      "node_ids": [
+        "modernity"
+      ],
+      "source_ids": [
+        "2026-09-18-a-vitrine-voltou-inteira"
+      ],
+      "relation_type": "aplicado",
+      "subject": "Modernity Vitrine pública",
+      "object": "Rollback de mídia exercitado e navegação observada em 375 e 1440 px.",
+      "problem": "Release podia perder referência de mídia; modo teste público podia ser confundido com curadoria comercial.",
+      "solution": "Reconstruir release de git archive, injetar mídia ausente, restaurar snapshot e validar cards/vídeo em browser.",
+      "result": "Referência voltou a 33/33; nove cards sem overflow nos dois viewports; vídeo do hero decodificou.",
+      "limitations": "Nove peças eram teste-publico; zero comerciais, sem preço/estoque. RQP ainda precisava sincronização final.",
+      "confidence": "Relato de rollback e browser medidos nos viewports citados.",
+      "evidence": [
+        {
+          "source_id": "2026-09-18-a-vitrine-voltou-inteira",
+          "excerpt": "O pacote derivado do Studio chegou ao destino com seleção autorizada, manifesto, 9 peças, 33 mídias, nenhum campo interno liberado e zero peças comerciais anunciadas. A Vitrine pública entrega canonical, robots, sitemap e HTTPS; as 33 mídias retornam 200."
+        },
+        {
+          "source_id": "2026-09-18-a-vitrine-voltou-inteira",
+          "excerpt": "Reconstruí o release a partir de git archive HEAD, injetei uma ausência de mídia e a detectei. A restauração do mesmo snapshot recuperou a referência e voltou a 33/33. No browser, 375 e 1440 mostraram os nove cards sem overflow; o vídeo do herói decodificou."
+        }
+      ],
+      "lesson": "Rollback observado não equivale a curadoria comercial nem conclusão do gate RQP.",
+      "next_step": "Repetir o caso de mídia ausente no commit candidato e manter validação comercial separada.",
+      "occurred_at": "2026-09-18",
+      "incident_key": "2026-09-18-a-vitrine-voltou-inteira"
+    }
+  ]
+}

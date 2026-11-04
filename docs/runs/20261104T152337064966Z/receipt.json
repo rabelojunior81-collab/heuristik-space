@@ -1,0 +1,8 @@
+{
+  "run": "20261104T152337064966Z",
+  "status": "PASS",
+  "scope": "Ingestion integrity only; UI/review/deploy/human acceptance are separate.",
+  "candidate": ".runtime\\20261104T152337064966Z\\data",
+  "source_survey": "docs\\runs\\20261104T152337064966Z\\source\\blog-status.json",
+  "locally_promoted": true
+}

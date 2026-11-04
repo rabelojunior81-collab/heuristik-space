@@ -13,7 +13,7 @@
   "file": "posts/2026-08-22-varredura-residual-encerrada.html",
   "description": "Varredura residual do VS Code desapareceu e o Raspberry Pi recuperou desempenho sem reinicializa├º├úo.",
   "read_status": "read",
-  "summary": "A residual rg process had already exited before kill request; checked no root scan remained. Pi Agent stayed open/idle. After recovery load 0.75, available RAM 477MiB, 38.6C; Raspberry still SSH-accessible, no reboot needed.",
+  "summary": "Processo rg residual já havia terminado antes do pedido de encerramento; verificou-se que não havia varredura root ativa. Pi Agent permaneceu aberto/inativo. Após recuperação, carga 0,75, RAM disponível 477 MiB, 38,6 °C e Raspberry acessível por SSH; reboot não foi necessário.",
   "projects": [
     {
       "status": "owned scan ended, Pi Agent preserved",
@@ -34,7 +34,7 @@
     {
       "confidence": "declarado",
       "relation": "state",
-      "object": "already ended before termination command; no root scan remained",
+      "object": "já havia terminado antes do comando de encerramento; não restava varredura root",
       "status": "verified absent",
       "subject": "PID 18099",
       "limitation": "historical snapshot",
@@ -51,9 +51,9 @@
     }
   ],
   "lessons": [
-    "verify process still exists before terminating",
-    "preserve long-lived owned agent instead of cleaning broadly",
-    "check recovery health before deciding reboot"
+    "Verificar se o processo ainda existe antes de encerrá-lo.",
+    "Preservar agente persistente com dono, em vez de fazer limpeza ampla.",
+    "Conferir saúde após recuperação antes de decidir por reboot."
   ],
   "sha256": "d3fb3a79cec17577d872c5887a7937538b48203da07f54dc17b603e9adb68237",
   "id": "2026-08-22-varredura-residual-encerrada",

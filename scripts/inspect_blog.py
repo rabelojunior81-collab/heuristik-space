@@ -35,7 +35,7 @@ def main():
         for job in as_completed(jobs):
             results.append(job.result())
             if len(results)%25==0:print(f'Blog sources surveyed: {len(results)}/{len(items)}',flush=True)
-    ids={x['slug'] for x in items};results.sort(key=lambda x:x['slug']);ok=status==200 and public==expected and all(x.get('http')==200 and x['equal_checkout'] for x in results)
+    ids={x['slug'] for x in items};results.sort(key=lambda x:x['slug']);ok=bool(items) and len(ids)==len(items)==len(results) and status==200 and public==expected and all(x.get('http')==200 and x['equal_checkout'] for x in results)
     report={'checked_at':stamp.isoformat(),'source_base':base,'checkout_commit':head,'frozen_edition_commit':frozen,'manifest_http':status,'manifest_final_url':final,'manifest_sha256':hashlib.sha256(public).hexdigest(),'manifest_equal_checkout':public==expected,'posts':len(items),'new_since_cut':[x['slug'] for x in results if x.get('new_since_cut')],'changed_since_cut':[x['slug'] for x in results if x.get('changed_since_cut')],'removed_since_cut':sorted(set(known)-ids),'sources':results,'status':'PASS' if ok else 'FAIL','scope':'Public TLS/HTTP/content survey. It does not replace deep reading, semantic review or current runtime acceptance.'}
     target=out/'blog-status.json';target.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf8',newline='\n');print(str(target),report['status'],flush=True)
     raise SystemExit(not ok)

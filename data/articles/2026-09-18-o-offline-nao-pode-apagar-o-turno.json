@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-o-offline-nao-pode-apagar-o-turno.html",
   "description": "O wargame de mem├│ria mant├®m o evento pendente no offline e entrega uma vez ap├│s reconnect, sem cruzar projetos.",
   "read_status": "read",
-  "summary": "Anika delivery state machine covers offline pending, idempotent receipt then sent, ACK/local persistence failure remains pending, 409 conflict, projectId flush filtering and hydration rejection. Visual two-project switch checked; real network interruption, crash and five live sessions still separate G3 proofs.",
+  "summary": "A máquina de estados de entrega da Anika cobre pendência offline, recibo idempotente seguido de envio, falha de ACK/persistência local que mantém a pendência, conflito 409, filtragem de envio por projectId e rejeição na hidratação. A troca visual entre dois projetos foi conferida; interrupção real de rede, crash e cinco sessões ativas seguem como provas G3 separadas.",
   "projects": [
     {
       "name": "Anika memory delivery/outbox",
@@ -35,20 +35,20 @@
   ],
   "claims": [
     {
-      "status": "failure case covered by injected wargame",
+      "status": "caso de falha coberto por wargame injetado",
       "subject": "ACK local persistence failure",
       "evidence_excerpt": "permanece pendente e o retry termina sem segundo efeito",
       "confidence": "declarado",
       "limitation": "not full real IndexedDB/network crash",
-      "object": "keep pending to avoid assumed success",
+      "object": "mantenha pendente para evitar presumir sucesso",
       "relation": "recovery"
     },
     {
-      "status": "covered in test",
+      "status": "coberto em teste",
       "subject": "cross-project event",
       "evidence_excerpt": "A hidratação rejeita eventos de outro projeto antes do bulkPut",
       "confidence": "declarado",
-      "limitation": "test environment detail not checked",
+      "limitation": "detalhes do ambiente de teste não conferidos",
       "object": "reject before bulkPut",
       "relation": "hydration"
     },
@@ -63,9 +63,9 @@
     }
   ],
   "lessons": [
-    "receipt persistence failure must not promote state",
-    "idempotency prevents second effect after retry",
-    "project scope must apply to both flush and hydration"
+    "Falha ao persistir recibo não deve promover o estado.",
+    "a idempotência impede um segundo efeito após nova tentativa",
+    "Escopo de projeto deve valer tanto no envio quanto na hidratação."
   ],
   "sha256": "656439be31c9ba00131b6464b26ddf2377796ed88b501c53ad877e1038e327b0",
   "id": "2026-09-18-o-offline-nao-pode-apagar-o-turno",

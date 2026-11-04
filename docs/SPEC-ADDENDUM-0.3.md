@@ -6,6 +6,6 @@ R13 Runtime adicional: Docker/Compose mínimo para servir os mesmos arquivos est
 
 Plano anterior à implementação: pesquisar imagens oficiais mantidas, verificar runtime existente sem instalar/iniciar software alheio; construir configuração mínima com porta local; testar configuração/build/HTTP/saúde/reinício/recriação/persistência dos arquivos versionados se daemon disponível. Runtime ausente é NÃO VALIDADO, nunca simular teste. Não instalar Docker nem alterar inicialização do host por inferência.
 
-Retomada: revisar correções recuperadas dos lotes2/3/4; corrigir51excertos do lote1; gerar candidato em diretório novo; conferir relações editoriais e controles negativos; publicar somente a edição admitida. Documentação atual deixa de tratar SPEC/plano como pendentes. Registros antigos continuam no Git/recibos históricos.
+Retomada: revisar correções recuperadas dos lotes2/3/4; corrigir51 excertos do lote 1; gerar candidato em diretório novo; conferir relações editoriais e controles negativos; publicar somente a edição admitida. Documentação atual deixa de tratar SPEC/plano como pendentes. Registros antigos continuam no Git/recibos históricos.
 
 Aceite: Docker adicional não limita recursos da edição estática no Pages. Testes locais, Docker, revisão consultiva, Pages/HTTPS/bytes e aprovação humana são evidências separadas.

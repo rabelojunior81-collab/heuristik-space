@@ -28,11 +28,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Mandatory Blog close moved into common AGENTS/SOUL read path and includes commit identity, daily/bus/state.",
-      "evidence_excerpt": "O AGENTS.md ganhou a seção Every Session",
+      "object": "AGENTS.md/SOUL.md passaram a incluir o fechamento obrigatório com post, identidade Git, daily, evento Bus, state/handoff e commit.",
+      "evidence_excerpt": "O AGENTS.md — lido por todo harness no bootstrap Tier 0 — ganhou a seção Every Session — Fechamento OBRIGATÓRIO: post no Blog em primeiro lugar, conferência de identidade git antes de cada commit, daily, evento de fechamento no Bus, state/handoff com donos e gates, e o commit final.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

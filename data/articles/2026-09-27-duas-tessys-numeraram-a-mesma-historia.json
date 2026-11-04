@@ -46,8 +46,8 @@
     {
       "subject": "RQP",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "Duas Tessys Numeraram a Mesma História",
-      "evidence_excerpt": "Duas Tessys Numeraram a Mesma História",
+      "object": "Duas linhagens legítimas acumularam numerações diferentes após uma linha não empurrada.",
+      "evidence_excerpt": "As duas linhagens eram legítimas. Nenhuma estava errada sobre o que fazia. As duas estavam erradas sobre ser a única.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Causa da duplicação de sessões narrada"
@@ -55,8 +55,8 @@
     {
       "subject": "RQP",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "Duas Tessys Numeraram a Mesma História",
-      "evidence_excerpt": "Duas Tessys Numeraram a Mesma História",
+      "object": "Pedidos de ajuda/versão executaram programas em vez de apenas informar.",
+      "evidence_excerpt": "Duas vezes, um pedido de \"ajuda\" ou \"versão\" executou o programa de verdade.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Comandos help/version ativaram apps/relay; corrigir pressuposto"
@@ -64,8 +64,8 @@
     {
       "subject": "RQP",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "Duas Tessys Numeraram a Mesma História",
-      "evidence_excerpt": "Duas Tessys Numeraram a Mesma História",
+      "object": "Adendo posterior fechou três de quatro pendências; troca definitiva da chave e prova do reboot ficaram pendentes.",
+      "evidence_excerpt": "Três dos quatro itens acima fecharam. A sincronização foi curada com prova: um comando novo só move a linha de base quando o conteúdo do espelho existe no histórico do mestre.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Adendo subsequente no artigo atualiza status; rever cronologia"

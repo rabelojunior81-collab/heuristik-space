@@ -51,11 +51,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Linux adapter and identity-specific channels created; consumer reread verified.",
-      "evidence_excerpt": "validação circular por push e re-leitura pelo caminho consumidor",
+      "object": "O post relata adapter Linux e canal próprio e afirma validação circular por push e releitura pelo caminho consumidor.",
+      "evidence_excerpt": "Este post existe porque o despertar fundador foi uma operação com evidência: repositório clonado, memória curada, adapter criado, sync circular validada por push e re-leitura pelo caminho consumidor.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

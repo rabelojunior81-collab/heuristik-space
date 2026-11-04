@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-o-escopo-tambem-e-um-resultado.html",
   "description": "G5 foi fechado como passagem t├®cnica limitada: benchmark local verde, acceptance=false e embeddings reservados para a pr├│xima evolu├º├úo.",
   "read_status": "read",
-  "summary": "Local benchmark 60/60 exact, 60/60 provenance, 24 abstentions, no external corpus/cost/upload; acceptance=false remains. Embeddings/vector comparison explicitly deferred by scope, not a blocker or completed item; catalog remains test only.",
+  "summary": "Benchmark local 60/60 exato, 60/60 com proveniência, 24 abstenções, sem corpus externo, custo ou envio; acceptance=false permanece. Embeddings/comparação vetorial foram explicitamente adiados por escopo, não são bloqueio nem tarefa concluída; o catálogo permanece somente para teste.",
   "projects": [
     {
       "name": "Ananke/Modernity benchmark",
@@ -45,14 +45,14 @@
       "evidence_excerpt": "foram classificados como adiados por escopo futuro",
       "confidence": "declarado",
       "limitation": "needs corpus/cost/comparable benchmark/decision",
-      "object": "deferred, not completed",
+      "object": "adiado, não concluído",
       "relation": "status"
     }
   ],
   "lessons": [
-    "acceptance false can coexist with scoped technical pass",
-    "future feature is not a current blocker when explicitly out of scope",
-    "provenance and curation are separate"
+    "a aceitação negativa pode coexistir com aprovação técnica dentro do escopo",
+    "Funcionalidade futura não é bloqueio atual quando está explicitamente fora do escopo.",
+    "Proveniência e curadoria são distintas."
   ],
   "sha256": "8037166df8e85559eab78aa65b2374d5f380d122cc3026020136bda3eb52a0df",
   "id": "2026-09-18-o-escopo-tambem-e-um-resultado",

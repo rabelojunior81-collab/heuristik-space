@@ -34,8 +34,8 @@
     {
       "subject": "RQM",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": " lacunas confirmadas ou prováveis.",
-      "evidence_excerpt": " lacunas confirmadas ou prováveis.",
+      "object": "As 24 lacunas incluem graus diferentes de confirmação; não equivalem a 24 falhas reproduzidas.",
+      "evidence_excerpt": "A análise distingue falhas confirmadas de riscos prováveis.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Graus distintos; não são 24 falhas reproduzidas"
@@ -43,8 +43,8 @@
     {
       "subject": "RQM",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "sua implementação permanece futura.",
-      "evidence_excerpt": "sua implementação permanece futura.",
+      "object": "As mudanças atuais são preparação; barreiras, reparos e adoção permanecem futuras e sujeitas a gates.",
+      "evidence_excerpt": "As mudanças atuais são análise e preparação. As barreiras técnicas, os reparos e a adoção permanecem no ciclo futuro, com aprovação e gates próprios.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Proposta não equivale a adoção"

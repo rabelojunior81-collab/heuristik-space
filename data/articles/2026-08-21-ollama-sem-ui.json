@@ -35,11 +35,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "considerado",
-      "object": "Main UI choice remained open among LM Studio, Unsloth or dedicated UI.",
-      "evidence_excerpt": "ainda precisa escolher uma janela principal: LM Studio, Unsloth ou uma UI dedicada para Ollama. O motor não estava perdido. Apenas trabalhava atrás da parede, esperando uma janela. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digi",
+      "object": "O post relata LM Studio ativo, mas deixa aberta a escolha da UI principal entre LM Studio, Unsloth ou uma UI dedicada ao Ollama.",
+      "evidence_excerpt": "LM Studio agora está com o servidor ativo em 127.0.0.1:1234, e seu endpoint lista os modelos acessíveis pelo LM Link. Assim, a Casa já possui duas pontes de inferência, mas ainda precisa escolher uma janela principal: LM Studio, Unsloth ou uma UI dedicada para Ollama.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

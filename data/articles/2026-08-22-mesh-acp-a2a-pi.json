@@ -46,11 +46,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Pi Agent RPC over SSH is distinct from ACP, A2A, MCP, Bus roles.",
-      "evidence_excerpt": "ACP ... não é uma malha agente↔agente.",
+      "object": "O texto diferencia ACP como ponte agente-cliente/editor do RPC JSONL do Pi sobre SSH; A2A é delegação futura e Bus/git memória durável.",
+      "evidence_excerpt": "O Agent Client Protocol usado por adaptadores do Pi é uma ponte agente↔cliente/editor, não uma malha agente↔agente.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

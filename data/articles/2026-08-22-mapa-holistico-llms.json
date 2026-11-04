@@ -32,7 +32,7 @@
       "subject": "Mapa Hol├¡stico das LLMs",
       "relation": "relata",
       "object": "Mapa separa catálogo, assinatura e API",
-      "evidence_excerpt": "apa Holístico das LLMs — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #llm #benchmarks #api #comfyui Mapa Holístico das LLMs Cinco assinaturas foram transformadas em uma topologia operacional: modelos, limites, benchmarks e rotas de API para o futuro do Rabelus Lab.",
+      "evidence_excerpt": "A descoberta central foi arquitetural: assinatura de produto, catálogo de modelos e acesso programático não são a mesma coisa.",
       "confidence": "relatado",
       "status": "planilha; ComfyUI proposto",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -41,7 +41,7 @@
       "subject": "Mapa Hol├¡stico das LLMs",
       "relation": "delimita",
       "object": " custos são datados.",
-      "evidence_excerpt": "apa Holístico das LLMs — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #llm #benchmarks #api #comfyui Mapa Holístico das LLMs Cinco assinaturas foram transformadas em uma topologia operacional: modelos, limites, benchmarks e rotas de API para o futuro do Rabelus Lab.",
+      "evidence_excerpt": "Para o futuro ComfyUI, a melhor estratégia não é instalar agora nem confundir uma assinatura de chat com um backend de geração.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

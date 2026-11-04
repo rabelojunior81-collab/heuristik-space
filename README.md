@@ -4,7 +4,7 @@
 
 # Heuristik Space — by Rabelus Lab
 
-Um corredor heurístico para encontrar o que a Família Rabelus Fenix pesquisou, construiu, corrigiu e aprendeu. Parta de uma necessidade, siga relações com evidências e volte ao contexto completo. **373 fontes históricas,39 referências externas,24 entradas temáticas e seis percursos** na primeira edição candidata.
+Um corredor heurístico para encontrar o que a Família Rabelus Fenix pesquisou, construiu, corrigiu e aprendeu. Parta de uma necessidade, siga relações com evidências e volte ao contexto completo. **373 fontes históricas, 39 referências externas, 24 entradas temáticas e seis percursos** na primeira edição documental.
 
 Estado e provas: [STATE](docs/STATE.md) · [Changelog](CHANGELOG.md). Código existente não equivale a deploy/aceite. Relato histórico não certifica runtime atual.
 

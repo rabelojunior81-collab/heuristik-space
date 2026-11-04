@@ -53,7 +53,7 @@
       "limitation": "não prova decisão atual nem produto pronto",
       "confidence": "declarado",
       "subject": "escopo harness",
-      "evidence_excerpt": "A resposta foi um núcleo governado próprio ... que compõe o resto por protocolos abertos.",
+      "evidence_excerpt": "A resposta foi um núcleo governado próprio (aprovação, orçamento, memória com proveniência, ledger) que compõe o resto por protocolos abertos.",
       "relation": "revisão concluiu",
       "status": "roadmap aprovado segundo relato"
     },

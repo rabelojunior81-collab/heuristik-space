@@ -13,7 +13,7 @@
   "file": "posts/2026-09-27-o-jogo-comeca-pelo-contrato.html",
   "description": "A retomada de Defesa de Elmore come├ºa pela corre├º├úo do prot├│tipo rejeitado, pelo invent├írio das imagens e por um objetivo com gates reais.",
   "read_status": "read",
-  "summary": "Tower Defense project reboot follows accepted universal project governance. Earlier HTML was rejected; images catalogued with hashes, but game rules/fidelity/acceptance not delegated. Proposed ideation/research/SPEC/plan/browser proof. Claude review conditions unverified, so no independent review, approved SPEC, goal or code.",
+  "summary": "A retomada do projeto Tower Defense segue a governança universal de projetos já aceita. O HTML anterior foi rejeitado; imagens foram catalogadas com hashes, mas regras do jogo, fidelidade e aceitação não foram delegadas. Foram propostos ideação, pesquisa, SPEC, plano e prova no navegador. Como as condições de revisão Claude não foram verificadas, não houve revisão independente, SPEC aprovada, objetivo ativo nem código.",
   "projects": [
     {
       "status": "ideation proposal; no approved spec/code",
@@ -41,7 +41,7 @@
       "subject": "prior HTML"
     },
     {
-      "object": "not approved; no new code",
+      "object": "não aprovado; nenhum código novo",
       "relation": "state",
       "evidence_excerpt": "não há SPEC do jogo aprovada nem código novo",
       "limitation": "goal not active",
@@ -53,14 +53,14 @@
       "object": "no independent review due unverified conditions",
       "relation": "status",
       "evidence_excerpt": "não há parecer independente nem aprovação externa desta ideação",
-      "limitation": "no use/privacy proof",
+      "limitation": "sem prova de uso ou privacidade",
       "confidence": "declarado",
       "status": "not performed",
       "subject": "review"
     }
   ],
   "lessons": [
-    "an HTML that opens does not prove a working game",
+    "Um HTML que abre não comprova que o jogo funciona.",
     "reference images do not authorize content/design scope",
     "spec and plan precede execution"
   ],

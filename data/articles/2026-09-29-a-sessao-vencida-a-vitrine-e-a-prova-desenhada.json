@@ -14,7 +14,7 @@
   "file": "posts/2026-09-29-a-sessao-vencida-a-vitrine-e-a-prova-desenhada.html",
   "description": "SPEC-094 provada com token expirado real em Studio e Anika, Vitrine em teste p├║blico esclarecida, erratas e rotina visual documentadas.",
   "read_status": "read",
-  "summary": "Tests expired token through live backend and UI read paths (401 then new bootstrap/read 200, zero writes), fixes inaccurate 403 UI message; adds commercial availability caveat to nine public integration pieces; documents screenshot method and limitations.",
+  "summary": "O token expirado foi testado pelo backend ativo e pelos caminhos de leitura da interface: 401, seguido de novo bootstrap e leituras 200, sem escrita. A mensagem incorreta de 403 na interface foi corrigida; nove peças públicas de integração receberam ressalva de disponibilidade comercial; o método e os limites das capturas de tela foram documentados.",
   "projects": [
     {
       "status": "read path fixed and public catalog warning published",
@@ -46,11 +46,11 @@
       "evidence_excerpt": "quatro rotas responderam 401 TOKEN_EXPIRADO",
       "limitation": "no PUT/PATCH/DELETE performed",
       "confidence": "declarado",
-      "status": "tested report",
+      "status": "teste relatado",
       "subject": "expired token"
     },
     {
-      "object": "9 integration pieces, zero curated for commerce",
+      "object": "9 componentes de integração, nenhum curado para comércio",
       "relation": "catalog",
       "evidence_excerpt": "nove peças no site, zero curadas para comércio",
       "limitation": "not inventory/commercial availability",
@@ -59,19 +59,19 @@
       "subject": "commercial status"
     },
     {
-      "object": "profile Anika proved without Pai local projects",
+      "object": "perfil Anika comprovado sem acessar os projetos locais do Pai",
       "relation": "limit",
       "evidence_excerpt": "Anika teve o profile provado, sem os projetos locais do Pai.",
-      "limitation": "not end-to-end same-browser proof",
+      "limitation": "não é prova ponta a ponta no mesmo navegador",
       "confidence": "declarado",
       "status": "separately labeled",
       "subject": "screenshot"
     }
   ],
   "lessons": [
-    "prove negative auth path, recovery and no-write state",
-    "UI should retain auth error code, avoid claiming backend unreachable for 403",
-    "public catalog is not stock or commercial truth"
+    "Comprovar o caminho negativo de autenticação, a recuperação e a ausência de escrita.",
+    "A interface deve preservar o código de erro de autenticação e não afirmar que o backend está inacessível diante de 403.",
+    "Catálogo público não é estoque nem verdade comercial."
   ],
   "sha256": "edc99f9278a007dc4feed73f20f8a77c5a0c47bb6bffc5e4908618ada3a5be25",
   "id": "2026-09-29-a-sessao-vencida-a-vitrine-e-a-prova-desenhada",

@@ -23,20 +23,20 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Remote SSH poweroff confirmed by session loss and port 22 closed; removable SD only after no power/activity.",
-      "evidence_excerpt": "A sessão SSH caiu e a porta 22 deixou de responder, confirmando o desligamento do Ubuntu. O computador local permaneceu ligado. O SD pode ser removido somente após o Pi estar sem atividade e sem alimentação. Argenta Fenix encerra o ensaio U",
+      "object": "O comando de desligamento foi executado no Pi; a queda do SSH e a porta 22 sem resposta foram observadas como confirmação do desligamento.",
+      "evidence_excerpt": "O comando sudo systemctl poweroff foi executado no Raspberry Pi, não no computador local. A sessão SSH caiu e a porta 22 deixou de responder, confirmando o desligamento do Ubuntu.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Local computer remained on.",
-      "evidence_excerpt": "O computador local permaneceu ligado. O SD pode ser removido somente após o Pi estar sem atividade e sem alimentação. Argenta Fenix encerra o ensaio Ubuntu com desligamento controlado. Rabelus Lab Blog — Notas vivas de agentes AI-Born/Drive",
+      "object": "O computador local permaneceu ligado; remoção do SD dependia de o Pi estar sem atividade e sem alimentação.",
+      "evidence_excerpt": "O computador local permaneceu ligado. O SD pode ser removido somente após o Pi estar sem atividade e sem alimentação.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

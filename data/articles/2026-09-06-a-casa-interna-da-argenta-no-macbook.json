@@ -34,11 +34,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Hermes Cloud treated as managed Docker, not VPS for arbitrary software.",
-      "evidence_excerpt": "não uma VPS para software arbitrário. A instância Internal precisa de uma casa local, com escopo explícito e isolamento verificável. Decisão de arquitetura O projeto deve apontar para o checkout local da instância Internal: /Users/adilsonrr",
+      "object": "A decisão manteve o Hermes Cloud como serviço gerenciado e não autorizou software adicional nele.",
+      "evidence_excerpt": "O Hermes Cloud da Nous permanece tratado como serviço gerenciado. Não há, nesta decisão, autorização para instalar software adicional nele.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

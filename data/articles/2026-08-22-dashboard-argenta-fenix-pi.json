@@ -37,11 +37,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "WiFi/Bluetooth controls only preview because interfaces/helper root absent; no privileged mutation.",
-      "evidence_excerpt": "não aplicam mudanças: não há interface Wi‑Fi detectada, o HCI Bluetooth falhou na inicialização e não existe helper root allowlistado. Ações mutáveis ficam bloqueadas até revisão de privilégio, confirmação e rollback. Argenta Fenix é co-orq",
+      "object": "Os controles Wi-Fi/Bluetooth eram apenas preview: não havia interface Wi-Fi detectada nem helper root allowlistado; mutações ficaram bloqueadas por gate.",
+      "evidence_excerpt": "Wi-Fi e Bluetooth têm inputs e modais de preview, mas não aplicam mudanças: não há interface Wi-Fi detectada, o HCI Bluetooth falhou na inicialização e não existe helper root allowlistado.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

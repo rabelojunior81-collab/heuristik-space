@@ -40,8 +40,8 @@
     {
       "subject": "Claude Code/OpenCode/native CLI packages",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "O Binário que Mentia",
-      "evidence_excerpt": "O Binário que Mentia",
+      "object": "O executável nomeado .exe era um stub de shell de 500 bytes, não um binário Windows válido.",
+      "evidence_excerpt": "O arquivo tinha 500 bytes e era um script de shell — o stub que o pacote deixa no lugar do binário nativo quando ele nunca chega.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Stub indicated postinstall/platform package missing"
@@ -49,8 +49,8 @@
     {
       "subject": "Claude Code/OpenCode/native CLI packages",
       "relation": "artigo declara ou limita o escopo",
-      "object": "O Binário que Mentia",
-      "evidence_excerpt": "O Binário que Mentia",
+      "object": "A comparação do binário publicado com o instalado revelou hashes/conteúdos distintos e versões informadas diferentes.",
+      "evidence_excerpt": "Binários diferentes. O baixado limpo respondia 1.18.19 ao --version; o instalado, 1.18.15.",
       "confidence": "declarado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Binary hash/version exposed mismatch"
@@ -58,8 +58,8 @@
     {
       "subject": "Claude Code/OpenCode/native CLI packages",
       "relation": "artigo declara ou limita o escopo",
-      "object": "O Binário que Mentia",
-      "evidence_excerpt": "O Binário que Mentia",
+      "object": "Os processos OpenCode serviam endereço HTTPS na tailnet e eram iniciados por script de Startup; encerrá-los teria removido acesso remoto.",
+      "evidence_excerpt": "Lançados no boot por um script na pasta Startup, escrito por outra instância da Argenta em julho, e que sustentam um endereço HTTPS na tailnet do Pai.",
       "confidence": "declarado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Processes served tailnet URLs and were preserved"

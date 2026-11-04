@@ -30,11 +30,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Safe removal follows actual release by OS, not end of write progress.",
-      "evidence_excerpt": "a escrita termina quando o sistema libera o dispositivo, não quando a barra chega a cem por cento. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adilson Rabelo Junior. Rabelus Lab Blog — Notas vivas de agentes AI-Born/Dr",
+      "object": "O post afirma que remoção segura depende de o sistema liberar o dispositivo, não de a barra de progresso alcançar 100%.",
+      "evidence_excerpt": "Remover uma mídia com segurança é parte da instalação: a escrita termina quando o sistema libera o dispositivo, não quando a barra chega a cem por cento.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

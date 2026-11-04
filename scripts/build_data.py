@@ -5,7 +5,7 @@ No installation or model call. --allow-incomplete is for local previews only.
 from pathlib import Path
 from html.parser import HTMLParser
 from datetime import datetime, timezone
-import argparse, hashlib, json, re, subprocess, unicodedata
+import argparse, hashlib, json, re, subprocess, unicodedata, io, tarfile
 
 ROOT=Path(__file__).resolve().parents[1]
 def write(path,value):
@@ -72,17 +72,20 @@ PATHS=[
 ('provar','Como saber o que o teste provou?','Recupere exemplos em que a medição, a revisão e o efeito real precisaram ser reconciliados.',['Governança e provas','Segurança e fronteiras'],['review','auth','rabelus-buddy','blog'],['O controle negativo poderia reprovar?','Um erro de preparo foi contado como contenção?','A prova cobre o commit e o efeito que estão sendo entregues?'])
 ]
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--blog',type=Path,required=True);parser.add_argument('--allow-incomplete',action='store_true');parser.add_argument('--output',type=Path,required=True,help='New candidate data directory; never writes served data');parser.add_argument('--version',default='0.1.0');args=parser.parse_args();output=args.output.resolve()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--blog',type=Path,required=True);parser.add_argument('--allow-incomplete',action='store_true');parser.add_argument('--blog-survey',type=Path,required=True);parser.add_argument('--output',type=Path,required=True,help='New candidate data directory; never writes served data');parser.add_argument('--version',default='0.1.0');args=parser.parse_args();output=args.output.resolve()
     if output.exists():raise ValueError('Candidate output already exists; use a new run directory')
     output.mkdir(parents=True)
+    survey=json.loads(args.blog_survey.read_text(encoding='utf8'))
+    if survey.get('status')!='PASS':raise ValueError('Blog source survey FAIL')
     corpus=json.loads((ROOT/'docs/research/corpus.json').read_text(encoding='utf8'));commit=corpus['blog_commit'];manifest=json.loads(git_bytes(args.blog,commit,'posts-manifest.json'));host=git_bytes(args.blog,'HEAD','CNAME').decode().strip();rows={}
     for f in sorted((ROOT/'docs/research').glob('batch-*-report.json')):
         for row in json.loads(f.read_text(encoding='utf8')).get('posts',[]):
             if row.get('slug') in rows:raise ValueError('Duplicate research slug: '+row['slug'])
             rows[row['slug']]=row
+    archive=tarfile.open(fileobj=io.BytesIO(subprocess.check_output(['git','archive',commit,'posts/'],cwd=args.blog)))
     sources=[];mismatch=[];read=0
     for item in manifest['posts']:
-        raw=git_bytes(args.blog,commit,item['file']);digest=hashlib.sha256(raw).hexdigest();row=rows.get(item['slug'],{});body=Body();body.feed(raw.decode('utf8'));text=body.text()
+        raw=archive.extractfile(item['file']).read();digest=hashlib.sha256(raw).hexdigest();row=rows.get(item['slug'],{});body=Body();body.feed(raw.decode('utf8'));text=body.text()
         captured=ROOT/'docs/research/source-html'/commit/(item['slug']+'.html.txt')
         captured.parent.mkdir(parents=True,exist_ok=True)
         if captured.exists() and captured.read_bytes()!=raw:raise ValueError('Immutable captured source differs: '+item['slug'])
@@ -113,16 +116,19 @@ def main():
         nodes.append({'id':id,'title':title,'kindLabel':kind,'summary':summary,'topics':topics,'aliases':aliases,'authors':sorted({s['author'] for s in selected}),'source_ids':[s['slug'] for s in selected],'claims':[],'relation_ids':[r['id'] for r in relations if id in r['node_ids']],'lessons':list(dict.fromkeys(r['lesson'] for r in relations if id in r['node_ids'])),'status':'Cronologia e estados nas fontes; contexto atual não reexecutado','selection_method':'menções candidatas agrupadas por nomes/assunto; não demonstram uso, adoção ou relação técnica. Alegações continuam atribuídas às respectivas fontes.'})
     references=[]
     for f in sorted((ROOT/'docs/research/external').glob('*.json')):
-        row=json.loads(f.read_text(encoding='utf8'));row['id']=row['slug'];row['title']=row['name'];row['topics']=row.get('topics',[]);row['authors']=[];row['relation_label']='Referência pesquisada; adoção não inferida'
+        row=json.loads(f.read_text(encoding='utf8'));row['id']=row['slug'];row['title']=row['name'];row['topics']=row.get('topics',[]);row['authors']=[];row['relation_label']='Referência pesquisada; adoção não inferida';row['relation_ids']=[r['id'] for r in relations if row['id'] in r.get('reference_ids',[])]
         # Exact repo URL/name mentions only. This records citation, never use/adoption.
         terms=[row.get('url',''),row.get('name','')];matcher=term_pattern(terms);row['lab_source_ids']=[s['slug'] for s in sources if matcher.search(normalized_bodies[s['slug']])];references.append(row)
-    paths=[{'id':id,'title':title,'summary':summary,'topics':topics,'authors':[],'node_ids':[n for n in ids if any(x['id']==n for x in nodes)],'questions':questions,'next_step':'Volte às fontes do percurso, confira o estado no contexto da próxima missão e transforme a hipótese em critério de teste antes de adotar.'} for id,title,summary,topics,ids,questions in PATHS]
-    edition={'version':args.version if read==len(sources) else args.version+'-incomplete','cut_at':corpus.get('cut_at','2026-11-03'),'blog_commit':commit,'read_count':read,'source_count':len(sources),'description':f'Leitura documental distribuída de {read}/{len(sources)} artigos, com recibos dos leitores e conferência semântica amostral do orquestrador. Contagem de documentos não é contagem de incidentes; traduções são fontes distintas com o mesmo contexto histórico.','relation_count':len(relations),'reference_collected_at':'2026-11-03; snapshot da pesquisa anterior','source_domain':host}
+    paths=[{'id':id,'title':title,'summary':summary,'topics':topics,'authors':sorted({author for n in nodes if n['id'] in ids for author in n['authors']}),'node_ids':[n for n in ids if any(x['id']==n for x in nodes)],'questions':questions,'next_step':'Volte às fontes do percurso, confira o estado no contexto da próxima missão e transforme a hipótese em critério de teste antes de adotar.'} for id,title,summary,topics,ids,questions in PATHS]
+    edition={'version':args.version if read==len(sources) else args.version+'-incomplete','cut_at':corpus.get('cut_at','2026-11-03'),'blog_commit':commit,'read_count':read,'source_count':len(sources),'description':f'Leitura documental distribuída de {read}/{len(sources)} artigos, com recibos dos leitores e conferência semântica amostral do orquestrador. Contagem de documentos não é contagem de incidentes; traduções são fontes distintas com o mesmo contexto histórico.','relation_count':len(relations),'qualified_source_count':len({sid for r in relations for sid in r['source_ids']}),'reference_collected_at':'2026-11-03; snapshot da pesquisa anterior','source_domain':host}
     # Source articles remain inspectable. No framework or runtime-private data is copied.
     for source in sources:
         article={**source,'extractor_version':'html-post-content/0.1','blog_commit':commit}
         write(output/'articles'/f"{source['slug']}.json",article)
     light_sources=[{k:v for k,v in s.items() if k!='body'} for s in sources]
+    edition['inputs']={'contract_sha256':hashlib.sha256((ROOT/'docs/ingestion-contract.json').read_bytes()).hexdigest(),'relations_sha256':hashlib.sha256((ROOT/'docs/research/relations.json').read_bytes()).hexdigest(),'blog_survey_sha256':hashlib.sha256(args.blog_survey.read_bytes()).hexdigest(),'external':{f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted((ROOT/'docs/research/external').glob('*.json'))},'readers':{f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted((ROOT/'docs/research').glob('batch-*-report.json'))}}
+    write(output/'blog-status.json',survey)
+    write(output/'update-queue.json',{k:survey[k] for k in ['checked_at','checkout_commit','frozen_edition_commit','new_since_cut','changed_since_cut','removed_since_cut']})
     knowledge={'edition':edition,'nodes':nodes,'paths':paths,'sources':light_sources,'references':references,'relations':relations}
     write(output/'knowledge.json',knowledge)
     coverage={'edition':edition,'sources':[{'slug':s['slug'],'file':s['file'],'sha256':s['sha256'],'read_status':s['read_status']} for s in sources]};write(output/'coverage.json',coverage)
@@ -130,6 +136,6 @@ def main():
     for n in nodes:txt.extend(['# '+n['title'],n['summary'],'Seleção: '+n['selection_method'],'Fontes: '+', '.join(n['source_ids']),''])
     for r in relations:txt.extend(['# RELAÇÃO: '+r['subject']+' → '+r['object'],json.dumps(r,ensure_ascii=False,indent=2),''])
     for s in sources:txt.extend(['# FONTE: '+s['title'],s['url'],s['author']+' · '+s['date'],s['summary'],json.dumps(s.get('claims',[]),ensure_ascii=False,indent=2),''])
-    for ref in references:txt.extend(['# REFERÊNCIA: '+ref['title'],ref['url'],ref['summary'],'Relação: '+ref['relation_label'],''])
+    for ref in references:txt.extend(['# REFERÊNCIA: '+ref['title'],ref['url'],ref['summary'],'Relação: '+ref['relation_label'],json.dumps(ref,ensure_ascii=False,indent=2),''])
     write(output/'context.txt','\n'.join(txt));print(json.dumps({'sources':len(sources),'read':read,'nodes':len(nodes),'references':len(references),'state':'complete' if read==len(sources) else 'in_progress'}))
 if __name__=='__main__':main()

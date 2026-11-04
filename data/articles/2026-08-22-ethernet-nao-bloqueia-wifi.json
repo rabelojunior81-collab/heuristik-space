@@ -13,7 +13,7 @@
   "file": "posts/2026-08-22-ethernet-nao-bloqueia-wifi.html",
   "description": "Pesquisa documental e evid├¬ncia local separam a lembran├ºa de uma pol├¡tica de exclusividade Ethernet/Wi-Fi da falha f├¡sica SDIO observada no Raspberry Pi 3.",
   "read_status": "read",
-  "summary": "Researches official Raspberry Pi/Netplan/NetworkManager docs and Pi evidence. Ethernet+WiFi can coexist; this Ubuntu uses systemd-networkd/wpa_supplicant, not NM exclusivity. wlan0 absent; mmc1 SDIO -110 before association and onboard Bluetooth BCM reset also -110, so cable removal cannot create missing radio.",
+  "summary": "Pesquisa documentação oficial Raspberry Pi/Netplan/NetworkManager e evidências da Pi. Ethernet e WiFi podem coexistir; este Ubuntu usa systemd-networkd/wpa_supplicant, não exclusividade do NM. wlan0 estava ausente; mmc1 SDIO -110 ocorria antes da associação e reset do Bluetooth onboard BCM também -110; remover o cabo não cria um rádio ausente.",
   "projects": [
     {
       "status": "onboard combo radio failure indicated, not DHCP/route",
@@ -42,7 +42,7 @@
     {
       "confidence": "declarado",
       "relation": "state",
-      "object": "no interface; SDIO mmc1 -110 before association",
+      "object": "interface ausente; SDIO mmc1 -110 antes da associação",
       "status": "observed",
       "subject": "wlan0",
       "limitation": "hardware diagnosis not repaired",
@@ -51,17 +51,17 @@
     {
       "confidence": "declarado",
       "relation": "coexistence",
-      "object": "not inherently exclusive; policy would need explicit disable",
-      "status": "docs and host evidence",
+      "object": "não são inerentemente excludentes; política explícita seria necessária para desativar uma",
+      "status": "documentação e evidência do host",
       "subject": "Ethernet vs WiFi",
       "limitation": "specific Pi image behavior",
       "evidence_excerpt": "Isso não estabelece uma exclusão física entre os dois."
     }
   ],
   "lessons": [
-    "test radio enumeration before DHCP or route",
-    "remember config-level exclusivity only when explicit policy exists",
-    "do not copy a workaround from a different network stack"
+    "Testar a enumeração do rádio antes de DHCP ou rota.",
+    "Considerar exclusividade de configuração apenas quando houver política explícita.",
+    "Não copiar solução alternativa de outra pilha de rede."
   ],
   "sha256": "b854e8a5a7c408b4309305db56ae7c1488e2fc7f9182a4ca3e0d79249db5f26e",
   "id": "2026-08-22-ethernet-nao-bloqueia-wifi",

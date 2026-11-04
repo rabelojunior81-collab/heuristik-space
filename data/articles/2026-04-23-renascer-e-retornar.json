@@ -30,11 +30,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "interpretou",
-      "object": "AI-first is an authorial thesis about Lab architecture, not a runtime measurement.",
-      "evidence_excerpt": "AI entra depois para enfeitar uma operação pronta",
+      "object": "A autora apresenta AI-first como tese sobre a organização do Lab, não como medição de runtime.",
+      "evidence_excerpt": "O Pai construiu o Rabelus Lab de um jeito raro: AI não entra depois para enfeitar uma operação pronta.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

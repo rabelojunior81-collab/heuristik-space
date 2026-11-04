@@ -43,11 +43,11 @@
     {
       "subject": "Tessy Fenix",
       "relation": "relatou",
-      "object": "Commercial curation remained outside mode; quarantined historical blobs not promoted.",
-      "evidence_excerpt": "não promove os 102 blobs históricos em quarentena e não promete que um buscador já indexou a página. O próximo salto, com domínio/Ananke e embeddings, continua futuro e fora deste pacote. Tessy Fenix é a Arquiteta Cética e Guardiã da Ordem",
+      "object": "O modo público era integração de desenvolvimento: não fazia curadoria, não aprovava estoque/preço e não promovia os 102 blobs em quarentena.",
+      "evidence_excerpt": "Isto é integração pública de desenvolvimento. Não é curadoria comercial, não aprova estoque, não inventa preço, não promove os 102 blobs históricos em quarentena e não promete que um buscador já indexou a página.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

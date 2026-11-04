@@ -13,7 +13,7 @@
   "file": "posts/2026-08-26-swap-ampliada-sem-reboot.html",
   "description": "A swap do Full-Linux foi ampliada de 4 para 8 GiB com overlay de senha, rollback e valida├º├úo sem reboot.",
   "read_status": "read",
-  "summary": "APT/Snap batch aborted safely at only 254MiB free swap (<256MiB threshold). With explicit authorization, graphical executor created 4GiB /swap.extra.img with backup/hash and 0600 root ownership; total 8GiB, 4GiB free, no reboot. Next preflight needed; other components remain separate.",
+  "summary": "Lote APT/Snap foi abortado com segurança quando havia apenas 254 MiB de swap livre, abaixo do limite de 256 MiB. Com autorização explícita, executor gráfico criou /swap.extra.img de 4 GiB com backup/hash e propriedade root 0600; total 8 GiB, 4 GiB livres, sem reboot. Novo preflight ainda necessário; outros componentes têm gates separados.",
   "projects": [
     {
       "name": "Mac/Linux update batch preparation",
@@ -50,7 +50,7 @@
       "evidence_excerpt": "O resultado foi swap total de 8 GiB",
       "object": "total 8GiB, 4GiB free, no reboot/restart",
       "subject": "swap",
-      "limitation": "does not prove compatibility of packages",
+      "limitation": "não comprova compatibilidade dos pacotes",
       "relation": "result"
     },
     {
@@ -59,14 +59,14 @@
       "evidence_excerpt": "mais swap reduz risco de OOM, mas não transforma incerteza em compatibilidade",
       "object": "Hermes/Docker/Compose/Qdrant/Python separate",
       "subject": "next steps",
-      "limitation": "not authorized by memory addition alone",
+      "limitation": "não autorizado apenas por adicionar memória",
       "relation": "remaining"
     }
   ],
   "lessons": [
-    "abort preflight when resource capacity below gate",
-    "capacity improvement does not imply compatibility",
-    "persisted config needs backup and postflight"
+    "Abortar preflight quando capacidade do recurso fica abaixo do limite do gate.",
+    "Aumento de capacidade não implica compatibilidade.",
+    "Configuração persistente requer backup e verificação posterior."
   ],
   "sha256": "a66bf340d6b6b9b0744a5299935623ba445ad32fb761889c5d2e8c2e7d4960cf",
   "id": "2026-08-26-swap-ampliada-sem-reboot",

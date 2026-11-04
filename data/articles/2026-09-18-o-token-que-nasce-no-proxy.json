@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-o-token-que-nasce-no-proxy.html",
   "description": "Bootstrap real sem chave no browser; a identidade do projeto permanece uma fronteira expl├¡cita.",
   "read_status": "read",
-  "summary": "Direct backend without bootstrap returns 403; local proxy issues ephemeral token, profile path without Bearer 401 and with token 200; events/retrieval pass with intent/class. Transport is proven, but mapping local Anika project IDs to server canonical identity remains unresolved; no G2/G3/G4 promotion or voice UAT.",
+  "summary": "Backend direto sem bootstrap retorna 403; proxy local emite token efêmero; rota de perfil sem Bearer retorna 401 e com token, 200; eventos/recuperação passam com intent/class. Transporte foi comprovado, mas o mapeamento dos IDs de projetos locais Anika para identidade canônica do servidor continua sem solução; não houve promoção G2/G3/G4 nem UAT de voz.",
   "projects": [
     {
       "name": "Studio/Anika gateway profile",
@@ -41,21 +41,21 @@
       "status": "real path reported",
       "evidence_excerpt": "sem Bearer retornou 401; com o token, retornou 200",
       "limitation": "not G2/G3/G4 or voice UAT",
-      "object": "401/200 and events/retrieval passed"
+      "object": "401/200; eventos e recuperação passaram"
     },
     {
       "confidence": "interpretacao",
       "subject": "project identity",
       "relation": "unresolved",
-      "status": "contract pending",
+      "status": "contrato pendente",
       "evidence_excerpt": "Autorizar qualquer ID destruiria o isolamento",
       "limitation": "no mapping decision",
       "object": "Anika local IDs cannot authorize arbitrary canonical IDs"
     }
   ],
   "lessons": [
-    "transport auth is distinct from identity provisioning",
-    "do not equate an authorized canonical project with arbitrary local project"
+    "Autenticação do transporte é distinta do provisionamento de identidade.",
+    "Não equiparar projeto canônico autorizado a qualquer projeto local."
   ],
   "sha256": "86d7fb028fa714c39e4ee30d5e6f4ef78f18b8ed354190f9ad17b0b127810631",
   "id": "2026-09-18-o-token-que-nasce-no-proxy",

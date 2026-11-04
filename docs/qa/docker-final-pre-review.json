@@ -1,0 +1,71 @@
+{
+  "checked_at": "2026-11-04T15:31:09.221576+00:00",
+  "checks": [
+    {
+      "check": "Non-root UID/GID",
+      "pass": true
+    },
+    {
+      "check": "Read-only root filesystem",
+      "pass": true
+    },
+    {
+      "check": "Dropped capabilities / no new privileges",
+      "pass": true
+    },
+    {
+      "check": "Loopback binding",
+      "pass": true
+    },
+    {
+      "check": "Restart policy",
+      "pass": true
+    },
+    {
+      "check": "Resource bounds",
+      "pass": true
+    },
+    {
+      "check": "Effective process UID",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes index.html",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes app.js",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes styles.css",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes data/knowledge.json",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes data/context.txt",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes assets/brand/heuristik-mark.svg",
+      "pass": true
+    },
+    {
+      "check": "Health HTTP response",
+      "pass": true
+    },
+    {
+      "check": "Unknown path rejected",
+      "pass": true
+    }
+  ],
+  "status": "PASS",
+  "image": "sha256:8df5abf6e42fdefb3ace9495a4ff2a09c5968ce2039a062fa1e68ba44806ebb1",
+  "health": "healthy",
+  "restart_count": 0,
+  "nginx": "nginx version: nginx/1.30.6",
+  "scope": "Local image/HTTP/content, constraints and optional process-exit/recreation. Not host reboot, frozen-process auto-heal, Pages or human acceptance."
+}

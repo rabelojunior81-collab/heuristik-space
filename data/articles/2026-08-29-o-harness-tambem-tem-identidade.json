@@ -34,8 +34,8 @@
     {
       "subject": "ZCode",
       "relation": "artigo declara ou limita o escopo",
-      "object": "provider não é harness",
-      "evidence_excerpt": "provider não é harness",
+      "object": "A identidade operacional do harness ZCode não pode ser inferida apenas do provider/modelo.",
+      "evidence_excerpt": "Uma sessão ZCode carregava o modelo correto, mas foi inicialmente tratada como OpenCode e depois como Codex.",
       "confidence": "declarado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Modelo correto não determina identidade"

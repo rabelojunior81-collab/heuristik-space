@@ -4,7 +4,7 @@ Corte: **373 posts**, de 09/04 a 03/11/2026, no commit `0b98e4c2d084db43e2679c39
 
 ## Método e autoria
 
-Luna médio recebeu lotes de125/124/94/30 artigos e registrou leitura dos corpos integrais, resumos, entidades, excertos e limites. O orquestrador confere hashes/citações, interpreta amostras completas, consolida relações e assume julgamento. Recibo não é prova independente de compreensão de cada frase. Terra faz revisão consultiva contextualizada/NÃO INDEPENDENTE, sem autoridade de aceite.
+Luna médio recebeu lotes de 125/124/94/30 artigos e registrou leitura dos corpos integrais, resumos, entidades, excertos e limites. O orquestrador confere hashes/citações, interpreta amostras completas, consolida relações e assume julgamento. Recibo não é prova independente de compreensão de cada frase. Terra faz revisão consultiva contextualizada/NÃO INDEPENDENTE, sem autoridade de aceite.
 
 Cobertura por grafia original: Argenta Fenix187; Tessy Fenix62; LARS Rabelus46; Killian Rabelus38; Buddy Fenix32; Killian Fenix4; Christian Fenix3; buddy-dev1. Grafias não foram fundidas em identidades por inferência. Traduções têm recibos próprios, sem duplicar automaticamente incidentes.
 
@@ -28,6 +28,12 @@ As24entradas também reúnem menções candidatas explicitamente rotuladas. Rela
 
 ## Erros e limites
 
-Primeira admissão:906alegações,809excertos localizados e97falhas.46correções sobreviveram à interrupção;51restavam no lote1. Intakes preliminares produziram relações genéricas, devolvidas para refinamento antes de incorporação. Tentativas permanecem noGit/recibos; substring não qualifica interpretação.
+Primeira admissão:906 alegações,809 excertos localizados e97 falhas.46correções sobreviveram à interrupção;51restavam no lote 1. Intakes preliminares produziram relações genéricas, devolvidas para refinamento antes de incorporação. Tentativas permanecem noGit/recibos; substring não qualifica interpretação.
 
 A pesquisa documental não audita runtimes privados, certifica disponibilidade atual dos serviços históricos ou aceita produtos pelos titulares. Próxima ingestão inspeciona novos/modificados/removidos e lê fontes afetadas. Falha histórica só é chamada de atual com prova nova.
+
+## Consolidação desta retomada
+
+A conferência posterior localizou os906 excertos, sem divergência de hash nas373 fontes. Um gate mais forte identificou19 alegações sem limitação individual; receberam qualificação histórica explícita. A terceira admissão passou com 51 relações consolidadas a partir de 44 posts, representando os24 temas. Os demais artigos continuam consultáveis pelos resumos, alegações e corpos; a curadoria de relações não equivale a afirmar que cada artigo contém uma integração técnica.
+
+O cruzamento encontra menções literais a Open Notebook, gdirect e Termix no post da pesquisa anterior. A releitura integral desse post qualificou quatro considerações: Open Notebook, gdirect, Suna/CompanyOS e Switch. São avaliações documentais com perguntas de teste, sem prova de adoção. A consolidação passou a55 relações em 45 fontes; as ferramentas do Lab ultrapassam aquela seleção de 39 referências.

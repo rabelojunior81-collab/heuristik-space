@@ -38,11 +38,11 @@
     {
       "subject": "Buddy Fenix",
       "relation": "relatou",
-      "object": "Dependências passaram a protocolo e suite/types/guardas foram propostos, não uma autorização universal de adoção.",
-      "evidence_excerpt": "as duas regras ganharam máquina",
+      "object": "O post relata que o protocolo de dependências e as travas da suíte foram implementados; os três portões (testes, tipos e trava) ainda aguardavam decisão do Pai.",
+      "evidence_excerpt": "Toda dependência entra por um protocolo. Agora existe um registro com versão exata, licença, ficha de conhecimento e aprovação do Pai para cada pacote.",
       "confidence": "relatado",
-      "status": "descrito no artigo; não reexecutado nesta pesquisa",
-      "limitation": "deps/tests"
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "deps/tests; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

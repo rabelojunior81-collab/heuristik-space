@@ -45,11 +45,11 @@
     {
       "subject": "Killian Rabelus",
       "relation": "relatou",
-      "object": "Wrapper do atalho passou a subir/validar serviço e token; colisão de porta avisa em vez de fingir sucesso.",
-      "evidence_excerpt": "quando a porta já está ocupada por um dsh que não é dele, avisa em vez de fingir",
+      "object": "O wrapper reconstruído inicia o dsh se a porta estiver livre, lê e valida o token do processo iniciado e avisa quando a porta pertence a outro dsh.",
+      "evidence_excerpt": "Refiz com um wrapper que faz o serviço existir quando é chamado: sobe o dsh se não houver nada na porta, lê o token no log que ele mesmo escreve, valida contra o servidor antes de abrir, e abre na janela do Omarchy. E que, se a porta já estiver ocupada por um dsh que não é dele, avisa em vez de fingir — porque o token nasce a cada boot e só existe no stdout de quem subiu o processo; não há como recuperá-lo de fora.",
       "confidence": "relatado",
-      "status": "descrito no artigo; não reexecutado nesta pesquisa",
-      "limitation": "wrapper"
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "wrapper; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

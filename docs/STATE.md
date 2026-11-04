@@ -1,26 +1,31 @@
 # Estado vivo — Heuristik Space
 
-Atualizado: 2026-11-04T11:38:02.911897-03:00 · LARS · Codex Desktop · host DEV_MACHINNA.
+Atualizado: 2026-11-04T12:28:22.581401-03:00 · LARS · Codex Desktop · Windows local; identificadores privados no corpus LARS.
 
-**EM EXECUÇÃO.** SPEC0.1/plano0.1 e aditamentos0.2/0.3 autorizados pelo Pai. Domínio heuristik.space; Blog-fonte rabelus.com.br. Continuidade desta sessão aberta, sem encerramento por cota.
+**EM EXECUÇÃO.** SPEC0.1, plano0.1 e aditamentos0.2/0.3 autorizados. Domínio heuristik.space; fonte rabelus.com.br. Não repetir aprovações de rotina nem encerrar posses alheias.
 
-## Confirmado na retomada
+## Pesquisa e dados
 
-- Checkpoint remoto4964575. Correções salvas nos relatórios2/3/4 ainda não integradas à base gerada.
-- Corte373posts,906alegações,39referências,24entradas e6percursos. Leitores registram leitura integral; conferência semântica é uma obrigação adicional.
-- Gate histórico first-admission: FAIL97. Conferência dos relatórios recuperados:46corrigidos,51restantes no lote1. Hashes das373fontes coerentes. Dados servidos ainda anteriores à correção.
-- Preview inicial805×764 registrado, não QA móvel/desktop completo. Pages não comprovado; DNS heuristik.space NXDOMAIN na consulta de retomada.
+- Corte congelado:373 posts,09/04–03/11/2026, commit0b98e4c. Leitura distribuída registrada pelos leitores; conferência semântica amostral pelo orquestrador, sem declarar compreensão independente de cada frase.
+-906 alegações,906 excertos localizados e hashes coerentes. PrimeiroFAIL97 e segundoFAIL19 limitações ausentes preservados. Terceira admissãoPASS.
+-55 relações qualificadas em 45 posts,24entradas,6 percursos,39 referências externas. Open Notebook/gdirect/Suna/Switch são considerações documentais, não adoções.
+-59 resumos/174 alegações do lote 3 traduzidos paraPT-BR, preservando todos os excertos/quantidades. Total do lote 94 posts/273 alegações.
+-Run 20261104T152337064966Z passou vistoria, candidato, admissão,13 controles e promoção local. Fonte atual tem374 posts; um novo após o corte ficou na fila seguinte. Propostas genéricas rejeitadas estão em archive/rejected-intake-2026-11-04 com lápide.
 
-## Execução atual / posse de arquivos
+## Produto e infraestrutura
 
-Leitores Luna: propostas de correção e relações em docs/research/intake/; somente seus arquivos. Consolidação/julgamento/código/promoção pelo executor. Terra: review final consultivo somente pacote público e sem ferramentas, CONTEXTUALIZADO/NÃO INDEPENDENTE conforme autorização nominal.
+Docker adicional ativo em http://127.0.0.1:4173/; NGINX 1.30.6/UID 101/raiz somente leitura/loopback/limites/reinício. Primeiro ensaio:18verificaçõesPASS, incluindo saída do processo e recriação com dados preservados. Host reboot e auto-heal de processo congelado não testados nem prometidos.
 
-## Próximos gates
+Navegador integrado exibiu375×812,390×844 e1440×900; busca, paginação, filtros, teclado, cópias e percurso exercitados. Fixtures isoladas exercitaram clipboard indisponível, falha da base/fonte, recuperação e conteúdo hostil. QA final do objeto atualizado ainda em consolidação; aceite humano não inferido.
 
-1. Correções/citações e relações qualificadas por fonte, incluindo traduções.
-2. Contrato independente, geração candidata, controles negativos, promoção recuperável e vistoria Blog datada.
-3. Interface/docs e Docker mínimo (testes reais conforme runtime disponível).
-4. QA375/390/1440, review dos artefatos e publicação Pages/DNS/TLS/bytes.
-5. Post final e registros; aceite humano continua separado. Nenhuma entrega integral declarada.
+## Publicação e próximos gates
 
-Histórico: commits anteriores e docs/runs/ preservam tentativas. Erros e correções não são apagados. Sem gasto extra/reset semanal; renovação de cota informada pelo Pai. Não tocar deltas/posses de outras instâncias no corpus/Blog.
+Pai concluiu registro do domínio: DNS aponta para4IPsPages e HTTPserve o checkpoint público e741d56. HTTPS ainda não validado na última medição por certificado incompatível. Pages migrado delegacy/mainpara workflow, preservandoCNAME.
+
+Devidos: finalizar controles/QA/recibos do objeto, revisão Terra consultiva contextualizada sem ferramentas, selo/hash, CI/Pages do mesmoSHA, TLS/HTTPS/bytes/interface pública, post final noBlog e registros no corpus. Nenhuma entrega integral declarada enquanto esses gates permanecem abertos.
+
+Sem gasto extra, login novo ou reset semanal. Usar docs/CONTINUE.md e os recibos; preservar deltas de outras instâncias no corpus/Blog.
+
+## Direção obrigatória — navegador
+
+Pai,04/11/2026: usar o navegador integrado como padrão. Navegador externo SOMENTE quando inevitável e após explicar a necessidade e obter autorização prévia. Falha de automação/download não libera fallback externo. Não realizar novas interações externas nem presumir exceção para limpeza de abas.

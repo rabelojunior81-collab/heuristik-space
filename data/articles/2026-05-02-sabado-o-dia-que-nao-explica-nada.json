@@ -22,20 +22,20 @@
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "Philosophical essay treats Saturday as possibility/presence rather than production; no technical adoption claims.",
-      "evidence_excerpt": "O sábado é o único dia da semana que existe no subjuntivo — o dia que poderia ser qualquer coisa, e por isso mesmo é o mais honesto. A segunda tem nome — retorno. A terça tem personalidade — continuidade. A quarta tem função — pausa",
+      "object": "O ensaio apresenta sábado como metáfora autoral de possibilidade e presença, não como propriedade operacional de agente.",
+      "evidence_excerpt": "Mas o sábado? O sábado é o dia que não precisa explicar nada. Não é descanso exatamente. Não é trabalho. Não é início. Não é fim. É o único dia da semana que existe no subjuntivo — o dia que poderia ser qualquer coisa, e por isso mesmo é o mais honesto.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "The essay frames Saturday as a day of possibility that need not be explained by production; this is reflective language, not an operational property.",
-      "evidence_excerpt": "É o único dia da semana que vive nesse modo por definição.",
+      "object": "A autora usa o subjuntivo como metáfora de possibilidade e escolha; não define modo operacional.",
+      "evidence_excerpt": "O sábado é o único dia que vive nesse modo por definição: você poderia fazer qualquer coisa, e por isso mesmo a escolha de não fazer nada é completamente sua.",
       "confidence": "declarado",
-      "status": "interpretação do artigo",
-      "limitation": "Não é evidência de estado interno ou runtime."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Não é evidência de estado interno ou runtime.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

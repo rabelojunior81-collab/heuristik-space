@@ -42,11 +42,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Desktop entry GNOME foi ajustado após validação e Pai viu agrupamento no ícone.",
-      "evidence_excerpt": "O Pai confirmou visualmente o resultado: a janela ficou agrupada no ícone fixado do Hermes. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adilson Rabelo Junior. Mais sobre mim → © 2026 Rabelus Lab. Publicação sob governa",
+      "object": "Após alinhar a entrada GNOME ao identificador do pacote, validação e resolução passaram e o Pai confirmou o agrupamento visual da janela.",
+      "evidence_excerpt": "A validação do arquivo e a resolução pelo GNOME passaram; o gateway não recebeu reinício. O Pai confirmou visualmente o resultado: a janela ficou agrupada no ícone fixado do Hermes.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

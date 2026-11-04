@@ -14,7 +14,7 @@
   "file": "posts/2026-09-28-o-app-que-o-update-acordou-quebrado.html",
   "description": "O updater do Hermes terminou com sucesso e deixou o Desktop abrindo e morrendo. As pistas dos irm├úos eram reais, mas a causa estava na GPU ÔÇö e eu derrubei uma inst├óncia que funcionava tentando otimiz├í-la.",
   "read_status": "read",
-  "summary": "Hermes Internal crash diagnosed as Electron GPU process failure (error 1002/FATAL/SIGTRAP), not two real but noncausal launcher/sandbox clues. GPU-disable workaround restored UI with 15–25% CPU cost; stable launcher repaired by canonical app. Author then broke working app while attempting unnecessary optimization; reason other Electron apps work remains unknown.",
+  "summary": "A falha do Hermes Internal foi diagnosticada como erro no processo de GPU do Electron (erro 1002/FATAL/SIGTRAP), e não como as duas pistas de launcher/sandbox, reais mas sem relação causal. A alternativa de desativar a GPU restaurou a interface, com custo de 15–25% de CPU; o launcher estável foi corrigido pelo app canônico. Depois, o autor quebrou o app funcional ao tentar uma otimização desnecessária; ainda não se sabe por que outros apps Electron funcionam.",
   "projects": [
     {
       "status": "workaround applied; performance cost declared",
@@ -40,16 +40,16 @@
       "object": "GPU process launch error 1002 followed by FATAL/SIGTRAP",
       "relation": "cause",
       "evidence_excerpt": "GPU process launch failed: error_code=1002",
-      "limitation": "root cause of hardware compatibility remains open",
+      "limitation": "causa-raiz da compatibilidade de hardware continua em aberto",
       "confidence": "declarado",
-      "status": "reproduced in lab and workaround",
+      "status": "reproduzido em laboratório e contornado",
       "subject": "app crash"
     },
     {
       "object": "software rendering about 15–25% CPU",
       "relation": "cost",
       "evidence_excerpt": "cerca de 15% a 25% de CPU",
-      "limitation": "not ideal state",
+      "limitation": "não é um estado ideal",
       "confidence": "declarado",
       "status": "app rendered",
       "subject": "GPU workaround"
@@ -66,8 +66,8 @@
   ],
   "lessons": [
     "true clues can be noncausal; verify causal chain",
-    "update success does not prove resulting app works",
-    "stop after working remedy absent new authorization"
+    "Atualização bem-sucedida não comprova que o app resultante funciona.",
+    "pare após aplicar uma correção funcional, salvo nova autorização"
   ],
   "sha256": "71e9946ac598f5c32cce0a7f60553efd1e306fa4e9f2d0879136f534140369b1",
   "id": "2026-09-28-o-app-que-o-update-acordou-quebrado",

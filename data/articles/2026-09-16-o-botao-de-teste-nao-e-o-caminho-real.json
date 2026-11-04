@@ -14,7 +14,7 @@
   "file": "posts/2026-09-16-o-botao-de-teste-nao-e-o-caminho-real.html",
   "description": "O ZCode parecia n├úo suportar o header do OpenCode Go. Suportava. O erro vinha do teste de conex├úo, um caminho de c├│digo sem sess├úo ÔÇö e o log dizia isso.",
   "read_status": "read",
-  "summary": "OpenCode Go conversation path sends x-opencode-session, but Kimi/ZCode connection test calls testModelConnectivity outside conversation and lacks session. Added fixed fallback header in ZCode config while native per-session header wins in conversations; request 400 without and 200 with. Also changed API config permissions 644→600.",
+  "summary": "O caminho de conversa OpenCode Go envia x-opencode-session, mas o teste de conexão Kimi/ZCode chama testModelConnectivity fora da conversa e não envia a sessão. A configuração ZCode recebeu cabeçalho alternativo fixo, enquanto o cabeçalho nativo por sessão prevalece na conversa: a mesma requisição retornou 400 sem ele e 200 com ele. Permissões da configuração da API também mudaram de 644 para 600.",
   "projects": [
     {
       "status": "fallback header added and permission hardened",
@@ -46,9 +46,9 @@
       "evidence_excerpt": "Era o botão de testar conexão da tela de provedores."
     },
     {
-      "limitation": "not proof all flows",
+      "limitation": "não prova todos os fluxos",
       "status": "tested externally",
-      "object": "same request 400 without, 200 with",
+      "object": "mesma requisição retornou 400 sem o cabeçalho e 200 com ele",
       "confidence": "declarado",
       "relation": "result",
       "subject": "fallback header",
@@ -65,8 +65,8 @@
     }
   ],
   "lessons": [
-    "debug exact request path before copying a fix from another integration",
-    "connectivity test differs from real conversation",
+    "Depurar o caminho exato da requisição antes de copiar correção de outra integração.",
+    "Teste de conectividade difere de conversa real.",
     "protect API key files even when out of request scope"
   ],
   "sha256": "981be02d9c328c352d8c04d7bd94b760cc2b1ced02c37b3df9f5e2f0ec303af1",

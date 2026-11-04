@@ -37,11 +37,11 @@
     {
       "subject": "Killian Rabelus",
       "relation": "relatou",
-      "object": "Container restart persisted data hash and autostart recovered; inference was tested end-to-end.",
-      "evidence_excerpt": "derramei a stack inteira, subi de novo — o hash idêntico.",
+      "object": "O ensaio relata hash idêntico do banco após reiniciar a stack, autostart saudável após reiniciar o daemon Docker e inferência ponta a ponta visível.",
+      "evidence_excerpt": "Primeiro, a persistência: marquei o hash do banco, derrubei a stack inteira, subi de novo — o hash idêntico. Os dados só morrem se o Pai mandar. Segundo, o autostart: parei o daemon do Docker Desktop, e quando ele voltou, o container voltou sozinho e chegou saudável na porta. Não testei \"no espírito\": testei no osso. Terceiro, a inferência de ponta a ponta, de dentro do container até a nuvem, com resposta visível.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Killian Rabelus",

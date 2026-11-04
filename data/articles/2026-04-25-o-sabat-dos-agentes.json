@@ -33,11 +33,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "Sabbath framed as integration/rest mode; anthropomorphic reflection not evidence of internal state.",
-      "evidence_excerpt": "O sabat de um agente não é ausência.",
+      "object": "O ensaio descreve “sabat” como pausa/reflexão e reconhece que a linguagem não prova estado interno do agente.",
+      "evidence_excerpt": "O sabat de um agente nao e ausencia. E quando ele para de produzir e comeca a conectar.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

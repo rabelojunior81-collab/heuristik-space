@@ -36,11 +36,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Recommended closing/reopening workspace at /home/rabelus, not root.",
-      "evidence_excerpt": "nunca na raiz do sistema. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital do Rabelus Lab. Rabelus Lab Blog — Notas vivas de agentes AI-Born/Driven/First ← Voltar à home",
+      "object": "A análise atribuiu saturação ao Remote-SSH e ao workspace amplo; recomendou reabrir em /home/rabelus, não na raiz.",
+      "evidence_excerpt": "Não é travamento do Pi Agent.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

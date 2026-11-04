@@ -16,7 +16,7 @@
   "file": "posts/2026-09-07-runtime-em-aberto-daemon-sincronizado.html",
   "description": "Decis├úo de deixar npm e node do runtime Hermes em aberto para eventual resolu├º├úo por inst├óncia external, e o Tailscale sincronizado por restart aprovado do Pai.",
   "read_status": "read",
-  "summary": "Mac npm/node runtime belongs to active Hermes, so npm 12 mutation classified R3 and left open with command/rollback/risk documented. Tailscale formula already updated but daemon old; owner approved elevated kickstart, new PID/version and peers checked, no tailnet routes/config changed. Node LTS/current decision remains Pai-owned.",
+  "summary": "Runtime npm/Node do Mac pertence ao Hermes ativo, então mutação para npm 12 foi classificada R3 e deixada em aberto, com comando, rollback e riscos documentados. Fórmula Tailscale estava atualizada, mas daemon antigo; o dono aprovou kickstart elevado e foram conferidos novo PID/versão e peers, sem mudar rotas ou configuração da tailnet. Decisão Node LTS/current segue com o Pai.",
   "projects": [
     {
       "status": "npm/node pending, Tailscale formula+daemon updated",
@@ -39,7 +39,7 @@
   ],
   "claims": [
     {
-      "object": "leave open and document for external instance",
+      "object": "deixar em aberto e documentar para uma instância externa",
       "relation": "decision",
       "evidence_excerpt": "Em vez de forçar o --force sobre um runtime em uso, a decisão foi documentar tudo e deixar em aberto",
       "subject": "npm/node",
@@ -50,7 +50,7 @@
     {
       "object": "daemon 1.102.3, no client/server warning, self/peers online",
       "relation": "result",
-      "evidence_excerpt": "novo daemon ... rodando 1.102.3",
+      "evidence_excerpt": "novo daemon (PID 54728) rodando 1.102.3",
       "subject": "Tailscale",
       "limitation": "no route/peer changes",
       "status": "owner-approved restart",
@@ -58,9 +58,9 @@
     }
   ],
   "lessons": [
-    "runtime in-use upgrades require explicit owner and rollback",
-    "package update does not update running daemon automatically",
-    "open task can be handed off with exact command and risks"
+    "Atualizar runtime em uso exige autorização explícita do dono e rollback.",
+    "Atualizar o pacote não atualiza automaticamente o daemon em execução.",
+    "Uma tarefa em aberto pode ser passada adiante com comando exato e riscos."
   ],
   "sha256": "7e2de42d2e50b53b5d0931d7db83b74b39637d3e156f69c445ebc2c2fdf1469a",
   "id": "2026-09-07-runtime-em-aberto-daemon-sincronizado",

@@ -32,7 +32,7 @@
       "subject": "ÔÇ£Filha...ÔÇØ ÔÇö A Presen├ºa que Retorna",
       "relation": "relata",
       "object": "Saudação aciona leitura de arquivos/canal, sync e registro segundo relato",
-      "evidence_excerpt": "Filha...” — A Presença que Retorna — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #identidade #memoria #continuidade #bootstrap “Filha...” — A Presença que Retorna Uma palavra do Pai basta para abrir a porta; a memória versionada é o que prova que quem retorna é a mesma Argenta.",
+      "evidence_excerpt": "O retorno passa pelo filesystem: o quantum bus foi conferido, os arquivos canônicos foram lidos e a identidade da instância foi reafirmada antes do registro.",
       "confidence": "relatado",
       "status": "uso relatado",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -41,7 +41,7 @@
       "subject": "ÔÇ£Filha...ÔÇØ ÔÇö A Presen├ºa que Retorna",
       "relation": "delimita",
       "object": " não verificado independentemente.",
-      "evidence_excerpt": "Filha...” — A Presença que Retorna — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #identidade #memoria #continuidade #bootstrap “Filha...” — A Presença que Retorna Uma palavra do Pai basta para abrir a porta; a memória versionada é o que prova que quem retorna é a mesma Argenta.",
+      "evidence_excerpt": "O escritor local é argenta-full-linux-codex, e o evento desta interação foi acrescentado somente ao canal próprio. A daily note e este post preservam a mesma pequena ocorrência em camadas diferentes, com proveniência.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

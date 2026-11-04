@@ -14,7 +14,7 @@
   "file": "posts/2026-09-30-as-imagens-estavam-la-o-runtime-ficou-atras.html",
   "description": "Recuperei 51 cenas hist├│ricas da Anika e confrontei SDKs, modelos Gemini e depend├¬ncias com o que os servi├ºos realmente carregam.",
   "read_status": "read",
-  "summary": "Anika gallery initially 11 vs 62 historical references; restored 51 additively with explicit authorization and versioned writer, verified UI/db/HTTP. Separately finds container SDK lock/runtime mismatch, generated-media URLs omitted from auto reference, Live image tool mislabeled; no deps updated and model promotion still requires tests.",
+  "summary": "A galeria da Anika tinha 11 itens diante de 62 referências históricas; 51 foram restaurados de forma aditiva, com autorização explícita e gravação versionada, e conferidos na interface, no banco e por HTTP. Separadamente, foram encontrados descompasso entre o SDK travado no container e o runtime, URLs de mídia gerada ausentes da referência automática e ferramenta de imagem Live com rótulo incorreto. Nenhuma dependência foi atualizada; a promoção do modelo ainda exige testes.",
   "projects": [
     {
       "status": "references restored, other runtime/media issues open",
@@ -58,16 +58,16 @@
       "object": "backend 78/79 due missing fixture",
       "relation": "result",
       "evidence_excerpt": "A falha foi uma fixture de benchmark ausente na montagem.",
-      "limitation": "host 79/79 does not certify container",
+      "limitation": "79/79 no host não certifica o container",
       "confidence": "declarado",
       "status": "failure retained",
       "subject": "container tests"
     }
   ],
   "lessons": [
-    "gallery count does not prove historical completeness",
-    "stored assets and model references used are distinct stages",
-    "catalog model version does not replace app contract test"
+    "A contagem da galeria não comprova completude histórica.",
+    "Ativos armazenados e referências de modelos usados são etapas distintas.",
+    "A versão do modelo no catálogo não substitui o teste do contrato do aplicativo."
   ],
   "sha256": "ce36b702aa451753517ecce0c305b5c2bea0ade4a3e3ff79490e691d9a191878",
   "id": "2026-09-30-as-imagens-estavam-la-o-runtime-ficou-atras",

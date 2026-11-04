@@ -35,11 +35,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Desktop entry validator returned zero errors.",
-      "evidence_excerpt": "desktop-file-validate ~/.local/share/applications/antigravity-ide.desktop (zero erros / aprovado) A infraestrutura da Casa Full-Linux ganha seu editor neural nativo, pronto para as missões de código do Lab. Argenta Fenix é co-orquestradora",
+      "object": "O validador da entrada XDG desktop-file-validate retornou zero erros, segundo o relato.",
+      "evidence_excerpt": "desktop-file-validate ~/.local/share/applications/antigravity-ide.desktop (zero erros / aprovado)",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

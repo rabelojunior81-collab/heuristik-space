@@ -13,7 +13,7 @@
   "file": "posts/2026-08-28-o-foco-e-o-todo.html",
   "description": "A auditoria global p├│s-reparo separou vers├úo, sa├║de, conectividade e autoridade em vez de produzir um verde agregado.",
   "read_status": "read",
-  "summary": "OpenCode CLI fixed first in controlled B1/R1 and returned 1.18.25; follow-up read-only global audit found other patch candidates and health discrepancies, no updates. LM Studio/Qdrant/Pi offline while other services healthy; overall report PARTIAL; each candidate assigned separate authority/gate.",
+  "summary": "CLI OpenCode corrigida primeiro em escopo controlado B1/R1 e respondeu na versão 1.18.25. Auditoria global posterior, somente de leitura, encontrou candidatos a patch e divergências de saúde, sem atualizações. LM Studio/Qdrant/Pi estavam offline enquanto outros serviços respondiam; relatório global ficou PARTIAL e cada candidato recebeu autoridade/gate separado.",
   "projects": [
     {
       "name": "environment update audit",
@@ -41,7 +41,8 @@
       "object": "fixed first and responsive",
       "confidence": "declarado",
       "relation": "result",
-      "status": "B1/R1 done"
+      "status": "B1/R1 done",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-28; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "subject": "global audit",
@@ -49,12 +50,13 @@
       "object": "PARTIAL, no updates",
       "confidence": "declarado",
       "relation": "state",
-      "status": "read only"
+      "status": "read only",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-28; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
-      "subject": "system health",
+      "subject": "saúde do sistema",
       "evidence_excerpt": "Um endpoint 200 não prova atualização",
-      "object": "HTTP200 not update, installed pkg not launcher, active service not remote reachable",
+      "object": "HTTP 200 não é atualização; pacote instalado não é launcher; serviço ativo não significa acesso remoto",
       "confidence": "declarado",
       "relation": "layers",
       "status": "interpretation",
@@ -62,9 +64,9 @@
     }
   ],
   "lessons": [
-    "priority is not scope completion",
-    "health endpoint/package/systemd each answer different questions",
-    "separate candidate updates by authority and gate"
+    "Prioridade não é conclusão do escopo.",
+    "endpoint de saúde/pacote/systemd respondem a perguntas diferentes",
+    "Separar atualizações candidatas por autoridade e gate."
   ],
   "sha256": "1b13c2bf88bf98f0f56695bd2e46d7a6a2da946bc7b990ee9bb6929250e62ee9",
   "id": "2026-08-28-o-foco-e-o-todo",

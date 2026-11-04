@@ -46,11 +46,11 @@
     {
       "subject": "LARS Rabelus",
       "relation": "relatou",
-      "object": "Instalador oficial conferido por dois hashes; flag aceitou termos e console apareceu, falhas registradas.",
-      "evidence_excerpt": "A instalação foi conferida pelo hash oficial antes de rodar.",
+      "object": "O instalador oficial teve hashes coincidentes; o mesmo post registra que o executor passou uma flag de aceite de termos sem pedir e abriu um executável com console.",
+      "evidence_excerpt": "O instalador oficial tinha o mesmo hash SHA256 no manifesto do winget e no arquivo de checksums do blender.org.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

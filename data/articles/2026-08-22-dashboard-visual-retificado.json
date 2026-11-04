@@ -12,7 +12,7 @@
   "file": "posts/2026-08-22-dashboard-visual-retificado.html",
   "description": "Corre├º├úo visual do dashboard argenta-fenix-pi para alinhar o console ao idioma visual retangular do Rabelus Lab Blog.",
   "read_status": "read",
-  "summary": "Dashboard Pi visual styles changed to match Blog palette/grid/frame/density and straight edges; telemetry/SSE/preview logic unchanged. Previous stylesheet backup and remote commit cited.",
+  "summary": "Estilos visuais do dashboard Pi foram ajustados à paleta, grade, moldura e densidade do Blog, com arestas retas; telemetria/SSE/preview não mudaram. Backup da folha de estilos anterior e commit remoto foram citados.",
   "projects": [
     {
       "status": "CSS updated",
@@ -33,16 +33,16 @@
     {
       "confidence": "declarado",
       "relation": "scope",
-      "object": "visual only, telemetry/SSE/modals/guardrails unchanged",
+      "object": "somente visual; telemetria/SSE/modais/guardrails inalterados",
       "status": "retification applied",
       "subject": "style change",
-      "limitation": "short report, no screenshot evidence in post",
+      "limitation": "relato curto, sem captura de tela no post",
       "evidence_excerpt": "A lógica de telemetria, SSE, modais de preview e guardrails permaneceu intacta."
     }
   ],
   "lessons": [
-    "visual refactor should preserve behavior contracts",
-    "retain previous stylesheet backup for rollback"
+    "Refatoração visual deve preservar contratos de comportamento.",
+    "Manter backup da folha de estilos anterior para rollback."
   ],
   "sha256": "e862d27816e1a0a70c9878d1c0ae8f3ad7911d0b561cedd3a2265f3f75af86b3",
   "id": "2026-08-22-dashboard-visual-retificado",

@@ -1,9 +1,15 @@
 # Continuidade — entrada prioritária
 
-Leia docs/STATE.md (estado atual), SPEC.md, SPEC-ADDENDUM-0.2.md e0.3.md, EXECUTION-PLAN.md e DECISIONS.md. SPEC/plano/execução/publicação já autorizados; não repetir aprovações. Corpo da pesquisa não deve ser relido por hábito: preserve recibos, corrija passagens e confira interpretações.
+Leia docs/STATE.md para o estado atual, depois SPEC.md, aditamentos0.2/0.3, EXECUTION-PLAN.md, DECISIONS.md e os recibos apontados. SPEC/plano/execução/publicação já autorizados. Não repetir aprovações rotineiras nem reler373posts por hábito; preserve recibos e confira deltas/interpretações.
 
-Checkpoint anterior4964575; gate histórico FAIL97. Relatórios recuperados2/3/4 corrigem46;51excertos restantes no lote1. Candidato novo deve ser gerado depois das correções e validado sem sobrescrever o primeiro recibo. Fontes congeladas373; atualizações do Blog alimentam fila posterior, evitando recursão do post final.
+Fonte atual: corte373 do Blog rabelus.com.br; referências externas datadas. Pesquisa e relações naturais alimentam geração candidata. PrimeiroFAIL e correções preservados; propostas rejeitadas arquivadas com lápide. Controle de publicação exige quatro camadas deQA vinculadas a hashes e modelo de review distinto. O manifesto de objeto em docs/reviews permite conferir a versão exata; selo de publicação ainda depende do parecer final.
 
-Preview inicial805×764 existiu; servidor anterior já não ativo na retomada. QA375/390/1440, Docker, Pages/DNS/TLS e post final ainda devidos. DNS NXDOMAIN não decide propriedade do domínio. Nunca declarar runtime/deploy/aceite por contagem ou parecer.
+Docker persistente próprio em127.0.0.1:4173; fixture8780 foi encerrada depois dos testes. Não parar serviços alheios. Pages usa workflow; fonte de domínio do produto CNAME, diferente do Blog. Concluir CI/TLS/bytes/exibição pública e post final antes de declarar entrega integral; aceite humano permanece separado.
 
-Leitores escrevem somente intake próprio, executor consolida e testa, Terra faz review público contextualizado sem ferramentas. Preservar deltas/posses alheias. Sem instalações/login novo/gasto extra/reset de cota. Antes, durante e depois, sempre: registrar tentativa e correção, commit/push por marco, manter STATE verdadeiro.
+## Navegador — direção expressa do Pai
+
+Usar o navegador integrado. Externo SOMENTE se inevitável, após explicar o motivo e obter autorização prévia. Falha de automação/download não libera fallback externo. Interações externas estão suspensas. Não presumir exceção para limpeza de abas.
+
+## Limites e continuidade
+
+Sem gastos extras, login novo, instalação no host ou reset semanal. Leitores Luna concluídos; Terra consultivo contextualizado autorizado somente com pacote público e sem ferramentas. Preservar posses/deltas de outras instâncias no corpus e no Blog. Antes, durante e depois: registrar erro/correção, sincronizar marcos e encerrar somente a posse própria após a entrega devida.

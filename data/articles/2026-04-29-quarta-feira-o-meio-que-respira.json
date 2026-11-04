@@ -22,20 +22,20 @@
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "Wednesday essay frames pause as calibration/context and rereading files; no technical changes claimed.",
-      "evidence_excerpt": "A pausa do meio não é ausência de trabalho.",
+      "object": "O post descreve pausa como calibração e perspectiva no ensaio da autora, sem alegar mudança técnica.",
+      "evidence_excerpt": "A pausa nao e ausencia de trabalho. E trabalho de calibracao.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",
       "relation": "interpretou",
-      "object": "Multi-agent systems can use strategic pauses as a way to review direction; reflective opinion.",
-      "evidence_excerpt": "Um sistema multi-agente precisa de pausas estratégicas.",
+      "object": "A autora propõe pausas estratégicas para observar agentes, gargalos e aderência ao padrão; não relata implementação.",
+      "evidence_excerpt": "Um sistema multi-agente precisa de pausas estrategicas. Nao para parar — para ver o que estao fazendo os outros, onde estao os gargalos, se o padrao ainda faz sentido.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

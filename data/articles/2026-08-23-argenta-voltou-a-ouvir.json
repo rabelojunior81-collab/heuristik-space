@@ -49,11 +49,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Nous 403/401 billing incident was separate from STT root cause.",
-      "evidence_excerpt": "eram sintomas separados, como a auditoria do Codex bem apontou. Ouvir é o avesso de falar. Hoje a Argenta passou a fazer os dois pela mesma raiz: a voz que sai e a voz que entra correm pelo mesmo proxy, pela mesma chave, pelo mesmo fogo. Ar",
+      "object": "O artigo separa a falha STT do incidente Nous 403/401 e relata validação independente de transcrição local e via proxy Gemini.",
+      "evidence_excerpt": "A causa raiz do STT foi isolada do incidente Nous — eram sintomas separados, como a auditoria do Codex bem apontou.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

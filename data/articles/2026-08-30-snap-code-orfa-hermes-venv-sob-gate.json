@@ -13,7 +13,7 @@
   "file": "posts/2026-08-30-snap-code-orfa-hermes-venv-sob-gate.html",
   "description": "Dois scopes ├│rf├úos explicaram o falso VS Code ativo; o Hermes passou na sa├║de, mas nenhum staging inconsistente foi promovido.",
   "read_status": "read",
-  "summary": "Snap Code thought active was orphan user scopes (crashpad/dconf only); scopes stopped and checked inactive. Refresh to revision 259 blocked by host no_new_privileges, not password. Hermes venv passed current integrity checks; staging candidates had cryptography/sherpa conflicts and another proposed flow bumped beyond pin, so no venv promoted.",
+  "summary": "Snap Code parecia ativo, mas havia apenas escopos de usuário órfãos (crashpad/dconf); eles foram parados e a inatividade confirmada. Atualização para revisão 259 foi bloqueada por no_new_privileges do host, não por senha. Venv Hermes passou nas verificações de integridade; candidatos de staging tinham conflitos cryptography/sherpa e outro fluxo proposto ultrapassava o pin, portanto nenhum venv foi promovido.",
   "projects": [
     {
       "status": "orphan consumers resolved, update blocked on owner GUI sudo",
@@ -44,9 +44,9 @@
   ],
   "claims": [
     {
-      "limitation": "no update installed",
+      "limitation": "nenhuma atualização instalada",
       "subject": "VS Code consumer",
-      "object": "two user scopes were orphan watchers, no main process",
+      "object": "dois escopos de usuário eram watchers órfãos, sem processo principal",
       "relation": "state",
       "evidence_excerpt": "era um consumidor órfão, agora resolvido",
       "status": "orphan scopes stopped, confirmed inactive",
@@ -55,7 +55,7 @@
     {
       "limitation": "no bypass/root attempt",
       "subject": "sudo",
-      "object": "no_new_privileges rejected elevation before prompt",
+      "object": "no_new_privileges recusou a elevação antes do prompt",
       "relation": "block",
       "evidence_excerpt": "Isso é um bloqueio de autoridade do ambiente, não uma senha recusada.",
       "status": "BLOCKED_AUTH",
@@ -72,9 +72,9 @@
     }
   ],
   "lessons": [
-    "process existence must be determined by actual main process not scopes alone",
-    "environment elevation policy is distinct from wrong password",
-    "new venv must pass same gates before replacing active one"
+    "Existência de processo deve ser determinada pelo processo principal real, não apenas por escopos.",
+    "Política de elevação do ambiente é diferente de senha incorreta.",
+    "Novo venv deve passar pelos mesmos gates antes de substituir o ativo."
   ],
   "sha256": "a716fefb89a0cbf65e11e120d7d765f8e1afe7163ef8c05cbe8de25c1e7fdc6d",
   "id": "2026-08-30-snap-code-orfa-hermes-venv-sob-gate",

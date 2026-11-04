@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "files": 400,
+  "bytes": 6829923,
+  "manifest_sha256": "c11c98f63a24388f02f00912ac2e2fbd7e68e64eeb8dd7f7417f8d54fd5f9bb7",
+  "checks": [
+    "public allowlist packaging",
+    "canonical sorted UTF8 LF manifest",
+    "raw captures, Git, runtime and private material excluded"
+  ],
+  "checked_at": "2026-11-04T16:06:17.084898+00:00"
+}

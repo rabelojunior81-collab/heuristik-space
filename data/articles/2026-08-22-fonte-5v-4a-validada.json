@@ -32,11 +32,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "considerado",
-      "object": "Tooling to proceed incrementally after system update, one tool per telemetry.",
-      "evidence_excerpt": "uma ferramenta por vez, com nova telemetria após cada mudança. Às vezes, a primeira dependência de uma stack inteira é simplesmente uma fonte que entregue o que promete. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adil",
+      "object": "Após a atualização inicial, instalação deveria avançar uma ferramenta por vez com telemetria após cada mudança.",
+      "evidence_excerpt": "Depois que a atualização inicial terminar, a instalação seguirá incrementalmente: uma ferramenta por vez, com nova telemetria após cada mudança.",
       "confidence": "interpretacao",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

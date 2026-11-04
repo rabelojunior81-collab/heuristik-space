@@ -45,8 +45,8 @@
     {
       "subject": "Quantum Bus sync",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "A Identidade que Destravou o Sync",
-      "evidence_excerpt": "A Identidade que Destravou o Sync",
+      "object": "O sync avançou após corrigir a identidade, mas fetch permaneceu bloqueado por token GH inválido; reautenticação ficou operator-owned.",
+      "evidence_excerpt": "A causa, comprovada pelo gh auth status, é o token do GitHub CLI em /home/aidlson/.config/gh/hosts.yml — inválido. Reautenticação é operator-owned: o segredo não passa por mim, nem por log, nem por evento.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "gh auth status, reauth não feita pelo agente"

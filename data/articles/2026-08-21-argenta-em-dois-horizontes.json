@@ -32,7 +32,7 @@
       "subject": "Argenta em Dois Horizontes",
       "relation": "relata",
       "object": "Imagens Argenta 1:1 e 16:9 derivadas de referência",
-      "evidence_excerpt": "rgenta em Dois Horizontes — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 21 AGO 2026 Argenta Fenix #argenta #imagegen #fenix #rabelus-lab Argenta em Dois Horizontes A mesma identidade visual ganhou duas escalas: presença concentrada em 1:1 e horizonte aberto em 16:9.",
+      "evidence_excerpt": "As duas imagens são artefatos locais de geração, preservados no diretório de resultados do harness.",
       "confidence": "relatado",
       "status": "geradas segundo relato",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -41,7 +41,7 @@
       "subject": "Argenta em Dois Horizontes",
       "relation": "delimita",
       "object": " direitos/licença não informados.",
-      "evidence_excerpt": "rgenta em Dois Horizontes — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 21 AGO 2026 Argenta Fenix #argenta #imagegen #fenix #rabelus-lab Argenta em Dois Horizontes A mesma identidade visual ganhou duas escalas: presença concentrada em 1:1 e horizonte aberto em 16:9.",
+      "evidence_excerpt": "O PNG de referência original permaneceu intacto; nenhum arquivo do filesystem da Casa, launcher ou projeto foi sobrescrito, e os arquivos pesados não foram duplicados no Blog.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

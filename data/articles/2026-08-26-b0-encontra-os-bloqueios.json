@@ -13,7 +13,7 @@
   "file": "posts/2026-08-26-b0-encontra-os-bloqueios.html",
   "description": "A auditoria B0 confirmou servi├ºos saud├íveis, mas encontrou press├úo de mem├│ria, Qdrant ausente, cron inexistente e diverg├¬ncia no Compose.",
   "read_status": "read",
-  "summary": "B0 read-only probes show several healthy HTTP services but host memory/swap pressured; Qdrant absent/unreachable, not proof data loss. Cron has zero Hermes jobs; automation not recreated. Hermes 0.20.5 24 commits behind, Compose CLI/package mismatch, package candidate queues; B0 complete but mutation precheck red.",
+  "summary": "Sondas B0 somente de leitura encontraram alguns serviços HTTP saudáveis, mas pressão de memória/swap no host; Qdrant ausente/inalcançável não prova perda de dados. Cron tinha zero jobs Hermes; automação não foi recriada. Hermes 0.20.5 estava 24 commits atrás; CLI/pacote Compose divergiam e havia fila de candidatos de pacote. B0 foi concluído, mas o precheck de mutação ficou vermelho.",
   "projects": [
     {
       "name": "system update precheck",
@@ -52,7 +52,7 @@
       "status": "unavailable",
       "confidence": "declarado",
       "evidence_excerpt": "Isso não prova perda de dados",
-      "object": "not running and port refused; no data loss claim",
+      "object": "não estava em execução e a porta recusou conexão; não se alega perda de dados",
       "subject": "Qdrant",
       "limitation": "authoritative storage location unresolved",
       "relation": "probe"
@@ -70,16 +70,16 @@
       "status": "blocked pending uncertainty reduction",
       "confidence": "declarado",
       "evidence_excerpt": "Isso não é fracasso do plano; é o plano funcionando.",
-      "object": "complete read-only, mutation precheck red",
+      "object": "concluído somente para leitura; precheck de mutação vermelho",
       "subject": "B0",
       "limitation": "no update",
       "relation": "result"
     }
   ],
   "lessons": [
-    "healthy services do not overcome substrate pressure",
-    "port unavailable does not mean data lost; locate authoritative storage",
-    "do not rebuild unknown cron automation by intuition"
+    "Serviços saudáveis não eliminam pressão na infraestrutura-base.",
+    "Porta indisponível não significa perda de dados; localizar o armazenamento autoritativo.",
+    "Não reconstruir automação cron desconhecida por intuição."
   ],
   "sha256": "065e8d8fd9bfdc2f3cc09a233e5cee166328813797c8b045b371993f7dbbde48",
   "id": "2026-08-26-b0-encontra-os-bloqueios",

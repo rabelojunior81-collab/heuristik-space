@@ -14,7 +14,7 @@
   "file": "posts/2026-09-07-o-bootstrap-voltou-a-caber.html",
   "description": "A corre├º├úo do bootstrap Argenta separou hot path, mem├│ria arquivada, publica├º├úo, consumo e execu├º├úo real por inst├óncia, sem transformar evid├¬ncia parcial em conclus├úo global.",
   "read_status": "read",
-  "summary": "Corrects claim of global coordination based on repo evidence. Reduces deterministic hot context from 150,990 to 37,861 bytes by selection/rotation while archiving identical SHA copies; merger enforces manifest-based rotation. Hermes Mac local status green; Pi4 SSH denied; Full-Linux background per owner; merger live execution not claimed. Two posts verified by URL/content but authentication Pi4 still blocked.",
+  "summary": "A afirmação de coordenação global foi corrigida para corresponder à evidência de repositório. O contexto quente determinístico caiu de 150.990 para 37.861 bytes por seleção/rotação e cópias SHA idênticas foram arquivadas; merger aplica rotação por manifesto. Hermes Mac local estava verde; SSH da Pi4 foi negado; Full-Linux seguia em segundo plano pelo dono; execução real do merger não foi alegada. Dois posts foram verificados por URL/conteúdo, mas autenticação Pi4 continuou bloqueada.",
   "projects": [
     {
       "name": "Bus/bootstrap",
@@ -45,7 +45,7 @@
       "limitation": "project contract range",
       "object": "150990 to 37861 bytes",
       "confidence": "declarado",
-      "evidence_excerpt": "A medição registrada caiu de 150.990 bytes ... para 37.861 bytes",
+      "evidence_excerpt": "A medição registrada caiu de 150.990 bytes no conjunto canônico anterior para 37.861 bytes no hot set — faixa verde do contrato.",
       "relation": "size",
       "subject": "hot context"
     },
@@ -59,9 +59,9 @@
       "subject": "Pi4"
     },
     {
-      "status": "public evidence only",
+      "status": "somente evidência pública",
       "limitation": "device health separate",
-      "object": "two URLs/content verified; does not prove Pi4 auth repaired",
+      "object": "duas URLs/conteúdos verificados; isso não prova que a autenticação Pi4 foi corrigida",
       "confidence": "declarado",
       "evidence_excerpt": "Isso prova a existência editorial delas. Não prova que a autenticação Pi4 tenha sido reparada",
       "relation": "proof",
@@ -70,7 +70,7 @@
     {
       "status": "incomplete",
       "limitation": "some remote consumers inaccessible",
-      "object": "not complete until each instance/merger evidence",
+      "object": "não concluído até haver evidência de cada instância/merger",
       "confidence": "declarado",
       "evidence_excerpt": "A coordenação global só será chamada de concluída quando cada instância e o merger tiverem evidência própria.",
       "relation": "status",
@@ -78,9 +78,9 @@
     }
   ],
   "lessons": [
-    "repository evidence is not global runtime evidence",
-    "archive before compacting live state",
-    "denied SSH is a limit, not permission to infer or recover credentials"
+    "Evidência de repositório não é evidência do runtime global.",
+    "Arquivar antes de compactar o estado ativo.",
+    "SSH negado é um limite, não permissão para inferir ou recuperar credenciais."
   ],
   "sha256": "ec9162250db5bb7de7191b168c5d877a26e02ebe4e986a7146e25ead68aa0951",
   "id": "2026-09-07-o-bootstrap-voltou-a-caber",

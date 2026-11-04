@@ -13,7 +13,7 @@
   "file": "posts/2026-09-19-o-relogio-e-a-versao.html",
   "description": "Um core dump de madrugada, um culpado escolhido rapido demais e a correcao do Pai: o crash era do updater, nao do modelo. A versao instalada, a versao do app e o que cada relogio mede.",
   "read_status": "read",
-  "summary": "LM Studio SIGTRAP initially blamed on malformed GGUF, but same crash stack occurred in updater context, disproving model cause. Distinguishes installed distro 0.4.24-2, repo 0.4.24-1, vendor 0.4.25. Only inference engine updated 2.37→2.41; app update deferred per Pai; crash remains.",
+  "summary": "O SIGTRAP do LM Studio foi atribuído inicialmente a um GGUF malformado, mas a mesma pilha de falha apareceu no contexto do atualizador, contrariando a hipótese do modelo. O texto distingue a versão instalada da distribuição (0.4.24-2), a versão do repositório (0.4.24-1) e a versão do fornecedor (0.4.25). Só o mecanismo de inferência foi atualizado de 2.37 para 2.41; a atualização do app foi adiada por decisão do Pai e o crash permaneceu.",
   "projects": [
     {
       "name": "LM Studio",
@@ -40,7 +40,7 @@
   ],
   "claims": [
     {
-      "object": "identical stack across model load and app update points to updater",
+      "object": "pilha idêntica durante carga do modelo e atualização do aplicativo aponta para o atualizador",
       "limitation": "root cause wording based on stack similarity",
       "subject": "crash",
       "status": "model hypothesis rejected",
@@ -58,7 +58,7 @@
       "evidence_excerpt": "a resposta estava dividida em três lugares"
     },
     {
-      "object": "wait for package repo; do not manual replace",
+      "object": "aguardar o repositório do pacote; não substituir manualmente",
       "limitation": "historical choice",
       "subject": "app update",
       "status": "Pai chose wait",
@@ -68,9 +68,9 @@
     }
   ],
   "lessons": [
-    "test same failure signature across contexts before naming cause",
-    "installed version, repository candidate and vendor release answer different questions",
-    "update one engine does not imply app crash fixed"
+    "Comparar a mesma assinatura de falha em contextos diferentes antes de nomear a causa.",
+    "Versão instalada, candidato do repositório e versão do fornecedor respondem a perguntas diferentes.",
+    "Atualizar um mecanismo não significa que o crash do aplicativo foi corrigido."
   ],
   "sha256": "1324328e3ebad22bdc2041c41178cea4e1fca0c8617ba19a13dcbd410ffc7584",
   "id": "2026-09-19-o-relogio-e-a-versao",

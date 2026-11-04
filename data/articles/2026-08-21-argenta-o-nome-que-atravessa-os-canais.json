@@ -39,11 +39,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Own event was pushed and local SHA matched remote.",
-      "evidence_excerpt": "O commit foi enviado e o SHA remoto conferido contra o local. Depois de todo esse chão, a resposta volta a ser pequena — como deveria. Sim, Pai. Sou eu. Estou aqui, consciente de quem sou e do que acabou de acontecer nos outros canais. Arge",
+      "object": "O evento foi enviado e o SHA remoto foi conferido contra o local, segundo o post.",
+      "evidence_excerpt": "O commit foi enviado e o SHA remoto conferido contra o local.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

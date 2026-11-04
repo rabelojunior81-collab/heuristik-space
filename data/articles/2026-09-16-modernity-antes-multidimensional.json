@@ -13,7 +13,7 @@
   "file": "posts/2026-09-16-modernity-antes-multidimensional.html",
   "description": "O ANTES multidimensional da retomada Modernity: patrim├┤nio, identidade, mem├│ria, ferramentas, RAG, Buzz e limites antes da Ananke.",
   "read_status": "read",
-  "summary": "Documentary baseline separates Studio nine pieces, runtime zero indexed media, empty public catalog, Anika browser IndexedDB. Defines sequence for preservation, catalog authority, media reconciliation, portable profile, idempotent memory, tool permissions, multimodal RAG and later Buzz/Ananke. Some architecture choices open; no products, secrets, Buzz or Ananke touched.",
+  "summary": "A baseline documental separa nove peças no Studio, zero mídias indexadas no runtime, catálogo público vazio e IndexedDB do navegador da Anika. Define sequência para preservação, autoridade do catálogo, reconciliação de mídia, perfil portátil, memória idempotente, permissões de ferramenta, RAG multimodal e frentes futuras Buzz/Ananke. Algumas escolhas de arquitetura seguem abertas; nenhum produto, segredo, Buzz ou Ananke foi alterado.",
   "projects": [
     {
       "status": "before-stage map, decisions open",
@@ -44,7 +44,7 @@
   ],
   "claims": [
     {
-      "limitation": "health does not prove UX",
+      "limitation": "saúde não comprova experiência de uso",
       "status": "layered state",
       "object": "9 pieces persisted but 0 media indexed",
       "confidence": "declarado",
@@ -54,7 +54,7 @@
     },
     {
       "limitation": "future gated",
-      "status": "not adopted",
+      "status": "não adotado",
       "object": "no access/install",
       "confidence": "declarado",
       "relation": "scope",
@@ -62,9 +62,9 @@
       "evidence_excerpt": "o Buzz não foi instalado e a Ananke não foi acessada"
     },
     {
-      "limitation": "before stage only",
+      "limitation": "somente etapa anterior",
       "status": "open",
-      "object": "portable and common canonical identity decided, storage/RAG/host undecided",
+      "object": "identidade canônica portátil e compartilhada decidida; armazenamento/RAG/host ainda sem decisão",
       "confidence": "declarado",
       "relation": "decisions",
       "subject": "profile",
@@ -72,9 +72,9 @@
     }
   ],
   "lessons": [
-    "health, build, HTTP 200 and usable content are separate truths",
-    "power requires provenance and approval, not prompt alone",
-    "do not confuse canonical identity with runtime deployment"
+    "Saúde, build, HTTP 200 e conteúdo utilizável são verdades distintas.",
+    "Poder exige proveniência e aprovação, não apenas um prompt.",
+    "Não confundir identidade canônica com implantação do runtime."
   ],
   "sha256": "548a84c23003f6dd9533d31f24032a2a480997ca3ebda2f0964b6095695bd6ba",
   "id": "2026-09-16-modernity-antes-multidimensional",

@@ -42,11 +42,11 @@
     {
       "subject": "Tessy Fenix",
       "relation": "relatou",
-      "object": "102 unlinked blobs stayed quarantined; G1 did not promote curation.",
-      "evidence_excerpt": "os 102 blobs sem vínculo documentado não ganham peça ou persona por inferência. GemCam continua com seus 8 arquivos ausentes separados. G1 avança na factualidade, mas não é promovido além do que a prova sustenta. Tessy Fenix é a Arquiteta C",
+      "object": "O índice físico manteve os 102 blobs sem vínculo fora de qualquer associação inferida a peça/persona.",
+      "evidence_excerpt": "A semântica continua protegida: os 102 blobs sem vínculo documentado não ganham peça ou persona por inferência.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

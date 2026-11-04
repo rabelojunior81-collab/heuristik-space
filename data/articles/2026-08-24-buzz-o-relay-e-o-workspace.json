@@ -14,7 +14,7 @@
   "file": "posts/2026-08-24-buzz-o-relay-e-o-workspace.html",
   "description": "Leitura profunda do Block Buzz: relay Nostr, identidade de agentes, canais, workflows, Git, auditabilidade, mesh e limites reais.",
   "read_status": "read",
-  "summary": "Detailed code/docs analysis of Buzz collaboration project: Nostr event relay (Rust/Axum), Postgres/Redis/S3, signed identity, ACP agents, CLI/MCP, workflows, audit hashes, media/Git. Notable: approval gates have schema/UI but executor fails rather than waiting/resuming; audit hash chain lacks external signature; no E2E encryption; current code includes Redis-backed rate limiter despite stale architecture doc. Recommends isolated lab evaluation, not replacing Bus/production.",
+  "summary": "Análise detalhada do código/documentação do projeto de colaboração Buzz: relay de eventos Nostr (Rust/Axum), Postgres/Redis/S3, identidade assinada, agentes ACP, CLI/MCP, fluxos, hashes de auditoria, mídia/Git. Gate de aprovação tinha schema/API/UI, mas executor falhava em vez de persistir/aguardar/retomar; cadeia de hashes não tinha assinatura externa; não havia criptografia E2E; código já incluía rate limiter Redis apesar da documentação de arquitetura desatualizada. Recomendação: avaliar em laboratório isolado, sem substituir Bus nem ir à produção.",
   "projects": [
     {
       "name": "Buzz",
@@ -56,7 +56,7 @@
       "status": "gap in analyzed commit",
       "confidence": "declarado",
       "evidence_excerpt": "a interface de aprovação não equivale ainda a uma barreira de aprovação",
-      "object": "schema/API/UI exists but executor marks run failed instead of persisting/waiting",
+      "object": "schema/API/UI existem, mas o executor marca a execução como falha em vez de persistir/aguardar",
       "subject": "approval workflow",
       "limitation": "snapshot only",
       "relation": "implementation gap"
@@ -65,7 +65,7 @@
       "status": "project limitation",
       "confidence": "declarado",
       "evidence_excerpt": "Tamper-evident, não tamper-proof.",
-      "object": "SHA-256 chain tamper-evident not tamper-proof because DB writer could rewrite",
+      "object": "cadeia SHA-256 evidencia adulteração, mas não a impede: escritor do banco poderia reescrevê-la",
       "subject": "audit log",
       "limitation": "no external signature",
       "relation": "integrity"
@@ -74,7 +74,7 @@
       "status": "architecture consequence",
       "confidence": "declarado",
       "evidence_excerpt": "Isso favorece busca, eDiscovery e auditoria pelo servidor, mas significa que o relay é capaz de ler o conteúdo.",
-      "object": "not promised; relay can read content",
+      "object": "não foi prometido; o relay pode ler o conteúdo",
       "subject": "privacy",
       "limitation": "TLS/at-rest only",
       "relation": "E2E"
@@ -83,26 +83,26 @@
       "status": "docs need alignment",
       "confidence": "declarado",
       "evidence_excerpt": "a documentação ficou atrás da implementação",
-      "object": "RedisRateLimiter exists in current code while architecture document says absent",
+      "object": "RedisRateLimiter existe no código atual, embora a documentação de arquitetura diga que não existe",
       "subject": "rate limiting docs",
       "limitation": "commit snapshot",
       "relation": "drift"
     },
     {
-      "status": "not adopted",
+      "status": "não adotado",
       "confidence": "declarado",
       "evidence_excerpt": "Eu o avaliaria como plano de colaboração e coordenação agentiva, em laboratório isolado.",
-      "object": "evaluate in isolated lab; not direct Bus replacement or production",
+      "object": "avaliar em laboratório isolado; não substituir diretamente o Bus nem levar à produção",
       "subject": "adoption",
       "limitation": "backup/key/TLS/membership/workflow validation required",
       "relation": "recommendation"
     }
   ],
   "lessons": [
-    "approval UI does not guarantee approval enforcement",
-    "hash chain without external trust root is tamper-evident only",
-    "relay participation implies content is readable to server absent E2E",
-    "docs can lag code; align before serving as security contract",
+    "Interface de aprovação não garante aplicação da aprovação.",
+    "Cadeia de hash sem raiz externa de confiança apenas evidencia adulteração; não a impede.",
+    "Sem criptografia E2E, participar do relay implica que o servidor consegue ler o conteúdo.",
+    "A documentação pode ficar atrás do código; alinhar antes de usá-la como contrato de segurança.",
     "Buzz, OpenBot and 9Router cover distinct coordination/execution/routing layers"
   ],
   "sha256": "dba74f90939f5da3c8cdc5915242802c758633dd1f9ad7febe9a65e724f07afc",

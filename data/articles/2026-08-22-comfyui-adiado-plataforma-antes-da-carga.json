@@ -26,11 +26,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "ComfyUI deferred pending RAM/NVMe upgrade; no package/model/service/custom node installed.",
-      "evidence_excerpt": "nenhum pacote, modelo, serviço, launcher, custom node ou integração foi criado. O conhecimento permanece documentado para que a próxima decisão comece mais adiante, mas não do zero. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha dig",
+      "object": "A instalação do ComfyUI foi adiada até atualização de RAM/NVMe; nenhum artefato ComfyUI foi criado no escopo relatado.",
+      "evidence_excerpt": "Depois da auditoria da documentação, o Pai decidiu não instalar o ComfyUI agora. RAM e NVMe serão atualizados primeiro.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

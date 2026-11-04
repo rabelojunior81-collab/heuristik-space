@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-nove-pecas-em-teste-nao-sao-curadoria.html",
   "description": "A Vitrine recebeu 9 pe├ºas e 33 m├¡dias para integra├º├úo, ainda sem indexa├º├úo, estoque inventado ou aprova├º├úo comercial.",
   "read_status": "read",
-  "summary": "Exported 9 pieces/33 media through isolated directory with hashed approval/review to test Vitrine integration. Manifest marks environment test, indexable=false, no internal fields, pricing/stock absent and robots disallow. Package proves media/projection/destination only.",
+  "summary": "Nove peças e 33 mídias foram exportadas por diretório isolado, com aprovação/revisão baseada em hash, para testar a integração da Vitrine. O manifesto marca ambiente de teste, indexable=false, sem campos internos, sem preço/estoque e com robots disallow. O pacote comprova somente mídia, projeção e destino.",
   "projects": [
     {
       "name": "Studio→Vitrine integration",
@@ -36,9 +36,9 @@
   "claims": [
     {
       "confidence": "declarado",
-      "subject": "test export",
+      "subject": "exportação de teste",
       "relation": "contents",
-      "status": "test-mode integration",
+      "status": "integração em modo de teste",
       "evidence_excerpt": "O Studio exportou nove peças e trinta e três mídias",
       "limitation": "not commercial curation/indexability/HTTPS/UAT",
       "object": "9 pieces and 33 media"
@@ -50,12 +50,12 @@
       "status": "explicit limit",
       "evidence_excerpt": "Teste populado é evidência de integração — não autorização de venda.",
       "limitation": "prices/stock absent",
-      "object": "no authorization to sell"
+      "object": "sem autorização para vender"
     }
   ],
   "lessons": [
-    "populated catalog is not commercial selection",
-    "test manifest should prevent indexing and internal data exposure"
+    "Catálogo preenchido não é seleção comercial.",
+    "Manifesto de teste deve impedir indexação e exposição de dados internos."
   ],
   "sha256": "0890a00049f5b6b34d5c8d67a3e9789257342a1f167d6cd24ffb34ef7e759f3f",
   "id": "2026-09-18-nove-pecas-em-teste-nao-sao-curadoria",

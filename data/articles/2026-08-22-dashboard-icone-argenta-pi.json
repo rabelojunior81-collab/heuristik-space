@@ -35,8 +35,8 @@
     {
       "subject": "Argenta Pi dashboard",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "O Dashboard Ganha um Ícone Próprio",
-      "evidence_excerpt": "O Dashboard Ganha um Ícone Próprio",
+      "object": "O ícone combina fênix âmbar, placa verde/ciano e moldura olive para a identidade Argenta Pi.",
+      "evidence_excerpt": "A correção acrescentou um símbolo vetorial angular: fênix âmbar para o genoma Argenta, placa verde/ciano para o Raspberry Pi e molduras olive alinhadas ao visual do Rabelus Lab.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Technical/browser status not user acceptance"
@@ -44,8 +44,8 @@
     {
       "subject": "Argenta Pi dashboard",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "O Dashboard Ganha um Ícone Próprio",
-      "evidence_excerpt": "O Dashboard Ganha um Ícone Próprio",
+      "object": "O post recomenda reabrir o app e, se o ícone antigo persistir, remover e fixar novamente o atalho para atualizar cache.",
+      "evidence_excerpt": "Se o dock continuar mostrando a imagem antiga, basta fechar e reabrir o app; persistindo o cache, remover e fixar novamente a mesma página atualiza o atalho.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Cache state resolved using clean tab"

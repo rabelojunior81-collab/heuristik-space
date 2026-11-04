@@ -1,0 +1,99 @@
+{
+  "checked_at": "2026-11-04T16:02:52.430275+00:00",
+  "checks": [
+    {
+      "check": "Non-root UID/GID",
+      "pass": true
+    },
+    {
+      "check": "Read-only root filesystem",
+      "pass": true
+    },
+    {
+      "check": "Dropped capabilities / no new privileges",
+      "pass": true
+    },
+    {
+      "check": "Loopback binding",
+      "pass": true
+    },
+    {
+      "check": "Restart policy",
+      "pass": true
+    },
+    {
+      "check": "Resource bounds",
+      "pass": true
+    },
+    {
+      "check": "Effective process UID",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes index.html",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes app.js",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes styles.css",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes data/knowledge.json",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes data/context.txt",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes assets/brand/heuristik-mark.svg",
+      "pass": true
+    },
+    {
+      "check": "Health HTTP response",
+      "pass": true
+    },
+    {
+      "check": "Unknown path rejected",
+      "pass": true
+    },
+    {
+      "check": "Automatic recovery after own process exit",
+      "pass": true
+    },
+    {
+      "check": "Own service recreated",
+      "pass": true
+    },
+    {
+      "check": "Knowledge persists across recreation",
+      "pass": true
+    },
+    {
+      "check": "Tested Docker inputs unchanged",
+      "pass": true
+    }
+  ],
+  "process_exit_probe_returncode": 0,
+  "tested_files": {
+    "assets/brand/heuristik-mark.svg": "4d86e6c58aa745924591deca1ff252acfdc6e3989ad01ecdb1d04906403fb22a",
+    "data/context.txt": "9007345fb0e9a04a0cb7b0a471d9ed6fe238b57545ad01b5efc249f72e590600",
+    "compose.yaml": "2d5ab850f7778d30061225937b235c2ba136ee5305e99d61cbdb2eb34b4895f6",
+    "Dockerfile": "be2424abc28570d68b9e9e1a3d503a77bb00d9e171acbe8cebe44c451d5e47cf",
+    "index.html": "a0af8535c5b0cc84b6cbf027ec3cea8f6bf490ebefd2f81d644b53a1504d4a75",
+    "styles.css": "98354d78d0ce145b9a20a1e41cb9464d27dcdd5e8e9c85d12b61f4bc48f18d81",
+    "data/knowledge.json": "e375df41b2fab66f656996d38da567fc39cca4150cbb3add129c6ab6a14b1f99",
+    "app.js": "031821055802a44a72c37b199fb74d9a58864e4668aa10a83cc74b1841941a98",
+    "deploy/nginx.conf": "95560298e4579443744220f9b053cc871d24a76581c5b4eceddde339c4139892"
+  },
+  "status": "PASS",
+  "image": "sha256:a20b8eef8d638d6605c91e75a248d3decaa22e4d7631de6dc08558fb84caeb41",
+  "health": "healthy",
+  "restart_count": 0,
+  "nginx": "nginx version: nginx/1.30.6",
+  "scope": "Local image/HTTP/content, constraints and optional process-exit/recreation. Not host reboot, frozen-process auto-heal, Pages or human acceptance."
+}

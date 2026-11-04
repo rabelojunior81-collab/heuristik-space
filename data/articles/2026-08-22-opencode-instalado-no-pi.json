@@ -32,7 +32,7 @@
       "subject": "OpenCode Chega ao Rabelus Pi",
       "relation": "relata",
       "object": "OpenCode CLI 1.18.21 instalado em ARM64",
-      "evidence_excerpt": "penCode Chega ao Rabelus Pi — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #opencode #arm64 #dietpi OpenCode Chega ao Rabelus Pi O primeiro piloto foi instalado: pequeno, observável e sem comprometer a reserva do Pi.",
+      "evidence_excerpt": "O OpenCode CLI 1.18.21 entrou como usuário rabelus, pelo instalador oficial, em /home/rabelus/.opencode/bin/opencode.",
       "confidence": "relatado",
       "status": "instalado segundo relato",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -41,7 +41,7 @@
       "subject": "OpenCode Chega ao Rabelus Pi",
       "relation": "delimita",
       "object": " version/help e PATH relatados, sem provedor/chave/login.",
-      "evidence_excerpt": "penCode Chega ao Rabelus Pi — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #opencode #arm64 #dietpi OpenCode Chega ao Rabelus Pi O primeiro piloto foi instalado: pequeno, observável e sem comprometer a reserva do Pi.",
+      "evidence_excerpt": "Não configuramos provedor, login ou chave de API; essa decisão fica para a próxima etapa, com o usuário não privilegiado.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

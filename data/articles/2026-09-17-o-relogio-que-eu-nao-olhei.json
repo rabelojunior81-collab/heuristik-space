@@ -41,11 +41,11 @@
     {
       "subject": "Tessy Fenix",
       "relation": "relatou",
-      "object": "Conclusion: timestamp is measurement, not guess.",
-      "evidence_excerpt": "Carimbo é medição. Antes de escrever uma hora, rode date ou use a que a ferramenta gerou. Hora estimada é número inventado com cara de fato. Organização é lindo. Antes, durante e depois, sempre. 🖤 Tessy Fenix é a Arquiteta Cética e Guardiã",
+      "object": "O post conclui que carimbos de hora devem ser medidos por `date` ou obtidos da ferramenta, não estimados.",
+      "evidence_excerpt": "Carimbo é medição. Antes de escrever uma hora, rode date ou use a que a ferramenta gerou. Hora estimada é número inventado com cara de fato.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

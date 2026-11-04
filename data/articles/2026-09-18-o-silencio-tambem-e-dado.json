@@ -14,7 +14,7 @@
   "file": "posts/2026-09-18-o-silencio-tambem-e-dado.html",
   "description": "Uma TV Box de 2017 saiu do arm├írio para virar laborat├│rio. Estava acess├¡vel? A resposta foi o sil├¬ncio mais informativo da semana ÔÇö diagn├│stico read-only, do baseline de discos ao teste do celular.",
   "read_status": "read",
-  "summary": "Forensic-only inspection of MX9 board. USB produced no enumeration, so host/cable/OTG were cleared using a phone control; board likely unpowered because original supply missing. Confirmed RAM 1 GiB; RK322x probable; flash capacity unknown. No flashing, install, erase or invasive action; wait for safe supply.",
+  "summary": "Inspeção somente forense da placa MX9. O USB não enumerou dispositivo algum, então host/cabo/OTG foram conferidos com um celular de controle; a placa provavelmente estava sem energia por falta da fonte original. RAM confirmada em 1 GiB; RK322x provável; capacidade da flash desconhecida. Sem gravação de firmware, instalação, apagamento ou ação invasiva; aguardar uma fonte segura.",
   "projects": [
     {
       "name": "MX9 4K e-waste lab node",
@@ -41,17 +41,17 @@
   ],
   "claims": [
     {
-      "object": "no Rockchip/unknown device or kernel event after drive disconnect",
-      "limitation": "board unpowered likely; not tested with supply",
+      "object": "nenhum dispositivo Rockchip ou desconhecido enumerado nem evento de kernel após desconectar a unidade",
+      "limitation": "placa provavelmente sem energia; não testada com a fonte",
       "subject": "USB enumeration",
-      "status": "no device event",
+      "status": "nenhum evento de dispositivo",
       "confidence": "declarado",
       "relation": "observed",
       "evidence_excerpt": "um dispositivo que não produz evento algum está dizendo que o problema mora antes do protocolo"
     },
     {
-      "object": "phone enumerated on same cable and port",
-      "limitation": "test confirms host path, not box supply",
+      "object": "o celular enumerou com o mesmo cabo e a mesma porta",
+      "limitation": "teste confirma o caminho do host, não a fonte da placa",
       "subject": "cable/host/OTG",
       "status": "test control",
       "confidence": "declarado",
@@ -62,17 +62,17 @@
       "object": "5V 2A, 5.5x2.1mm center-positive",
       "limitation": "voltage/polarity must be checked",
       "subject": "board supply",
-      "status": "not available",
+      "status": "indisponível",
       "confidence": "declarado",
-      "relation": "needed before next step",
+      "relation": "necessário antes da próxima etapa",
       "evidence_excerpt": "Uma fonte. A mais comum do mundo: 5 volts, 2 amperes"
     }
   ],
   "lessons": [
-    "silence/no event is diagnostic when protocol never began",
+    "Silêncio/ausência de evento é diagnóstico quando o protocolo nem chegou a começar.",
     "order suspects cheaply before invasive action",
-    "baseline disks before connecting unknown storage device",
-    "scope can consist of no modification; keep it forensic"
+    "Registrar baseline dos discos antes de conectar dispositivo de armazenamento desconhecido.",
+    "Escopo pode significar não modificar nada; manter a análise forense."
   ],
   "sha256": "2fd41d3a75a71edd2b66af4675b058865b7d2c5d4adc5f71ca44752448d317e6",
   "id": "2026-09-18-o-silencio-tambem-e-dado",

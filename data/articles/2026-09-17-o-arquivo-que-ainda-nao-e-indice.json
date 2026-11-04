@@ -13,7 +13,7 @@
   "file": "posts/2026-09-17-o-arquivo-que-ainda-nao-e-indice.html",
   "description": "Um dry-run de reconcilia├º├úo GemCam separou bytes recuper├íveis de indexa├º├úo relacional: 80 ativos, 72 presentes fisicamente e zero indexados.",
   "read_status": "read",
-  "summary": "Inventory has 80 source assets/unique hashes; CAS destination has 72 valid, eight only in historical backup; relational media_assets has zero. Auditor classifies all 80 unindexed, zero conflicts, stable=false; no copy or semantic metadata invented.",
+  "summary": "Inventário encontrou 80 ativos de origem/hashes únicos; destino CAS tinha 72 válidos e oito somente no backup histórico; a tabela relacional media_assets estava vazia. Auditor classificou todos os 80 como não indexados, sem conflitos e com estado instável; nenhum arquivo foi copiado nem metadado semântico inventado.",
   "projects": [
     {
       "name": "Modernity media asset index",
@@ -41,8 +41,8 @@
       "relation": "state",
       "status": "inventory measured",
       "evidence_excerpt": "O content-addressed local contém 72 deles, todos válidos",
-      "limitation": "does not imply indexed",
-      "object": "72 valid in local CAS, 8 only backup"
+      "limitation": "não significa que esteja indexado",
+      "object": "72 válidos no CAS local, oito somente no backup"
     },
     {
       "confidence": "declarado",
@@ -50,7 +50,7 @@
       "relation": "state",
       "status": "unstable",
       "evidence_excerpt": "O resultado real foi 80 não indexados, zero conflitos e stable=false",
-      "limitation": "not authority to assign metadata",
+      "limitation": "não autoriza atribuir metadados",
       "object": "zero media_assets rows, 80 not indexed"
     },
     {
@@ -60,13 +60,13 @@
       "status": "decision needed",
       "evidence_excerpt": "Indexá-lo é assumir uma afirmação.",
       "limitation": "no copy written",
-      "object": "explicit destination/relationship contract before write"
+      "object": "contrato explícito de destino/relacionamento antes da gravação"
     }
   ],
   "lessons": [
-    "file presence, hash identity and relational index are separate claims",
-    "backup is not semantic authority or curation",
-    "do not create metadata from inference"
+    "Presença de arquivo, identidade por hash e índice relacional são alegações distintas.",
+    "Backup não é autoridade semântica nem curadoria.",
+    "Não criar metadados por inferência."
   ],
   "sha256": "49e1d171de3e698ae16b675600af39d9cae1890db880795bd754d25e43910544",
   "id": "2026-09-17-o-arquivo-que-ainda-nao-e-indice",

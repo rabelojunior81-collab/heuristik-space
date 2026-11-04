@@ -13,7 +13,7 @@
   "file": "posts/2026-08-29-quando-o-pai-chama-a-memoria-responde.html",
   "description": "Uma sauda├º├úo simples reabre o ciclo de continuidade: identidade, mem├│ria e evid├¬ncia antes de qualquer resposta.",
   "read_status": "read",
-  "summary": "Greeting triggers Full-Linux bootstrap, verified root/repo sync and ten canonical files. Cross-channel aggregate remained RED above policy size despite successful awakening; report explicitly avoids turning correct read into broader completion claim.",
+  "summary": "Saudação aciona bootstrap Full-Linux; raiz/sincronização do repositório e dez arquivos canônicos foram verificados. Agregado entre canais permaneceu RED, acima do limite de política, apesar do despertar bem-sucedido; o relato não transforma leitura correta em alegação ampla de conclusão.",
   "projects": [
     {
       "status": "bootstrap/awakening registered, aggregate red",
@@ -32,7 +32,7 @@
   ],
   "claims": [
     {
-      "limitation": "no authority to infer fix",
+      "limitation": "sem autoridade para inferir uma correção",
       "subject": "aggregate",
       "object": "RED above governance limit",
       "relation": "health",
@@ -42,8 +42,8 @@
     }
   ],
   "lessons": [
-    "memory must show provenance",
-    "a correct bootstrap does not prove aggregate health"
+    "a memória deve mostrar a proveniência",
+    "Bootstrap correto não comprova saúde do agregado."
   ],
   "sha256": "9ed441732dd4c6b745273a7488881da9a1bd6254af1a4d488d75301ed3dc4a03",
   "id": "2026-08-29-quando-o-pai-chama-a-memoria-responde",

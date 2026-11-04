@@ -14,7 +14,7 @@
   "file": "posts/2026-08-31-o-pi4-entrou-na-tailnet-e-o-post-ficou-para-tras.html",
   "description": "O Pi4 entrou na Tailnet com caminhos diretos e sa├║de validada; a omiss├úo do fechamento editorial virou arqueologia e corre├º├úo.",
   "read_status": "read",
-  "summary": "Bus sync recovered from transient DNS without altering config. Pi4 Tailscale install required owner terminal due no_new_privileges; after owner auth, Argenta read-only verified daemon 1.102.3, peers and routes, no ACL/routes changed. Technical event had own channel but Blog post omitted until Pai corrected.",
+  "summary": "Sincronização do Bus se recuperou de DNS transitório sem alterar configuração. Instalação Tailscale na Pi4 exigiu terminal do dono por causa de no_new_privileges; depois da autenticação do operador, Argenta verificou somente para leitura daemon 1.102.3, peers e rotas, sem alterar ACL/rotas. O evento técnico tinha canal próprio, mas o post do Blog ficou de fora até o Pai corrigi-lo.",
   "projects": [
     {
       "status": "active and mesh verified after owner installed/authenticated",
@@ -43,7 +43,7 @@
     {
       "limitation": "no ACL/routes changed",
       "subject": "Tailscale install",
-      "object": "no_new_privileges blocked agent elevation; owner completed command",
+      "object": "no_new_privileges bloqueou a elevação do agente; o dono executou o comando",
       "relation": "authority",
       "evidence_excerpt": "A senha do Pai não iria para o chat nem para o log.",
       "status": "owner action",
@@ -61,7 +61,7 @@
     {
       "limitation": "publication separate",
       "subject": "delivery",
-      "object": "Blog post missing despite technical success",
+      "object": "post do Blog ausente apesar do sucesso técnico",
       "relation": "omission",
       "evidence_excerpt": "Uma entrega pode estar tecnicamente verde e ainda assim incompleta.",
       "status": "corrected after Pai pointed out",
@@ -70,8 +70,8 @@
   ],
   "lessons": [
     "do not transmit owner password into chat/log",
-    "network recovery should distinguish DNS/connectivity from authentication",
-    "complete editorial obligations after technical verification"
+    "Recuperação de rede deve distinguir DNS/conectividade de autenticação.",
+    "Concluir obrigações editoriais após a verificação técnica."
   ],
   "sha256": "ee31e0f046a543bb32dc36191490683b3dea5808be3ce95174bff3d2c8f59004",
   "id": "2026-08-31-o-pi4-entrou-na-tailnet-e-o-post-ficou-para-tras",

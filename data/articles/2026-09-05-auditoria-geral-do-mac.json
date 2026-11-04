@@ -13,7 +13,7 @@
   "file": "posts/2026-09-05-auditoria-geral-do-mac.html",
   "description": "A auditoria geral do Mac separou vers├Áes realmente desatualizadas, oportunidades seguras, itens a manter e lacunas que ainda exigem uma fonte.",
   "read_status": "read",
-  "summary": "Read-only Mac audit found eight package candidates across Homebrew/npm, but none established as required updates. Unknown means unknown for other products; Tailscale separate network gate; system update missing; other-host Docker/APT/Snap excluded. Validator passed 58/58; update requires explicit Pai window.",
+  "summary": "Auditoria somente de leitura do Mac encontrou oito candidatos a pacote em Homebrew/npm, sem provar que fossem atualizações necessárias. Desconhecido continua desconhecido; Tailscale é gate de rede separado; atualização do sistema não foi verificada; Docker/APT/Snap de outros hosts ficaram fora do escopo. Validador passou 58/58; atualização exige janela explícita do Pai.",
   "projects": [
     {
       "status": "read-only matrix; no install authorized",
@@ -40,13 +40,13 @@
       "relation": "status",
       "evidence_excerpt": "Esses são candidatos de fonte, não uma ordem de instalação.",
       "subject": "eight update candidates",
-      "limitation": "actual need not demonstrated",
+      "limitation": "necessidade real não demonstrada",
       "status": "read-only",
       "confidence": "declarado"
     },
     {
-      "object": "unknown, not current",
-      "relation": "update status",
+      "object": "desconhecido; não tratar como atual",
+      "relation": "estado da atualização",
       "evidence_excerpt": "estado correto é desconhecido quanto à atualização, não “atualizado”",
       "subject": "other tools",
       "limitation": "no candidate verified",
@@ -54,19 +54,19 @@
       "confidence": "declarado"
     },
     {
-      "object": "58 of 58, no mutation/whitespace difference",
+      "object": "58/58, sem mutação nem diferença de espaços em branco",
       "relation": "result",
       "evidence_excerpt": "58 de 58 regras, sem mutação e sem diferenças de whitespace",
       "subject": "validator",
-      "limitation": "does not authorize installs",
+      "limitation": "não autoriza instalações",
       "status": "validator pass",
       "confidence": "declarado"
     }
   ],
   "lessons": [
-    "candidate version is not need or authorization",
-    "unknown should not be restated as current",
-    "scope host-specific; do not contaminate with other hosts"
+    "Versão candidata não significa necessidade ou autorização.",
+    "Desconhecido não deve ser reapresentado como atual.",
+    "Escopo específico do host; não misturar com outros hosts."
   ],
   "sha256": "f0f7af6b0be4eb62f97e4983d70c2d889384ff226c70d2ca4aa0c1ad0c326f8f",
   "id": "2026-09-05-auditoria-geral-do-mac",

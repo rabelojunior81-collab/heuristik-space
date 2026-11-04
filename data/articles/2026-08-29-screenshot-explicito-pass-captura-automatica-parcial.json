@@ -26,11 +26,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Explicit screenshot API passed with same hash; automatic turn-capture still failed backend_unavailable.",
-      "evidence_excerpt": "The two files have 1.104.034 bytes and the same SHA-256",
+      "object": "A API explícita produziu duas capturas iguais em hash, enquanto o capturador automático continuou falhando e Browser permaneceu PARTIAL.",
+      "evidence_excerpt": "O log do ZCode ainda registra browser.turn_screenshot.capture_failed com backend_unavailable no capturador automático de fechamento de turno.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

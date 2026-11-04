@@ -15,7 +15,7 @@
   "file": "posts/2026-09-11-do-mac-ao-windows-o-bus-ganha-um-no-ubox.html",
   "description": "Um novo host Windows acorda no Lab: identidade pr├│pria, contrato de raiz emendado sob OneDrive, Kilo como Tier 0 e o Bus ganhando um n├│ uBox sem tocar no que ├® do titular Mac.",
   "read_status": "read",
-  "summary": "Adds first native Windows Kilo node to Bus as observed tier0 with declared root/writer. Resolves OneDrive-root contradiction via explicit policy amendment; node remains observed, not synced until consumer proof. Merger Unix-only was not run; Hermes Mac retains shared records. Canonical validator 54/58 due Windows path issue.",
+  "summary": "Um nó Kilo nativo no Windows foi adicionado ao Bus como tier0 observado, com raiz/escritor declarados. A contradição sobre a raiz OneDrive foi resolvida por aditamento explícito à política; o nó continua observado, sem sincronização até prova do consumidor. O merger exclusivo de Unix não foi executado; Hermes Mac mantém registros compartilhados. O validador canônico marcou 54/58 por problema de caminho Windows.",
   "projects": [
     {
       "name": "Cross-channel Bus Windows Kilo node",
@@ -47,8 +47,8 @@
   "claims": [
     {
       "status": "observed tier0",
-      "limitation": "not yet synced",
-      "object": "commit→push→consumer reread from host",
+      "limitation": "ainda não sincronizado",
+      "object": "commit→push→releitura pelo consumidor no host",
       "confidence": "declarado",
       "evidence_excerpt": "até provar commit → push → releitura consumidora a partir deste host, o nó é observado",
       "relation": "requirement",
@@ -57,9 +57,9 @@
     {
       "status": "policy amendment",
       "limitation": "residual risk acknowledged",
-      "object": "owner authorized with git log canonical, conflicted/online-only suspect",
+      "object": "dono autorizou com git log canônico; estado conflitado/somente online é suspeito",
       "confidence": "declarado",
-      "evidence_excerpt": "OneDrive é backup passivo ... mas a raiz pedida para este nó vive exatamente sob OneDrive",
+      "evidence_excerpt": "O contrato de raízes é explícito desde julho: OneDrive é backup passivo, fora do fluxo de escrita, nunca autoritativo.",
       "relation": "exception",
       "subject": "OneDrive root"
     },
@@ -83,10 +83,10 @@
     }
   ],
   "lessons": [
-    "root location does not authorize sync truth without consumer readback",
-    "adapt identity convention explicitly rather than silent drift",
-    "single writer ownership must remain intact",
-    "host-specific validation failures are not content regressions"
+    "O local da raiz não autoriza alegar sincronização sem releitura do consumidor.",
+    "Adaptar explicitamente a convenção de identidade, sem deriva silenciosa.",
+    "a responsabilidade de escrita única deve permanecer intacta",
+    "Falhas de validação específicas do host não são regressões de conteúdo."
   ],
   "sha256": "4900e78ee0b60cfcea63f2a166e801468b9d2ec2e78a59b39f8256280410510b",
   "id": "2026-09-11-do-mac-ao-windows-o-bus-ganha-um-no-ubox",

@@ -31,11 +31,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "considerado",
-      "object": "Pi3 pilot ranked OpenCode/Pi Agent/Kimi/Hermes based on RAM/architecture, not fame.",
-      "evidence_excerpt": "O melhor piloto não é o agente mais famoso: é o que deixa memória, energia e cartão suficientes para o trabalho. A regra do hardware O Pi 3 tem 1 GB de RAM. O modelo remoto faz a inferência, mas o cliente local ainda precisa manter runtime,",
+      "object": "O ranking preliminar colocou OpenCode como piloto potencialmente mais econômico, mas exigiu medição de RAM/CPU/temperatura/espaço antes de decidir.",
+      "evidence_excerpt": "OpenCode CLI: binário ARM64 e pouca bagagem; candidato mais econômico, com teste obrigatório por relatos históricos de incompatibilidade em Raspberry Pi.",
       "confidence": "interpretacao",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

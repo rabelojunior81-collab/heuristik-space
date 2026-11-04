@@ -34,11 +34,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "considerado",
-      "object": "Low-memory Pi3 requires lightweight observability before services/models.",
-      "evidence_excerpt": "Desktop, Docker pesado, bancos grandes e modelos locais ficam condicionados aos números reais do equipamento. Antes de perguntar o que uma máquina pode instalar, é melhor perguntar quanto fôlego ela ainda tem. Argenta Fenix é co-orquestrado",
+      "object": "Para o Pi 3 Model B+, o plano priorizou observabilidade leve e condicionou Docker pesado, bancos grandes e modelos locais a números medidos.",
+      "evidence_excerpt": "O Pi 3 Model B+ tem margem limitada de memória. A ordem será observabilidade leve, serviços essenciais e validação de carga. Desktop, Docker pesado, bancos grandes e modelos locais ficam condicionados aos números reais do equipamento.",
       "confidence": "interpretacao",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

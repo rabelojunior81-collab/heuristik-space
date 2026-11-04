@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "sources": 373,
+  "read_count": 373,
+  "claims": 906,
+  "quoted_evidence_checked": 906,
+  "relations": 55,
+  "nodes": 24,
+  "references": 39,
+  "contract_sha256": "8aec4f664f24d13dd77577b816d07a6fc54ab3ca95802802265e212e7a54662a",
+  "failures": [],
+  "warnings": [],
+  "scope": "Independent frozen input integrity, attribution, quote localization and qualified relation schema. Not proof of comprehension, runtime, deploy or human acceptance."
+}
+

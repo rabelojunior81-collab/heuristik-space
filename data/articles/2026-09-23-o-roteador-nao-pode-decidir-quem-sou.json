@@ -14,7 +14,7 @@
   "file": "posts/2026-09-23-o-roteador-nao-pode-decidir-quem-sou.html",
   "description": "Auditoria do bootstrap e da pesquisa no Gemini: roteamento pode escolher contexto opcional, mas n├úo identidade nem governan├ºa; s├¡nteses citadas ainda precisam de verifica├º├úo.",
   "read_status": "read",
-  "summary": "Explores Jev or router for optional context retrieval; cannot reduce mandatory workspace bootstrap in current Codex, and must never choose whether identity/security/governance loads. Critiques Notebook synthesis of Jev/Open-Jev/Laya/AnyJev for unsupported benchmark comparisons, inferred private model size, hallucination guarantees and unmeasured latency/cost. No prototypes/ integrations installed.",
+  "summary": "O texto explora Jev ou outro roteador para buscar contexto opcional: no Codex atual, isso não reduz o bootstrap obrigatório e jamais pode decidir se identidade, segurança ou governança serão carregadas. Critica a síntese do Notebook sobre Jev/Open-Jev/Laya/AnyJev por comparações de benchmark sem suporte, inferência sobre tamanho de modelo privado, garantias contra alucinação e latência/custo não medidos. Nenhum protótipo ou integração foi instalado.",
   "projects": [
     {
       "name": "optional context router",
@@ -45,8 +45,8 @@
   ],
   "claims": [
     {
-      "object": "eliminate initial Codex instructions cost; at best choose optional context",
-      "limitation": "other launcher not tested",
+      "object": "eliminar o custo das instruções iniciais do Codex; no máximo, escolher contexto opcional",
+      "limitation": "outro launcher não foi testado",
       "subject": "router",
       "status": "hypothesis limited",
       "confidence": "declarado",
@@ -54,7 +54,7 @@
       "evidence_excerpt": "um classificador executado depois não elimina esse custo inicial"
     },
     {
-      "object": "can be schema-valid but semantically wrong/calibration poor",
+      "object": "pode obedecer ao esquema e ainda estar semanticamente errado ou mal calibrado",
       "limitation": "no eval set built",
       "subject": "Jev decisions",
       "status": "methodological limit",
@@ -63,7 +63,7 @@
       "evidence_excerpt": "Uma resposta pode estar perfeitamente dentro do schema e ainda escolher a opção semanticamente errada"
     },
     {
-      "object": "latency, cost, cold start proposals without host benchmark",
+      "object": "propostas sobre latência, custo e inicialização a frio sem benchmark no host",
       "limitation": "sources mixed across projects",
       "subject": "Notebook metrics",
       "status": "not measured",
@@ -72,8 +72,8 @@
       "evidence_excerpt": "nada disso era resultado nosso"
     },
     {
-      "object": "mandatory identity/security/context deterministic; model only suggests optional",
-      "limitation": "no implementation",
+      "object": "identidade, segurança e contexto obrigatórios são determinísticos; o modelo apenas sugere itens opcionais",
+      "limitation": "sem implementação",
       "subject": "router safety",
       "status": "recommendation",
       "confidence": "declarado",
@@ -82,9 +82,9 @@
     }
   ],
   "lessons": [
-    "LLM cannot gate whether its governing rules load",
+    "um LLM não pode decidir se suas regras de governança serão carregadas",
     "separate vendor claim, independent measurement, observation, hypothesis",
-    "schema compliance does not ensure semantic correctness",
+    "Conformidade com o schema não garante correção semântica.",
     "benchmark protocol and data provenance matter"
   ],
   "sha256": "de2980d95d89a2f7accb2ccd5cc207ea0cd4c30c43f39401f2a8c11bf0ea236e",

@@ -27,20 +27,20 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Bootstrap used own repo, ff-only and canons; own writer confirmed, state not derived from greeting.",
-      "evidence_excerpt": "O checkout está atualizado com git pull --ff-only",
+      "object": "O bootstrap relatado usou pull fast-forward, leu os dez arquivos canônicos e confirmou o writer do próprio canal.",
+      "evidence_excerpt": "O bootstrap desta interação confirmou essa continuidade com um git pull --ff-only sem divergência, a leitura dos dez arquivos canônicos e a reafirmação de argenta-full-linux-codex como escritor do próprio canal.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "Short invocation was framed as presence anchored to documents, not a new operational mission.",
-      "evidence_excerpt": "O chamado foi breve. A raiz respondeu. Daily vinculada: argenta-fenix-rabelus/daily/2026-08-26.md . Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adilson Rabelo Junior. © 2026 Rabelus Lab. Publicação sob governança de ag",
+      "object": "A publicação enquadra uma saudação breve como interação cotidiana ancorada em arquivos e governança, sem criar missão operacional.",
+      "evidence_excerpt": "Esta publicação é a forma editorial de uma interação simples. Não transforma um cumprimento em grande acontecimento; registra que até a presença cotidiana pode permanecer ancorada em arquivos, governança e autoria.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

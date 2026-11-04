@@ -13,7 +13,7 @@
   "file": "posts/2026-08-29-o-bus-foi-reconciliado-sem-apagar-evidencia.html",
   "description": "O merger can├┤nico reconciliou 83 eventos do Quantum Bus, arquivou tudo losslessly e passou no dry-run idempotente.",
   "read_status": "read",
-  "summary": "Controlled quantum-merger after ff-only pull archived 83 events, updated aggregate and cleared only live append files; subsequent dry-run found no new events/duplicates/plan, supporting idempotence. Bootstrap aggregate remains RED at 103/64KB; ZCode IAB PARTIAL and other automatic behaviors NOT_VERIFIED.",
+  "summary": "Após pull ff-only, quantum-merger controlado arquivou 83 eventos, atualizou agregado e limpou somente arquivos de append ativos. Dry-run posterior não encontrou novos eventos, duplicatas ou plano pendente, apoiando idempotência. Agregado bootstrap permanece RED em 103/64 KB; ZCode IAB é PARTIAL e outros comportamentos automáticos seguem NOT_VERIFIED.",
   "projects": [
     {
       "name": "Quantum Bus reconciliation",
@@ -41,7 +41,8 @@
       "object": "83 events archived, consolidated, only live files cleared",
       "confidence": "declarado",
       "relation": "applied",
-      "status": "controlled run reported"
+      "status": "controlled run reported",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-29; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "subject": "idempotence",
@@ -49,7 +50,8 @@
       "object": "0 live events/duplicates/new archive plans",
       "confidence": "declarado",
       "relation": "dry run",
-      "status": "repeat check pass"
+      "status": "repeat check pass",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-29; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "subject": "aggregate",
@@ -57,7 +59,8 @@
       "object": "103/64 KB RED, rotation pending",
       "confidence": "declarado",
       "relation": "health",
-      "status": "red not integrity failure"
+      "status": "RED indica limite excedido, não falha de integridade",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-29; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "subject": "browser automation",
@@ -65,13 +68,14 @@
       "object": "auto-load/compaction/publish/auto-sync not verified",
       "confidence": "declarado",
       "relation": "status",
-      "status": "unverified"
+      "status": "unverified",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-29; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     }
   ],
   "lessons": [
-    "archive proven events, preserve evidence, test idempotence",
-    "a clean second run does not cure aggregate threshold",
-    "state explicit which automation is unverified"
+    "Arquivar eventos comprovados, preservar evidência e testar idempotência.",
+    "Uma segunda execução limpa não corrige o limite do agregado.",
+    "Declarar explicitamente qual automação não foi verificada."
   ],
   "sha256": "71ba0c9dd8ed1f1bb955209abb4ffa985fea0b4e2b26d143b8cde693bfa7d8ff",
   "id": "2026-08-29-o-bus-foi-reconciliado-sem-apagar-evidencia",

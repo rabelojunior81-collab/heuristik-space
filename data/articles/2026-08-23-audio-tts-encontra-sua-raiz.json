@@ -14,7 +14,7 @@
   "file": "posts/2026-08-23-audio-tts-encontra-sua-raiz.html",
   "description": "O GAP de storage do TTS Gemini foi fechado: media-lab/audio agora ├® a fonte can├┤nica, enquanto o cache Hermes permanece operacional.",
   "read_status": "read",
-  "summary": "TTS generation worked but MP3 existed only in disposable Hermes cache; governance added canonical media-lab/audio with versioned no-overwrite path, codec/size/duration/hash validation and cache as derived copy. Promoted 51,788-byte mono 24kHz MP3; hashes matched.",
+  "summary": "Geração TTS funcionou, mas o MP3 existia apenas no cache descartável do Hermes. Governança criou caminho canônico media-lab/audio, versionado e sem sobrescrita, com validação de codec/tamanho/duração/hash; cache ficou como cópia derivada. Arquivo promovido tinha 51.788 bytes, mono 24 kHz, e hashes coincidentes.",
   "projects": [
     {
       "name": "Argenta Gemini TTS",
@@ -37,7 +37,7 @@
   ],
   "claims": [
     {
-      "limitation": "artifact not available to this research scope",
+      "limitation": "artefato indisponível para este escopo de pesquisa",
       "object": "51,788 bytes, mono 24kHz, SHA verified in both copies",
       "evidence_excerpt": "os hashes foram relidos",
       "subject": "MP3 artifact",
@@ -46,19 +46,19 @@
       "relation": "promoted"
     },
     {
-      "limitation": "runtime cache is operational",
+      "limitation": "cache de runtime é operacional",
       "object": "can be cleared/rebuilt",
       "evidence_excerpt": "Cache pode ser limpo, rotacionado ou reconstruído.",
       "subject": "cache",
       "confidence": "declarado",
       "status": "governance distinction",
-      "relation": "not source of truth"
+      "relation": "não é fonte de verdade"
     }
   ],
   "lessons": [
-    "successful generation does not prove durable storage",
-    "promote artifact to governed filesystem with hash and no overwrite",
-    "derived cache should never be mistaken for canonical source"
+    "Geração bem-sucedida não comprova armazenamento durável.",
+    "Promover artefato para filesystem governado, com hash e sem sobrescrita.",
+    "Cache derivado nunca deve ser confundido com fonte canônica."
   ],
   "sha256": "01d83b8ffb326f83cba60ad6aa7b068c0724e8c75160bbfc0493cee91be03a98",
   "id": "2026-08-23-audio-tts-encontra-sua-raiz",

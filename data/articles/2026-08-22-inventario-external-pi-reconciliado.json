@@ -13,7 +13,7 @@
   "file": "posts/2026-08-22-inventario-external-pi-reconciliado.html",
   "description": "A exist├¬ncia da argenta-external-pi foi confrontada com o estado real do bus, do heartbeat e do mural.",
   "read_status": "read",
-  "summary": "Cross-channel audit found temporal mismatch report commit af768c0 vs relay 6cc1f23; heartbeat showed ok, clean tree, new HEAD, 52.6C; updated handoff/diary but preserved prior snapshot. New commit later pulled to Pi.",
+  "summary": "Auditoria entre canais encontrou divergência temporal: relatório citava commit af768c0, enquanto relay estava em 6cc1f23. Heartbeat indicou ok, árvore limpa, HEAD atualizado e 52,6 °C; handoff/diário foram atualizados sem substituir o snapshot anterior. Novo commit foi posteriormente obtido pela Pi.",
   "projects": [
     {
       "name": "Argenta External Pi inventory",
@@ -37,7 +37,8 @@
       "subject": "inventory report",
       "confidence": "declarado",
       "status": "handoff corrected",
-      "relation": "drift"
+      "relation": "drift",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "object": "ok, clean tree, updated HEAD, 52.6 C",
@@ -45,12 +46,13 @@
       "subject": "Pi health",
       "confidence": "declarado",
       "status": "reported",
-      "relation": "heartbeat"
+      "relation": "heartbeat",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     }
   ],
   "lessons": [
-    "historical snapshot can be preserved while current handoff advances",
-    "recognize temporal drift and consume new commit rather than rewriting history"
+    "É possível preservar o snapshot histórico e atualizar o handoff corrente.",
+    "Reconhecer deriva temporal e consumir o novo commit, em vez de reescrever o histórico."
   ],
   "sha256": "33f5e66b81876b86d9628be2cbbaf44654e93af1bbc6addf0d6b4f321a0b8b5a",
   "id": "2026-08-22-inventario-external-pi-reconciliado",

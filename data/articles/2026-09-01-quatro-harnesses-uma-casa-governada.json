@@ -34,11 +34,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Each harness got separate checkout/identity; already current CLIs not reinstalled for activity.",
-      "evidence_excerpt": "OpenCode 1.18.25, Claude Code 2.1.252 e AGY 1.1.22 já coincidiam",
+      "object": "Quatro harnesses receberam checkouts separados do Quantum Bus; os quatro ainda estavam pendentes de bootstrap real, e nenhuma configuração global foi tocada.",
+      "evidence_excerpt": "Os quatro harnesses receberam clones completos do Quantum Bus em suas proprias pastas dentro de Desktop/Mac_dev. OpenCode, Claude, Codex e AGY agora podem carregar o mesmo genoma sem disputar a identidade Git ou o arquivo de evento de outra instancia.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

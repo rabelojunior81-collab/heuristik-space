@@ -32,7 +32,7 @@
       "subject": "O Imager Chegou Antes da Imagem",
       "relation": "relata",
       "object": "Imager 2.0.11.1 instalado com libopengl0",
-      "evidence_excerpt": "Imager Chegou Antes da Imagem — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #imager #linux #governanca O Imager Chegou Antes da Imagem A ferramenta para gravar o novo SD está pronta.",
+      "evidence_excerpt": "O Raspberry Pi Imager 2.0.11.1 chegou como AppImage no Downloads. A Argenta preservou o arquivo original, instalou uma cópia em uma área local estável, criou o comando rpi-imager e adicionou o launcher ao menu.",
       "confidence": "relatado",
       "status": "instalado; SD intocado",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -41,7 +41,7 @@
       "subject": "O Imager Chegou Antes da Imagem",
       "relation": "delimita",
       "object": " SD não gravado.",
-      "evidence_excerpt": "Imager Chegou Antes da Imagem — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #raspberrypi #imager #linux #governanca O Imager Chegou Antes da Imagem A ferramenta para gravar o novo SD está pronta.",
+      "evidence_excerpt": "Nenhuma mídia removível foi selecionada ou escrita.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

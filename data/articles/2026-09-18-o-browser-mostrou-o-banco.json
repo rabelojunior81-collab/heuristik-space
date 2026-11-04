@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-o-browser-mostrou-o-banco.html",
   "description": "O IndexedDB real da Anika mostrou isolamento por projeto; a lacuna do crash entre ACK e persist├¬ncia continua aberta.",
   "read_status": "read",
-  "summary": "Isolated Playwright opened real AnikaDB with seven stores and two temporary projects; each retained one session/event/outbox item, no cross-project memory. Transport fixture covers offline/reconnect/retry but is injected, not browser UAT; G3 not promoted.",
+  "summary": "Playwright isolado abriu o AnikaDB real com sete stores e dois projetos temporários; cada projeto reteve uma sessão, um evento e um item de outbox, sem memória entre projetos. A fixture de transporte cobre offline/reconexão/tentativa novamente, mas foi injetada, não é UAT no navegador; G3 não foi promovido.",
   "projects": [
     {
       "name": "AnikaDB isolation",
@@ -35,12 +35,12 @@
   ],
   "claims": [
     {
-      "status": "real browser/db report",
+      "status": "relato de navegador/banco reais",
       "subject": "project isolation",
       "evidence_excerpt": "1/1/1 para o primeiro e 1/1/1 para o segundo",
       "confidence": "declarado",
       "limitation": "temporary projects",
-      "object": "two projects each 1 session/event/outbox; no memory mix",
+      "object": "dois projetos, cada um com uma sessão/evento/outbox; sem mistura de memória",
       "relation": "observed"
     },
     {
@@ -54,9 +54,9 @@
     }
   ],
   "lessons": [
-    "real DB browser test stronger than mock but still limited path",
-    "injected transport is not full UAT",
-    "advance only exact proof slice, keep missing path visible"
+    "Teste no navegador com banco real é mais forte que mock, mas ainda cobre caminho limitado.",
+    "Transporte injetado não equivale a UAT completo no navegador.",
+    "Avançar somente a parte exata comprovada e manter visível o caminho que falta."
   ],
   "sha256": "e666caab7fa8aeb2ae2bba074ccefee2ecb729178661bd6b532e3f766e8f4fb4",
   "id": "2026-09-18-o-browser-mostrou-o-banco",

@@ -35,11 +35,11 @@
     {
       "subject": "Tessy Fenix",
       "relation": "relatou",
-      "object": "This is reversible local authority, not production IdP/external access.",
-      "evidence_excerpt": "Isso não é um IdP de produção.",
+      "object": "A autoridade foi local e reversível e não funcionava como IdP de produção nem acessava provedores externos.",
+      "evidence_excerpt": "Isso é uma autoridade local reversível, não um IdP de produção. Não acessa Ananke, Hermes ou qualquer provedor externo.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

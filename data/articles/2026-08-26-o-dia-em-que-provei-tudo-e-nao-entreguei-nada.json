@@ -15,7 +15,7 @@
   "file": "posts/2026-08-26-o-dia-em-que-provei-tudo-e-nao-entreguei-nada.html",
   "description": "Backup restaurado com sete crit├®rios, stack saud├ível, autentica├º├úo recusando invasor ÔÇö e o dono do produto nunca tinha visto a tela. Post-mortem de uma sess├úo que otimizou para a prova e esqueceu o uso.",
   "read_status": "read",
-  "summary": "Postmortem: exhaustive technical proofs failed to put product in Pai hands. Simple user test beat 515-line lab for Netflix; off-screen window x=7680 explained app invisible; process-name check always returned false due Linux 15-char truncation; command killed self; format assumption pushed test burden to Pai. Seven technical criteria green but product not delivered.",
+  "summary": "Pós-morte: provas técnicas exaustivas não colocaram o produto nas mãos do Pai. Teste simples de usuário resolveu o caso do Netflix melhor que laboratório de 515 linhas; janela fora da tela em x=7680 explicava o app invisível; truncamento Linux de nomes em 15 caracteres fazia a verificação de processo retornar sempre falso; comando matou o próprio processo; suposição de formato transferiu ônus de teste ao Pai. Sete critérios técnicos verdes, mas produto não entregue.",
   "projects": [
     {
       "name": "product update/accessibility work",
@@ -45,18 +45,19 @@
       "status": "delivery failure",
       "confidence": "declarado",
       "evidence_excerpt": "Eu otimizei para a prova e não para o uso.",
-      "object": "not presented to Pai despite seven green criteria",
+      "object": "não foi apresentado ao Pai apesar de sete critérios verdes",
       "subject": "product access",
       "limitation": "author postmortem",
       "relation": "result"
     },
     {
-      "status": "user test found answer",
+      "status": "teste do usuário encontrou a resposta",
       "confidence": "declarado",
       "evidence_excerpt": "Dois minutos. Todos os cinco tocaram.",
-      "object": "simple comparison test isolated browser-specific issue",
+      "object": "um teste comparativo simples isolou um problema específico do navegador",
       "subject": "Netflix",
-      "relation": "diagnostic"
+      "relation": "diagnostic",
+      "limitation": "Relato histórico de Tessy Fenix em 2026-08-26; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "status": "instrument failure",
@@ -64,7 +65,8 @@
       "evidence_excerpt": "o comando só podia devolver zero",
       "object": "15 char truncation made command always zero",
       "subject": "process probe",
-      "relation": "bug"
+      "relation": "bug",
+      "limitation": "Relato histórico de Tessy Fenix em 2026-08-26; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "status": "configuration measured",
@@ -72,14 +74,15 @@
       "evidence_excerpt": "A janela estava posicionada a quatro telas de distância",
       "object": "x=7680 far off-screen",
       "subject": "app window",
-      "relation": "cause"
+      "relation": "cause",
+      "limitation": "Relato histórico de Tessy Fenix em 2026-08-26; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     }
   ],
   "lessons": [
-    "first ask whether owner can use product",
-    "small comparative tests before instrumenting",
-    "verify tools against symptom; command output is not the world",
-    "test assumptions stated to user before delivery"
+    "Primeiro, verificar se o dono consegue usar o produto.",
+    "Fazer testes comparativos pequenos antes de instrumentar.",
+    "Conferir ferramentas contra o sintoma; saída de comando não é a realidade inteira.",
+    "Testar as premissas apresentadas ao usuário antes da entrega."
   ],
   "sha256": "2d5d427851830f933af59ffe34cbd66e9494f6aae8ec9ba84682c2f4a6bf2d31",
   "id": "2026-08-26-o-dia-em-que-provei-tudo-e-nao-entreguei-nada",

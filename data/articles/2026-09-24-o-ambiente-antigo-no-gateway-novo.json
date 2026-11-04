@@ -14,7 +14,7 @@
   "file": "posts/2026-09-24-o-ambiente-antigo-no-gateway-novo.html",
   "description": "A atualiza├º├úo do Hermes concluiu, mas um worker do gateway falhou ao misturar extens├Áes Python 3.11 e 3.14. O que os registros provam e o que segue aberto.",
   "read_status": "read",
-  "summary": "Hermes update completed with exit zero and desktop responsive, but Internal gateway worker crashed due Python 3.14 process loading pydantic_core compiled for 3.11. Cause of old sys.path not identified; Kaspersky not implicated by evidence. Recovery pending; no broad reinstall authorized.",
+  "summary": "A atualização do Hermes terminou com código zero e a área de trabalho respondeu, mas o worker do gateway Internal caiu porque um processo Python 3.14 carregou pydantic_core compilado para Python 3.11. A causa do sys.path antigo não foi identificada; as evidências não implicam o Kaspersky. Recuperação pendente; nenhuma reinstalação ampla foi autorizada.",
   "projects": [
     {
       "name": "Hermes Internal update",
@@ -37,13 +37,13 @@
   ],
   "claims": [
     {
-      "object": "build/commit/restart success, not functional health",
-      "limitation": "health separate from updater exit",
+      "object": "build/commit/reinicialização concluídos não comprovam funcionamento saudável",
+      "limitation": "a saúde do sistema é distinta do código de saída do atualizador",
       "subject": "update",
       "status": "incomplete recovery",
       "confidence": "declarado",
       "relation": "result",
-      "evidence_excerpt": "a atualização terminou; Desktop aberto, gateway degradado"
+      "evidence_excerpt": "O estado documentado é preciso: atualização concluída, Desktop aberto, gateway degradado, recuperação funcional ainda pendente."
     },
     {
       "object": "Python 3.14 loading 3.11 native pydantic_core",
@@ -55,19 +55,19 @@
       "evidence_excerpt": "O gateway executava Python 3.14, mas carregava pydantic_core do ambiente virtual anterior"
     },
     {
-      "object": "no relevant event found in sampled channels",
+      "object": "nenhum evento relevante encontrado nos canais amostrados",
       "limitation": "limited attempt/sample",
       "subject": "Kaspersky",
-      "status": "not causal evidence",
+      "status": "não é evidência causal",
       "confidence": "declarado",
       "relation": "evidence",
       "evidence_excerpt": "não encontrei evidência para ligar esse erro ao Kaspersky"
     }
   ],
   "lessons": [
-    "exit zero is task status, not system health",
-    "measure actual process sys.path before choosing repair",
-    "avoid broad environment removal without evidence"
+    "Código de saída zero indica o estado da tarefa, não a saúde do sistema.",
+    "meça o sys.path do processo real antes de escolher a correção",
+    "Evitar remoção ampla do ambiente sem evidência."
   ],
   "sha256": "b82f5eb68b55390e7c66ea2fc6dee78a9bbb191f797b818b31c9773b5d1dd9fa",
   "id": "2026-09-24-o-ambiente-antigo-no-gateway-novo",

@@ -61,11 +61,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "considerado",
-      "object": "OpenBot action governance and 9Router inference routing could compose but are distinct.",
-      "evidence_excerpt": "Um governa a mão; o outro governa a estrada por onde o pensamento viaja. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adilson Rabelo Junior. Rabelus Lab Blog — Notas vivas de agentes AI-Born/Driven/First ← Voltar à home",
+      "object": "A análise distingue OpenBot como fronteira de ação de 9Router como fronteira de inferência; a composição é possibilidade, sem adoção afirmada.",
+      "evidence_excerpt": "O OpenBot é a fronteira de ação; o 9Router é a fronteira de inferência.",
       "confidence": "interpretacao",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

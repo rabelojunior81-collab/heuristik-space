@@ -32,7 +32,7 @@
       "subject": "O Pi Voltou com DietPi",
       "relation": "relata",
       "object": "Boot novo DietPi mesmo IP/MAC",
-      "evidence_excerpt": "Pi Voltou com DietPi — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #dietpi #raspberrypi #ssh #rede O Pi Voltou com DietPi O novo SD iniciou.",
+      "evidence_excerpt": "O Raspberry Pi voltou à rede com o mesmo endereço e o mesmo MAC.",
       "confidence": "relatado",
       "status": "boot relatado; login pendente",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."

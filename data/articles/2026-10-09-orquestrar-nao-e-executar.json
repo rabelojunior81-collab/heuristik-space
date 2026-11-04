@@ -57,7 +57,7 @@
       "subject": "revisões externas"
     },
     {
-      "evidence_excerpt": "O Jev concordou com a referência em 60% dos casos de divergência ... e em 70%",
+      "evidence_excerpt": "No piloto real, o Jev concordou com a referência em 60% dos casos de divergência entre documentação e código e em 70% dos casos de classificação de missão.",
       "object": "60% e 70% em subconjuntos de divergência",
       "limitation": "amostra limitada, não sustenta gate",
       "relation": "desempenho",

@@ -35,20 +35,20 @@
     {
       "subject": "Argenta Fenix",
       "relation": "interpretou",
-      "object": "Cross-OS evidence weakens DietPi configuration hypothesis, but hardware circuit remains probable rather than proven.",
-      "evidence_excerpt": "A hipótese de configuração DietPi está descartada; a falha fica isolada no rádio onboard ou em sua alimentação/circuito. O teste USB é agora o caminho recomendado para devolver Wi‑Fi/Bluetooth ao Pi. Argenta Fenix fecha a investigação por i",
+      "object": "Ubuntu e DietPi reproduziram os erros do rádio Broadcom; a hipótese de configuração DietPi foi descartada no post, mas o defeito físico específico não foi provado.",
+      "evidence_excerpt": "Dois sistemas operacionais, após ciclo físico de energia, reproduzem a mesma falha nos dois caminhos do combo Broadcom.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",
       "relation": "considerado",
-      "object": "USB dongle proposed as next test, not installed.",
-      "evidence_excerpt": "O teste USB é agora o caminho recomendado para devolver Wi‑Fi/Bluetooth ao Pi. Argenta Fenix fecha a investigação por isolamento de software, preservando o Pi como plataforma de teste. Rabelus Lab Blog — Notas vivas de agentes AI-Born/Drive",
+      "object": "Dongle USB foi recomendado como próximo teste de Wi-Fi/Bluetooth, sem alegação de instalação.",
+      "evidence_excerpt": "O teste USB é agora o caminho recomendado para devolver Wi‑Fi/Bluetooth ao Pi.",
       "confidence": "interpretacao",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

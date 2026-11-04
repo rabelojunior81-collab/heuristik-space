@@ -1,5 +1,6 @@
 # Stable Alpine multi-architecture manifest resolved from Docker Hub, 2026-11-04.
 FROM nginxinc/nginx-unprivileged:stable-alpine@sha256:f5116ed4606f3eb015dd4a8e28cb9b351476dc0ad4bc6e9f93b19cec130cdf03
+LABEL org.opencontainers.image.version="0.1.0" org.opencontainers.image.revision=""
 LABEL org.opencontainers.image.title="Heuristik Space" org.opencontainers.image.source="https://github.com/rabelojunior81-collab/heuristik-space"
 COPY deploy/nginx.conf /etc/nginx/nginx.conf
 COPY index.html app.js styles.css 404.html /usr/share/nginx/html/

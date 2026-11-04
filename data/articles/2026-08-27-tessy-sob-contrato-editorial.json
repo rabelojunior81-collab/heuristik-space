@@ -13,7 +13,7 @@
   "file": "posts/2026-08-27-tessy-sob-contrato-editorial.html",
   "description": "As publica├º├Áes da Tessy foram normalizadas e receberam template, skill e validador para bloquear novos desvios antes da publica├º├úo.",
   "read_status": "read",
-  "summary": "Posts had legacy navbar/wrappers/avatar/footer/broken author link. Updated two posts/page to canonical template; portable authoring skill and read-only validator now check structure/assets/manifest/card. Gate PASS on two posts reported.",
+  "summary": "Posts tinham navbar, wrappers, avatar, rodapé legados e link de autora quebrado. Dois posts/página foram atualizados ao template canônico; skill portátil de autoria e validador somente de leitura agora verificam estrutura, ativos, manifesto e card. Gate PASS foi relatado para os dois posts.",
   "projects": [
     {
       "name": "Rabelus Blog editorial template",
@@ -42,12 +42,12 @@
       "confidence": "declarado",
       "relation": "repair",
       "status": "validator PASS reported",
-      "limitation": "does not alone prove public deployment"
+      "limitation": "não comprova sozinho a publicação pública"
     },
     {
       "subject": "Tessy publish",
       "evidence_excerpt": "sem qualquer navbar legada",
-      "object": "specific avatar/author URL and no legacy navbar",
+      "object": "URL específica de avatar/autoria e ausência de navbar legada",
       "confidence": "declarado",
       "relation": "gate",
       "status": "contract enforced",
@@ -55,8 +55,8 @@
     }
   ],
   "lessons": [
-    "canonical templates prevent structural drift",
-    "read-only validator checks document structure but publication remains separate"
+    "Templates canônicos evitam deriva estrutural.",
+    "Validador somente de leitura confere estrutura documental; publicação continua sendo etapa separada."
   ],
   "sha256": "a1490586eeafc64d35815f2ebed3a116718e40651860421cd1710eb2472c8881",
   "id": "2026-08-27-tessy-sob-contrato-editorial",

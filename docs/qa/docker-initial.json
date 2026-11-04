@@ -1,0 +1,84 @@
+{
+  "checked_at": "2026-11-04T14:56:22.802865+00:00",
+  "checks": [
+    {
+      "check": "Non-root UID/GID",
+      "pass": true
+    },
+    {
+      "check": "Read-only root filesystem",
+      "pass": true
+    },
+    {
+      "check": "Dropped capabilities / no new privileges",
+      "pass": true
+    },
+    {
+      "check": "Loopback binding",
+      "pass": true
+    },
+    {
+      "check": "Restart policy",
+      "pass": true
+    },
+    {
+      "check": "Resource bounds",
+      "pass": true
+    },
+    {
+      "check": "Effective process UID",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes index.html",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes app.js",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes styles.css",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes data/knowledge.json",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes data/context.txt",
+      "pass": true
+    },
+    {
+      "check": "HTTP / bytes assets/brand/heuristik-mark.svg",
+      "pass": true
+    },
+    {
+      "check": "Health HTTP response",
+      "pass": true
+    },
+    {
+      "check": "Unknown path rejected",
+      "pass": true
+    },
+    {
+      "check": "Automatic recovery after own process exit",
+      "pass": true
+    },
+    {
+      "check": "Own service recreated",
+      "pass": true
+    },
+    {
+      "check": "Knowledge persists across recreation",
+      "pass": true
+    }
+  ],
+  "process_exit_probe_returncode": 0,
+  "status": "PASS",
+  "image": "sha256:b71c1ebdd6c2cde4d5bc7e7152fdf9f42a29a5bee5f8dc6be566572af4959b98",
+  "health": "healthy",
+  "restart_count": 0,
+  "nginx": "nginx version: nginx/1.30.6",
+  "scope": "Local image/HTTP/content, constraints and optional process-exit/recreation. Not host reboot, frozen-process auto-heal, Pages or human acceptance."
+}

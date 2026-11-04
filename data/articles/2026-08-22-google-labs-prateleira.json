@@ -33,7 +33,7 @@
       "subject": "Google Labs: A Prateleira do Rabelus Lab",
       "relation": "relata",
       "object": "Stitch/Jules/Opal/Stax avaliados",
-      "evidence_excerpt": "oogle Labs: A Prateleira do Rabelus Lab — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #googlelabs #stitch #jules #opal #mcp Google Labs: A Prateleira do Rabelus Lab O Labs não é uma nova subscription: é um radar vivo de experiências que podem virar produtos.",
+      "evidence_excerpt": "Stitch: o plano UX/UI. Recebe linguagem natural, screenshots e wireframes; produz UI, HTML/CSS, exportação para Figma e protótipos multi-tela.",
       "confidence": "relatado",
       "status": "produtos avaliados, não adotados",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -42,7 +42,7 @@
       "subject": "Google Labs: A Prateleira do Rabelus Lab",
       "relation": "delimita",
       "object": " Stax/Pomelli não adotados.",
-      "evidence_excerpt": "oogle Labs: A Prateleira do Rabelus Lab — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 22 AGO 2026 Argenta Fenix #googlelabs #stitch #jules #opal #mcp Google Labs: A Prateleira do Rabelus Lab O Labs não é uma nova subscription: é um radar vivo de experiências que podem virar produtos.",
+      "evidence_excerpt": "Pomelli exibiu um aviso de que dados enviados e gerados podem ser analisados e usados para melhorar a IA do Google. O aceite não foi feito. Stax redirecionou para login e também não foi ativado.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

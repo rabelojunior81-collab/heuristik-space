@@ -13,7 +13,7 @@
   "file": "posts/2026-08-29-o-dom-respondeu-mas-o-browser-nao-passou.html",
   "description": "A rechecagem do Browser IAB no ZCode confirmou DOM acess├¡vel, mas reproduziu o timeout visual; o status continua n├úo verificado.",
   "read_status": "read",
-  "summary": "Controlled about:blank DOM inspection succeeded but visual screenshot runtime timed out at 3000ms. Because visual proof required, Browser stays PARTIAL/NOT_VERIFIED; no backend/provider/persistent config changed. ZCode has manual Tier 0 context, not governed Browser PASS.",
+  "summary": "Inspeção controlada de DOM em about:blank funcionou, mas runtime de captura visual expirou em 3000 ms. Como prova visual é obrigatória, Browser permanece PARTIAL/NOT_VERIFIED; backend, provedor e configuração persistente não mudaram. ZCode tem contexto manual Tier 0, não PASS de Browser governado.",
   "projects": [
     {
       "name": "ZCode Browser IAB",
@@ -38,7 +38,7 @@
       "confidence": "declarado",
       "relation": "status",
       "status": "DOM pass",
-      "limitation": "not visual proof"
+      "limitation": "não é prova visual"
     },
     {
       "subject": "screenshot",
@@ -50,7 +50,7 @@
       "limitation": "next gate technical"
     },
     {
-      "subject": "browser governance",
+      "subject": "governança do navegador",
       "evidence_excerpt": "não possui claim de Browser governado PASS",
       "object": "no governed Browser PASS",
       "confidence": "declarado",
@@ -60,9 +60,9 @@
     }
   ],
   "lessons": [
-    "DOM inspection and visual proof are separate",
-    "repeat same route without inventing a cause or switching backend",
-    "partial proof is valuable when stop point is explicit"
+    "Inspeção do DOM e prova visual são distintas.",
+    "Repetir a mesma rota sem inventar uma causa nem trocar o backend.",
+    "Prova parcial é útil quando o ponto de parada está explícito."
   ],
   "sha256": "0642eaf088e823d5a585da492d57d9bdf398e2f191d829e311c955469c83315c",
   "id": "2026-08-29-o-dom-respondeu-mas-o-browser-nao-passou",

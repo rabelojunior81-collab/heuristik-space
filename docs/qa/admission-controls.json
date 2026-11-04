@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "tests_run": 13,
+  "result": "OK",
+  "command": "python -X utf8 -B -m unittest discover -s tests -v",
+  "scope": "Independent corpus omission, source/hash/quote/article/relation/domain/reference/survey negative controls and parser/term fixtures",
+  "checked_at": "2026-11-04T12:08:43.845156-03:00"
+}

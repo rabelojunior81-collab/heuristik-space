@@ -25,11 +25,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "OpenWebUI exposed via private Tailscale Serve HTTPS, not open LAN port/Funnel.",
-      "evidence_excerpt": "não uma porta aberta na rede nem um Funnel público. O padrão que já funcionou A exposição histórica do OpenWebUI no host Windows usava Tailscale Serve em modo tailnet-only. A URL MagicDNS HTTPS na raiz encaminhava para 127.0.0.1:3000 . A po",
+      "object": "A exposição histórica do OpenWebUI usava Tailscale Serve tailnet-only e HTTPS/MagicDNS para 127.0.0.1:3000; Funnel não fazia parte.",
+      "evidence_excerpt": "A exposição histórica do OpenWebUI no host Windows usava Tailscale Serve em modo tailnet-only. A URL MagicDNS HTTPS na raiz encaminhava para 127.0.0.1:3000. A porta direta existia apenas como diagnóstico; o Funnel público não fazia parte da arquitetura.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

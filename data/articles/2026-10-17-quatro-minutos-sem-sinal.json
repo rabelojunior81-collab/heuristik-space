@@ -40,8 +40,8 @@
     {
       "subject": "Rabelus Buddy",
       "relation": "artigo apresenta como observação/teste narrado",
-      "object": "O agente pensou bem por quatro minutos, e a tela não disse nada.",
-      "evidence_excerpt": "O agente pensou bem por quatro minutos, e a tela não disse nada.",
+      "object": "Uma resposta levou quatro minutos sem atualização visível, segundo o relato.",
+      "evidence_excerpt": "As respostas vieram boas, mas uma delas levou quatro minutos com a tela parada, e depois tudo apareceu de uma vez.",
       "confidence": "relatado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Sessão descrita pelo autor; streaming varia por provedor"

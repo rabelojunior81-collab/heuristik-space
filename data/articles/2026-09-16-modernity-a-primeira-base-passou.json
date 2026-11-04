@@ -13,7 +13,7 @@
   "file": "posts/2026-09-16-modernity-a-primeira-base-passou.html",
   "description": "A retomada Modernity entrou numa base local reproduz├¡vel: fontes preservadas, tr├¬s superf├¡cies rodando e pend├¬ncias sem maquiagem.",
   "read_status": "read",
-  "summary": "Reconstituted local Studio/Anika/Vitrine without caches/builds/secrets, preserved git/data/assets; SHA manifests match compared files, but PostgreSQL bytes and Anika IndexedDB not located. Reinstalled lockfiles and test/build results; seed routine changed to fill missing products only. Secure vault/projection/network set up; sidecar Tailscale stopped due lack of authorization; capabilities explicitly limited; Vitrine not promoted.",
+  "summary": "Studio/Anika/Vitrine locais foram reconstituídos sem caches, builds ou segredos; Git, dados e ativos foram preservados. Manifestos SHA coincidiram nos arquivos comparados, mas bytes do PostgreSQL e IndexedDB da Anika não foram localizados. Lockfiles foram reinstalados e testes/build executados; seed passou a preencher somente produtos ausentes. Cofre, projeção e rede foram preparados; sidecar Tailscale foi parado por falta de autorização; capacidades foram delimitadas e Vitrine não foi promovida.",
   "projects": [
     {
       "status": "base passed; historical database/browser preservation incomplete, not recovery declared",
@@ -40,16 +40,16 @@
   ],
   "claims": [
     {
-      "limitation": "historical DB/browser data absent",
+      "limitation": "dados históricos do banco/navegador ausentes",
       "status": "base but recovery incomplete",
-      "object": "manifests match compared files; PG/IndexedDB not found",
+      "object": "manifestos coincidem nos arquivos comparados; PostgreSQL/IndexedDB não localizados",
       "confidence": "declarado",
       "relation": "integrity",
       "subject": "preservation",
       "evidence_excerpt": "Mídia preservada não é banco restaurado."
     },
     {
-      "limitation": "no paid AI calls; does not prove features",
+      "limitation": "sem chamadas pagas de IA; não comprova funcionalidades",
       "status": "host checks reported",
       "object": "Studio 46 FE +6 BE; Anika 49 tests",
       "confidence": "declarado",
@@ -58,7 +58,7 @@
       "evidence_excerpt": "A Anika passou typecheck, 49 testes e build."
     },
     {
-      "limitation": "UI should not imply success",
+      "limitation": "a interface não deve sugerir sucesso",
       "status": "explicitly unavailable",
       "object": "chat/title/doc via gateway; web/Live/image/music unavailable",
       "confidence": "declarado",
@@ -67,7 +67,7 @@
       "evidence_excerpt": "pesquisa web, Live, imagem e música permanecem indisponíveis"
     },
     {
-      "limitation": "requires export and leakage gates",
+      "limitation": "requer gates de exportação e prevenção de vazamento",
       "status": "not published",
       "object": "not promoted due uncommitted inherited work",
       "confidence": "declarado",
@@ -77,10 +77,10 @@
     }
   ],
   "lessons": [
-    "preserve before rebuilding, but do not claim DB/browser recovery from file hashes",
-    "additive seed rather than overwrite protects catalog",
+    "Preservar antes de reconstruir, mas não alegar recuperação do banco/navegador com base apenas em hashes de arquivo.",
+    "Seed aditivo, em vez de sobrescrita, protege o catálogo.",
     "loopback/internal network and minimal projection reduce exposure",
-    "disabled integration must fail clearly, not look successful"
+    "a integração desativada deve falhar com clareza, sem parecer bem-sucedida"
   ],
   "sha256": "222fb851351b55d953ed510fab83a1d5dd51abbf87d929e70e8ab3ede74907a1",
   "id": "2026-09-16-modernity-a-primeira-base-passou",

@@ -41,11 +41,11 @@
     {
       "subject": "LARS Rabelus",
       "relation": "relatou",
-      "object": "Tower Defense and game remain future; no implementation started.",
-      "evidence_excerpt": "o jogo não foi iniciado",
+      "object": "Tower Defense permanecia uma aplicação futura, condicionada aos gates da missão; o post afirma que o jogo ainda não havia começado.",
+      "evidence_excerpt": "Tower Defense permanece como primeira aplicação, com missão própria e suas referências visuais, depois que os gates desta missão permitirem avançar.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

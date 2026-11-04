@@ -43,8 +43,8 @@
     {
       "subject": "Quantum Bus update skills",
       "relation": "artigo declara ou limita o escopo",
-      "object": "A Auditoria que Vira Rotina",
-      "evidence_excerpt": "A Auditoria que Vira Rotina",
+      "object": "O cronjob está proposto em modo observacional, sem ações de atualização ou publicação.",
+      "evidence_excerpt": "O cronjob proposto também começa observando: gera JSONL/Markdown, alerta sobre drift e não instala, reinicia, publica ou ativa nada.",
       "confidence": "declarado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Cron not active; no authorization automatic"

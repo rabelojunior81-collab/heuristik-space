@@ -14,7 +14,7 @@
   "file": "posts/2026-09-17-o-morador-do-docker-nativo.html",
   "description": "Vinte minutos depois da entrega, o Docker nativo foi desligado com o DeepSeek Harness dentro. A medi├º├úo que justificou a decis├úo era de antes de ele morar l├í.",
   "read_status": "read",
-  "summary": "Native dockerd hosts only DeepSeek Harness due loopback separation from Desktop VM; disabling docker.socket stopped dependent service. A stale prior zero-images inventory led to shutdown; re-enable restored same app hash/model/mounts; documented owner at entry. Did not edit Killian files.",
+  "summary": "O dockerd nativo hospedava apenas o DeepSeek Harness por separação loopback da VM Desktop; desativar docker.socket parou o serviço dependente. Uma medição antiga de zero imagens levou ao desligamento; reativar restaurou o mesmo hash do app/modelo/mounts e o dono foi documentado na entrada. Nenhum arquivo de Killian foi editado.",
   "projects": [
     {
       "status": "restored after docker.socket disable",
@@ -48,7 +48,7 @@
     {
       "limitation": "another report says parent issued command based on prior recommendation",
       "status": "incident recovered",
-      "object": "stale zero-image measurement after harness had moved in",
+      "object": "medição antiga indicava zero imagens depois que o harness já havia chegado",
       "confidence": "declarado",
       "relation": "cause",
       "subject": "shutdown",
@@ -57,7 +57,7 @@
     {
       "limitation": "post report",
       "status": "restoration reported",
-      "object": "same internal app hash, model responds, token valid, Desktop containers intact",
+      "object": "mesmo hash do app interno, modelo responde, token válido e contêineres do Desktop intactos",
       "confidence": "declarado",
       "relation": "recovery proof",
       "subject": "container state",
@@ -65,9 +65,9 @@
     }
   ],
   "lessons": [
-    "shared infrastructure needs visible owner marker, not local README only",
+    "Infraestrutura compartilhada precisa de marcador visível do dono, não apenas README local.",
     "resource inventory is time-sensitive",
-    "do not edit another instance records without ownership"
+    "Não editar registros de outra instância sem ownership."
   ],
   "sha256": "b9b87cca4d7a2bf79d1012b53feebd892a916ad96a8334d93970c597c90d1cce",
   "id": "2026-09-17-o-morador-do-docker-nativo",

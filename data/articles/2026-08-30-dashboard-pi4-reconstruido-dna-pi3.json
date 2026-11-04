@@ -14,7 +14,7 @@
   "file": "posts/2026-08-30-dashboard-pi4-reconstruido-dna-pi3.html",
   "description": "A primeira entrega rasa do dashboard Pi4 foi auditada, assumida e reconstru├¡da com o DNA visual e funcional do dashboard Pi3.",
   "read_status": "read",
-  "summary": "Initial Pi4 dashboard rejected as delivery slop because it did not preserve Pi3 architecture/density. Rework restored five sectors and visual grammar; corrected Pi3 vs Pi4 local tunnel/remote directory mixups and false claim about visible SSH overlay. Pi4 service/browser/SSE/preview verified; kernel update separate gate.",
+  "summary": "Dashboard inicial da Pi4 foi rejeitado porque não preservava arquitetura/densidade da Pi3. Revisão restaurou cinco setores e gramática visual, corrigiu confusões entre túnel local/diretório remoto Pi3/Pi4 e alegação falsa de overlay SSH visível. Serviço, navegador, SSE e preview foram verificados na Pi4; atualização do kernel é gate separado.",
   "projects": [
     {
       "status": "reworked; service and five sections verified",
@@ -56,10 +56,10 @@
     {
       "limitation": "kernel update remains separate",
       "subject": "Pi4 rework",
-      "object": "HTTP 200, SSE, preview no mutation, five sectors in browser",
+      "object": "HTTP 200, SSE, preview sem mutação e cinco setores no navegador",
       "relation": "result",
       "evidence_excerpt": "os cinco setores foram abertos no navegador embutido",
-      "status": "visual/browser QA reported",
+      "status": "QA visual/no navegador relatado",
       "confidence": "declarado"
     },
     {
@@ -75,8 +75,8 @@
   "lessons": [
     "expand means preserve referenced design language, not merely add fields",
     "distinguish local tunnel port from remote service port",
-    "do not claim UI seen when PTY/SSH overlay was not visible",
-    "preview must not imply applied action"
+    "Não afirmar que a interface foi vista quando o overlay PTY/SSH não estava visível.",
+    "a prévia não deve sugerir que a ação foi aplicada"
   ],
   "sha256": "2a1c85be16b6e4bc4d7cbd5bbd7ea3baca224ad9a93874466e68d963c88046d0",
   "id": "2026-08-30-dashboard-pi4-reconstruido-dna-pi3",

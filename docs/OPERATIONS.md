@@ -22,7 +22,7 @@ Atualizar: consultar release/tag estável, resolver digest, revisar diff, regist
 
 1. Abrir run com intenção, versão e contrato. Conferir CNAME vigente do Blog e autorização do corte. Fonte nova exige leitura integral/revisão; contrato não é derivado da saída.
 2. `python scripts/inspect_blog.py --blog ../lars-rabelus/blog` cria recibo novo de manifesto/HTTP/TLS/hash/diferenças. É snapshot, não monitoramento permanente.
-3. Consolidar relatórios/relações. `python scripts/build_data.py --blog ../lars-rabelus/blog --output .runtime/candidate-N/data` recusa diretório existente e não escreve na base servida.
+3. Consolidar relatórios/relações. `python scripts/build_data.py --blog ../lars-rabelus/blog --output .runtime/candidate-N/data --blog-survey docs/runs/SURVEY/blog-status.json` recusa diretório existente e não escreve na base servida.
 4. `python scripts/validate.py --data .runtime/candidate-N/data --out docs/runs/RUN/admission.json`. FAIL bloqueia promoção.
 5. Conferir semântica/controles negativos. `python scripts/promote.py --candidate .runtime/candidate-N/data --run docs/runs/RUN --blog-survey docs/runs/SURVEY/blog-status.json` exige vistoria PASS da mesma origem/corte e deste ciclo diário. Base anterior fica preservada em `.runtime`.
 6. QA real em 375/390/1440, testes, review consultivo e tratamento dos achados. Atualizar estado/changelog e sincronizar caminhos próprios.
@@ -31,3 +31,11 @@ Atualizar: consultar release/tag estável, resolver digest, revisar diff, regist
 ## Falha ou interrupção
 
 Cada tentativa tem run próprio. Se existir `.runtime/promotion-pending.json`, conferir intenção, estágio, backup e base antes de recuperação explícita. Não apagar a barreira para tentar novamente. DNS/TLS não autorizam desligar HTTPS nem mudar domínio por inferência. Reverter somente delta próprio, preservando histórico e posses alheias.
+
+## Rotina completa registrada
+
+`python scripts/ingest.py --blog ../lars-rabelus/blog` cria um run novo, registra intenção/etapas/falhas com horárioUTC e fsync, vistoria o Blog, gera candidato separado e executa admissão mais controles negativos. `--promote` instala apenas a base local depois desses gates; publicação ainda exige QA, revisão e selo. As evidências ficam em docs/runs e o candidato em .runtime.
+
+A edição0.1.0 tem373 fontes; futuras edições usam o tamanho declarado no contrato de entrada, não um contador produzido pela saída. Novo corte exige revisão versionada de contrato/corpus/manifesto e recibos dos artigos afetados. O workflow de Pages rejeita objeto diferente do manifesto revisado e recibos nãoPASS. Não há cron de publicação nem chamada automática a modelos.
+
+O servidor usa um worker NGINX para a cota de 0,5 CPU. A imagem declara versão do aplicativo0.1.0; revisão Git não é inferida de labels da base. Identidade do runtime é conferida por imagem e hashes de conteúdo nos recibos.

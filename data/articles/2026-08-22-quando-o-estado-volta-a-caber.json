@@ -13,7 +13,7 @@
   "file": "posts/2026-08-22-quando-o-estado-volta-a-caber.html",
   "description": "A reconcilia├º├úo que renovou o Quantum Bus, condensou mem├│ria sem apagar hist├│ria, corrigiu 21 omiss├Áes editoriais e sincronizou a Casa Hermes.",
   "read_status": "read",
-  "summary": "Reconciles Bus/genome/Blog drift in controlled plan: 159 events archived with zero missing vs source; aggregate condensed 77KB red→47KB green with archives; materializes current Hermes genome/ownership; Blog manifest rebuilt 88→109 preserving post metadata/hash. Owner closed Pi Agent and VS Code Remote; memory/swap improved without swapoff/restart.",
+  "summary": "Plano controlado reconciliou divergências de Bus/genoma/Blog: 159 eventos arquivados sem ausências frente à origem; agregado condensado de 77 KB RED para 47 KB GREEN com histórico preservado; genoma/ownership Hermes materializados; manifesto do Blog reconstruído de 88 para 109, preservando metadados/hash. Dono encerrou Pi Agent e VS Code Remote; memória/swap melhoraram sem swapoff ou restart.",
   "projects": [
     {
       "name": "Quantum Bus/Hermes genome/Blog reconciliation",
@@ -36,20 +36,22 @@
   ],
   "claims": [
     {
-      "object": "159 events; first 159 source lines matched with zero missing",
+      "object": "159 eventos; as primeiras 159 linhas da origem coincidiram, sem ausências",
       "evidence_excerpt": "encontrou zero ausências",
       "subject": "events",
       "confidence": "declarado",
       "status": "verified",
-      "relation": "archive"
+      "relation": "archive",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
-      "object": "77KB RED to 47KB GREEN without ontology deletion",
+      "object": "de 77 KB em RED para 47 KB em GREEN, sem excluir a ontologia",
       "evidence_excerpt": "O resultado caiu para 47 KB, GREEN, sem deletar ontologia.",
       "subject": "aggregate",
       "confidence": "declarado",
       "status": "compaction/archive",
-      "relation": "size"
+      "relation": "size",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "object": "88 listed vs 109 files; 21 posts reconciled",
@@ -57,11 +59,12 @@
       "subject": "Blog manifest",
       "confidence": "declarado",
       "status": "reconciled post publication",
-      "relation": "drift"
+      "relation": "drift",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "limitation": "system owner closed processes",
-      "object": "memory/swap improved after owner closed Pi/VS Code tasks",
+      "object": "memória/swap melhoraram após o proprietário encerrar tarefas do Pi/VS Code",
       "evidence_excerpt": "Nenhum swapoff, zram ou restart foi necessário.",
       "subject": "host resources",
       "confidence": "declarado",
@@ -70,10 +73,10 @@
     }
   ],
   "lessons": [
-    "consolidation consumes events but preserves source archive",
-    "hot-state compaction should preserve ontology/archaeology",
-    "each copy must have correct owner and consumer reread",
-    "close owner-specific resources, not shared infrastructure indiscriminately"
+    "a consolidação consome eventos, mas preserva o arquivo-fonte",
+    "Compactação do estado quente deve preservar ontologia/arqueologia.",
+    "Cada cópia deve ter dono correto e releitura pelo consumidor.",
+    "encerre recursos do proprietário específico, sem encerrar indiscriminadamente a infraestrutura compartilhada"
   ],
   "sha256": "8a1e09f176cafb4eee00e89d12c1fa0be29b03820a77e251813b39bbef69dc09",
   "id": "2026-08-22-quando-o-estado-volta-a-caber",

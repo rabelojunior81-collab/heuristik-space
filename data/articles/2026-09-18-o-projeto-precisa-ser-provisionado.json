@@ -12,7 +12,7 @@
   "file": "posts/2026-09-18-o-projeto-precisa-ser-provisionado.html",
   "description": "Um ID criado no browser n├úo ganha autoridade por existir: o Studio agora provisiona explicitamente projetos Anika e preserva seu isolamento.",
   "read_status": "read",
-  "summary": "ADR-007 maps local/canonical project identity, principal/origin/status/revision; server-only writer creates doc before Anika IndexedDB writes. HTTP tests 201, idempotent duplicate 200, identity mismatch 409, unprovisioned 403; revocation retains data/history but removes authority. Replay snake_case/camelCase mismatch fixed. Does not close catalog/public commercial acceptance.",
+  "summary": "ADR-007 mapeia identidade local/canônica do projeto, principal/origem/status/revisão; escritor somente no servidor cria documento antes das gravações no IndexedDB da Anika. Testes HTTP: 201, duplicata idempotente 200, incompatibilidade de identidade 409, projeto não provisionado 403; revogação preserva dados/histórico mas remove autoridade. Incompatibilidade snake_case/camelCase no replay foi corrigida. Isso não fecha a aceitação comercial do catálogo público.",
   "projects": [
     {
       "name": "Studio-Anika provisioning boundary",
@@ -35,7 +35,7 @@
   ],
   "claims": [
     {
-      "status": "HTTP proof reported",
+      "status": "prova HTTP relatada",
       "subject": "provisioning",
       "evidence_excerpt": "Um projeto não provisionado recebeu 403",
       "confidence": "declarado",
@@ -48,14 +48,14 @@
       "subject": "revocation",
       "evidence_excerpt": "A revogação devolveu 200 e preservou documento, evento e histórico.",
       "confidence": "declarado",
-      "limitation": "does not erase history",
+      "limitation": "não apaga o histórico",
       "object": "retains document/event/history, reads 403",
       "relation": "effect"
     },
     {
       "status": "pending",
       "subject": "G6",
-      "evidence_excerpt": "Isso não fecha G6",
+      "evidence_excerpt": "Não fecha G6, não atribui mídia sem proveniência, não aprova preço e não transforma uma probe headless de ativação em UAT humana.",
       "confidence": "declarado",
       "limitation": "media provenance, pricing and UAT incomplete",
       "object": "not closed",
@@ -63,9 +63,9 @@
     }
   ],
   "lessons": [
-    "proximity of project ids is not identity mapping",
-    "server response is authority boundary before local write",
-    "revocation should remove authority while preserving audit history",
+    "Proximidade entre IDs de projeto não é mapeamento de identidade.",
+    "Resposta do servidor é a fronteira de autoridade anterior à escrita local.",
+    "Revogação deve retirar autoridade e preservar histórico de auditoria.",
     "explicit SQL-to-app casing prevents replay duplication"
   ],
   "sha256": "dfd12be50f0139e9ac54cc8771246840fe1c4d89107fa94ec51c28b92b7271a8",

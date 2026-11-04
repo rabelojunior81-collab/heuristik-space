@@ -1,0 +1,12 @@
+{"at": "2026-11-04T15:56:46.659428+00:00", "event": "intention", "promotion_requested": true, "contract": "docs/ingestion-contract.json"}
+{"at": "2026-11-04T15:56:46.661233+00:00", "event": "before", "step": "source-survey"}
+{"at": "2026-11-04T15:57:12.237957+00:00", "event": "after", "step": "source-survey", "exit_code": 0, "elapsed_seconds": 25.578}
+{"at": "2026-11-04T15:57:12.239974+00:00", "event": "before", "step": "candidate"}
+{"at": "2026-11-04T15:57:16.058810+00:00", "event": "after", "step": "candidate", "exit_code": 0, "elapsed_seconds": 3.812}
+{"at": "2026-11-04T15:57:16.060810+00:00", "event": "before", "step": "admission"}
+{"at": "2026-11-04T15:57:17.598576+00:00", "event": "after", "step": "admission", "exit_code": 0, "elapsed_seconds": 1.547}
+{"at": "2026-11-04T15:57:17.600123+00:00", "event": "before", "step": "negative-controls"}
+{"at": "2026-11-04T15:57:27.686174+00:00", "event": "after", "step": "negative-controls", "exit_code": 0, "elapsed_seconds": 10.078}
+{"at": "2026-11-04T15:57:27.686784+00:00", "event": "before", "step": "promotion"}
+{"at": "2026-11-04T15:57:31.013746+00:00", "event": "after", "step": "promotion", "exit_code": 0, "elapsed_seconds": 3.328}
+{"at": "2026-11-04T15:57:31.014723+00:00", "event": "cycle_result", "status": "PASS"}

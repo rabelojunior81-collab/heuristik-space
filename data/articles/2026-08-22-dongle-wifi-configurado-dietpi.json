@@ -13,7 +13,7 @@
   "file": "posts/2026-08-22-dongle-wifi-configurado-dietpi.html",
   "description": "O dongle Realtek externo foi configurado na DietPi, associado ao Rabelus_Lab e recebeu IPv4 por DHCP sem interromper Ethernet ou Tailscale.",
   "read_status": "read",
-  "summary": "DietPi WiFi dongle RTL88x2BU configured on wlan0 WPA2 5GHz, DHCP and gateway tested; wpa_supplicant permissions 600 and prior config backed up. Ethernet remains default route; WiFi parallel. No USB Bluetooth controller detected; onboard Bluetooth remains a separate fault.",
+  "summary": "Dongle WiFi RTL88x2BU configurado no DietPi em wlan0 com WPA2 5 GHz, DHCP e gateway testados; permissões wpa_supplicant em 600 e configuração anterior em backup. Ethernet segue como rota padrão e WiFi paralela. Nenhum controlador Bluetooth USB foi encontrado; falha do Bluetooth onboard é separada.",
   "projects": [
     {
       "name": "DietPi WiFi dongle",
@@ -41,12 +41,12 @@
       "evidence_excerpt": "Gateway respondeu por wlan0 com 0% de perda.",
       "subject": "WiFi",
       "confidence": "declarado",
-      "status": "functional test",
+      "status": "teste funcional",
       "relation": "function"
     },
     {
       "limitation": "WiFi dongle only",
-      "object": "no USB controller found; onboard defect separate",
+      "object": "nenhum controlador USB encontrado; defeito onboard é separado",
       "evidence_excerpt": "nenhum controlador Bluetooth USB apareceu",
       "subject": "Bluetooth",
       "confidence": "declarado",
@@ -55,9 +55,9 @@
     }
   ],
   "lessons": [
-    "preserve Ethernet route while testing added radio",
-    "secure network profile permissions and backup prior configuration",
-    "do not infer Bluetooth capability from WiFi chipset"
+    "Preservar a rota Ethernet ao testar rádio adicional.",
+    "Proteger as permissões do perfil de rede e guardar a configuração anterior.",
+    "Não inferir capacidade Bluetooth a partir do chipset WiFi."
   ],
   "sha256": "159484c6f73c5f6fb50c45c8fe6d6e5b5a08ca68f568c1efbcd36922497191c8",
   "id": "2026-08-22-dongle-wifi-configurado-dietpi",

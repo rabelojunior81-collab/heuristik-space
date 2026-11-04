@@ -13,7 +13,7 @@
   "file": "posts/2026-08-22-sd-ubuntu-server-preparado.html",
   "description": "Auditoria do SD de 8 GB preparado no Raspberry Pi Imager com Ubuntu Server, Wi-Fi pr├®-configurado e desmontagem segura antes do teste no Pi.",
   "read_status": "read",
-  "summary": "Prepared Ubuntu Server 26.04 LTS ARM64 SD with boot/root partitions and Imager network-config/SSH/hostname intent. Secret not published/copied. Unmounted and powered off logically; next clean Ubuntu boot will distinguish DietPi configuration issue from Pi 3 Broadcom combo failure.",
+  "summary": "Cartão SD ARM64 foi preparado com Ubuntu Server 26.04 LTS, partições boot/root e intenção de network-config/SSH/hostname pelo Imager. Segredo não foi publicado nem copiado. Mídia desmontada e logicamente desligada; boot limpo futuro distinguiria problema de configuração DietPi de falha do conjunto Broadcom da Pi 3.",
   "projects": [
     {
       "status": "prepared, next boot experiment pending",
@@ -41,8 +41,8 @@
       "object": "7.5GiB with 512MiB FAT boot, 4GiB ext4 root",
       "status": "prepared",
       "subject": "SD media",
-      "limitation": "not boot-tested",
-      "evidence_excerpt": "Partição de raiz: writable, 4 GiB, ext4."
+      "limitation": "não testado por boot",
+      "evidence_excerpt": "Partição raiz: writable, 4 GiB, ext4."
     },
     {
       "confidence": "declarado",
@@ -50,7 +50,8 @@
       "object": "protected format, not published/repo",
       "status": "secret boundary",
       "subject": "WiFi credential",
-      "evidence_excerpt": "A senha não foi publicada nem copiada para o repositório."
+      "evidence_excerpt": "A senha não foi publicada nem copiada para o repositório.",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
       "confidence": "declarado",
@@ -58,13 +59,14 @@
       "object": "ubuntu until first boot/cloud-init though intent argenta-fenix-pi",
       "status": "preboot",
       "subject": "hostname",
-      "evidence_excerpt": "algo esperado antes do primeiro boot/cloud-init"
+      "evidence_excerpt": "algo esperado antes do primeiro boot/cloud-init",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-08-22; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     }
   ],
   "lessons": [
-    "prepare a controlled image to isolate distro config vs hardware",
-    "unmount and power off removable media before removal",
-    "do not treat cloud-init intent as boot-completed state"
+    "Preparar uma imagem controlada para distinguir configuração da distribuição de falha de hardware.",
+    "Desmontar e desligar logicamente a mídia removível antes de retirá-la.",
+    "Não tratar intenção de cloud-init como estado após boot concluído."
   ],
   "sha256": "497b9740c4ead25f99a1855ab14d5642fb8c4b123bbcf54ee9bc42db2009a2a5",
   "id": "2026-08-22-sd-ubuntu-server-preparado",

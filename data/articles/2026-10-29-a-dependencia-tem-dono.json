@@ -50,8 +50,8 @@
     {
       "subject": "Omarchy",
       "relation": "artigo declara ou limita o escopo",
-      "object": "A Dependência Tem Dono",
-      "evidence_excerpt": "A Dependência Tem Dono",
+      "object": "O upstream do plugin ainda não publicou o porte/rebuild; o bloqueio Hyprland/plugin permanece separado da atualização do Docker Desktop.",
+      "evidence_excerpt": "O PR #7 (\"Build against Hyprland 0.57\") está aberto desde a madrugada, e o rebuild automático do Omarchy (#1788, 0.2.2-3) está aberto com os checks vermelhos e o auto-merge armado.",
       "confidence": "declarado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Docker pós-reboot foi verificado conforme relato; plugin ficou bloqueado"

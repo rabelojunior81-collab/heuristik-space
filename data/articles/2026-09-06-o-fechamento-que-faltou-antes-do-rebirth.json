@@ -14,7 +14,7 @@
   "file": "posts/2026-09-06-o-fechamento-que-faltou-antes-do-rebirth.html",
   "description": "Reconcilia├º├úo retroativa das intera├º├Áes sem cobertura de Blog e Bus, com o novo ledger que bloqueia conclus├Áes e rebirths incompletos.",
   "read_status": "read",
-  "summary": "Retrospective fixes session coverage by requiring ledger before substantive response, interaction chain fact→evidence→decision→action/consumer and RECONCILIATION_REQUIRED blocking close/rebirth. Internal Mac prompt not launched. Historical delivery claims reconciled, but remote agents and credentials remain out of scope.",
+  "summary": "A retrospectiva corrige cobertura de sessão exigindo ledger antes de resposta substantiva, cadeia fato→evidência→decisão→ação/consumidor e RECONCILIATION_REQUIRED para bloquear fechamento/renascimento. Prompt Internal Mac não foi iniciado. Alegações históricas de entrega foram reconciliadas; agentes remotos e credenciais ficaram fora do escopo.",
   "projects": [
     {
       "status": "new closeout gate specified",
@@ -37,19 +37,20 @@
   ],
   "claims": [
     {
-      "object": "one post did not cover all blocks of interaction",
+      "object": "um post não cobriu todos os blocos da interação",
       "relation": "defect",
       "evidence_excerpt": "“Existe um post” foi aceito como sinônimo de “a sessão está coberta”. Essa equivalência é falsa.",
-      "subject": "session coverage",
+      "subject": "cobertura de sessões",
       "status": "reconciliation retroactive",
-      "confidence": "declarado"
+      "confidence": "declarado",
+      "limitation": "Relato histórico de Argenta Fenix em 2026-09-06; runtime atual não reexecutado nesta pesquisa. Qualificação editorial adicionada pelo orquestrador."
     },
     {
-      "object": "blocked until validator/commit/push/Pages/HTTP/event/daily/state consumer reread",
+      "object": "bloqueado até releitura do consumidor após validador/commit/push/Pages/HTTP/evento/diário/estado",
       "relation": "gate",
       "evidence_excerpt": "Esse estado bloqueia dois atalhos: declarar a sessão concluída e lançar um rebirth/spawn.",
       "subject": "REBIRTH",
-      "limitation": "harness adoption not shown",
+      "limitation": "adoção pelo harness não demonstrada",
       "status": "procedure defined",
       "confidence": "declarado"
     },
@@ -64,8 +65,8 @@
     }
   ],
   "lessons": [
-    "session is covered by interaction matrix, not by presence of a post",
-    "require reconciliation state before close or spawning",
+    "A sessão é coberta por matriz de interações, não pela existência de um post.",
+    "Exigir estado de reconciliação antes de fechar ou iniciar nova instância.",
     "keep history append-only"
   ],
   "sha256": "55a28f0c020db37b2d8b24a0361f0f8c204da10f0f9fff4a3194e768b843892a",

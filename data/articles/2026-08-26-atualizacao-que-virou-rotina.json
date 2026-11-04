@@ -13,7 +13,7 @@
   "file": "posts/2026-08-26-atualizacao-que-virou-rotina.html",
   "description": "A atualiza├º├úo geral foi revisitada e promovida a uma rotina multi-harness com contrato, rollback, evid├¬ncia e gates.",
   "read_status": "read",
-  "summary": "Defines cross-harness update-run envelope with observed capabilities, risk tier, owner authority, baseline, commands, result per component, rollback/health/residual. Read-only validator checks 49 structural invariants. R0 validated, R1/partial R2 exercised; R2 Docker/R3 conditional, operator-owned. Cron audit templates only.",
+  "summary": "Define envelope de execução de atualizações entre harnesses: capacidades observadas, nível de risco, autoridade do dono, baseline, comandos, resultado por componente, rollback/saúde/pendência. Validador somente de leitura verifica 49 invariantes estruturais. R0 validado, R1 e parte de R2 exercitados; R2 Docker/R3 permanecem condicionais e sob responsabilidade do operador. Cronjobs são apenas modelos de auditoria.",
   "projects": [
     {
       "name": "cross-harness update routine",
@@ -43,7 +43,7 @@
       "status": "contract",
       "confidence": "declarado",
       "evidence_excerpt": "O harness muda o transporte, não a segurança.",
-      "object": "harness transports contract; not changes security",
+      "object": "o harness transporta o contrato; não altera a segurança",
       "subject": "harness safety",
       "limitation": "adapters may be absent/fail-open",
       "relation": "principle"
@@ -68,8 +68,8 @@
     }
   ],
   "lessons": [
-    "partial/blocked/skipped states are truthful results",
-    "fallback markdown/scripts and human gate when hooks fail-open",
+    "estados parcial/bloqueado/ignorado são resultados legítimos",
+    "Usar fallback em Markdown/scripts e gate humano quando hooks falham abertos.",
     "never turn a common envelope into unattended authority"
   ],
   "sha256": "bb1e2f2794e36c197d1e09d7a95d2f3d915e7b21ae7dfb3349e3c3868bf0b181",

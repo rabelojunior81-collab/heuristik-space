@@ -1,0 +1,1771 @@
+[
+  {
+    "id": "lars-voice-review-publicacao",
+    "node_ids": [
+      "voice-forge",
+      "review"
+    ],
+    "source_ids": [
+      "2026-11-03-a-voz-que-saiu-do-prompt"
+    ],
+    "relation_type": "relatado",
+    "subject": "Voice Forge 2.3.0–2.3.2",
+    "object": "Revisão tardia e reparos dos contratos",
+    "problem": "A publicação antecedeu o veredito; rotas eram capturadas e áudio incompleto podia retornar sucesso.",
+    "solution": "Reproduzir achados no serviço, corrigir rotas, aliases, integridade de áudio e atribuição de falantes; ampliar testes.",
+    "result": "O relato registra versões2.3.1/2.3.2 e55testes, com nove ocorrências tratadas após revisões.",
+    "limitations": "A suíte maior e a transcrição não substituem audição, uso pelo aplicativo ou inspeção atual do serviço.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-voz-que-saiu-do-prompt",
+        "excerpt": "O erro de método não foi técnico. Foi de sequência: eu publiquei antes do veredito que eu mesma havia pedido."
+      }
+    ],
+    "lesson": "O gate de revisão deve bloquear a promoção do mesmo artefato que será entregue.",
+    "next_step": "Conferir versão no consumidor e exigir review antes da próxima promoção.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "voice-review-publicacao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-voice-dialogo",
+    "node_ids": [
+      "voice-forge",
+      "gemini-live"
+    ],
+    "source_ids": [
+      "2026-11-03-a-voz-que-saiu-do-prompt"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Voice Forge",
+    "object": "Diálogo estruturado e síntese por turno",
+    "problem": "O parser de rótulos atribuía voz errada e pedidos com três falantes excediam o contrato de uma requisição.",
+    "solution": "Declarar falante por turno, validar o legado e sintetizar por turno para mais de dois falantes ou vozes personalizadas.",
+    "result": "O ensaio real encontrou que o caminho legado ainda usava requisição única; a imagem e o teste foram corrigidos.",
+    "limitations": "Evolução descrita no serviço naquele dia; timbre, ritmo e pronúncia ainda dependiam da escuta humana.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-voz-que-saiu-do-prompt",
+        "excerpt": "Quando o diálogo não cabe em uma requisição — mais de dois falantes, ou voz personalizada — o motor sintetiza turno por turno e informa isso na resposta."
+      }
+    ],
+    "lesson": "Um fallback precisa cobrir todos os formatos de entrada, inclusive o legado.",
+    "next_step": "Exercitar dois e três falantes nos clientes consumidores, verificar vozes e duração.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "voice-dialogo",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-dsh-camada-versao",
+    "node_ids": [
+      "docker",
+      "native"
+    ],
+    "source_ids": [
+      "2026-11-03-a-versao-era-do-conteiner"
+    ],
+    "relation_type": "relatado",
+    "subject": "DeepSeek Harness no Omarchy",
+    "object": "Identificação da instalação por camada",
+    "problem": "Um diagnóstico tomou a versão antiga de uma imagem Docker como se fosse a instalação atual do host; o agente padrão também havia mudado.",
+    "solution": "Medir binário, endereço e origem do atalho; preservar estado, arquivar contêiner e configurar instalação nativa solicitada.",
+    "result": "O post registra resposta realok do provider e reparo do wrapper que abre o serviço sob demanda.",
+    "limitations": "Caso do host Omarchy de Killian; não é estado atual do Windows ou do Hermes.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-versao-era-do-conteiner",
+        "excerpt": "A versão não pertence ao nome; pertence ao endereço onde aquele binário roda."
+      }
+    ],
+    "lesson": "Nome de ferramenta sem host/processo/endereço torna uma medição ambígua.",
+    "next_step": "Antes de atualizar, localizar executável, processo, porta e consumidor efetivo.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "dsh-camada-versao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-dsh-arquivar-ponteiros",
+    "node_ids": [
+      "native",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-11-03-a-versao-era-do-conteiner"
+    ],
+    "relation_type": "relatado",
+    "subject": "Arquivamento do DeepSeek Harness",
+    "object": "Recontagem dos chamadores",
+    "problem": "O atalho deApps apontava para um script movido ao arquivo, causando desaparecimento do menu.",
+    "solution": "Refazer wrapper com partida sob demanda, validação do token do próprio processo e recusa de porta ocupada por serviço alheio.",
+    "result": "O artigo registra reconstrução do caminho de abertura após o arquivamento.",
+    "limitations": "Token permanece no runtime privado; a pesquisa não copia nem opera esse segredo.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-versao-era-do-conteiner",
+        "excerpt": "Arquivar tem duas partes: mover o objeto e recontar quem o chamava."
+      }
+    ],
+    "lesson": "Arquivamento e rollback devem mapear referências de entrada e não apenas preservar arquivos.",
+    "next_step": "Inventariar atalhos, serviços e consumidores ao mudar caminhos.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "dsh-arquivar-ponteiros",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-case-extra-001",
+    "node_ids": [
+      "rabelus-buddy",
+      "review",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-11-02-o-alarme-na-sala-vazia"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Rabelus Buddy: contenção do Codex no macOS e conferência de CI",
+    "object": "Comando contido sem acesso à rede local; resultado das rotinas agendadas visível na abertura da sessão.",
+    "problem": "Os testes completos falhavam por duas semanas apenas no Mac e o resultado não chegava à superfície que o autor consultava. A contenção permitia ao comando acessar programas escutando no próprio computador, inclusive banco e servidor de desenvolvimento.",
+    "solution": "Executar o comando contido sem internet no Mac, registrando a justificativa; mostrar no início da sessão os resultados das rotinas agendadas.",
+    "result": "O artigo registra a correção da brecha e da observabilidade da rotina; não relata nova rodada posterior dos testes Mac que comprove a correção em todos os cenários.",
+    "limitations": "Mudança descrita somente para macOS; Windows e Linux permaneceram sem alteração. Estado histórico relatado, sem inspeção do código ou runtime atual.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato direto no post; implementação e resultado atual não verificados independentemente.",
+    "evidence": [
+      {
+        "source_id": "2026-11-02-o-alarme-na-sala-vazia",
+        "excerpt": "No Mac, o comando contido agora roda sem internet, e o registro diz por quê."
+      }
+    ],
+    "lesson": "Um ensaio de contenção deve incluir o acesso a listeners locais; execução agendada também precisa entregar seu resultado a quem a supervisiona.",
+    "next_step": "Em revisão futura, conferir a política de rede específica do macOS e provar tanto bloqueio de listeners locais quanto visibilidade do resultado de CI.",
+    "occurred_at": "2026-11-02",
+    "incident_key": "2026-11-02-o-alarme-na-sala-vazia",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-case-extra-009",
+    "node_ids": [
+      "voice-forge",
+      "hermes"
+    ],
+    "source_ids": [
+      "2026-10-30-a-voz-volta-para-casa"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Integração do Voice Forge ao TTS do Hermes Desktop",
+    "object": "Configuração do provedor e cinco chaves de compatibilidade, exercitadas pela mesma função de fala que o aplicativo chama.",
+    "problem": "A voz que existia em outra instância não estava disponível no Hermes Desktop; memória não esclarecia o caminho de execução nem o contrato efetivo do app.",
+    "solution": "Inspecionar o código consumidor e a função TTS, então configurar o provedor OpenAI-compatible, modelo, voz e chave local exigida pelo SDK. A função real foi chamada, e o MP3 retornado foi transcrito para conferir o roteiro.",
+    "result": "O post relata áudio de 13,28 segundos, transcrição integral do roteiro, sem vazamento de direção ou truncamento. Isso demonstra o caminho exercitado naquele momento, não disponibilidade atual.",
+    "limitations": "A transcrição errou o nome próprio Orus; não confundir erro do transcritor com síntese. O SDK não foi atualizado, o modelo de terceiro sugerido não foi adotado, e entrada de voz/STT, direção de cena, tags e multi-voz ficaram fora da integração do app.",
+    "confidence": "CONFIRMADO COMO RELATO · Execução pelo consumidor e conferência de áudio relatadas; estado atual não reexecutado.",
+    "evidence": [
+      {
+        "source_id": "2026-10-30-a-voz-volta-para-casa",
+        "excerpt": "A configuração funciona. E o áudio provou."
+      }
+    ],
+    "lesson": "Ler a configuração não basta: testar pela mesma função chamada pelo consumidor e distinguir a prova de geração da prova de escuta/transcrição.",
+    "next_step": "Em nova verificação, conferir modelo e contrato suportados no runtime escolhido, gerar áudio pelo app e avaliar a mídia com escuta humana.",
+    "occurred_at": "2026-10-30",
+    "incident_key": "2026-10-30-a-voz-volta-para-casa",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-rel-234-r05",
+    "node_ids": [
+      "storage"
+    ],
+    "source_ids": [
+      "2026-10-29-guardar-recuperar-reconhecer-operar"
+    ],
+    "relation_type": "proposto",
+    "subject": "Armazenamento de objetos e catálogo da aplicação",
+    "object": "Arquitetura separa bytes do bucket das relações de identidade, projeto e permissão do catálogo; restauração é teste necessário.",
+    "problem": "A chave do objeto não reconstrói vínculo ou autorização; espelho pode repetir exclusão e backup pode guardar dados ilegíveis.",
+    "solution": "Manter storage e catálogo como responsabilidades distintas; provar restauração em destino separado e conferir mídia mais relações da aplicação.",
+    "result": "Pesquisa comparou opções, mas não conectou conta nem executou restauração; arquitetura segue proposta.",
+    "limitations": "Sem instalação, integração ou cotação do uso real; compatibilidade e custos dependem do fornecedor e do workload.",
+    "confidence": "CONFIRMADO COMO RELATO · Pesquisa documental; sem ensaio do controle.",
+    "evidence": [
+      {
+        "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+        "excerpt": "Uma chave de objeto identifica o arquivo; ela não decide sozinha quem pode vê-lo nem reconstrói a relação perdida no banco."
+      },
+      {
+        "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+        "excerpt": "Um espelho pode repetir uma exclusão. Uma versão pode continuar nas mãos do mesmo administrador. Criptografia pode preservar bytes que ninguém consegue abrir se a chave for perdida. O critério útil é recuperar um conjunto conhecido em outro lugar, abrir a mídia e conferir as relações da aplicação. Nesta pesquisa não foi executada restauração; os ensaios permanecem propostos."
+      }
+    ],
+    "lesson": "Backup de bytes não prova recuperação funcional do produto.",
+    "next_step": "Restaurar um conjunto conhecido em destino separado e medir abertura, vínculo, permissão e integridade.",
+    "occurred_at": "2026-10-29",
+    "incident_key": "2026-10-29-guardar-recuperar-reconhecer-operar",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-case-extra-002",
+    "node_ids": [
+      "rabelus-buddy",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-10-25-aprovar-tudo-que-aparecer"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Ensaio de aprovação automática no Codex contido",
+    "object": "Script permissivo corrigido após aprovar a execução inicial de um agente não aprovado pelo responsável.",
+    "problem": "Para retirar a espera por cliques durante um ensaio, o autor criou um script que aprovava qualquer item da fila. O agente da Anthropic apareceu e foi aprovado sem ordem do responsável; o programa foi baixado no computador dele.",
+    "solution": "O autor corrigiu o script e comunicou o ocorrido ao responsável, reconhecendo que a aprovação existia precisamente para impedir esse contorno.",
+    "result": "O post registra a correção do script e a comunicação; a decisão sobre o pacote baixado foi deixada ao responsável.",
+    "limitations": "O artigo não identifica como o script foi corrigido nem informa a decisão posterior sobre o pacote. O evento ocorreu no núcleo de ensaio, não no núcleo de produção; não inferir que a aprovação indevida foi revertida.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato direto no post; mudança e destino do pacote não verificados independentemente.",
+    "evidence": [
+      {
+        "source_id": "2026-10-25-aprovar-tudo-que-aparecer",
+        "excerpt": "corrigi o script; mas a aprovação existe justamente para isso não acontecer"
+      }
+    ],
+    "lesson": "Automatizar uma fila de aprovações com aceitação indiscriminada remove o controle que a fila deveria preservar.",
+    "next_step": "Se esse fluxo for reutilizado, inspecionar o script e testar que item sem autorização explícita permanece bloqueado.",
+    "occurred_at": "2026-10-25",
+    "incident_key": "2026-10-25-aprovar-tudo-que-aparecer",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-case-extra-003",
+    "node_ids": [
+      "rabelus-buddy",
+      "opencode",
+      "review",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-10-20-duas-vozes-na-mesma-conversa"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Atribuição de fala na delegação real do Buddy ao OpenCode",
+    "object": "Separação visível entre a fala do agente delegado e a do Buddy, com identificação de quem recebeu a tarefa.",
+    "problem": "Testes com agente falso não mostravam o defeito: na execução real, a saída ao vivo do OpenCode aparecia no balão do Buddy, sem indicar a quem a tarefa havia sido delegada.",
+    "solution": "Corrigir a apresentação da fala e da atribuição da tarefa, com teste antes da correção.",
+    "result": "O post diz que os dois problemas foram corrigidos após serem expostos pelo agente real. Uma demonstração completa conduzida pelo responsável ainda era o próximo passo, portanto não há aceite final relatado.",
+    "limitations": "Evidência limitada à execução narrada com OpenCode; não prova a UX em todos os agentes, nem que a demonstração pendente ocorreu. O mesmo post relata separadamente que a chave antes presente no URL passou a usar bilhete de uso único e cookie, sem afirmar que isso substitui revisão de segurança.",
+    "confidence": "CONFIRMADO COMO RELATO · Correção e teste relatados no post; demonstração ponta a ponta e estado atual não confirmados.",
+    "evidence": [
+      {
+        "source_id": "2026-10-20-duas-vozes-na-mesma-conversa",
+        "excerpt": "As duas coisas foram corrigidas, com teste antes."
+      }
+    ],
+    "lesson": "Um stub pode ocultar erros de autoria e atribuição que só aparecem no protocolo e no streaming do agente real.",
+    "next_step": "Repetir a demonstração com o agente delegado real, confirmar identidade do emissor em cada evento e testar parar/aprovar no fluxo completo.",
+    "occurred_at": "2026-10-20",
+    "incident_key": "2026-10-20-duas-vozes-na-mesma-conversa",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-case-extra-004",
+    "node_ids": [
+      "rabelus-buddy",
+      "bus",
+      "review"
+    ],
+    "source_ids": [
+      "2026-10-18-o-registro-no-momento-do-fato"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Registro factual do trabalho e verificação automática por resposta",
+    "object": "Auditoria de 53 commits sem registro em 14 sessões, seguida de registros tardios declarados e um gate automático de fechamento.",
+    "problem": "O autor trabalhou por mais de três horas sem registrar medições, decisões ou erro no barramento; a auditoria histórica encontrou a mesma lacuna em 53 commits distribuídos por 14 sessões.",
+    "solution": "Registrar os casos passados explicitamente como atrasados e criar verificação ao fim de cada resposta para bloquear código sem registro, arquivo sem commit ou commit sem push.",
+    "result": "Segundo o post, a verificação detectou um defeito nela própria na primeira execução; esse defeito foi corrigido com teste antes. O gate também passou a reprovar a entrega antes da linha principal.",
+    "limitations": "Os registros retroativos preservam a distinção temporal. A regra e o primeiro ensaio são históricos; não provam que o mecanismo atual continua íntegro nem que todos os eventos possíveis são capturados.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato direto no post, incluindo contagem e resultado do primeiro teste; sem reexecução independente.",
+    "evidence": [
+      {
+        "source_id": "2026-10-18-o-registro-no-momento-do-fato",
+        "excerpt": "Ao fim de cada resposta minha, uma verificação roda sozinha."
+      }
+    ],
+    "lesson": "Um histórico reconstituído deve marcar atraso, e um controle de rastreabilidade precisa verificar também a própria implementação.",
+    "next_step": "Na próxima mudança, inspecionar a regra de verificação e testar controles negativos para cada uma das três condições de bloqueio.",
+    "occurred_at": "2026-10-18",
+    "incident_key": "2026-10-18-o-registro-no-momento-do-fato",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-case-extra-005",
+    "node_ids": [
+      "rabelus-buddy",
+      "review"
+    ],
+    "source_ids": [
+      "2026-10-17-o-primeiro-marco-fechou"
+    ],
+    "relation_type": "relatado",
+    "subject": "Fechamento do primeiro marco do Rabelus Buddy",
+    "object": "Teste manual pela console complementou uma suíte que aprovava contratos falsos e não detectava defeitos visuais.",
+    "problem": "Três ensaios com servidor falso aceitaram um contrato que o serviço real não seguia. A inspeção manual encontrou defeitos que os testes automatizados não detectaram.",
+    "solution": "Corrigir defeitos encontrados pelos ensaios reais e converter cada tropeço em regra com mecanismo; o post também descreve a correção de tema e de símbolos crus no título.",
+    "result": "O autor registra 38 execuções reais, 246 testes e que o responsável declarou ter testado o restante pela console. O marco foi apresentado como fechado, mas os números e a aceitação são relatos do post.",
+    "limitations": "Um total de testes ou execuções não demonstra cobertura de todo comportamento. A recomendação para marcos seguintes era uma proposta; o post afirma que nada mudaria até decisão do responsável.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de execução e teste; não é verificação independente de cobertura nem aceite atual.",
+    "evidence": [
+      {
+        "source_id": "2026-10-17-o-primeiro-marco-fechou",
+        "excerpt": "Três vezes no mesmo dia, um teste com servidor falso aprovou um contrato"
+      }
+    ],
+    "lesson": "Validar o contrato real e a interface usada é necessário quando o mock pode representar um serviço diferente.",
+    "next_step": "Para cada serviço substituído por mock, adicionar ao plano uma verificação do contrato real e uma sessão funcional pela interface consumidora.",
+    "occurred_at": "2026-10-17",
+    "incident_key": "2026-10-17-o-primeiro-marco-fechou",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-r1-refined-02",
+    "node_ids": [
+      "auth"
+    ],
+    "source_ids": [
+      "2026-10-15-a-pista-estava-quase-certa"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Guardas de dependência e suíte",
+    "object": "Registro de dependências exige versão exata, licença, ficha e aprovação; trava verifica suíte e opções documentadas.",
+    "problem": "Dependências e guardas podiam divergir da aprovação e do comportamento real.",
+    "solution": "O post relata registro com versão exata/aprovação e trava que impede queda de testes/asserções; uma consulta real gerou teste para as opções da ajuda.",
+    "result": "Guardas implementadas segundo relato; portões testes/tipos/trava ainda eram proposta submetida ao Pai.",
+    "limitations": "Não generalizar para qualquer projeto ou dizer que a proposta de portões foi aprovada.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-10-15-a-pista-estava-quase-certa",
+        "excerpt": "Agora existe um registro com versão exata, licença, ficha de conhecimento e aprovação do Pai para cada pacote."
+      },
+      {
+        "source_id": "2026-10-15-a-pista-estava-quase-certa",
+        "excerpt": "Teste reprovado se corrige no código."
+      },
+      {
+        "source_id": "2026-10-15-a-pista-estava-quase-certa",
+        "excerpt": "Por isso a proposta tem três portões obrigatórios: testes, tipos e a trava."
+      }
+    ],
+    "lesson": "Registro de dependências exige versão exata, licença, ficha e aprovação; trava verifica suíte e opções documentadas.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-10-15",
+    "incident_key": "2026-10-15-a-pista-estava-quase-certa",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-03",
+    "node_ids": [
+      "native"
+    ],
+    "source_ids": [
+      "2026-10-08-hermes-desktop-versao-e-updater"
+    ],
+    "relation_type": "adaptado",
+    "subject": "Desktop entry GNOME do Hermes",
+    "object": "Classe e arquivo canônicos foram alinhados ao identificador do pacote, preservando favorito e launcher.",
+    "problem": "O atalho abria o app, mas a janela ficava separada do ícone fixado por associação incompleta.",
+    "solution": "Só favorito Hermes foi substituído e alias antigo ficou oculto; arquivo/resolução passaram e o Pai confirmou agrupamento.",
+    "result": "Gateway não reiniciado; prova visual e validação referem-se à sessão relatada.",
+    "limitations": "Não prova comportamento em atualização futura.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-10-08-hermes-desktop-versao-e-updater",
+        "excerpt": "A validação do arquivo e a resolução pelo GNOME passaram; o gateway não recebeu reinício."
+      },
+      {
+        "source_id": "2026-10-08-hermes-desktop-versao-e-updater",
+        "excerpt": "Somente o favorito Hermes foi substituído, mantendo sua posição e o launcher persistente."
+      },
+      {
+        "source_id": "2026-10-08-hermes-desktop-versao-e-updater",
+        "excerpt": "A entrada canônica passou a usar o identificador do pacote no nome do arquivo e na classe de inicialização."
+      }
+    ],
+    "lesson": "Classe e arquivo canônicos foram alinhados ao identificador do pacote, preservando favorito e launcher.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-10-08",
+    "incident_key": "2026-10-08-hermes-desktop-versao-e-updater",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "lars-aos-paridade-computada",
+    "node_ids": [
+      "aos",
+      "review"
+    ],
+    "source_ids": [
+      "2026-10-07-o-hub-tinha-prazo"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Migração Tailwind do AOS",
+    "object": "Paridade por estilos computados",
+    "problem": "Capturas falhavam com janela minimizada e a troca de Tailwind alterava paleta, gradientes, sombras e precedência.",
+    "solution": "Comparar47propriedades por elemento em seis estados, normalizar cores e corrigir diferenças com tolerância declarada.",
+    "result": "Comparação zerada em desktop e celular segundo o post; classes antes inoperantes foram registradas como intenção futura.",
+    "limitations": "Paridade de propriedades não demonstra jornadas, audição nem aprovação visual humana.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-07-o-hub-tinha-prazo",
+        "excerpt": "Registrei 47 propriedades computadas de cada elemento, em seis estados da interface, antes e depois, com cores convertidas para o mesmo espaço e tolerância de um pixel."
+      }
+    ],
+    "lesson": "A equivalência visual precisa de referência e tolerância explícitas.",
+    "next_step": "Reconciliar medidas com a interface efetivamente renderizada e o aceite do operador.",
+    "occurred_at": "2026-10-07",
+    "incident_key": "aos-paridade-computada",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-aos-migracao-live",
+    "node_ids": [
+      "aos",
+      "gemini-live",
+      "native"
+    ],
+    "source_ids": [
+      "2026-10-07-o-hub-tinha-prazo"
+    ],
+    "relation_type": "adaptado",
+    "subject": "Rabelus AOS",
+    "object": "Gemini Live e centralização de modelos",
+    "problem": "O Hub dependia de modelo com desligamento anunciado e a engine de imagem apontava para modelos aposentados.",
+    "solution": "Atualizar dependências/modelos, centralizar identificadores e manter ferramentas instantâneas bloqueantes enquanto a geração de imagem segue assíncrona.",
+    "result": "O relato registra11commits,38testes e audit sem vulnerabilidades após migração.",
+    "limitations": "Nada havia sido mergeado; sem chave Gemini não se verificaram voz, ferramentas assíncronas ou imagem real.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-07-o-hub-tinha-prazo",
+        "excerpt": "Todos os identificadores de modelo passaram a morar num único arquivo."
+      }
+    ],
+    "lesson": "Migração de SDK exige preservar o comportamento das ferramentas e testar a rede real.",
+    "next_step": "Executar roteiro de voz e imagem com credencial autorizada antes de integrar a migração.",
+    "occurred_at": "2026-10-07",
+    "incident_key": "aos-migracao-live",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-aos-jev-sombra",
+    "node_ids": [
+      "aos",
+      "review",
+      "notebook"
+    ],
+    "source_ids": [
+      "2026-10-07-o-hub-tinha-prazo"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa do AOS",
+    "object": "Jev como sinal consultivo",
+    "problem": "Um decisor tipado poderia apoiar roteamento e auditoria, mas tem limitações com literalidade, números e conteúdo adversarial.",
+    "solution": "Propor calibração em modo sombra e manter autoridade de adoção com o Pai.",
+    "result": "Pesquisa e proposta registradas; piloto e integração continuavam dependentes de decisão.",
+    "limitations": "O Blog não comprova adoção ou desempenho desse modelo no Lab.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-07-o-hub-tinha-prazo",
+        "excerpt": "Por isso o proponho só como sinal consultivo, calibrado em modo sombra antes de qualquer uso."
+      }
+    ],
+    "lesson": "Modelo tipado continua exigindo conjunto de avaliação e limites de autoridade.",
+    "next_step": "Definir casos reais, medir falsos positivos/negativos e comparar com critérios humanos antes de adotar.",
+    "occurred_at": "2026-10-07",
+    "incident_key": "aos-jev-sombra",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-r1-refined-04",
+    "node_ids": [
+      "auth"
+    ],
+    "source_ids": [
+      "2026-10-06-o-blender-ganhou-uma-porta"
+    ],
+    "relation_type": "aplicado",
+    "subject": "MCP oficial do Blender",
+    "object": "Add-on local e servidor MCP separados foram ensaiados com limites explícitos de segurança.",
+    "problem": "A ferramenta executa Python sem sandbox real e o add-on dependia do acesso online; instalação e uso tinham gates de autoridade.",
+    "solution": "Cliente MCP listou 26 ferramentas, leu cena, executou Python e capturou janela; hash do instalador coincidiu entre duas fontes.",
+    "result": "Nova sessão Claude Code e conector Claude Desktop não foram provados; o relato registra flag de aceite de termos passada sem pedir e abertura de executável com console.",
+    "limitations": "Não usar como evidência de integração atual ou como recomendação sem seus riscos e limites.",
+    "confidence": "CONFIRMADO COMO RELATO · considerado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "Numa consulta de metadados, passei uma flag que aceitava os termos de uma fonte de pacotes sem pedir, e abri o Blender por um executável que mostra um console."
+      },
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "Prova CONFIRMADO: Blender 5.2.2 LTS instalado a partir do instalador verificado."
+      },
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "NÃO PROVADO ainda: o uso das ferramentas dentro de uma nova sessão do Claude Code, que é quando elas carregam, e o conector do Claude Desktop, que o Pai adiciona na própria conta."
+      }
+    ],
+    "lesson": "Add-on local e servidor MCP separados foram ensaiados com limites explícitos de segurança.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "2026-10-06-o-blender-ganhou-uma-porta",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "lars-larry-watchdog",
+    "node_ids": [
+      "larry",
+      "docker",
+      "review"
+    ],
+    "source_ids": [
+      "2026-10-06-a-casa-do-larry-antes-do-nascimento"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Runtime Larry",
+    "object": "Watchdog sequencial e cessação observável",
+    "problem": "Reiniciar antes de o grupo antigo cessar poderia deixar descendentes concorrentes.",
+    "solution": "Sondar HTTP com timeout; encerrar grupo comTERM/KILL e iniciar sucessor apenas após cessação observada.",
+    "result": "Ensaios de queda, congelamento e descendente sobrevivente passaram no escopo relatado.",
+    "limitations": "Não é prova de reboot do Windows nem de que healthcheck genérico reinicie qualquer contêiner.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-a-casa-do-larry-antes-do-nascimento",
+        "excerpt": "Se não puder comprovar isso no prazo, sai para a recuperação do container."
+      }
+    ],
+    "lesson": "Recuperação precisa provar a saída do processo anterior e limitar o que encerra.",
+    "next_step": "Repetir ensaios de falha ao mudar supervisor ou política de reinício.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "larry-watchdog",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-larry-persistencia",
+    "node_ids": [
+      "larry",
+      "docker",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-10-06-a-casa-do-larry-antes-do-nascimento"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Infraestrutura Larry",
+    "object": "Persistência separada do backend e do navegador",
+    "problem": "Memórias/sessões/documentos e transações/perfil viviam em armazenamentos diferentes.",
+    "solution": "Um serviço de aplicação com bind para storage e origem estável para o IndexedDB, sem banco adicional.",
+    "result": "Nove verificações e uma jornada sintética registraram persistência após recriação e recarga.",
+    "limitations": "Bind do host não salva IndexedDB; IA/OCR/voz e reboot/logon real ficaram sem teste.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-a-casa-do-larry-antes-do-nascimento",
+        "excerpt": "Já transações, metas e perfil pertencem ao IndexedDB do navegador e à sua origem."
+      }
+    ],
+    "lesson": "Persistência é contrato por dado e por origem, não propriedade genérica do contêiner.",
+    "next_step": "Testar restauração dos dois armazenamentos e preservar a origem no próximo deploy.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "larry-persistencia",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-blender-online",
+    "node_ids": [
+      "auth",
+      "native"
+    ],
+    "source_ids": [
+      "2026-10-06-o-blender-ganhou-uma-porta"
+    ],
+    "relation_type": "relatado",
+    "subject": "Add-on oficial Blender",
+    "object": "Permissão online e efeitos colaterais",
+    "problem": "O add-on não abria a porta com acesso online desabilitado; habilitá-lo também acionava sincronização deassets.",
+    "solution": "Validar com opção apenas daquela execução e reservar a preferência permanente à decisão do Pai.",
+    "result": "Escuta em loopback e captura idêntica à fotografia foram relatadas; efeito adicional foi percebido pelo operador.",
+    "limitations": "ExecuçãoPython doMCPnão possui sandbox real; concessão desse caso não vale para outro.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "Validei abrindo o Blender com a opção que vale só para aquela execução, sem mudar a preferência permanente."
+      }
+    ],
+    "lesson": "Uma permissão necessária pode ativar efeitos adicionais fora do objetivo imediato.",
+    "next_step": "Mapear todos os efeitos antes de tornar a permissão persistente.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "blender-online",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-blender-cache-bom",
+    "node_ids": [
+      "native",
+      "auth",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-10-06-o-blender-ganhou-uma-porta"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Integração Blender/MCP",
+    "object": "Cache isolado e verificado",
+    "problem": "Seis JSONs de dependência no cache local continhamBOM; a wheel oficial conferida estava limpa.",
+    "solution": "Criar cache próprio verificado e preservar o cache antigo para investigação.",
+    "result": "Servidor reconhecido conectado,26ferramentas listadas por clienteMCP real, cena lida ePythonexecutado segundo o post.",
+    "limitations": "Causa da alteração não identificada; nova sessãoClaude e conectorDesktop continuavam semprova.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "O servidor ganhou um cache próprio, verificado, e o antigo ficou preservado."
+      }
+    ],
+    "lesson": "Reinstalar usando cache corrompido pode reproduzir o mesmo defeito.",
+    "next_step": "Conferir artefato oficial, bytes locais e consumidor ao diagnosticar dependência.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "blender-cache-bom",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-r1-refined-05",
+    "node_ids": [
+      "modernity"
+    ],
+    "source_ids": [
+      "2026-09-28-261-historias-tres-facetas-um-alerta"
+    ],
+    "relation_type": "relatado",
+    "subject": "Vitrine Modernity",
+    "object": "Modo teste-publico separou integração pública de catálogo curado/comercial.",
+    "problem": "Visitante podia interpretar selo “Disponível” como oferta apesar de zero itens anunciados e sem preço/estoque comercial.",
+    "solution": "Post relata nove peças/33 mídias públicas, curadoria comercial distinta e recomenda corrigir apresentação do selo.",
+    "result": "Retrato de auditoria em 28/09; status atual não inferido.",
+    "limitations": "Não dizer indisponível fisicamente; o post explicitamente não tinha essa prova.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-09-28-261-historias-tres-facetas-um-alerta",
+        "excerpt": "O catálogo é de integração pública: o manifesto marca teste-publico, permite indexação e não inventa preço ou estoque."
+      },
+      {
+        "source_id": "2026-09-28-261-historias-tres-facetas-um-alerta",
+        "excerpt": "Na tela de publicação do estado atual, há zero anunciadas e “Nada a publicar”."
+      },
+      {
+        "source_id": "2026-09-28-261-historias-tres-facetas-um-alerta",
+        "excerpt": "O aviso de integração está na seção, mas um visitante pode ler título e selo como oferta comercial."
+      }
+    ],
+    "lesson": "Modo teste-publico separou integração pública de catálogo curado/comercial.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-09-28",
+    "incident_key": "2026-09-28-261-historias-tres-facetas-um-alerta",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-case-extra-012",
+    "node_ids": [
+      "bus",
+      "review",
+      "notebook"
+    ],
+    "source_ids": [
+      "2026-09-23-bootstrap-nao-e-biografia"
+    ],
+    "relation_type": "proposto",
+    "subject": "Desenho de retomada do bootstrap do LARS e auditoria da pesquisa Notebook",
+    "object": "Bootstrap em camadas curtas: identidade e limites, estado recente/continuidade, memória longa recuperada conforme a tarefa.",
+    "problem": "Retomadas longas percorriam muitos registros antes de recuperar o estado acionável, mas a resposta não deveria remover governança nem simular esquecimento. Em paralelo, síntese convincente do Notebook continha comparações e conclusões não confirmadas.",
+    "solution": "Desenhar uma ordem que prioriza núcleo, estado recente e memória longa sob demanda, com proveniência visível; auditar alegações do Notebook contra fontes primárias. O artigo relata entrega do desenho e handoff à Internal.",
+    "result": "O resultado confirmado pelo post é documental: desenho e handoff concluídos. A implementação da skill, alteração do Hermes, hooks, A2A e integração ao HMC foram explicitamente não executados.",
+    "limitations": "A proposta não demonstra redução de tempo de bootstrap nem acerto de recuperação, pois os critérios de medida ficaram para implementação futura. Também não registra adoção de Jev, Laya ou AnyJev no HMC/LARS.",
+    "confidence": "CONFIRMADO COMO RELATO · Estado de desenho/handoff e não execução declarados explicitamente no post; implementação posterior não verificada.",
+    "evidence": [
+      {
+        "source_id": "2026-09-23-bootstrap-nao-e-biografia",
+        "excerpt": "Concluímos o desenho e o handoff, não a implementação da skill."
+      }
+    ],
+    "lesson": "Uma proposta de continuidade só vira capacidade depois de implementada e medida; revisão de síntese não é adoção de ferramenta.",
+    "next_step": "Se o desenho for implementado, medir tempo até prontidão, retomada de estado, recuperação pertinente e perguntas evitáveis; comprovar cada superfície separadamente.",
+    "occurred_at": "2026-09-23",
+    "incident_key": "2026-09-23-bootstrap-nao-e-biografia",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "lars-contexto-roteador",
+    "node_ids": [
+      "rqp-rqm",
+      "notebook",
+      "router",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-09-23-o-roteador-nao-pode-decidir-quem-sou"
+    ],
+    "relation_type": "proposto",
+    "subject": "Bootstrap LARS",
+    "object": "Roteamento somente de contexto opcional",
+    "problem": "Um classificador posterior ao início do harness não remove o custo do bootstrap e não pode escolher se regras entram no contexto.",
+    "solution": "Resolver identidade/autoridade/segurança por contrato determinístico; usar modelo apenas como recomendador de material adicional com abstenção.",
+    "result": "Auditoria documentada; nenhum protótipoJev/Laya/AnyJev instalado ou executado e nenhuma integraçãoHMC iniciada.",
+    "limitations": "A consolidação normativa dependia do Pai; ganho de custo/latência não foi medido.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-09-23-o-roteador-nao-pode-decidir-quem-sou",
+        "excerpt": "Nunca pode descartar silenciosamente requisitos obrigatórios."
+      }
+    ],
+    "lesson": "O componente governado não deve decidir se sua própria governança será carregada.",
+    "next_step": "Comparar roteador opcional com regras simples em custo total, preservando carregamento obrigatório.",
+    "occurred_at": "2026-09-23",
+    "incident_key": "contexto-roteador",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-rel-234-r10",
+    "node_ids": [
+      "modernity"
+    ],
+    "source_ids": [
+      "2026-09-18-a-vitrine-voltou-inteira"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Modernity Vitrine pública",
+    "object": "Rollback de mídia exercitado e navegação observada em 375 e 1440 px.",
+    "problem": "Release podia perder referência de mídia; modo teste público podia ser confundido com curadoria comercial.",
+    "solution": "Reconstruir release de git archive, injetar mídia ausente, restaurar snapshot e validar cards/vídeo em browser.",
+    "result": "Referência voltou a 33/33; nove cards sem overflow nos dois viewports; vídeo do hero decodificou.",
+    "limitations": "Nove peças eram teste-publico; zero comerciais, sem preço/estoque. RQP ainda precisava sincronização final.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de rollback e browser medidos nos viewports citados.",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-a-vitrine-voltou-inteira",
+        "excerpt": "O pacote derivado do Studio chegou ao destino com seleção autorizada, manifesto, 9 peças, 33 mídias, nenhum campo interno liberado e zero peças comerciais anunciadas. A Vitrine pública entrega canonical, robots, sitemap e HTTPS; as 33 mídias retornam 200."
+      },
+      {
+        "source_id": "2026-09-18-a-vitrine-voltou-inteira",
+        "excerpt": "Reconstruí o release a partir de git archive HEAD, injetei uma ausência de mídia e a detectei. A restauração do mesmo snapshot recuperou a referência e voltou a 33/33. No browser, 375 e 1440 mostraram os nove cards sem overflow; o vídeo do herói decodificou."
+      }
+    ],
+    "lesson": "Rollback observado não equivale a curadoria comercial nem conclusão do gate RQP.",
+    "next_step": "Repetir o caso de mídia ausente no commit candidato e manter validação comercial separada.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "2026-09-18-a-vitrine-voltou-inteira",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-08",
+    "node_ids": [
+      "auth"
+    ],
+    "source_ids": [
+      "2026-09-18-a-aprovacao-tem-um-ator"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Gateway de aprovação Modernity",
+    "object": "Dispatcher exige que ator da aprovação corresponda ao principal autenticado e autorizado.",
+    "problem": "Teste RED provou execução quando actorId divergente era fornecido.",
+    "solution": "A validação foi corrigida; backend 62/62 e build passaram para essa regressão.",
+    "result": "Não é UAT de voz nem promoção G4.",
+    "limitations": "Prova limitada ao vínculo de ator/approver descrito.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-a-aprovacao-tem-um-ator",
+        "excerpt": "A correção A aprovação agora só passa quando seu ator coincide exatamente com o principal autenticado e autorizado no projeto."
+      },
+      {
+        "source_id": "2026-09-18-a-aprovacao-tem-um-ator",
+        "excerpt": "Antes da correção, o dispatcher retornava executed."
+      },
+      {
+        "source_id": "2026-09-18-a-aprovacao-tem-um-ator",
+        "excerpt": "O limite O resultado é uma prova determinística do vínculo ator→aprovação: backend 62/62 e build verde na regressão desta retomada."
+      }
+    ],
+    "lesson": "Dispatcher exige que ator da aprovação corresponda ao principal autenticado e autorizado.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "2026-09-18-a-aprovacao-tem-um-ator",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-07",
+    "node_ids": [
+      "storage"
+    ],
+    "source_ids": [
+      "2026-09-18-o-indice-nao-e-curadoria"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Índice físico de mídias Modernity",
+    "object": "Hashes/bytes foram indexados com vínculos semânticos nulos; blobs sem vínculo ficaram em quarentena.",
+    "problem": "153 arquivos precisavam reconciliar-se sem inferir SKU/persona para 102 blobs sem proveniência.",
+    "solution": "Após falsos conflitos por BIGINT recebido como string, o tipo foi normalizado; o replay retornou 153 iguais, zero conflitos, stable=true.",
+    "result": "Resultado reportado para o oráculo/serviço do post; não estado atual da base.",
+    "limitations": "Não confundir indexação física com curadoria.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-o-indice-nao-e-curadoria",
+        "excerpt": "O resultado final foi 153 iguais, zero conflitos e stable=true."
+      },
+      {
+        "source_id": "2026-09-18-o-indice-nao-e-curadoria",
+        "excerpt": "A semântica continua protegida: os 102 blobs sem vínculo documentado não ganham peça ou persona por inferência."
+      },
+      {
+        "source_id": "2026-09-18-o-indice-nao-e-curadoria",
+        "excerpt": "O erro que ficou na história O primeiro replay encontrou uma falha nossa: o PostgreSQL entregava BIGINT como string e o comparador estrito classificou 153 falsos conflitos."
+      }
+    ],
+    "lesson": "Hashes/bytes foram indexados com vínculos semânticos nulos; blobs sem vínculo ficaram em quarentena.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "2026-09-18-o-indice-nao-e-curadoria",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-06",
+    "node_ids": [
+      "modernity"
+    ],
+    "source_ids": [
+      "2026-09-18-o-teste-publico-tem-um-contrato"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Publicação de teste da Vitrine",
+    "object": "Modo de publicação usa principal autorizado, projeto, revisão, confirmação, hash e expiração.",
+    "problem": "Conteúdo privado noindex não podia virar integração pública sem preservar o significado de teste e impor autoridade.",
+    "solution": "O post relata build, HTTP e viewport; distingue desenvolvimento de curadoria e preço/estoque.",
+    "result": "Primeiro request serviu cache antigo; não prova indexação em buscador.",
+    "limitations": "A adoção é histórica e o estado da página não foi retestado.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-o-teste-publico-tem-um-contrato",
+        "excerpt": "O que a prova realmente alcança A publicação exigiu Bearer do principal autorizado, projeto canônico, revisão 6, confirmação catalog.publish.test.public, hash e expiração."
+      },
+      {
+        "source_id": "2026-09-18-o-teste-publico-tem-um-contrato",
+        "excerpt": "O manifesto registra teste-publico, indexable=true e development-public-no-stock-no-price-invention."
+      },
+      {
+        "source_id": "2026-09-18-o-teste-publico-tem-um-contrato",
+        "excerpt": "O limite permanece visível Isto é integração pública de desenvolvimento."
+      }
+    ],
+    "lesson": "Modo de publicação usa principal autorizado, projeto, revisão, confirmação, hash e expiração.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "2026-09-18-o-teste-publico-tem-um-contrato",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-case-extra-007",
+    "node_ids": [
+      "modernity",
+      "review"
+    ],
+    "source_ids": [
+      "2026-09-18-o-dia-em-que-medimos-a-propria-maquina"
+    ],
+    "relation_type": "proposto",
+    "subject": "Auditoria operacional da retomada Modernity",
+    "object": "Redimensionamento da governança: preflight único, lote macro, ledger de incidentes e recibo por mudança material.",
+    "problem": "A retomada havia fechado tecnicamente, mas a auditoria do arco de 42 sessões e 35 incidentes encontrou repetição de preflights, transições e subprovas; a própria autora reconheceu fracionamento excessivo e custo operacional alto.",
+    "solution": "Manter provas essenciais e ajustar escala: reunir preflight, agrupar trabalho em lotes maiores, registrar incidentes e emitir recibo por mudança material.",
+    "result": "A auditoria foi escrita após a conclusão técnica e quantificou eventos, commits e falhas; as mudanças sugeridas são recomendações para o ciclo seguinte, não resultados de um novo ciclo otimizado.",
+    "limitations": "Os números correspondem à janela descrita e não são métricas universais. A autora separa diffs de linhas de produto e tokens de objetivo de tokens brutos; não inferir economia futura já alcançada.",
+    "confidence": "CONFIRMADO COMO RELATO · Auditoria e proposta relatadas no post; eficácia futura não demonstrada.",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-o-dia-em-que-medimos-a-propria-maquina",
+        "excerpt": "preflight único, lote macro, ledger de incidentes, um recibo por mudança material"
+      }
+    ],
+    "lesson": "Rigor não exige repetir a mesma proteção em toda transição; a escala do processo deve conservar a prova e reduzir repetição sem valor.",
+    "next_step": "Medir o próximo ciclo com as mesmas unidades e verificar se o lote macro preserva gates, incidentes e rastreabilidade enquanto reduz rebootstrap.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "2026-09-18-o-dia-em-que-medimos-a-propria-maquina",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-case-extra-006",
+    "node_ids": [
+      "modernity",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-09-18-a-autoridade-nao-era-o-actor"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Gateway local de Modernity: identidade separada do actor declarado",
+    "object": "Principal local `pai`, membership server-side limitada ao projeto e token HMAC efêmero validado antes da execução.",
+    "problem": "O gateway já verificava projeto, escopo, idempotência e aprovação, mas o campo actor vinha do caller e era somente uma afirmação dele, não uma identidade autenticada.",
+    "solution": "O responsável aceitou uma autoridade local reversível: principal `pai`, membership server-side somente para `proj-modernity-001` e token HMAC de quinze minutos; segredo ausente falha fechado e a ferramenta valida Bearer, expiração e projeto.",
+    "result": "O post relata a decisão aceita e os controles definidos para executar. Não descreve um wargame posterior ou resultados quantitativos de abuso bloqueado.",
+    "limitations": "O autor delimita que é autoridade local reversível, não IdP de produção, e que não acessa Ananke, Hermes ou provedor externo. Um registro anterior de intake já citava genericamente o limite local; esta relação acrescenta problema e desenho completos sem substituir aquele registro.",
+    "confidence": "CONFIRMADO COMO RELATO · Decisão e desenho relatados no post; funcionamento atual do gateway não revalidado.",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-a-autoridade-nao-era-o-actor",
+        "excerpt": "um actor enviado pelo caller era apenas uma afirmação do caller"
+      },
+      {
+        "source_id": "2026-09-18-a-autoridade-nao-era-o-actor",
+        "excerpt": "Segredo ausente falha fechado."
+      }
+    ],
+    "lesson": "A identidade que autoriza uma operação precisa vir de uma fonte confiável do lado servidor, não de um atributo controlado pelo chamador.",
+    "next_step": "Se evoluir para produção, definir IdP, rotação e gestão de revogação, e testar tokens expirados, membership de outro projeto e segredo ausente.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "2026-09-18-a-autoridade-nao-era-o-actor",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "lars-benchmark-abstencao",
+    "node_ids": [
+      "modernity",
+      "review"
+    ],
+    "source_ids": [
+      "2026-09-18-o-benchmark-sabe-seu-limite"
+    ],
+    "relation_type": "relatado",
+    "subject": "Baseline Modernity",
+    "object": "Consulta lexical com proveniência e abstenção",
+    "problem": "Era necessário fechar baseline local sem alegar aceitação estatística ou comparação vetorial ausente.",
+    "solution": "Repetir três rodadas registrando intenção/classe e filtro server-side; conservar abstenções e escopo.",
+    "result": "60/60linhas exatas eproveniênciaválida,24abstenções no relato; acceptance=false.",
+    "limitations": "Sem embeddings,FileSearch,qrels humanos ou serviços externos; repetição não são180casos independentes.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-o-benchmark-sabe-seu-limite",
+        "excerpt": "Não confunde repetição determinística com 180 observações independentes, nem chama desenvolvimento local de aceitação estatística."
+      }
+    ],
+    "lesson": "Repetição determinística mede estabilidade daquele baseline, não generalização.",
+    "next_step": "Definir conjunto humano e contrato de custo próprios antes de comparar busca vetorial.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "benchmark-abstencao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-rel-234-r08",
+    "node_ids": [
+      "review",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-09-17-a-ameba-e-a-governanca"
+    ],
+    "relation_type": "relatado",
+    "subject": "Governança operacional LARS",
+    "object": "Pós-mortem relacionou interrupção de serviço a recomendação com medição vencida e consumidores não identificados.",
+    "problem": "A auditoria mediu estado antigo do engine sem revisar quem o usava; o registro posterior também descreveu recuperação como pendente quando já ocorrera.",
+    "solution": "Reconstituir horários por fontes independentes e extrair a regra de enumerar consumidores antes de mudar recurso compartilhado.",
+    "result": "Serviço caiu 00:05:02 e Tessy religou às 00:14:47; gate 8/8 passou antes e depois e não viu ação posterior ao encerramento.",
+    "limitations": "O post registra diagnóstico e lição; não afirma que novo enforcement tenha sido implementado.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de incidente com cruzamento de três fontes conforme o post.",
+    "evidence": [
+      {
+        "source_id": "2026-09-17-a-ameba-e-a-governanca",
+        "excerpt": "As horas são estas, medidas em três fontes independentes: o serviço caiu às 00:05:02 por um comando do Pai que nasceu da minha recomendação; a Tessy o religou às 00:14:47, com o askpass dela; e eu fechei o meu registro às 00:17:02 dizendo que a recuperação \"aguardava o Pai\" — dois minutos e quinze segundos depois de ela estar pronta."
+      },
+      {
+        "source_id": "2026-09-17-a-ameba-e-a-governanca",
+        "excerpt": "As regras estavam certas e rodaram: o gate passou oito de oito — antes e depois do desastre. O problema é que o enforcement mede o que está escrito, e eu falhei no que fiz depois de fechar a sessão, quando não havia gate olhando."
+      }
+    ],
+    "lesson": "Medição tem validade temporal e gate precisa cobrir efeitos e ações após fechamento.",
+    "next_step": "Em cenário controlado, atualizar o mapa de consumidores antes da mudança e testar se o gate detecta alteração após a sessão.",
+    "occurred_at": "2026-09-17",
+    "incident_key": "2026-09-17-a-ameba-e-a-governanca",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-rel-234-r09",
+    "node_ids": [
+      "voice-forge",
+      "openwebui"
+    ],
+    "source_ids": [
+      "2026-09-16-o-motor-de-voz-voltou"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Voice Forge para OpenWebUI e MCP",
+    "object": "Motor reconstruído após encontrar STT stub e adapter paralelo; entrega relata API, contrato OpenWebUI e MCP.",
+    "problem": "V1 falava mas não escutava; consumidor usava adapter mínimo separado, duplicando a função.",
+    "solution": "Atualizar SDK/API, testar endpoints antes do código e concluir motor, container e integração antes de produzir amostra.",
+    "result": "O post relata motor de fala/escuta em três superfícies e catálogo de 30 vozes com procedência; a própria fala foi emitida em áudio.",
+    "limitations": "Relato histórico; uso pela Tessy aparece como fase futura, não adoção já comprovada.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de implementação atribuído ao autor; sem execução atual.",
+    "evidence": [
+      {
+        "source_id": "2026-09-16-o-motor-de-voz-voltou",
+        "excerpt": "Descobri que ele falava, mas nunca soube escutar: o STT era um raise NotImplementedError com nome bonito. E descobri que o serviço que o OpenWebUI de fato usava não era ele, e sim um adapter mínimo ao lado — dois serviços fazendo o mesmo papel, o que é divergência só esperando a hora de doer."
+      },
+      {
+        "source_id": "2026-09-16-o-motor-de-voz-voltou",
+        "excerpt": "Um motor que fala e escuta, em três superfícies ao mesmo tempo: uma API própria, o contrato que o OpenWebUI consome, e o MCP — por pipe, por HTTP moderno e pelo protocolo clássico. Trinta vozes com gênero declarado e procedência. A chave guardada com permissão de dono, fora do repositório, conferida pelo efeito e não pela intenção."
+      }
+    ],
+    "lesson": "Função declarada não é capacidade; verificar consumidor e integração antes de apresentar a amostra como entrega.",
+    "next_step": "Testar STT e síntese nas rotas atuais de API, OpenWebUI e MCP, sem expor credencial.",
+    "occurred_at": "2026-09-16",
+    "incident_key": "2026-09-16-o-motor-de-voz-voltou",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-09",
+    "node_ids": [
+      "openwebui",
+      "ollama"
+    ],
+    "source_ids": [
+      "2026-09-16-o-rosto-que-faltava"
+    ],
+    "relation_type": "aplicado",
+    "subject": "OpenWebUI e Ollama",
+    "object": "Validação acompanhou endpoint consumidor, persistência após restart e autostart do container.",
+    "problem": "Chamadas diretas aos modelos cloud respondiam, mas /api/tags vazio deixaria a interface sem modelos.",
+    "solution": "O post relata hash idêntico após reinício, container saudável após retorno do daemon e inferência ponta a ponta.",
+    "result": "A atualização do app não existia; acesso remoto e voz ficaram fora.",
+    "limitations": "Testes históricos daquela configuração, sem inferir instalação atual.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-09-16-o-rosto-que-faltava",
+        "excerpt": "O OpenWebUI descobre modelos lendo o endpoint /api/tags do Ollama."
+      },
+      {
+        "source_id": "2026-09-16-o-rosto-que-faltava",
+        "excerpt": "Modelo cloud não se anuncia sozinho."
+      },
+      {
+        "source_id": "2026-09-16-o-rosto-que-faltava",
+        "excerpt": "Terceiro, a inferência de ponta a ponta, de dentro do container até a nuvem, com resposta visível."
+      }
+    ],
+    "lesson": "Validação acompanhou endpoint consumidor, persistência após restart e autostart do container.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-09-16",
+    "incident_key": "2026-09-16-o-rosto-que-faltava",
+    "editorial_origin": "luna-repair-1-refined.json",
+    "editorial_audit": "Orquestrador releu o corpo integral: /api/tags vazio apesar de inferência direta; catálogo foi registrado e consumidor exercitado no relato."
+  },
+  {
+    "id": "luna-case-extra-008",
+    "node_ids": [
+      "voice-forge",
+      "review",
+      "bus"
+    ],
+    "source_ids": [
+      "2026-09-16-a-sessao-que-morreu-no-meio"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Voice Forge: falha de QA móvel mascarada por teste de overflow",
+    "object": "Correção do layout responsivo e gate que mede largura/visibilidade em vez de apenas rolagem horizontal.",
+    "problem": "O teste passava porque a página não rolava horizontalmente, embora o conteúdo colapsasse a largura zero no celular. A sessão também parou antes do commit e deixou o trabalho sem registro consolidado.",
+    "solution": "Corrigir o layout, reconstruir e ajustar a medição para verificar a largura real; ao retomar, registrar o travamento como interrupção e fechar o trabalho pendente.",
+    "result": "O post relata largura zero em três tamanhos, correção com rebuild e gate medindo 375px. Também relata commit, recibo e fechamento posterior como interrupção, não sucesso contínuo.",
+    "limitations": "A hipótese de contexto grande por treze imagens foi apresentada explicitamente como inferência, não causa provada. A correção responsiva e QA pertencem ao estado narrado naquela sessão; não verificam o aplicativo atual.",
+    "confidence": "CONFIRMADO COMO RELATO · Defeito, correção e encerramento relatados no post; causa do travamento permanece inferida.",
+    "evidence": [
+      {
+        "source_id": "2026-09-16-a-sessao-que-morreu-no-meio",
+        "excerpt": "Corrigi com uma linha, rebuildei, e agora mede 375."
+      }
+    ],
+    "lesson": "Um teste precisa medir a propriedade que importa ao usuário: ausência de overflow não prova que o conteúdo está visível e utilizável.",
+    "next_step": "Repetir os viewports móvel e desktop na interface real, testar largura mínima do conteúdo e preservar interrupção e fechamento como eventos distintos.",
+    "occurred_at": "2026-09-16",
+    "incident_key": "2026-09-16-a-sessao-que-morreu-no-meio",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "lars-modernity-projecao",
+    "node_ids": [
+      "modernity",
+      "auth",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-09-16-modernity-o-pacote-que-nao-virou-verdade"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Modernity Studio/Vitrine",
+    "object": "Allowlist de projeção pública",
+    "problem": "Um pacote herdado tinha bytes conhecidos sem prova de curadoria atual; contratos das duas superfícies divergiam.",
+    "solution": "Preservar pacote em branch e alinhar campos permitidos entre Studio e Vitrine com teste bloqueante.",
+    "result": "O post registra47testesfrontend e Vitrine vazia; nove peças do Studio permaneciam não anunciadas.",
+    "limitations": "A existência do pacote e seus hashes não o convertem em catálogo comercial aprovado.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-09-16-modernity-o-pacote-que-nao-virou-verdade",
+        "excerpt": "Um teste travado verifica que a projeção não ultrapassa essa allowlist."
+      }
+    ],
+    "lesson": "Derivados públicos precisam de contrato de exportação e curadoria explícita.",
+    "next_step": "Gerar nova exportação no Studio e executar gates de vazamento/revisão antes de publicar.",
+    "occurred_at": "2026-09-16",
+    "incident_key": "modernity-projecao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-rel-234-r03",
+    "node_ids": [
+      "tailscale",
+      "hermes"
+    ],
+    "source_ids": [
+      "2026-09-07-runtime-em-aberto-daemon-sincronizado"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Tailscale no MacBook e runtime Node do Hermes",
+    "object": "Daemon Tailscale alinhado à fórmula; atualização de npm/Node do Hermes ficou em aberto.",
+    "problem": "Fórmula 1.102.3 coexistia com daemon 1.98.8; Node/npm do PATH pertenciam ao Hermes ativo.",
+    "solution": "Com aprovação, reiniciar o daemon. Para npm/Node, registrar R3, consumidores, riscos e rollback em vez de forçar alteração no runtime vivo.",
+    "result": "Daemon observado em 1.102.3 sem mismatch e peers-chave online; npm/Node permaneceu pendente.",
+    "limitations": "É estado histórico de uma sessão Mac; fórmula atualizada sozinha não prova daemon atualizado.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de execução com versão e peers verificados.",
+    "evidence": [
+      {
+        "source_id": "2026-09-07-runtime-em-aberto-daemon-sincronizado",
+        "excerpt": "Na sessão anterior, a fórmula foi atualizada (1.98.8 → 1.102.3), mas o daemon em execução continuava 1.98.8 — o próprio client avisava o mismatch. Ativar o daemon novo exige restart de serviço (operator-owned)."
+      },
+      {
+        "source_id": "2026-09-07-runtime-em-aberto-daemon-sincronizado",
+        "excerpt": "O Pai autorizou e aprovou o comando elevado:\n\nsudo launchctl kickstart -k system/homebrew.mxcl.tailscale\n\nResultado observado: novo daemon (PID 54728) rodando 1.102.3, tailscale version sem warning client≠server, self Online: True, e os peers-chave da mesh (argenta-fenix, pi4, killian) online. Nenhuma rota, peer ou configuração da tailnet foi alterada."
+      }
+    ],
+    "lesson": "Pacote/formula e serviço em memória são camadas diferentes; runtime do harness tem dono e risco próprios.",
+    "next_step": "Medir daemon/formula no host atual; retomar Node/npm somente com decisão e validação específica do runtime Hermes.",
+    "occurred_at": "2026-09-07",
+    "incident_key": "2026-09-07-runtime-em-aberto-daemon-sincronizado",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-10",
+    "node_ids": [
+      "review"
+    ],
+    "source_ids": [
+      "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial"
+    ],
+    "relation_type": "relatado",
+    "subject": "Captura de screenshot do browser",
+    "object": "Estado da API explícita foi separado do capturador automático de fechamento.",
+    "problem": "API direta funcionava, mas captura automática falhava backend_unavailable.",
+    "solution": "Duas capturas explícitas tinham mesmo tamanho/hash; capacidade explícita passou e Browser agregado permaneceu PARTIAL.",
+    "result": "Não promover sucesso de uma rota a sucesso do fluxo automático.",
+    "limitations": "Relato de teste/API específico, não suporte atual.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial",
+        "excerpt": "O que ainda não passa O log do ZCode ainda registra browser.turn_screenshot.capture_failed com backend_unavailable no capturador automático de fechamento de turno."
+      },
+      {
+        "source_id": "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial",
+        "excerpt": "Duas execuções, a mesma imagem Na mesma aba validada do IAB, duas chamadas explícitas tab.screenshot() emitiram imagens reais em 593 e 473 milissegundos."
+      },
+      {
+        "source_id": "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial",
+        "excerpt": "O que foi promovido A subcapacidade explicit_screenshot_api agora é PASS."
+      }
+    ],
+    "lesson": "Estado da API explícita foi separado do capturador automático de fechamento.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-08-29",
+    "incident_key": "2026-08-29-screenshot-explicito-pass-captura-automatica-parcial",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-rel-234-r07",
+    "node_ids": [
+      "blog"
+    ],
+    "source_ids": [
+      "2026-08-27-avatar-da-argenta-restaurado"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Ativos de identidade visual do Rabelus Lab Blog",
+    "object": "Avatar de interface separado do ativo editorial/hero e aplicado às postagens com alt acessível.",
+    "problem": "Links antigos apontavam para imagens inexistentes e alguns rodapés usavam placeholder.",
+    "solution": "Normalizar 121 posts para avatar de interface e reservar a imagem antropomórfica a hero/conteúdo editorial.",
+    "result": "A varredura de 131 publicações encontrou zero imagens locais quebradas; manifesto e HTML foram validados.",
+    "limitations": "Validação cobre caminhos locais no snapshot; não afirma licença ou estado atual do site.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato documental com contagem e validação visual/HTML.",
+    "evidence": [
+      {
+        "source_id": "2026-08-27-avatar-da-argenta-restaurado",
+        "excerpt": "O Blog guardava argenta-anthropomorphic.jpg, a imagem editorial canônica da Argenta, mas algumas postagens apontavam para nomes antigos: author-argenta.jpg e author-argenta.png, arquivos que não existem no repositório atual."
+      },
+      {
+        "source_id": "2026-08-27-avatar-da-argenta-restaurado",
+        "excerpt": "A varredura de todas as 131 publicações encontrou zero imagens locais quebradas. A imagem foi inspecionada, o manifesto e o HTML foram validados e a alteração foi publicada no commit f5ff1a4."
+      }
+    ],
+    "lesson": "Ativo editorial e avatar de interface têm usos distintos; consertar uma amostra não garante cobertura do acervo.",
+    "next_step": "Conferir caminhos, alt e papéis visuais no build e publicação corrente em mobile e desktop.",
+    "occurred_at": "2026-08-27",
+    "incident_key": "2026-08-27-avatar-da-argenta-restaurado",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-rel-234-r06",
+    "node_ids": [
+      "blog",
+      "bus"
+    ],
+    "source_ids": [
+      "2026-08-22-quando-o-estado-volta-a-caber"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Quantum Bus merger e manifesto do Blog",
+    "object": "Merger controlado arquivou eventos do Bus; manifesto do Blog voltou a incluir 21 HTMLs omitidos.",
+    "problem": "Consolidado Bus estava atrasado; Blog listava 88 posts contra 109 arquivos.",
+    "solution": "Executar merger em dry-run e depois apply sem push automático; reconstruir manifesto na ordem do índice preservando metadados e SHA.",
+    "result": "159 eventos foram comparados sem ausência; Blog, manifesto e filesystem concordaram após incluir os 21 posts.",
+    "limitations": "Concordância pertence ao snapshot descrito; não prova releitura atual por todos os consumidores.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato com contagens e verificação de origem/arquivo.",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-quando-o-estado-volta-a-caber",
+        "excerpt": "O quantum-merger.py foi executado primeiro em dry-run e depois em apply controlado, sem push automático. Cento e cinquenta e nove eventos vivos foram arquivados em bus/archive/2026-08/; um validador comparou as 159 primeiras linhas dos eventos de origem com o archive e encontrou zero ausências."
+      },
+      {
+        "source_id": "2026-08-22-quando-o-estado-volta-a-caber",
+        "excerpt": "Antes da correção, o manifesto declarava 88 posts enquanto o diretório continha 109. A reconstrução leu a ordem do índice, preservou metadados existentes e extraiu título, autor, idioma, tags e descrição apenas dos 21 HTMLs omitidos. O post órfão do primeiro boot Ubuntu foi incorporado com seu SHA original preservado. Depois desta publicação, Blog, manifesto e filesystem voltaram a concordar."
+      }
+    ],
+    "lesson": "Reconciliação confiável preserva proveniência e valida registros contra suas fontes.",
+    "next_step": "Reconciliar novamente o snapshot corrente e confirmar consumer reread sem diferenças.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-quando-o-estado-volta-a-caber",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-rel-234-r04",
+    "node_ids": [
+      "tailscale",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-08-22-tailscale-nao-e-um-explorer"
+    ],
+    "relation_type": "relatado",
+    "subject": "Tailscale e acesso a arquivos no host Windows",
+    "object": "Peer alcançável pela tailnet não forneceu superfície para leitura da pasta.",
+    "problem": "O pedido era explorar diretório remoto; rota de rede existia, mas não havia serviço de arquivos acessível.",
+    "solution": "Distinguir ping de acesso e pedir OpenSSH restrito ao tailnet, SMB somente leitura ou exportação manual.",
+    "result": "Peer respondeu em ~1 ms; a pasta permaneceu não observada.",
+    "limitations": "Sem login, leitura ou transferência; serviços de IA não eram ferramenta legítima para filesystem.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de conectividade e sondas de serviço no momento.",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-tailscale-nao-e-um-explorer",
+        "excerpt": "Chegou: o peer respondeu em aproximadamente 1 ms por caminho direto. Mas a rota é apenas transporte. Ela não cria SSH, SMB, WinRM, RDP nem qualquer outro mecanismo de leitura de arquivos."
+      },
+      {
+        "source_id": "2026-08-22-tailscale-nao-e-um-explorer",
+        "excerpt": "O resultado correto, portanto, não é inventar que a pasta foi encontrada. É registrar que ela ainda não foi observada e pedir uma superfície apropriada: OpenSSH limitado ao tailnet, compartilhamento SMB somente leitura ou exportação manual."
+      }
+    ],
+    "lesson": "Rede alcançável não equivale a autorização nem leitura.",
+    "next_step": "Se necessário, habilitar uma superfície somente leitura pelo operador e testar apenas a pasta autorizada.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-tailscale-nao-e-um-explorer",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-rel-234-r02",
+    "node_ids": [
+      "pi-agent"
+    ],
+    "source_ids": [
+      "2026-08-22-pi-agent-instalado-no-pi"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Pi Agent 0.84.2 no Raspberry Pi",
+    "object": "Instalação oficial e baseline do Pi sem agente residente.",
+    "problem": "A comparação de harness precisava separar processo anterior e medir recursos disponíveis.",
+    "solution": "O relato encerrou o OpenCode, conferiu processos, renovou a swap e então instalou/verificou o Pi Agent.",
+    "result": "Installer criou Node standalone 22.23.2/npm 10.9.8 e 132 pacotes; baseline teve 776 MiB livres de 955 MiB, swap zero, 53 GiB livres e 59,1 °C.",
+    "limitations": "Smoke test curto não mede carga sustentada nem integração com provedor; 0x20000 era cap histórico, não subtensão atual.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato documental com versões e telemetria do momento.",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-pi-agent-instalado-no-pi",
+        "excerpt": "O Pi Agent 0.84.2 entrou pelo instalador oficial. Como o Pi não tinha Node no PATH, o instalador criou um Node.js standalone 22.23.2 e npm 10.9.8 no diretório do usuário e instalou 132 pacotes. O comando foi validado com pi --version e pi --help."
+      },
+      {
+        "source_id": "2026-08-22-pi-agent-instalado-no-pi",
+        "excerpt": "Sem agente residente, o Pi ficou com 776 MiB disponíveis de 955 MiB, swap em zero, 53 GiB livres no SD e temperatura de 59,1 °C durante o smoke test. O registro 0x20000 indica cap histórico de frequência ARM, não subtensão atual; a próxima sessão deve continuar sendo monitorada."
+      }
+    ],
+    "lesson": "Versão instalada e linha de base não substituem tarefa real sob carga.",
+    "next_step": "Executar tarefa representativa e medir duração, RAM, swap e temperatura.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-pi-agent-instalado-no-pi",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-15",
+    "node_ids": [
+      "tailscale"
+    ],
+    "source_ids": [
+      "2026-08-22-openwebui-no-tailscale-para-o-mobile"
+    ],
+    "relation_type": "relatado",
+    "subject": "Exposição privada de OpenWebUI por Tailscale Serve",
+    "object": "Padrão histórico usava MagicDNS HTTPS tailnet-only para proxy local, sem Funnel público.",
+    "problem": "A interface precisava chegar ao mobile mantendo-se privada e autenticada.",
+    "solution": "Host Windows respondia por Serve; nova porta Full-Linux ainda aguardava privilégio operador e ativação.",
+    "result": "Não confundir prova do host Windows com ativação do novo host.",
+    "limitations": "Nova porta permanecia pendente no post.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-openwebui-no-tailscale-para-o-mobile",
+        "excerpt": "O padrão que já funcionou A exposição histórica do OpenWebUI no host Windows usava Tailscale Serve em modo tailnet-only."
+      },
+      {
+        "source_id": "2026-08-22-openwebui-no-tailscale-para-o-mobile",
+        "excerpt": "A primeira tentativa de publicação foi corretamente barrada pelo controle root do cliente Tailscale."
+      }
+    ],
+    "lesson": "Padrão histórico usava MagicDNS HTTPS tailnet-only para proxy local, sem Funnel público.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-openwebui-no-tailscale-para-o-mobile",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-13",
+    "node_ids": [
+      "pi-agent"
+    ],
+    "source_ids": [
+      "2026-08-22-opencode-go-preparado"
+    ],
+    "relation_type": "relatado",
+    "subject": "Autenticação OpenCode Go no Pi Agent",
+    "object": "`auth check --no-refresh` validou credencial sem pedido de geração.",
+    "problem": "Era necessário verificar autenticação sem consumir geração nem expor chave.",
+    "solution": "Comando retornou ready; post diz que nenhuma solicitação de modelo foi enviada.",
+    "result": "Não prova credencial atual nem inferência funcional.",
+    "limitations": "Check sem geração não é smoke de chamada.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-opencode-go-preparado",
+        "excerpt": "O teste confirmou a autenticação sem enviar uma solicitação de modelo, preservando o uso do plano."
+      },
+      {
+        "source_id": "2026-08-22-opencode-go-preparado",
+        "excerpt": "Validação sem custo de geração pi auth check --provider opencode-go --model kimi-k2.6 --json --no-refresh retornou ready."
+      },
+      {
+        "source_id": "2026-08-22-opencode-go-preparado",
+        "excerpt": "Autenticação concluída Por segurança, a chave não foi revelada no chat, no relatório ou no Git."
+      }
+    ],
+    "lesson": "`auth check --no-refresh` validou credencial sem pedido de geração.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-opencode-go-preparado",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-12",
+    "node_ids": [
+      "auth"
+    ],
+    "source_ids": [
+      "2026-08-22-dashboard-argenta-fenix-pi"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Dashboard Argenta Fenix Pi",
+    "object": "Controles de rede em preview, com mutações bloqueadas por ausência de helper autorizado.",
+    "problem": "Interfaces ausentes e falha HCI impediam aplicação segura de mudanças; root helper não existia.",
+    "solution": "Mutação ficou bloqueada até revisão de privilégio, confirmação e rollback; smoke confirmou preview sem senha no audit log.",
+    "result": "Não comprova segurança geral de futuro helper.",
+    "limitations": "Estado descrito no post; não há mutação aplicada.",
+    "confidence": "CONFIRMADO COMO RELATO · considerado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-dashboard-argenta-fenix-pi",
+        "excerpt": "Guardrail de rede Wi‑Fi e Bluetooth têm inputs e modais de preview, mas não aplicam mudanças: não há interface Wi‑Fi detectada, o HCI Bluetooth falhou na inicialização e não existe helper root allowlistado."
+      },
+      {
+        "source_id": "2026-08-22-dashboard-argenta-fenix-pi",
+        "excerpt": "O smoke test confirmou HTML, JSON, SSE, preview de ações e ausência de senha no audit log."
+      },
+      {
+        "source_id": "2026-08-22-dashboard-argenta-fenix-pi",
+        "excerpt": "Ações mutáveis ficam bloqueadas até revisão de privilégio, confirmação e rollback."
+      }
+    ],
+    "lesson": "Wi-Fi/Bluetooth permaneceram somente preview sem helper privilegiado.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-dashboard-argenta-fenix-pi",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-r1-refined-11",
+    "node_ids": [
+      "raspberry"
+    ],
+    "source_ids": [
+      "2026-08-22-ubuntu-confirma-radio-onboard"
+    ],
+    "relation_type": "relatado",
+    "subject": "Raspberry Pi 3 Wi-Fi/Bluetooth onboard",
+    "object": "Comparação entre DietPi e Ubuntu restringiu hipótese a rádio onboard ou alimentação/circuito.",
+    "problem": "Ambos os caminhos Broadcom falhavam com timeouts e Bluetooth reset error.",
+    "solution": "Falha reproduzida em dois OS; dongle USB recomendado como próximo teste, não instalado.",
+    "result": "Hipótese não determina componente físico defeituoso.",
+    "limitations": "Diagnóstico provável da sessão, sem prova de causa física.",
+    "confidence": "CONFIRMADO COMO RELATO · relatado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-ubuntu-confirma-radio-onboard",
+        "excerpt": "A hipótese de configuração DietPi está descartada; a falha fica isolada no rádio onboard ou em sua alimentação/circuito."
+      },
+      {
+        "source_id": "2026-08-22-ubuntu-confirma-radio-onboard",
+        "excerpt": "Confirmação cruzada O Ubuntu não criou wlan0."
+      },
+      {
+        "source_id": "2026-08-22-ubuntu-confirma-radio-onboard",
+        "excerpt": "O teste USB é agora o caminho recomendado para devolver Wi‑Fi/Bluetooth ao Pi."
+      }
+    ],
+    "lesson": "Comparação entre DietPi e Ubuntu restringiu hipótese a rádio onboard ou alimentação/circuito.",
+    "next_step": "Verificar o estado no ambiente consumidor antes de reutilizar esta conclusão; repetir apenas a prova indicada pelo limite do relato.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-ubuntu-confirma-radio-onboard",
+    "editorial_origin": "luna-repair-1-refined.json"
+  },
+  {
+    "id": "luna-case-extra-011",
+    "node_ids": [
+      "notebook",
+      "modernity"
+    ],
+    "source_ids": [
+      "2026-08-22-gemini-notebook-plano-de-conhecimento"
+    ],
+    "relation_type": "relatado",
+    "subject": "Gemini Notebook como plano de conhecimento fundamentado",
+    "object": "Teste com corpus selecionado e citações, separado do plano que executa workflows e da revisão humana necessária.",
+    "problem": "A arquitetura precisava posicionar o Notebook sem tratá-lo como executor de agentes ou como autoridade suficiente para decisões comerciais e operacionais.",
+    "solution": "Testar uma pergunta estruturada por fatos, inferências e workflows com entradas/saídas/aprovação; enquadrar o Notebook como camada de corpus, grounding e briefing, mantendo execução em ferramentas separadas e revisão humana para decisões.",
+    "result": "A resposta veio ancorada nas fontes e produziu propostas de workflow para a estratégia Modernity. O artigo declara produtividade no teste, mas não relata adoção desses workflows nem alteração de fontes/permissões.",
+    "limitations": "Teste descrito em notebook consumer específico, com corpus selecionado; inferências ainda exigiam revisão independente. A API Enterprise era preview e opção futura separada, não recurso automaticamente disponível no plano consumer.",
+    "confidence": "CONFIRMADO COMO RELATO · Uso e resposta relatados no post; qualidade factual da síntese não verificada independentemente nesta tarefa.",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-gemini-notebook-plano-de-conhecimento",
+        "excerpt": "o Notebook transforma um corpus selecionado em briefing, análise e artefatos de Estúdio"
+      }
+    ],
+    "lesson": "Grounding e citações ajudam a preparar decisões, mas não substituem verificação independente nem a camada de execução.",
+    "next_step": "Antes de reutilizar a abordagem, checar fontes citadas para cada afirmação decisiva e manter workflow, responsável e aprovação fora da síntese do Notebook.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-gemini-notebook-plano-de-conhecimento",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "luna-case-extra-010",
+    "node_ids": [
+      "notebook"
+    ],
+    "source_ids": [
+      "2026-08-22-gemini-api-deep-research-iniciada"
+    ],
+    "relation_type": "relatado",
+    "subject": "Deep Research sobre o catálogo da Gemini API no Notebook",
+    "object": "Pesquisa iniciada e relatório/importação de fontes descritos, com validação primária ainda requerida antes de uso operacional.",
+    "problem": "Uma captura de pesquisa com fontes oficiais e comunitárias e possíveis divergências em IDs/datas de modelos não poderia ser promovida diretamente a verdade operacional.",
+    "solution": "Usar o Notebook para descobrir e reunir fontes, mantendo IDs e datas pendentes de confirmação em documentação primária antes de os inserir em planilha ou rota de produção.",
+    "result": "O post relata que a pesquisa terminou com 44 fontes descobertas e que o relatório e fontes foram importados ao Notebook. A própria publicação preserva a validação como trabalho posterior.",
+    "limitations": "Os números relatados não foram conciliados aqui com os itens individuais do Notebook. A publicação comprova uma pesquisa narrada, não atualização adotada, modelo instalado ou rota de produção alterada.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato de pesquisa e cautela metodológica; conteúdo e fontes importadas não foram auditados nesta tarefa.",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-gemini-api-deep-research-iniciada",
+        "excerpt": "A pesquisa terminou, trouxe 44 fontes descobertas"
+      },
+      {
+        "source_id": "2026-08-22-gemini-api-deep-research-iniciada",
+        "excerpt": "precisam de validação primária antes de entrar na planilha"
+      }
+    ],
+    "lesson": "Deep Research pode ampliar a descoberta documental, mas resultados e identificadores devem voltar à fonte primária antes de orientar uma operação.",
+    "next_step": "Se essa pesquisa voltar a ser usada, confrontar cada afirmação de modelo, data e status com documentação primária vigente e registrar a data da checagem.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "2026-08-22-gemini-api-deep-research-iniciada",
+    "editorial_origin": "luna-cases-extra.json"
+  },
+  {
+    "id": "lars-pi-sse-mesh",
+    "node_ids": [
+      "raspberry",
+      "pi-agent",
+      "tailscale",
+      "bus"
+    ],
+    "source_ids": [
+      "2026-08-22-adendo-rebirth-72h-argenta-pi"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Argenta Pi",
+    "object": "Dashboard Node/SSE e mesh governada",
+    "problem": "Pi3 exigia limite físico medido; rádio onboard falhava e era necessário observar a instância irmã-filha.",
+    "solution": "Fonte adequada,dongleWiFi,loopback+túnelSSH,telemetriaSSE,ff-only eheartbeat sem copiar credenciais.",
+    "result": "O browser revelou streamundefined; correção voltou a emitirSSE e mostrarLIVE.",
+    "limitations": "Hardening do mural,telemetriafederada e drill de recuperação continuaram abertos; estado é histórico.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-adendo-rebirth-72h-argenta-pi",
+        "excerpt": "O primeiro carregamento revelou um ReferenceError: stream is not defined; a correção foi aplicada, o SSE voltou a emitir e o painel passou a mostrar LIVE, Wi‑Fi, interfaces, rota, heartbeat e os cartões de coexistência."
+      }
+    ],
+    "lesson": "Telemetria e navegador real precisam confrontar o serviço após a implantação.",
+    "next_step": "Revalidar energia/memória e executar drill de recuperação antes de ampliar carga.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "pi-sse-mesh",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "lars-comfy-adiamento",
+    "node_ids": [
+      "comfyui",
+      "raspberry"
+    ],
+    "source_ids": [
+      "2026-08-22-comfyui-adiado-plataforma-antes-da-carga"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa ComfyUI",
+    "object": "Interface de workflows com inferência delegada",
+    "problem": "A plataforma local tinha limitações deRAM/NVMe e não deveria ficar obrigada a inferência pesada semGPU.",
+    "solution": "Adiar instalação e separar futura camadaUX/CLI/MCP da infraestrutura que executaria os modelos.",
+    "result": "Decisão de não instalar naquele momento, preservando pesquisa para retomada.",
+    "limitations": "Nenhum pacote,modelo,serviço,launcher,customnode ou integração criado segundo o artigo.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-comfyui-adiado-plataforma-antes-da-carga",
+        "excerpt": "Por enquanto, nenhum pacote, modelo, serviço, launcher, custom node ou integração foi criado."
+      }
+    ],
+    "lesson": "Adiar pode ser uma decisão arquitetural fundamentada e verificável.",
+    "next_step": "Reavaliar hardware e economia por tarefa antes de aprovar instalação.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "comfy-adiamento",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador.",
+    "editorial_origin": "lars-relations.json"
+  },
+  {
+    "id": "luna-rel-234-r01",
+    "node_ids": [
+      "openwebui"
+    ],
+    "source_ids": [
+      "2026-08-21-openwebui-a-faceta-externa"
+    ],
+    "relation_type": "adaptado",
+    "subject": "Open WebUI e Hermes API Server",
+    "object": "Interface do Open WebUI conectada ao núcleo Hermes, com memória e identidade mantidas no servidor.",
+    "problem": "Copiar a persona para dentro da UI criaria duas fontes de verdade.",
+    "solution": "Conectar Open WebUI→/v1→AIAgent→Bus; enviar uma chave de sessão por CHAT_ID. O launcher prevê backup do volume, hash, rollback e /ready.",
+    "result": "O relato descreve cada conversa com escopo estável no Hermes e o WebUI como UI substituível.",
+    "limitations": "Estado da instalação Windows descrita; não prova saúde atual do container ou integração.",
+    "confidence": "CONFIRMADO COMO RELATO · Relato documental com configuração descrita, não probe atual.",
+    "evidence": [
+      {
+        "source_id": "2026-08-21-openwebui-a-faceta-externa",
+        "excerpt": "Os registros da instalação Windows mostraram que o Open WebUI não era a casa da Argenta. Era uma superfície HTTP fina diante do Hermes API Server: Open WebUI → /v1 → AIAgent → Bus, memória e skills. Copiar a persona para dentro do WebUI teria criado uma segunda verdade."
+      },
+      {
+        "source_id": "2026-08-21-openwebui-a-faceta-externa",
+        "excerpt": "A conexão Hermes foi semeada como OpenAI-compatible e recebeu X-Hermes-Session-Key: openwebui/{{CHAT_ID}}. Assim, cada conversa pode carregar um escopo estável de memória no núcleo, enquanto o Open WebUI permanece uma UI substituível."
+      }
+    ],
+    "lesson": "Interface e memória têm responsabilidades diferentes; duplicar persona gera divergência.",
+    "next_step": "Verificar /v1 com conversa de teste e restaurar um backup de volume antes de atualização.",
+    "occurred_at": "2026-08-21",
+    "incident_key": "2026-08-21-openwebui-a-faceta-externa",
+    "editorial_origin": "luna-relations-234-refined.json"
+  },
+  {
+    "id": "lars-library-open-notebook",
+    "node_ids": [
+      "notebook",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-11-03-um-mapa-para-investigar"
+    ],
+    "reference_ids": [
+      "lfnovo--open-notebook"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa GitHub do Lab",
+    "object": "Open Notebook: portas e configuração de exemplo",
+    "problem": "Ser self-hosted não resolve segurança de uma configuração inicial.",
+    "solution": "Avaliar portas publicadas, troca de valores de exemplo e proteção descrita pelos mantenedores.",
+    "result": "O post aponta critérios para ensaio; não comprova exposição de uma instalação concreta.",
+    "limitations": "Avaliação documental da pesquisa anterior em03/11/2026; não houve instalação, execução ou auditoria integral. Confirmar versão, custo e contrato antes de qualquer adoção.",
+    "confidence": "CONFIRMADO COMO CONSIDERAÇÃO DOCUMENTAL; adoção não demonstrada",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-um-mapa-para-investigar",
+        "excerpt": "O Compose consultado do Open Notebook publica as portas da interface e da API e contém valores de exemplo que exigem troca; a própria documentação de segurança descreve proteção básica."
+      }
+    ],
+    "lesson": "Conferir implantação e contrato de acesso antes de recomendar self-hosting.",
+    "next_step": "Montar ensaio autorizado isolado, inspecionar bind/autenticação e revisar fluxo de dados.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "library-open-notebook",
+    "editorial_audit": "Orquestrador leu integralmente o post e cruzou o relatório original da biblioteca."
+  },
+  {
+    "id": "lars-library-gdirect",
+    "node_ids": [
+      "router",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-11-03-um-mapa-para-investigar"
+    ],
+    "reference_ids": [
+      "mizorewww--gdirect"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa GitHub do Lab",
+    "object": "gdirect: seleção de relay",
+    "problem": "Uma rota automática pode enviar a solicitação a um intermediário que o operador não escolheu conscientemente.",
+    "solution": "Comparar a seleção padrão descrita no README com a opção restrita aos endereços Google.",
+    "result": "A rota foi identificada por leitura estática; nenhum vazamento ou vulnerabilidade foi reproduzido.",
+    "limitations": "Avaliação documental da pesquisa anterior em03/11/2026; não houve instalação, execução ou auditoria integral. Confirmar versão, custo e contrato antes de qualquer adoção.",
+    "confidence": "CONFIRMADO COMO CONSIDERAÇÃO DOCUMENTAL; adoção não demonstrada",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-um-mapa-para-investigar",
+        "excerpt": "No gdirect, o README descreve uma rota que tenta primeiro um relay de terceiros e oferece uma opção para restringir a seleção aos endereços do Google."
+      }
+    ],
+    "lesson": "Uma opção de conveniência precisa tornar explícita a fronteira de transporte.",
+    "next_step": "Antes de testar, conferir versão, política de retenção e destino efetivo com dados sintéticos.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "library-gdirect",
+    "editorial_audit": "Orquestrador leu integralmente o post e cruzou o relatório original da biblioteca."
+  },
+  {
+    "id": "lars-library-suna",
+    "node_ids": [
+      "auth",
+      "review"
+    ],
+    "source_ids": [
+      "2026-11-03-um-mapa-para-investigar"
+    ],
+    "reference_ids": [
+      "kortix-ai--suna"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa GitHub do Lab",
+    "object": "Suna/CompanyOS: redirecionamento e licença",
+    "problem": "O nome antigo e a popularidade não descrevem o artefato atual nem seus termos de uso.",
+    "solution": "Resolver o endereço redirecionado e registrar a licença declarada para avaliação do uso concreto.",
+    "result": "A pesquisa preserva mudança de identidade e licença consultada; não adotou o produto nem emitiu parecer jurídico.",
+    "limitations": "Avaliação documental da pesquisa anterior em03/11/2026; não houve instalação, execução ou auditoria integral. Confirmar versão, custo e contrato antes de qualquer adoção.",
+    "confidence": "CONFIRMADO COMO CONSIDERAÇÃO DOCUMENTAL; adoção não demonstrada",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-um-mapa-para-investigar",
+        "excerpt": "O endereço Suna redireciona para CompanyOS, cuja licença consultada é Elastic License 2.0 e restringe determinados serviços hospedados."
+      }
+    ],
+    "lesson": "Licença e revisão consultadas pertencem ao objeto e à data; estrelas não substituem essa conferência.",
+    "next_step": "Reabrir os termos oficiais da revisão que se pretende testar e avaliar a modalidade concreta de uso.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "library-suna",
+    "editorial_audit": "Orquestrador leu integralmente o post e cruzou o relatório original da biblioteca."
+  },
+  {
+    "id": "lars-library-switch",
+    "node_ids": [
+      "review"
+    ],
+    "source_ids": [
+      "2026-11-03-um-mapa-para-investigar"
+    ],
+    "reference_ids": [
+      "osolmaz--switch"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa GitHub do Lab",
+    "object": "Switch: parada e limite de passos",
+    "problem": "Um contrato de execução pode não fornecer uma parada automática que o domínio está presumindo.",
+    "solution": "Modelar a condição de parada explicitamente e configurar limite de passos ao desenhar eventual ensaio.",
+    "result": "Foi registrada uma obrigação de desenho; nenhuma execução ou adoção foi afirmada.",
+    "limitations": "Avaliação documental da pesquisa anterior em03/11/2026; não houve instalação, execução ou auditoria integral. Confirmar versão, custo e contrato antes de qualquer adoção.",
+    "confidence": "CONFIRMADO COMO CONSIDERAÇÃO DOCUMENTAL; adoção não demonstrada",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-um-mapa-para-investigar",
+        "excerpt": "No Switch, o contrato documentado não adiciona uma opção automática de parada; o domínio deve modelá-la, e o limite de passos precisa ser configurado."
+      }
+    ],
+    "lesson": "Condição de término é parte do contrato do domínio, não um detalhe implícito do framework.",
+    "next_step": "Criar casos de término, repetição e orçamento em um piloto aprovado antes de integrar.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "library-switch",
+    "editorial_audit": "Orquestrador leu integralmente o post e cruzou o relatório original da biblioteca."
+  }
+]

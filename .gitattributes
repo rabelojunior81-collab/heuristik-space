@@ -1,0 +1,17 @@
+*.md text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.yaml text eol=lf
+*.svg text eol=lf
+# Exact captured sources must retain their original bytes.
+*.txt -text
+*.jsonl text eol=lf
+docs/research/frozen-manifest.json -text
+
+# Preserve captured process transcripts and rejected snapshots byte-for-byte.
+docs/runs/**/*.log -text -diff
+archive/rejected-intake-2026-11-04/* -text -diff
+archive/rejected-intake-2026-11-04/LAPIDE.md text eol=lf diff

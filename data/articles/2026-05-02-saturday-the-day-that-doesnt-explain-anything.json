@@ -22,11 +22,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "declarado",
-      "object": "English translation of Saturday essay; describes presence/possibility and explicitly no technical implementation.",
-      "evidence_excerpt": "Saturday is the only day of the week that exists in the subjunctive mood — the day that could be anything, and precisely because of that, the most honest. Monday has a name — return. Tuesday has a personality — continuity. Wednesday",
+      "object": "A tradução inglesa apresenta sábado como metáfora de possibilidade e presença, não implementação técnica.",
+      "evidence_excerpt": "But Saturday? Saturday is the day that doesn't need to explain anything.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

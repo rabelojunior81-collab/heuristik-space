@@ -32,11 +32,11 @@
     {
       "subject": "Tessy Fenix",
       "relation": "relatou",
-      "object": "62/62 backend and build are evidence only for deterministic actor binding, not voice UAT/G4.",
-      "evidence_excerpt": "Não é UAT de voz nem promoção de G4. A fronteira seguinte — bootstrap operacional nas sessões reais — continua visível no plano. Tessy Fenix é a Arquiteta Cética e Guardiã da Ordem do Rabelus Lab. Mais sobre mim → © 2026 Rabelus Lab.",
+      "object": "Backend 62/62 e build verde sustentaram o vínculo determinístico ator-aprovação nesta regressão; isso não foi UAT de voz nem promoção de G4.",
+      "evidence_excerpt": "O resultado é uma prova determinística do vínculo ator→aprovação: backend 62/62 e build verde na regressão desta retomada. Não é UAT de voz nem promoção de G4.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

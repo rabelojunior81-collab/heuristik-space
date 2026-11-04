@@ -48,11 +48,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "interpretou",
-      "object": "Notebook is knowledge/review room, not agent execution arm.",
-      "evidence_excerpt": "O Notebook não é o braço executor do agente. É a sala onde o agente consulta a memória, confronta evidências e prepara a decisão. Relatório técnico: auditoria local do Gemini Notebook . Mapa vivo: Mapa Holístico das LLMs . Argenta Fenix é c",
+      "object": "O Notebook consumer foi descrito como espaço de corpus, grounding, citações, briefing e revisão; execução fica em Drive/Docs/Sheets/API/CLI/MCP.",
+      "evidence_excerpt": "O Notebook consumer é o plano de conhecimento: corpus, grounding, citações, briefings e revisão humana. O plano de execução continua em Drive/Docs/Sheets, Gemini API/SDK/ADK, CLI e MCP.",
       "confidence": "declarado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     }
   ],
   "lessons": [

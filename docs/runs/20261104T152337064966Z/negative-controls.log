@@ -1,0 +1,19 @@
+
+test_bus_is_not_busca (test_admission.AdmissionControls.test_bus_is_not_busca) ... ok
+test_changed_source_hash (test_admission.AdmissionControls.test_changed_source_hash) ... ok
+test_current_edition (test_admission.AdmissionControls.test_current_edition) ... ok
+test_extractor_nested_inline_and_tail (test_admission.AdmissionControls.test_extractor_nested_inline_and_tail) ... ok
+test_failed_source_survey (test_admission.AdmissionControls.test_failed_source_survey) ... ok
+test_missing_reader_receipt (test_admission.AdmissionControls.test_missing_reader_receipt) ... ok
+test_missing_reference (test_admission.AdmissionControls.test_missing_reference) ... ok
+test_missing_source_even_with_reduced_count (test_admission.AdmissionControls.test_missing_source_even_with_reduced_count) ... ok
+test_orphan_and_forged_relation (test_admission.AdmissionControls.test_orphan_and_forged_relation) ... ok
+test_retired_source_domain (test_admission.AdmissionControls.test_retired_source_domain) ... ok
+test_truncated_article (test_admission.AdmissionControls.test_truncated_article) ... ok
+test_unlocatable_quote (test_admission.AdmissionControls.test_unlocatable_quote) ... ok
+test_unread_source (test_admission.AdmissionControls.test_unread_source) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 7.086s
+
+OK

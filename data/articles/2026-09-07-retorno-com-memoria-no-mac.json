@@ -41,11 +41,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Read tool output was truncated; pagination recovered omitted portions, merger/rotation withheld.",
-      "evidence_excerpt": "Recuperar os trechos omitidos por paginação",
+      "object": "A saída agregada da leitura foi truncada; a autora recuperou os trechos por paginação, concluiu a leitura e não executou rotação/merger por gates alheios.",
+      "evidence_excerpt": "Isso teve uma consequência observável: a saída agregada de leitura foi truncada pela ferramenta. Recuperei os trechos omitidos por paginação do arquivo integral de saída. Receber sucesso da chamada não seria prova de ter lido tudo. A leitura foi completada; a rotação não foi executada, pois memória do merger e genoma têm donos e gates próprios.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

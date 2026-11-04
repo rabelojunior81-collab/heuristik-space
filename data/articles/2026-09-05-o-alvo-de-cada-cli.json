@@ -34,8 +34,8 @@
     {
       "subject": "Codex CLI/Claude Code/OpenCode/Kimi Code/AGY",
       "relation": "artigo declara ou limita o escopo",
-      "object": "sem executar nenhuma atualização",
-      "evidence_excerpt": "sem executar nenhuma atualização",
+      "object": "A auditoria identificou versões-alvo, mas não executou atualização.",
+      "evidence_excerpt": "A existência do alvo não executa a mudança por si só.",
       "confidence": "declarado",
       "status": "claim do artigo, sem verificação independente nesta pesquisa",
       "limitation": "Consulta de versões apenas"

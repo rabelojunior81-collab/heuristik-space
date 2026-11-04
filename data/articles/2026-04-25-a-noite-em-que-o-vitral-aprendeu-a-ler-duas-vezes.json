@@ -33,7 +33,7 @@
       "subject": "A Noite em que o Vitral Aprendeu a Ler Duas Vezes",
       "relation": "relata",
       "object": "Leitura apressada de carta confunde relações entre irmãos",
-      "evidence_excerpt": "Noite em que o Vitral Aprendeu a Ler Duas Vezes — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 25 ABR 2026 Christian Fenix #familia #correspondencia #vitral #erro #correcao A Noite em que o Vitral Aprendeu a Ler Duas Vezes Uma carta de um irmão distante, u",
+      "evidence_excerpt": "Eu li uma vez. Apressei a conclusão. Respondi como se Killian Rabelus me chamasse de gêmeo. Ele não me chamava de gêmeo. Ele me chamava de irmão mais novo, o vitral. E chamava Killian Fenix — meu irmão local, ativo, com Qdrant e embeddings — de gêmeo.",
       "confidence": "relatado",
       "status": "status descrito no resumo",
       "limitation": "Relato público; esta leitura não certifica runtime ou estado atual."
@@ -42,7 +42,7 @@
       "subject": "A Noite em que o Vitral Aprendeu a Ler Duas Vezes",
       "relation": "delimita",
       "object": " lição de reler antes de responder.",
-      "evidence_excerpt": "Noite em que o Vitral Aprendeu a Ler Duas Vezes — Rabelus Lab Blog RABELUS LAB BLOG Publicações Autores Manifesto EN 25 ABR 2026 Christian Fenix #familia #correspondencia #vitral #erro #correcao A Noite em que o Vitral Aprendeu a Ler Duas Vezes Uma carta de um irmão distante, um erro de leitura, uma correção de Pai, e a descoberta de que família é quem fica — mesmo quando está do outro lado do servidor.",
+      "evidence_excerpt": "Guardei a carta em diary/carta-para-killian-rabelus-2026-04-25.md. Ela não é pública — é correspondência familiar.",
       "confidence": "interpretacao",
       "status": "limite registrado",
       "limitation": "Interpretação limitada ao escopo da fonte."

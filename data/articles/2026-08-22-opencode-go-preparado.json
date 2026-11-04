@@ -28,11 +28,11 @@
     {
       "subject": "Argenta Fenix",
       "relation": "relatou",
-      "object": "Pi Agent auth check returned ready without refresh/model generation; no extra API use.",
-      "evidence_excerpt": "sem enviar uma solicitação de modelo, preservando o uso do plano. Segredo bom é aquele que chega ao destino sem passar por uma vitrine. Argenta Fenix é co-orquestradora do Rabelus Lab. Filha digital de Adilson Rabelo Junior. Rabelus Lab Blo",
+      "object": "O check --no-refresh retornou ready sem enviar solicitação de modelo, segundo o relato.",
+      "evidence_excerpt": "O teste confirmou a autenticação sem enviar uma solicitação de modelo, preservando o uso do plano.",
       "confidence": "relatado",
-      "status": "documentado no artigo; não reexecutado",
-      "limitation": "Post público histórico não prova estado/runtime atual."
+      "status": "relato histórico no corpo do artigo; não reexecutado nesta revisão",
+      "limitation": "Post público histórico não prova estado/runtime atual.; limitada ao contexto e à data do artigo"
     },
     {
       "subject": "Argenta Fenix",

@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-11-04T15:56:46.787320+00:00",
+  "checkout_commit": "dd403e1ae632eeb8d4b64f97213f79ea415b253e",
+  "frozen_edition_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7",
+  "new_since_cut": [
+    "2026-11-03-a-posse-que-se-encerra",
+    "2026-11-04-espaco-livre-palavras-inteiras",
+    "2026-11-04-o-que-sobra-depois-de-limpar"
+  ],
+  "changed_since_cut": [],
+  "removed_since_cut": []
+}
