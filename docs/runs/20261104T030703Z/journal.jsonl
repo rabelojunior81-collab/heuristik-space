@@ -2,3 +2,6 @@
 {"at": "2026-11-04T00:18:29.378717-03:00", "phase": "during", "event": "deep_reading_receipts_available", "count": 373, "claims": 906, "semantic_acceptance": "not_inferred"}
 {"at": "2026-11-04T00:18:29.378717-03:00", "phase": "during", "event": "admission_failed", "report": "docs/qa/first-admission.json", "quoted_evidence_checked": 809, "failures": 116}
 {"at": "2026-11-04T00:18:29.378717-03:00", "phase": "checkpoint", "event": "quota_continuity", "remaining_weekly_user_report": "2%", "reset_used": false, "resume": "docs/CONTINUE.md"}
+{"at": "2026-11-04T00:23:12.164210-03:00", "phase": "during", "event": "auxiliary_checkpoint_syntax_error_corrected", "cause": "nonASCII bytes literal, parse failed before writes", "result": "new command succeeded; root checkpoint03935c1 pushed"}
+{"at": "2026-11-04T00:23:12.164210-03:00", "phase": "during", "event": "node_check_wrong_cwd", "result": "MODULE_NOT_FOUND in LARS root; repeat with explicit project cwd"}
+{"at": "2026-11-04T00:23:12.164210-03:00", "phase": "during", "event": "preview_shown", "receipt": "docs/qa/preview-initial.json", "release": "NOT_READY"}

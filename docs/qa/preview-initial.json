@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-11-04T00:23:12.164210-03:00",
+  "url": "http://127.0.0.1:8780/",
+  "viewport": [
+    805,
+    764
+  ],
+  "scroll_width": 790,
+  "broken_images": 0,
+  "cards": 24,
+  "shown_in_codex": true,
+  "status": "PREVIEW_ONLY",
+  "not_tested": [
+    "375/390/1440 responsive journeys",
+    "clipboard",
+    "keyboard/dialogs",
+    "data errors",
+    "Pages/DNS"
+  ],
+  "human_acceptance": "NOT_INFERRED"
+}

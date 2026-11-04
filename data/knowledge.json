@@ -1,6 +1,6 @@
 {
   "edition": {
-    "version": "0.1.0",
+    "version": "0.1.0-candidate",
     "cut_at": "2026-11-03",
     "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7",
     "read_count": 373,

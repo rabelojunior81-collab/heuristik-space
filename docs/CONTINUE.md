@@ -32,3 +32,6 @@ scripts/validate.py em docs/qa/first-admission.json: FAIL,373recibos,906claims,8
 ## Operação
 
 Python3padrão,JS/CSS/HTMLnativos,semnpm install. `python scripts/build_data.py --blog ../lars-rabelus/blog` reconstróidoestado atualdosrelatórios; carimboéditiondeterminísticosemlocal generated_at. `python scripts/validate.py --out docs/qa/<novo-id>.json` recusa sobrescreverreceipt. `python scripts/inspect_blog.py --blog ../lars-rabelus/blog` criarun novo,statusdaorigem e mudança desdecut. Servidorpreviewaindanãoiniciado. Não repetirread373semnecessidade: corrigirpassagens e conferirlotes/hash/semântica, preservarrecibosdequemleu.
+
+
+Checkpoint visual posterior: preview próprio iniciado em127.0.0.1:8780, sessão exec54468, abaIAB4 marcada handoff. Superfície real805×764,scroll790,0imagensquebradas,24cards. Não é QAcompleto375/390/1440 nemaceite; registrarpreview-initial.json. Não reiniciar outroserver na mesma porta sem conferiropriedade. Código appmetrics corrigiu chavesstargazers_count/forks;fragmentoURI malformed ganhoufallback; CNAME heuristik.space e fonte rabelus.com.br distintos. Edição agora0.1.0-candidate atéadmissão/review/testes. Roteiroconserva947trechos? usar númerosdo gate original906claims/97falhas, não inferir por tarefas.
