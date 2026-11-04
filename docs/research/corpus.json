@@ -1,0 +1,11 @@
+{
+  "blog_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7",
+  "blog_url": "https://rabelus.com.br",
+  "manifest_posts": 373,
+  "batches": [
+    125,
+    124,
+    124
+  ],
+  "source_policy": "public committed posts only; exclude untracked foreign draft; media provenance/licensing checked before reuse"
+}

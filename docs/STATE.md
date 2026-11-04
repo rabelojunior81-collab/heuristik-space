@@ -1,0 +1,5 @@
+# Estado do Heuristik Space
+
+2026-11-03 · LARS / Codex Desktop / GPT-6.1-Sol. Projeto declarado pelo Pai; pasta e repositório público expressamente autorizados. Nome heuristik-space; domínio corrigido pelo Pai para **heuristik.space**. Post final no Blog expressamente solicitado. As máximas são: Organização é Lindo! Antes, durante e depois, SEMPRE! Cada um é UM! Todos, são UM!
+
+Fase: ideação/pesquisa e contrato. Corpus público congelado:373posts do Blog0b98e4c, lotes125/124/124. Leitura integral delegada a três GPT-6-Luna médio; orquestrador consolidará e conferirá amostras. Não declarar integral antes dos recibos. Revisão consultiva por modelos distintos autorizada nominalmente para este projeto; contexto/isolation não comprovado => NÃO INDEPENDENTE. Sem ferramentas na revisão, apenas material público e sem gasto extra. SPEC0.1 aguarda aprovação específica; implementação do produto depende dela e do plano autorizado. GitHub público criado; Pages ainda não configurado. Nenhum aceite de interface inferido.
