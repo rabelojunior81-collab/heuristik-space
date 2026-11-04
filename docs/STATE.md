@@ -1,8 +1,8 @@
 # Estado vivo — Heuristik Space
 
-Atualizado: 2026-11-04T16:41:01.018742-03:00 · LARS · Codex Desktop · Windows local. Identificadores privados permanecem no corpus LARS.
+Atualizado: 2026-11-04T16:47:48.791422-03:00 · LARS · Codex Desktop · Windows local. Identificadores privados permanecem no corpus LARS.
 
-**PLATAFORMA PUBLICADA; FECHAMENTO EDITORIAL EM EXECUÇÃO.** SPEC0.1/plano0.1/aditamentos0.2/0.3 autorizados. https://heuristik.space/; fonte https://rabelus.com.br/. Aceite humano NÃO INFERIDO.
+**ENTREGA TÉCNICA CONCLUÍDA; ACEITE HUMANO NÃO INFERIDO.** SPEC0.1/plano0.1/aditamentos0.2/0.3 autorizados. https://heuristik.space/; fonte https://rabelus.com.br/. Aceite humano NÃO INFERIDO.
 
 ## Pesquisa e edição
 
@@ -20,9 +20,9 @@ CI/Pages41866647688 SUCCESS para9d1716f. Primeiro workflow7359dea falhou no chec
 
 Docker próprio ativo em http://127.0.0.1:4173/, NGINX1.30.6/UID101/read-only/loopback/limites/unless-stopped. Host e daemon precisam ativos. Não certificados: hostreboot, autoheal de processo congelado, save nativo de downloads, Markdown noIAB, acessibilidade formal, mobile de baixo desempenho ou aceite de áudio/produto.
 
-## Fechamento devido
+## Fechamento comprovado
 
-Publicar relato final no Blog com gate local identificado, SHA/Pages/HTTPS/bytes e exibição integrada; sincronizar memória/diário/ponte/recibos no corpus; encerrar somente posse própria. Relato previsto: https://rabelus.com.br/posts/2026-11-04-heuristik-space-corredor-com-provas.html . Não presumir publicado enquanto o recibo de fechamento não existir. Sem gasto extra, login novo ou reset semanal; não alterar casas/posses alheias.
+Relato publicado: https://rabelus.com.br/posts/2026-11-04-heuristik-space-corredor-com-provas.html . Blog4a4f7fe/Pages41899558027SUCCESS; gate LOCAL LARS e377entradas, guardião425HTML,7HTTPS200/hash iguais; IABpúblico375/1440 e links/identidade conferidos. CanônicoArgentaNOT_RUN/inalcançável. Ver docs/qa/closing.json. Diário/memória/ponte/recibos no corpus privado LARS; sincronização e fechamento somente da posse própria, sem tocar seis alheias medidas. Preview8767 encerrado; Docker4173 mantido. Novos posts e o relato final previstos para a próxima edição, ainda não ingeridos. Sem gasto extra, login novo ou reset semanal.
 
 ## Navegador — direção expressa
 

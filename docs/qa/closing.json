@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-11-04T16:47:48.791422-03:00",
+  "project_domain": "https://heuristik.space/",
+  "frozen_edition_sources": 373,
+  "qualified_relations": 55,
+  "external_references": 39,
+  "public_runtime_proofs": [
+    "docs/qa/public-release-01.json",
+    "docs/qa/public-browser.json"
+  ],
+  "project_workflows": [
+    {
+      "sha": "9d1716f5357bd14dec07ab59fc2b63210b67cc73",
+      "run": 41866647688,
+      "conclusion": "success"
+    },
+    {
+      "sha": "22c5a1538969b08147c91152c76b1c7403379b21",
+      "run": 41899361329,
+      "conclusion": "success",
+      "scope": "Corrected receipt and metadata, unchanged runtime object"
+    }
+  ],
+  "blog": {
+    "url": "https://rabelus.com.br/posts/2026-11-04-heuristik-space-corredor-com-provas.html",
+    "sha": "4a4f7fe50fe1749724df6e373ebca3f211641748",
+    "run": 41899558027,
+    "conclusion": "success",
+    "selected_https_byte_equal_files": 7,
+    "local_structural_gate": "PASS",
+    "canonical_argenta": "NOT_RUN/unreachable",
+    "browser": "In-app375/1440PASS, overrides cleared"
+  },
+  "runtime": "Own Docker4173 retained, temporary preview8767 stopped",
+  "human_acceptance": "NOT_INFERRED",
+  "next_ingestion": "Three sources after cut and closing post are planned, not yet ingested",
+  "limits": [
+    "Native file-save completion and Markdown rendering unobserved",
+    "No host reboot/frozen-process autoheal/accessibility certification/low-end benchmark/audio acceptance",
+    "Review contextualized/non-independent; packet reconstruction is not transport plaintext proof"
+  ]
+}
