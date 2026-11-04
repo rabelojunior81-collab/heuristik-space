@@ -1,0 +1,477 @@
+[
+  {
+    "id": "lars-voice-dialogo",
+    "node_ids": [
+      "voice-forge",
+      "gemini-live"
+    ],
+    "source_ids": [
+      "2026-11-03-a-voz-que-saiu-do-prompt"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Voice Forge",
+    "object": "Diálogo estruturado e síntese por turno",
+    "problem": "O parser de rótulos atribuía voz errada e pedidos com três falantes excediam o contrato de uma requisição.",
+    "solution": "Declarar falante por turno, validar o legado e sintetizar por turno para mais de dois falantes ou vozes personalizadas.",
+    "result": "O ensaio real encontrou que o caminho legado ainda usava requisição única; a imagem e o teste foram corrigidos.",
+    "limitations": "Evolução descrita no serviço naquele dia; timbre, ritmo e pronúncia ainda dependiam da escuta humana.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-voz-que-saiu-do-prompt",
+        "excerpt": "Quando o diálogo não cabe em uma requisição — mais de dois falantes, ou voz personalizada — o motor sintetiza turno por turno e informa isso na resposta."
+      }
+    ],
+    "lesson": "Um fallback precisa cobrir todos os formatos de entrada, inclusive o legado.",
+    "next_step": "Exercitar dois e três falantes nos clientes consumidores, verificar vozes e duração.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "voice-dialogo",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-voice-review-publicacao",
+    "node_ids": [
+      "voice-forge",
+      "review"
+    ],
+    "source_ids": [
+      "2026-11-03-a-voz-que-saiu-do-prompt"
+    ],
+    "relation_type": "relatado",
+    "subject": "Voice Forge 2.3.0–2.3.2",
+    "object": "Revisão tardia e reparos dos contratos",
+    "problem": "A publicação antecedeu o veredito; rotas eram capturadas e áudio incompleto podia retornar sucesso.",
+    "solution": "Reproduzir achados no serviço, corrigir rotas, aliases, integridade de áudio e atribuição de falantes; ampliar testes.",
+    "result": "O relato registra versões2.3.1/2.3.2 e55testes, com nove ocorrências tratadas após revisões.",
+    "limitations": "A suíte maior e a transcrição não substituem audição, uso pelo aplicativo ou inspeção atual do serviço.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-voz-que-saiu-do-prompt",
+        "excerpt": "O erro de método não foi técnico. Foi de sequência: eu publiquei antes do veredito que eu mesma havia pedido."
+      }
+    ],
+    "lesson": "O gate de revisão deve bloquear a promoção do mesmo artefato que será entregue.",
+    "next_step": "Conferir versão no consumidor e exigir review antes da próxima promoção.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "voice-review-publicacao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-aos-migracao-live",
+    "node_ids": [
+      "aos",
+      "gemini-live",
+      "native"
+    ],
+    "source_ids": [
+      "2026-10-07-o-hub-tinha-prazo"
+    ],
+    "relation_type": "adaptado",
+    "subject": "Rabelus AOS",
+    "object": "Gemini Live e centralização de modelos",
+    "problem": "O Hub dependia de modelo com desligamento anunciado e a engine de imagem apontava para modelos aposentados.",
+    "solution": "Atualizar dependências/modelos, centralizar identificadores e manter ferramentas instantâneas bloqueantes enquanto a geração de imagem segue assíncrona.",
+    "result": "O relato registra11commits,38testes e audit sem vulnerabilidades após migração.",
+    "limitations": "Nada havia sido mergeado; sem chave Gemini não se verificaram voz, ferramentas assíncronas ou imagem real.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-07-o-hub-tinha-prazo",
+        "excerpt": "Todos os identificadores de modelo passaram a morar num único arquivo."
+      }
+    ],
+    "lesson": "Migração de SDK exige preservar o comportamento das ferramentas e testar a rede real.",
+    "next_step": "Executar roteiro de voz e imagem com credencial autorizada antes de integrar a migração.",
+    "occurred_at": "2026-10-07",
+    "incident_key": "aos-migracao-live",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-aos-paridade-computada",
+    "node_ids": [
+      "aos",
+      "review"
+    ],
+    "source_ids": [
+      "2026-10-07-o-hub-tinha-prazo"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Migração Tailwind do AOS",
+    "object": "Paridade por estilos computados",
+    "problem": "Capturas falhavam com janela minimizada e a troca de Tailwind alterava paleta, gradientes, sombras e precedência.",
+    "solution": "Comparar47propriedades por elemento em seis estados, normalizar cores e corrigir diferenças com tolerância declarada.",
+    "result": "Comparação zerada em desktop e celular segundo o post; classes antes inoperantes foram registradas como intenção futura.",
+    "limitations": "Paridade de propriedades não demonstra jornadas, audição nem aprovação visual humana.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-07-o-hub-tinha-prazo",
+        "excerpt": "Registrei 47 propriedades computadas de cada elemento, em seis estados da interface, antes e depois, com cores convertidas para o mesmo espaço e tolerância de um pixel."
+      }
+    ],
+    "lesson": "A equivalência visual precisa de referência e tolerância explícitas.",
+    "next_step": "Reconciliar medidas com a interface efetivamente renderizada e o aceite do operador.",
+    "occurred_at": "2026-10-07",
+    "incident_key": "aos-paridade-computada",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-aos-jev-sombra",
+    "node_ids": [
+      "aos",
+      "review",
+      "notebook"
+    ],
+    "source_ids": [
+      "2026-10-07-o-hub-tinha-prazo"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa do AOS",
+    "object": "Jev como sinal consultivo",
+    "problem": "Um decisor tipado poderia apoiar roteamento e auditoria, mas tem limitações com literalidade, números e conteúdo adversarial.",
+    "solution": "Propor calibração em modo sombra e manter autoridade de adoção com o Pai.",
+    "result": "Pesquisa e proposta registradas; piloto e integração continuavam dependentes de decisão.",
+    "limitations": "O Blog não comprova adoção ou desempenho desse modelo no Lab.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-07-o-hub-tinha-prazo",
+        "excerpt": "Por isso o proponho só como sinal consultivo, calibrado em modo sombra antes de qualquer uso."
+      }
+    ],
+    "lesson": "Modelo tipado continua exigindo conjunto de avaliação e limites de autoridade.",
+    "next_step": "Definir casos reais, medir falsos positivos/negativos e comparar com critérios humanos antes de adotar.",
+    "occurred_at": "2026-10-07",
+    "incident_key": "aos-jev-sombra",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-larry-persistencia",
+    "node_ids": [
+      "larry",
+      "docker",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-10-06-a-casa-do-larry-antes-do-nascimento"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Infraestrutura Larry",
+    "object": "Persistência separada do backend e do navegador",
+    "problem": "Memórias/sessões/documentos e transações/perfil viviam em armazenamentos diferentes.",
+    "solution": "Um serviço de aplicação com bind para storage e origem estável para o IndexedDB, sem banco adicional.",
+    "result": "Nove verificações e uma jornada sintética registraram persistência após recriação e recarga.",
+    "limitations": "Bind do host não salva IndexedDB; IA/OCR/voz e reboot/logon real ficaram sem teste.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-a-casa-do-larry-antes-do-nascimento",
+        "excerpt": "Já transações, metas e perfil pertencem ao IndexedDB do navegador e à sua origem."
+      }
+    ],
+    "lesson": "Persistência é contrato por dado e por origem, não propriedade genérica do contêiner.",
+    "next_step": "Testar restauração dos dois armazenamentos e preservar a origem no próximo deploy.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "larry-persistencia",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-larry-watchdog",
+    "node_ids": [
+      "larry",
+      "docker",
+      "review"
+    ],
+    "source_ids": [
+      "2026-10-06-a-casa-do-larry-antes-do-nascimento"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Runtime Larry",
+    "object": "Watchdog sequencial e cessação observável",
+    "problem": "Reiniciar antes de o grupo antigo cessar poderia deixar descendentes concorrentes.",
+    "solution": "Sondar HTTP com timeout; encerrar grupo comTERM/KILL e iniciar sucessor apenas após cessação observada.",
+    "result": "Ensaios de queda, congelamento e descendente sobrevivente passaram no escopo relatado.",
+    "limitations": "Não é prova de reboot do Windows nem de que healthcheck genérico reinicie qualquer contêiner.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-a-casa-do-larry-antes-do-nascimento",
+        "excerpt": "Se não puder comprovar isso no prazo, sai para a recuperação do container."
+      }
+    ],
+    "lesson": "Recuperação precisa provar a saída do processo anterior e limitar o que encerra.",
+    "next_step": "Repetir ensaios de falha ao mudar supervisor ou política de reinício.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "larry-watchdog",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-modernity-projecao",
+    "node_ids": [
+      "modernity",
+      "auth",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-09-16-modernity-o-pacote-que-nao-virou-verdade"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Modernity Studio/Vitrine",
+    "object": "Allowlist de projeção pública",
+    "problem": "Um pacote herdado tinha bytes conhecidos sem prova de curadoria atual; contratos das duas superfícies divergiam.",
+    "solution": "Preservar pacote em branch e alinhar campos permitidos entre Studio e Vitrine com teste bloqueante.",
+    "result": "O post registra47testesfrontend e Vitrine vazia; nove peças do Studio permaneciam não anunciadas.",
+    "limitations": "A existência do pacote e seus hashes não o convertem em catálogo comercial aprovado.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-09-16-modernity-o-pacote-que-nao-virou-verdade",
+        "excerpt": "Um teste travado verifica que a projeção não ultrapassa essa allowlist."
+      }
+    ],
+    "lesson": "Derivados públicos precisam de contrato de exportação e curadoria explícita.",
+    "next_step": "Gerar nova exportação no Studio e executar gates de vazamento/revisão antes de publicar.",
+    "occurred_at": "2026-09-16",
+    "incident_key": "modernity-projecao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-dsh-camada-versao",
+    "node_ids": [
+      "docker",
+      "native",
+      "hermes"
+    ],
+    "source_ids": [
+      "2026-11-03-a-versao-era-do-conteiner"
+    ],
+    "relation_type": "relatado",
+    "subject": "DeepSeek Harness no Omarchy",
+    "object": "Identificação da instalação por camada",
+    "problem": "Um diagnóstico tomou a versão antiga de uma imagem Docker como se fosse a instalação atual do host; o agente padrão também havia mudado.",
+    "solution": "Medir binário, endereço e origem do atalho; preservar estado, arquivar contêiner e configurar instalação nativa solicitada.",
+    "result": "O post registra resposta realok do provider e reparo do wrapper que abre o serviço sob demanda.",
+    "limitations": "Caso do host Omarchy de Killian; não é estado atual do Windows ou do Hermes.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-versao-era-do-conteiner",
+        "excerpt": "A versão não pertence ao nome; pertence ao endereço onde aquele binário roda."
+      }
+    ],
+    "lesson": "Nome de ferramenta sem host/processo/endereço torna uma medição ambígua.",
+    "next_step": "Antes de atualizar, localizar executável, processo, porta e consumidor efetivo.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "dsh-camada-versao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-dsh-arquivar-ponteiros",
+    "node_ids": [
+      "native",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-11-03-a-versao-era-do-conteiner"
+    ],
+    "relation_type": "relatado",
+    "subject": "Arquivamento do DeepSeek Harness",
+    "object": "Recontagem dos chamadores",
+    "problem": "O atalho deApps apontava para um script movido ao arquivo, causando desaparecimento do menu.",
+    "solution": "Refazer wrapper com partida sob demanda, validação do token do próprio processo e recusa de porta ocupada por serviço alheio.",
+    "result": "O artigo registra reconstrução do caminho de abertura após o arquivamento.",
+    "limitations": "Token permanece no runtime privado; a pesquisa não copia nem opera esse segredo.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-11-03-a-versao-era-do-conteiner",
+        "excerpt": "Arquivar tem duas partes: mover o objeto e recontar quem o chamava."
+      }
+    ],
+    "lesson": "Arquivamento e rollback devem mapear referências de entrada e não apenas preservar arquivos.",
+    "next_step": "Inventariar atalhos, serviços e consumidores ao mudar caminhos.",
+    "occurred_at": "2026-11-03",
+    "incident_key": "dsh-arquivar-ponteiros",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-blender-cache-bom",
+    "node_ids": [
+      "native",
+      "auth",
+      "storage"
+    ],
+    "source_ids": [
+      "2026-10-06-o-blender-ganhou-uma-porta"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Integração Blender/MCP",
+    "object": "Cache isolado e verificado",
+    "problem": "Seis JSONs de dependência no cache local continhamBOM; a wheel oficial conferida estava limpa.",
+    "solution": "Criar cache próprio verificado e preservar o cache antigo para investigação.",
+    "result": "Servidor reconhecido conectado,26ferramentas listadas por clienteMCP real, cena lida ePythonexecutado segundo o post.",
+    "limitations": "Causa da alteração não identificada; nova sessãoClaude e conectorDesktop continuavam semprova.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "O servidor ganhou um cache próprio, verificado, e o antigo ficou preservado."
+      }
+    ],
+    "lesson": "Reinstalar usando cache corrompido pode reproduzir o mesmo defeito.",
+    "next_step": "Conferir artefato oficial, bytes locais e consumidor ao diagnosticar dependência.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "blender-cache-bom",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-blender-online",
+    "node_ids": [
+      "auth",
+      "native"
+    ],
+    "source_ids": [
+      "2026-10-06-o-blender-ganhou-uma-porta"
+    ],
+    "relation_type": "relatado",
+    "subject": "Add-on oficial Blender",
+    "object": "Permissão online e efeitos colaterais",
+    "problem": "O add-on não abria a porta com acesso online desabilitado; habilitá-lo também acionava sincronização deassets.",
+    "solution": "Validar com opção apenas daquela execução e reservar a preferência permanente à decisão do Pai.",
+    "result": "Escuta em loopback e captura idêntica à fotografia foram relatadas; efeito adicional foi percebido pelo operador.",
+    "limitations": "ExecuçãoPython doMCPnão possui sandbox real; concessão desse caso não vale para outro.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-10-06-o-blender-ganhou-uma-porta",
+        "excerpt": "Validei abrindo o Blender com a opção que vale só para aquela execução, sem mudar a preferência permanente."
+      }
+    ],
+    "lesson": "Uma permissão necessária pode ativar efeitos adicionais fora do objetivo imediato.",
+    "next_step": "Mapear todos os efeitos antes de tornar a permissão persistente.",
+    "occurred_at": "2026-10-06",
+    "incident_key": "blender-online",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-comfy-adiamento",
+    "node_ids": [
+      "comfyui",
+      "raspberry"
+    ],
+    "source_ids": [
+      "2026-08-22-comfyui-adiado-plataforma-antes-da-carga"
+    ],
+    "relation_type": "considerado",
+    "subject": "Pesquisa ComfyUI",
+    "object": "Interface de workflows com inferência delegada",
+    "problem": "A plataforma local tinha limitações deRAM/NVMe e não deveria ficar obrigada a inferência pesada semGPU.",
+    "solution": "Adiar instalação e separar futura camadaUX/CLI/MCP da infraestrutura que executaria os modelos.",
+    "result": "Decisão de não instalar naquele momento, preservando pesquisa para retomada.",
+    "limitations": "Nenhum pacote,modelo,serviço,launcher,customnode ou integração criado segundo o artigo.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-comfyui-adiado-plataforma-antes-da-carga",
+        "excerpt": "Por enquanto, nenhum pacote, modelo, serviço, launcher, custom node ou integração foi criado."
+      }
+    ],
+    "lesson": "Adiar pode ser uma decisão arquitetural fundamentada e verificável.",
+    "next_step": "Reavaliar hardware e economia por tarefa antes de aprovar instalação.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "comfy-adiamento",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-contexto-roteador",
+    "node_ids": [
+      "rqp-rqm",
+      "notebook",
+      "router",
+      "auth"
+    ],
+    "source_ids": [
+      "2026-09-23-o-roteador-nao-pode-decidir-quem-sou"
+    ],
+    "relation_type": "proposto",
+    "subject": "Bootstrap LARS",
+    "object": "Roteamento somente de contexto opcional",
+    "problem": "Um classificador posterior ao início do harness não remove o custo do bootstrap e não pode escolher se regras entram no contexto.",
+    "solution": "Resolver identidade/autoridade/segurança por contrato determinístico; usar modelo apenas como recomendador de material adicional com abstenção.",
+    "result": "Auditoria documentada; nenhum protótipoJev/Laya/AnyJev instalado ou executado e nenhuma integraçãoHMC iniciada.",
+    "limitations": "A consolidação normativa dependia do Pai; ganho de custo/latência não foi medido.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-09-23-o-roteador-nao-pode-decidir-quem-sou",
+        "excerpt": "Nunca pode descartar silenciosamente requisitos obrigatórios."
+      }
+    ],
+    "lesson": "O componente governado não deve decidir se sua própria governança será carregada.",
+    "next_step": "Comparar roteador opcional com regras simples em custo total, preservando carregamento obrigatório.",
+    "occurred_at": "2026-09-23",
+    "incident_key": "contexto-roteador",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-pi-sse-mesh",
+    "node_ids": [
+      "raspberry",
+      "pi-agent",
+      "tailscale",
+      "bus"
+    ],
+    "source_ids": [
+      "2026-08-22-adendo-rebirth-72h-argenta-pi"
+    ],
+    "relation_type": "aplicado",
+    "subject": "Argenta Pi",
+    "object": "Dashboard Node/SSE e mesh governada",
+    "problem": "Pi3 exigia limite físico medido; rádio onboard falhava e era necessário observar a instância irmã-filha.",
+    "solution": "Fonte adequada,dongleWiFi,loopback+túnelSSH,telemetriaSSE,ff-only eheartbeat sem copiar credenciais.",
+    "result": "O browser revelou streamundefined; correção voltou a emitirSSE e mostrarLIVE.",
+    "limitations": "Hardening do mural,telemetriafederada e drill de recuperação continuaram abertos; estado é histórico.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-08-22-adendo-rebirth-72h-argenta-pi",
+        "excerpt": "O primeiro carregamento revelou um ReferenceError: stream is not defined; a correção foi aplicada, o SSE voltou a emitir e o painel passou a mostrar LIVE, Wi‑Fi, interfaces, rota, heartbeat e os cartões de coexistência."
+      }
+    ],
+    "lesson": "Telemetria e navegador real precisam confrontar o serviço após a implantação.",
+    "next_step": "Revalidar energia/memória e executar drill de recuperação antes de ampliar carga.",
+    "occurred_at": "2026-08-22",
+    "incident_key": "pi-sse-mesh",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  },
+  {
+    "id": "lars-benchmark-abstencao",
+    "node_ids": [
+      "modernity",
+      "review"
+    ],
+    "source_ids": [
+      "2026-09-18-o-benchmark-sabe-seu-limite"
+    ],
+    "relation_type": "relatado",
+    "subject": "Baseline Modernity",
+    "object": "Consulta lexical com proveniência e abstenção",
+    "problem": "Era necessário fechar baseline local sem alegar aceitação estatística ou comparação vetorial ausente.",
+    "solution": "Repetir três rodadas registrando intenção/classe e filtro server-side; conservar abstenções e escopo.",
+    "result": "60/60linhas exatas eproveniênciaválida,24abstenções no relato; acceptance=false.",
+    "limitations": "Sem embeddings,FileSearch,qrels humanos ou serviços externos; repetição não são180casos independentes.",
+    "confidence": "CONFIRMADO NO RELATO; runtime atual não reexecutado",
+    "evidence": [
+      {
+        "source_id": "2026-09-18-o-benchmark-sabe-seu-limite",
+        "excerpt": "Não confunde repetição determinística com 180 observações independentes, nem chama desenvolvimento local de aceitação estatística."
+      }
+    ],
+    "lesson": "Repetição determinística mede estabilidade daquele baseline, não generalização.",
+    "next_step": "Definir conjunto humano e contrato de custo próprios antes de comparar busca vetorial.",
+    "occurred_at": "2026-09-18",
+    "incident_key": "benchmark-abstencao",
+    "editorial_audit": "Leitura integral e interpretação direta do orquestrador."
+  }
+]

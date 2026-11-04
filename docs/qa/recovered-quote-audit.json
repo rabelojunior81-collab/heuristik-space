@@ -1,0 +1,13 @@
+{
+  "at": "2026-11-04T11:50:46.943560-03:00",
+  "scope": "Quote localization and source hashes only; semantic curation and full admission are separate",
+  "status": "PASS",
+  "sources": 373,
+  "claims": 906,
+  "matched": 906,
+  "missing": [],
+  "hash_mismatches": [],
+  "original_receipt": "docs/qa/first-admission.json",
+  "repair_intake": "docs/research/intake/luna-repair-1-refined.json",
+  "preliminary_intake": "REJECTED generic interpretation; preserved"
+}

@@ -1,16 +1,26 @@
-# Estado do Heuristik Space
+# Estado vivo — Heuristik Space
 
-2026-11-03 · LARS / Codex Desktop / GPT-6.1-Sol. Projeto declarado pelo Pai; pasta e repositório público expressamente autorizados. Nome heuristik-space; domínio corrigido pelo Pai para **heuristik.space**. Post final no Blog expressamente solicitado. As máximas são: Organização é Lindo! Antes, durante e depois, SEMPRE! Cada um é UM! Todos, são UM!
+Atualizado: 2026-11-04T11:38:02.911897-03:00 · LARS · Codex Desktop · host DEV_MACHINNA.
 
-Fase: ideação/pesquisa e contrato. Corpus público congelado:373posts do Blog0b98e4c, lotes125/124/124. Leitura integral delegada a três GPT-6-Luna médio; orquestrador consolidará e conferirá amostras. Não declarar integral antes dos recibos. Revisão consultiva por modelos distintos autorizada nominalmente para este projeto; contexto/isolation não comprovado => NÃO INDEPENDENTE. Sem ferramentas na revisão, apenas material público e sem gasto extra. SPEC0.1 aguarda aprovação específica; implementação do produto depende dela e do plano autorizado. GitHub público criado; Pages ainda não configurado. Nenhum aceite de interface inferido.
+**EM EXECUÇÃO.** SPEC0.1/plano0.1 e aditamentos0.2/0.3 autorizados pelo Pai. Domínio heuristik.space; Blog-fonte rabelus.com.br. Continuidade desta sessão aberta, sem encerramento por cota.
 
+## Confirmado na retomada
 
-SPEC0.1 aprovada nominalmente pelo Pai. Plano0.1 registrado, aguardando autorização. Domínio confirmado após correção: heuristik.space. Repositório público criado e primeira documentação sincronizada emc879f6c; nenhuma alegação de Pages/produto entregue.
+- Checkpoint remoto4964575. Correções salvas nos relatórios2/3/4 ainda não integradas à base gerada.
+- Corte373posts,906alegações,39referências,24entradas e6percursos. Leitores registram leitura integral; conferência semântica é uma obrigação adicional.
+- Gate histórico first-admission: FAIL97. Conferência dos relatórios recuperados:46corrigidos,51restantes no lote1. Hashes das373fontes coerentes. Dados servidos ainda anteriores à correção.
+- Preview inicial805×764 registrado, não QA móvel/desktop completo. Pages não comprovado; DNS heuristik.space NXDOMAIN na consulta de retomada.
 
+## Execução atual / posse de arquivos
 
-G4: Pai determinou execução completa da missão solicitada e dispensou novas aprovações de rotina no escopo já delimitado; Plano0.1 autorizado. Prosseguir pesquisa/implementação/revisões/testes/Pages/post final. Perguntas apenas para mudança material externa ao escopo ou impossibilidade concreta. Não dispensa provas nem transforma conclusão em aceite humano.
+Leitores Luna: propostas de correção e relações em docs/research/intake/; somente seus arquivos. Consolidação/julgamento/código/promoção pelo executor. Terra: review final consultivo somente pacote público e sem ferramentas, CONTEXTUALIZADO/NÃO INDEPENDENTE conforme autorização nominal.
 
+## Próximos gates
 
-## Checkpoint de continuidade — 2026-11-04T00:18:29.378717-03:00
+1. Correções/citações e relações qualificadas por fonte, incluindo traduções.
+2. Contrato independente, geração candidata, controles negativos, promoção recuperável e vistoria Blog datada.
+3. Interface/docs e Docker mínimo (testes reais conforme runtime disponível).
+4. QA375/390/1440, review dos artefatos e publicação Pages/DNS/TLS/bytes.
+5. Post final e registros; aceite humano continua separado. Nenhuma entrega integral declarada.
 
-Pai informou2%semanal e renovação aproximada10h, sem reset. docs/CONTINUE.md é a entrada de retomada.373recibos/906claims; vistoriaBlog373PASS; gate admissãoFAIL:97excertosnãoencontrados(809localizados). Publicaçãofinalbloqueada até correção com fonte. UIcódigo presente,semQAreal/Pages. Toda falha permanece em docs/qa/first-admission.json; marca ecode são edição candidata, não entrega concluída.
+Histórico: commits anteriores e docs/runs/ preservam tentativas. Erros e correções não são apagados. Sem gasto extra/reset semanal; renovação de cota informada pelo Pai. Não tocar deltas/posses de outras instâncias no corpus/Blog.

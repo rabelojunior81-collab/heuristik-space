@@ -55,3 +55,7 @@ Leitura integral concluída: **124/124 corpos**. O post 124 é tradução ingles
 ## Limite da pesquisa
 
 Os relatos e números foram lidos como claims publicados; a pesquisa não verificou hoje o runtime, instalações, deployments, licenças, custos ou status externo. Excertos são localizadores literais do corpo visível do HTML após remover tags e colapsar espaços. Hashes referem-se aos bytes do arquivo fonte público no momento desta leitura.
+
+## Correção do gate de localização de evidência
+
+O primeiro passe usou cabeçalhos/lead em alguns claims e outras frases que não pertenciam ao texto extraído de `div.post-content`. O gate encontrou 17 excertos não localizáveis. Corrigi os 17 claims em 11 artigos com frases do corpo capturado; onde um objeto repetia o título ou era amplo demais, refinei o objeto para corresponder ao trecho. Mantive `sha256` e `read_status` dos posts. A checagem equivalente ao extrator `Body` + normalização NFKC do gate encontrou 0 falhas de citação nos 250 claims do lote 2.

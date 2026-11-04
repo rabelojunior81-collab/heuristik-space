@@ -1,0 +1,5 @@
+{"at": "2026-11-04T11:38:02.911897-03:00", "event": "resume_authorized", "executor": "LARS / Codex Desktop", "baseline": "4964575", "recovered_quote_fixes": 46, "remaining_quote_failures": 51, "scope": "SPEC0.1 + Docker addendum0.3", "result": "in_progress"}
+{"at": "2026-11-04T11:51:06.475274-03:00", "event": "preliminary_reader_relations_rejected", "reason": "generic fields/short unsupported excerpts, refinement requested", "result": "not incorporated"}
+{"at": "2026-11-04T11:51:06.475274-03:00", "event": "quote_repair_completed", "matched": 906, "claims": 906, "source_hash_mismatches": 0, "receipt": "docs/qa/recovered-quote-audit.json", "scope": "mechanical only"}
+{"at": "2026-11-04T11:51:06.475274-03:00", "event": "documentation_write_attempt_failed", "reason": "large shell command rejected by automatic execution policy; no writes occurred", "recovery": "smaller apply_patch and bounded commands succeeded"}
+{"at": "2026-11-04T11:51:06.475274-03:00", "event": "patch_attempt_failed", "reason": "multiple operations on same README path rejected before mutation", "recovery": "bounded UTF8 write succeeded"}

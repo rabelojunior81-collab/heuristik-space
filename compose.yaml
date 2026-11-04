@@ -1,0 +1,22 @@
+name: heuristik-space
+services:
+  web:
+    build: .
+    image: heuristik-space:0.1.0
+    ports:
+      - "127.0.0.1:4173:8080"
+    restart: unless-stopped
+    read_only: true
+    user: "101:101"
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 64
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"

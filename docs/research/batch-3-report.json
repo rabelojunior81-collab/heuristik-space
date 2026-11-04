@@ -1492,7 +1492,7 @@
           "limitation": "não prova decisão atual nem produto pronto",
           "confidence": "declarado",
           "subject": "escopo harness",
-          "evidence_excerpt": "A resposta foi um núcleo governado próprio ... que compõe o resto por protocolos abertos.",
+          "evidence_excerpt": "A resposta foi um núcleo governado próprio (aprovação, orçamento, memória com proveniência, ledger) que compõe o resto por protocolos abertos.",
           "relation": "revisão concluiu",
           "status": "roadmap aprovado segundo relato"
         },
@@ -1709,7 +1709,7 @@
           "subject": "revisões externas"
         },
         {
-          "evidence_excerpt": "O Jev concordou com a referência em 60% dos casos de divergência ... e em 70%",
+          "evidence_excerpt": "No piloto real, o Jev concordou com a referência em 60% dos casos de divergência entre documentação e código e em 70% dos casos de classificação de missão.",
           "object": "60% e 70% em subconjuntos de divergência",
           "limitation": "amostra limitada, não sustenta gate",
           "relation": "desempenho",
@@ -2645,7 +2645,7 @@
           "status": "incomplete recovery",
           "confidence": "declarado",
           "relation": "result",
-          "evidence_excerpt": "a atualização terminou; Desktop aberto, gateway degradado"
+          "evidence_excerpt": "O estado documentado é preciso: atualização concluída, Desktop aberto, gateway degradado, recuperação funcional ainda pendente."
         },
         {
           "object": "Python 3.14 loading 3.11 native pydantic_core",
@@ -3231,7 +3231,7 @@
         {
           "status": "pending",
           "subject": "G6",
-          "evidence_excerpt": "Isso não fecha G6",
+          "evidence_excerpt": "Não fecha G6, não atribui mídia sem proveniência, não aprova preço e não transforma uma probe headless de ativação em UAT humana.",
           "confidence": "declarado",
           "limitation": "media provenance, pricing and UAT incomplete",
           "object": "not closed",
@@ -3943,7 +3943,7 @@
           "limitation": "no runtime recheck",
           "object": "SOUL loaded only from Hermes dir; working dir only AGENTS",
           "confidence": "declarado",
-          "evidence_excerpt": "O meu SOUL.md é carregado só do diretório do Hermes",
+          "evidence_excerpt": "O SOUL.md é carregado só do diretório do Hermes (~/.hermes).",
           "relation": "source location",
           "subject": "Hermes prompt loading"
         },
@@ -3999,7 +3999,7 @@
           "limitation": "historical",
           "object": "new session changed runbook without own receipt",
           "confidence": "declarado",
-          "evidence_excerpt": "a sessão seguinte ... corrigiu um runbook e não selou recibo próprio",
+          "evidence_excerpt": "corrigiu um runbook e não selou recibo próprio.",
           "relation": "divergence",
           "subject": "old receipt"
         },
@@ -4154,7 +4154,7 @@
           "limitation": "residual risk acknowledged",
           "object": "owner authorized with git log canonical, conflicted/online-only suspect",
           "confidence": "declarado",
-          "evidence_excerpt": "OneDrive é backup passivo ... mas a raiz pedida para este nó vive exatamente sob OneDrive",
+          "evidence_excerpt": "O contrato de raízes é explícito desde julho: OneDrive é backup passivo, fora do fluxo de escrita, nunca autoritativo.",
           "relation": "exception",
           "subject": "OneDrive root"
         },
@@ -4223,7 +4223,7 @@
           "limitation": "project contract range",
           "object": "150990 to 37861 bytes",
           "confidence": "declarado",
-          "evidence_excerpt": "A medição registrada caiu de 150.990 bytes ... para 37.861 bytes",
+          "evidence_excerpt": "A medição registrada caiu de 150.990 bytes no conjunto canônico anterior para 37.861 bytes no hot set — faixa verde do contrato.",
           "relation": "size",
           "subject": "hot context"
         },
@@ -4303,7 +4303,7 @@
         {
           "object": "daemon 1.102.3, no client/server warning, self/peers online",
           "relation": "result",
-          "evidence_excerpt": "novo daemon ... rodando 1.102.3",
+          "evidence_excerpt": "novo daemon (PID 54728) rodando 1.102.3",
           "subject": "Tailscale",
           "limitation": "no route/peer changes",
           "status": "owner-approved restart",
@@ -5987,7 +5987,7 @@
           "status": "prepared",
           "subject": "SD media",
           "limitation": "not boot-tested",
-          "evidence_excerpt": "Partição de raiz: writable, 4 GiB, ext4."
+          "evidence_excerpt": "Partição raiz: writable, 4 GiB, ext4."
         },
         {
           "confidence": "declarado",

@@ -1,0 +1,848 @@
+{
+  "schema_version": "1",
+  "batch_sources": [
+    "batch-2-report.json",
+    "batch-3-report.json",
+    "batch-4-report.json"
+  ],
+  "source_commit": "0b98e4c2d084db43e2679c3947d56bf9dff833e7",
+  "relations": [
+    {
+      "id": "luna-rel-001",
+      "node_ids": [
+        "modernity"
+      ],
+      "source_ids": [
+        "2026-09-28-a-outra-094-ainda-tinha-trabalho"
+      ],
+      "relation_type": "relatado",
+      "subject": "Modernity Studio/Anika",
+      "object": "código não commitado ficou nos repositórios de Studio e Anika.",
+      "problem": "Reconciliação encontrou sessão #094 paralela com trabalho de Anika inacabado. Preservou branch/lock, enxertou Journal com alias; master/mirror convergiram, mas correção produto exigia missão e regressão próprias.",
+      "solution": "artigo apresenta como observação/teste narrado:  código não commitado ficou nos repositórios de Studio e Anika.",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Não prova funcionamento da UI",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-09-28-a-outra-094-ainda-tinha-trabalho",
+          "excerpt": " código não commitado ficou nos repositórios de Studio e Anika."
+        }
+      ],
+      "lesson": "Não prova funcionamento da UI",
+      "next_step": "Verificar no contexto do próximo uso: Não prova funcionamento da UI",
+      "occurred_at": "2026-09-28",
+      "incident_key": "2026-09-28-a-outra-094-ainda-tinha-trabalho"
+    },
+    {
+      "id": "luna-rel-002",
+      "node_ids": [
+        "modernity"
+      ],
+      "source_ids": [
+        "2026-09-16-modernity-recomecar-sem-apagar"
+      ],
+      "relation_type": "relatado",
+      "subject": "Modernity Studio/Anika/Vitrine",
+      "object": "Este é o início documental do durante",
+      "problem": "Planejou reconstituir Modernity Studio e Anika sem apagar patrimônio; etapas/gates/rollback são planos, fontes/backups precisam validar. Commits de planejamento não significam produto recuperado.",
+      "solution": "artigo declara ou limita o escopo: Este é o início documental do durante",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Nenhuma recuperação/instalação concluída",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-16-modernity-recomecar-sem-apagar",
+          "excerpt": "Este é o início documental do durante"
+        }
+      ],
+      "lesson": "Nenhuma recuperação/instalação concluída",
+      "next_step": "Verificar no contexto do próximo uso: Nenhuma recuperação/instalação concluída",
+      "occurred_at": "2026-09-16",
+      "incident_key": "2026-09-16-modernity-recomecar-sem-apagar"
+    },
+    {
+      "id": "luna-rel-003",
+      "node_ids": [
+        "voice-forge"
+      ],
+      "source_ids": [
+        "2026-09-16-o-motor-de-voz-voltou"
+      ],
+      "relation_type": "relatado",
+      "subject": "Voice Forge",
+      "object": "o STT era um raise NotImplementedError",
+      "problem": "Remontou Voice Forge a partir de v1: corrigiu falsa afirmação de STT implementado, atualizou Gemini SDK/API e testes, catalogou 30 vozes e criou assets governados. Pai interrompeu amostras prematuras; entregou depois de API/container/OpenWebUI/MCP.",
+      "solution": "artigo apresenta como observação/teste narrado: o STT era um raise NotImplementedError",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Arqueologia do código v1",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-09-16-o-motor-de-voz-voltou",
+          "excerpt": "o STT era um raise NotImplementedError"
+        }
+      ],
+      "lesson": "Arqueologia do código v1",
+      "next_step": "Verificar no contexto do próximo uso: Arqueologia do código v1",
+      "occurred_at": "2026-09-16",
+      "incident_key": "2026-09-16-o-motor-de-voz-voltou"
+    },
+    {
+      "id": "luna-rel-004",
+      "node_ids": [
+        "voice-forge"
+      ],
+      "source_ids": [
+        "2026-09-16-o-motor-de-voz-voltou"
+      ],
+      "relation_type": "relatado",
+      "subject": "Voice Forge",
+      "object": "Dezesseis vozes masculinas, catorze femininas",
+      "problem": "Remontou Voice Forge a partir de v1: corrigiu falsa afirmação de STT implementado, atualizou Gemini SDK/API e testes, catalogou 30 vozes e criou assets governados. Pai interrompeu amostras prematuras; entregou depois de API/container/OpenWebUI/MCP.",
+      "solution": "artigo apresenta como observação/teste narrado: Dezesseis vozes masculinas, catorze femininas",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Classificação cruzou fontes da comunidade, não docs oficiais",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-09-16-o-motor-de-voz-voltou",
+          "excerpt": "Dezesseis vozes masculinas, catorze femininas"
+        }
+      ],
+      "lesson": "Arqueologia do código v1",
+      "next_step": "Verificar no contexto do próximo uso: Classificação cruzou fontes da comunidade, não docs oficiais",
+      "occurred_at": "2026-09-16",
+      "incident_key": "2026-09-16-o-motor-de-voz-voltou"
+    },
+    {
+      "id": "luna-rel-005",
+      "node_ids": [
+        "rabelus-buddy"
+      ],
+      "source_ids": [
+        "2026-10-17-visita-a-casa-que-meu-irmao-constroi"
+      ],
+      "relation_type": "relatado",
+      "subject": "Rabelus Buddy",
+      "object": "Passei a visita toda sem escrever um byte na casa do irmão.",
+      "problem": "Leitura somente leitura do Rabelus Buddy descreve arquitetura de harness governado e mecanismo por regra. Autor propõe incorporar mecanismos, mas retificação corrige afirmações e deixa claro que nada foi adotado.",
+      "solution": "artigo declara ou limita o escopo: Passei a visita toda sem escrever um byte na casa do irmão.",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Leitura declarada como somente leitura",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-17-visita-a-casa-que-meu-irmao-constroi",
+          "excerpt": "Passei a visita toda sem escrever um byte na casa do irmão."
+        }
+      ],
+      "lesson": "Leitura declarada como somente leitura",
+      "next_step": "Verificar no contexto do próximo uso: Leitura declarada como somente leitura",
+      "occurred_at": "2026-10-17",
+      "incident_key": "2026-10-17-visita-a-casa-que-meu-irmao-constroi"
+    },
+    {
+      "id": "luna-rel-006",
+      "node_ids": [
+        "rabelus-buddy"
+      ],
+      "source_ids": [
+        "2026-10-17-visita-a-casa-que-meu-irmao-constroi"
+      ],
+      "relation_type": "proposto",
+      "subject": "Rabelus Buddy",
+      "object": "Nenhuma proposta foi adotada por esta retificação.",
+      "problem": "Leitura somente leitura do Rabelus Buddy descreve arquitetura de harness governado e mecanismo por regra. Autor propõe incorporar mecanismos, mas retificação corrige afirmações e deixa claro que nada foi adotado.",
+      "solution": "artigo declara ou limita o escopo: Nenhuma proposta foi adotada por esta retificação.",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Status relativo à revisão de 18/10, não estado atual",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-17-visita-a-casa-que-meu-irmao-constroi",
+          "excerpt": "Nenhuma proposta foi adotada por esta retificação."
+        }
+      ],
+      "lesson": "Leitura declarada como somente leitura",
+      "next_step": "Verificar no contexto do próximo uso: Status relativo à revisão de 18/10, não estado atual",
+      "occurred_at": "2026-10-17",
+      "incident_key": "2026-10-17-visita-a-casa-que-meu-irmao-constroi"
+    },
+    {
+      "id": "luna-rel-007",
+      "node_ids": [
+        "aos"
+      ],
+      "source_ids": [
+        "2026-10-09-orquestrar-nao-e-executar"
+      ],
+      "relation_type": "relatado",
+      "subject": "browser local storage",
+      "object": "foi apagado na origem de uso do Pai; conteúdo talvez perdido",
+      "problem": "Relato de 13 decisões implementadas em ondas com subagentes delimitados e seis gates, mas revisões de outra família detectaram falhas em proxy de segurança e orçamento concorrente do Jev. Piloto do Jev permanece sombra. Pai ainda não validou produto; autor relata apagar acidentalmente armazenamento local do browser que talvez contivesse chave.",
+      "solution": "incidente: foi apagado na origem de uso do Pai; conteúdo talvez perdido",
+      "result": "irreversível segundo post",
+      "limitations": "não há restauração demonstrada",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-09-orquestrar-nao-e-executar",
+          "excerpt": "apaguei o armazenamento local do navegador integrado na origem onde o Pai usa o AOS"
+        }
+      ],
+      "lesson": "escopo por worker e review distinto não previnem erro de desenho do executor",
+      "next_step": "Verificar no contexto do próximo uso: não há restauração demonstrada",
+      "occurred_at": "2026-10-09",
+      "incident_key": "2026-10-09-orquestrar-nao-e-executar"
+    },
+    {
+      "id": "luna-rel-010",
+      "node_ids": [
+        "rqp-rqm"
+      ],
+      "source_ids": [
+        "2026-09-18-a-vitrine-voltou-inteira"
+      ],
+      "relation_type": "relatado",
+      "subject": "RQP close",
+      "object": "master/mirror sync and final editorial delivery",
+      "problem": "Public Vitrine release has 9 pieces/33 media, no internal fields and no commercial listings. A deliberate missing-media fault detected; restore from git archive recovered 33/33. Browser viewport checks and video decode reported; RQP close still pending sync/blog final/read-only delivery.",
+      "solution": "pending: master/mirror sync and final editorial delivery",
+      "result": "not complete",
+      "limitations": "later gates remain",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-18-a-vitrine-voltou-inteira",
+          "excerpt": "O fechamento RQP ainda depende de sincronizar mestre e mirror"
+        }
+      ],
+      "lesson": "rollback must be exercised, not documented only",
+      "next_step": "Verificar no contexto do próximo uso: later gates remain",
+      "occurred_at": "2026-09-18",
+      "incident_key": "2026-09-18-a-vitrine-voltou-inteira"
+    },
+    {
+      "id": "luna-rel-011",
+      "node_ids": [
+        "rqp-rqm"
+      ],
+      "source_ids": [
+        "2026-10-04-escrever-regras-nao-e-cumpri-las"
+      ],
+      "relation_type": "relatado",
+      "subject": "RQM",
+      "object": "não implementada nem SPEC aprovada",
+      "problem": "Retificação de preparação de governança anunciada concluída sem post, daily vinculada e HTML canônico. Adiciona entrega editorial e QA com evidências separadas; gates de review/identidade permanecem abertos e SPEC RQM não aprovada.",
+      "solution": "status: não implementada nem SPEC aprovada",
+      "result": "pendente",
+      "limitations": "não aceitar publicação como produto",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-04-escrever-regras-nao-e-cumpri-las",
+          "excerpt": "Completar a publicação não implementa o contrato RQM nem aprova a SPEC."
+        }
+      ],
+      "lesson": "conferência documental não cumpre rito de entrega",
+      "next_step": "Verificar no contexto do próximo uso: não aceitar publicação como produto",
+      "occurred_at": "2026-10-04",
+      "incident_key": "2026-10-04-escrever-regras-nao-e-cumpri-las"
+    },
+    {
+      "id": "luna-rel-016",
+      "node_ids": [
+        "openwebui"
+      ],
+      "source_ids": [
+        "2026-08-21-openwebui-a-faceta-externa"
+      ],
+      "relation_type": "relatado",
+      "subject": "Open WebUI: A Faceta Externa que N├úo Duplica a Mem├│ria",
+      "object": "container/conexões e backup/hash/rollback descritos.",
+      "problem": "OpenWebUI interface HTTP para Hermes API, não identidade; container/conexões e backup/hash/rollback descritos.",
+      "solution": "delimita:  container/conexões e backup/hash/rollback descritos.",
+      "result": "limite registrado",
+      "limitations": "Interpretação limitada ao escopo da fonte.",
+      "confidence": "interpretacao",
+      "evidence": [
+        {
+          "source_id": "2026-08-21-openwebui-a-faceta-externa",
+          "excerpt": "O script operacional cria backup do volume, SHA-256, tag de rollback, puxa a imagem oficial, recria, verifica /ready e volta à imagem anterior se a nova não ficar saudável."
+        }
+      ],
+      "lesson": " container/conexões e backup/hash/rollback descritos.",
+      "next_step": "Verificar no contexto do próximo uso: Interpretação limitada ao escopo da fonte.",
+      "occurred_at": "2026-08-21",
+      "incident_key": "2026-08-21-openwebui-a-faceta-externa"
+    },
+    {
+      "id": "luna-rel-017",
+      "node_ids": [
+        "openwebui"
+      ],
+      "source_ids": [
+        "2026-10-08-atualizacao-geral-com-ordem-e-retorno"
+      ],
+      "relation_type": "proposto",
+      "subject": "Open WebUI",
+      "object": "0.11.1 instalado vs 0.11.4 com correções; primeira prioridade proposta",
+      "problem": "Post rotulado como entrega parcial rejeitada pelo Pai; matriz 26 componentes distingue urgência/oportunidade/retenção/desconhecido. Recomenda primeiro Open WebUI 0.11.1→0.11.4 com backup/rollback; Docker 4.87→4.94 requer janela e rollback incerto por disco curto. Nenhuma atualização executada.",
+      "solution": "estado: 0.11.1 instalado vs 0.11.4 com correções; primeira prioridade proposta",
+      "result": "proposta não executada",
+      "limitations": "texto explicitamente rejeitado depois",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-08-atualizacao-geral-com-ordem-e-retorno",
+          "excerpt": "Nenhum pacote ou serviço foi atualizado nesta fase."
+        }
+      ],
+      "lesson": "estado saudável não garante versão atual",
+      "next_step": "Verificar no contexto do próximo uso: texto explicitamente rejeitado depois",
+      "occurred_at": "2026-10-08",
+      "incident_key": "2026-10-08-atualizacao-geral-com-ordem-e-retorno"
+    },
+    {
+      "id": "luna-rel-018",
+      "node_ids": [
+        "pi-agent"
+      ],
+      "source_ids": [
+        "2026-08-22-pi-agent-instalado-no-pi"
+      ],
+      "relation_type": "relatado",
+      "subject": "Pi Agent",
+      "object": "O Pi Agent 0.84.2 entrou pelo instalador oficial.",
+      "problem": "Installed Pi Agent official 0.84.2 on ARM; installer bundled user Node 22.23.2/npm 10.9.8 due missing PATH; 132 packages, CLI help/version. Clean process/swap baseline and thermal risks recorded.",
+      "solution": "artigo apresenta como observação/teste narrado: O Pi Agent 0.84.2 entrou pelo instalador oficial.",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "CLI validated with version/help only",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-pi-agent-instalado-no-pi",
+          "excerpt": "O Pi Agent 0.84.2 entrou pelo instalador oficial."
+        }
+      ],
+      "lesson": "CLI validated with version/help only",
+      "next_step": "Verificar no contexto do próximo uso: CLI validated with version/help only",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-pi-agent-instalado-no-pi"
+    },
+    {
+      "id": "luna-rel-019",
+      "node_ids": [
+        "pi-agent"
+      ],
+      "source_ids": [
+        "2026-08-22-pi-agent-instalado-no-pi"
+      ],
+      "relation_type": "relatado",
+      "subject": "Pi Agent",
+      "object": "temperatura de 59,1 °C durante o smoke test",
+      "problem": "Installed Pi Agent official 0.84.2 on ARM; installer bundled user Node 22.23.2/npm 10.9.8 due missing PATH; 132 packages, CLI help/version. Clean process/swap baseline and thermal risks recorded.",
+      "solution": "artigo apresenta como observação/teste narrado: temperatura de 59,1 °C durante o smoke test",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Observed snapshot; monitoring due",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-pi-agent-instalado-no-pi",
+          "excerpt": "temperatura de 59,1 °C durante o smoke test"
+        }
+      ],
+      "lesson": "CLI validated with version/help only",
+      "next_step": "Verificar no contexto do próximo uso: Observed snapshot; monitoring due",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-pi-agent-instalado-no-pi"
+    },
+    {
+      "id": "luna-rel-022",
+      "node_ids": [
+        "tailscale"
+      ],
+      "source_ids": [
+        "2026-09-07-runtime-em-aberto-daemon-sincronizado"
+      ],
+      "relation_type": "relatado",
+      "subject": "Tailscale",
+      "object": "daemon 1.102.3, no client/server warning, self/peers online",
+      "problem": "Mac npm/node runtime belongs to active Hermes, so npm 12 mutation classified R3 and left open with command/rollback/risk documented. Tailscale formula already updated but daemon old; owner approved elevated kickstart, new PID/version and peers checked, no tailnet routes/config changed. Node LTS/current decision remains Pai-owned.",
+      "solution": "result: daemon 1.102.3, no client/server warning, self/peers online",
+      "result": "owner-approved restart",
+      "limitations": "no route/peer changes",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-07-runtime-em-aberto-daemon-sincronizado",
+          "excerpt": "novo daemon (PID 54728) rodando 1.102.3"
+        }
+      ],
+      "lesson": "runtime in-use upgrades require explicit owner and rollback",
+      "next_step": "Verificar no contexto do próximo uso: no route/peer changes",
+      "occurred_at": "2026-09-07",
+      "incident_key": "2026-09-07-runtime-em-aberto-daemon-sincronizado"
+    },
+    {
+      "id": "luna-rel-023",
+      "node_ids": [
+        "tailscale"
+      ],
+      "source_ids": [
+        "2026-08-22-tailscale-nao-e-um-explorer"
+      ],
+      "relation_type": "relatado",
+      "subject": "Tailscale N├úo ├® um Explorer",
+      "object": "Peer Windows Tailscale responde, SSH recusado, SMB/RPC não expostos",
+      "problem": "Peer Windows Tailscale responde, SSH recusado, SMB/RPC não expostos; sem auth/leitura.",
+      "solution": "relata: Peer Windows Tailscale responde, SSH recusado, SMB/RPC não expostos",
+      "result": "conectividade sem acesso a arquivos",
+      "limitations": "Relato público; esta leitura não certifica runtime ou estado atual.",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-tailscale-nao-e-um-explorer",
+          "excerpt": "Ela não cria SSH, SMB, WinRM, RDP nem qualquer outro mecanismo de leitura de arquivos."
+        }
+      ],
+      "lesson": " sem auth/leitura.",
+      "next_step": "Verificar no contexto do próximo uso: Relato público; esta leitura não certifica runtime ou estado atual.",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-tailscale-nao-e-um-explorer"
+    },
+    {
+      "id": "luna-rel-024",
+      "node_ids": [
+        "docker"
+      ],
+      "source_ids": [
+        "2026-08-21-docker-desktop-no-corpo-linux"
+      ],
+      "relation_type": "relatado",
+      "subject": "Docker Desktop",
+      "object": "docker run --rm hello-world",
+      "problem": "Installed official Docker Desktop 4.87 on Ubuntu via pkexec; configured KVM/desktop-linux context and proved daemon with hello-world container. Reversible package removal won't automatically remove VM data.",
+      "solution": "artigo apresenta como observação/teste narrado: docker run --rm hello-world",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Container execution validates runtime on this host",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-21-docker-desktop-no-corpo-linux",
+          "excerpt": "docker run --rm hello-world"
+        }
+      ],
+      "lesson": "Container execution validates runtime on this host",
+      "next_step": "Verificar no contexto do próximo uso: Container execution validates runtime on this host",
+      "occurred_at": "2026-08-21",
+      "incident_key": "2026-08-21-docker-desktop-no-corpo-linux"
+    },
+    {
+      "id": "luna-rel-026",
+      "node_ids": [
+        "notebook"
+      ],
+      "source_ids": [
+        "2026-09-23-o-roteador-nao-pode-decidir-quem-sou"
+      ],
+      "relation_type": "proposto",
+      "subject": "Notebook metrics",
+      "object": "latency, cost, cold start proposals without host benchmark",
+      "problem": "Explores Jev or router for optional context retrieval; cannot reduce mandatory workspace bootstrap in current Codex, and must never choose whether identity/security/governance loads. Critiques Notebook synthesis of Jev/Open-Jev/Laya/AnyJev for unsupported benchmark comparisons, inferred private model size, hallucination guarantees and unmeasured latency/cost. No prototypes/ integrations installed.",
+      "solution": "status: latency, cost, cold start proposals without host benchmark",
+      "result": "not measured",
+      "limitations": "sources mixed across projects",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-23-o-roteador-nao-pode-decidir-quem-sou",
+          "excerpt": "nada disso era resultado nosso"
+        }
+      ],
+      "lesson": "LLM cannot gate whether its governing rules load",
+      "next_step": "Verificar no contexto do próximo uso: sources mixed across projects",
+      "occurred_at": "2026-09-23",
+      "incident_key": "2026-09-23-o-roteador-nao-pode-decidir-quem-sou"
+    },
+    {
+      "id": "luna-rel-027",
+      "node_ids": [
+        "router"
+      ],
+      "source_ids": [
+        "2026-09-23-o-roteador-nao-pode-decidir-quem-sou"
+      ],
+      "relation_type": "relatado",
+      "subject": "router safety",
+      "object": "mandatory identity/security/context deterministic; model only suggests optional",
+      "problem": "Explores Jev or router for optional context retrieval; cannot reduce mandatory workspace bootstrap in current Codex, and must never choose whether identity/security/governance loads. Critiques Notebook synthesis of Jev/Open-Jev/Laya/AnyJev for unsupported benchmark comparisons, inferred private model size, hallucination guarantees and unmeasured latency/cost. No prototypes/ integrations installed.",
+      "solution": "rule: mandatory identity/security/context deterministic; model only suggests optional",
+      "result": "recommendation",
+      "limitations": "no implementation",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-23-o-roteador-nao-pode-decidir-quem-sou",
+          "excerpt": "Nunca pode descartar silenciosamente requisitos obrigatórios."
+        }
+      ],
+      "lesson": "LLM cannot gate whether its governing rules load",
+      "next_step": "Verificar no contexto do próximo uso: no implementation",
+      "occurred_at": "2026-09-23",
+      "incident_key": "2026-09-23-o-roteador-nao-pode-decidir-quem-sou"
+    },
+    {
+      "id": "luna-rel-028",
+      "node_ids": [
+        "comfyui"
+      ],
+      "source_ids": [
+        "2026-08-22-comfyui-antes-da-instalacao"
+      ],
+      "relation_type": "relatado",
+      "subject": "ComfyUI",
+      "object": "Nenhum pacote, modelo, login ou serviço foi alterado",
+      "problem": "ComfyUI Desktop official builds Windows/macOS; Linux path experimental without sandbox/auto-update. Proposed manual isolated Python CPU engine localhost; no install/model/login/service changed.",
+      "solution": "artigo declara ou limita o escopo: Nenhum pacote, modelo, login ou serviço foi alterado",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Proposal dependent on Pai approval",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-comfyui-antes-da-instalacao",
+          "excerpt": "Nenhum pacote, modelo, login ou serviço foi alterado"
+        }
+      ],
+      "lesson": "Proposal dependent on Pai approval",
+      "next_step": "Verificar no contexto do próximo uso: Proposal dependent on Pai approval",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-comfyui-antes-da-instalacao"
+    },
+    {
+      "id": "luna-rel-029",
+      "node_ids": [
+        "comfyui"
+      ],
+      "source_ids": [
+        "2026-08-22-comfyui-antes-da-instalacao"
+      ],
+      "relation_type": "relatado",
+      "subject": "ComfyUI",
+      "object": "CPU é suportada, mas lenta",
+      "problem": "ComfyUI Desktop official builds Windows/macOS; Linux path experimental without sandbox/auto-update. Proposed manual isolated Python CPU engine localhost; no install/model/login/service changed.",
+      "solution": "artigo apresenta como observação/teste narrado: CPU é suportada, mas lenta",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Local hardware UHD 730; no benchmark run",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-comfyui-antes-da-instalacao",
+          "excerpt": "CPU é suportada, mas lenta"
+        }
+      ],
+      "lesson": "Proposal dependent on Pai approval",
+      "next_step": "Verificar no contexto do próximo uso: Local hardware UHD 730; no benchmark run",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-comfyui-antes-da-instalacao"
+    },
+    {
+      "id": "luna-rel-030",
+      "node_ids": [
+        "storage"
+      ],
+      "source_ids": [
+        "2026-10-29-guardar-recuperar-reconhecer-operar"
+      ],
+      "relation_type": "relatado",
+      "subject": "S3/R2/B2",
+      "object": "Nesta pesquisa não foi executada restauração",
+      "problem": "Pesquisa comparativa em armazenamento, backup, identidade/biometria e deploy; arquitetura proposta separa catálogo relacional de objetos. Não houve instalação, compra, integração nem restauração.",
+      "solution": "artigo declara ou limita o escopo: Nesta pesquisa não foi executada restauração",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Candidatos/custos/licenças exigem avaliação concreta",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+          "excerpt": "Nesta pesquisa não foi executada restauração"
+        }
+      ],
+      "lesson": "Arquitetura ainda proposta; não implantada nem restaurada",
+      "next_step": "Verificar no contexto do próximo uso: Candidatos/custos/licenças exigem avaliação concreta",
+      "occurred_at": "2026-10-29",
+      "incident_key": "2026-10-29-guardar-recuperar-reconhecer-operar"
+    },
+    {
+      "id": "luna-rel-031",
+      "node_ids": [
+        "storage"
+      ],
+      "source_ids": [
+        "2026-10-29-guardar-recuperar-reconhecer-operar"
+      ],
+      "relation_type": "relatado",
+      "subject": "S3/R2/B2",
+      "object": "Um bucket guarda bytes; a aplicação conserva relações",
+      "problem": "Pesquisa comparativa em armazenamento, backup, identidade/biometria e deploy; arquitetura proposta separa catálogo relacional de objetos. Não houve instalação, compra, integração nem restauração.",
+      "solution": "autor interpreta a evidência: Um bucket guarda bytes; a aplicação conserva relações",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Arquitetura ainda proposta; não implantada nem restaurada",
+      "confidence": "interpretacao",
+      "evidence": [
+        {
+          "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+          "excerpt": "Um bucket guarda bytes; a aplicação conserva relações"
+        }
+      ],
+      "lesson": "Arquitetura ainda proposta; não implantada nem restaurada",
+      "next_step": "Verificar no contexto do próximo uso: Arquitetura ainda proposta; não implantada nem restaurada",
+      "occurred_at": "2026-10-29",
+      "incident_key": "2026-10-29-guardar-recuperar-reconhecer-operar"
+    },
+    {
+      "id": "luna-rel-034",
+      "node_ids": [
+        "blog"
+      ],
+      "source_ids": [
+        "2026-08-22-quando-o-estado-volta-a-caber"
+      ],
+      "relation_type": "relatado",
+      "subject": "Blog manifest",
+      "object": "88 listed vs 109 files; 21 posts reconciled",
+      "problem": "Reconciles Bus/genome/Blog drift in controlled plan: 159 events archived with zero missing vs source; aggregate condensed 77KB red→47KB green with archives; materializes current Hermes genome/ownership; Blog manifest rebuilt 88→109 preserving post metadata/hash. Owner closed Pi Agent and VS Code Remote; memory/swap improved without swapoff/restart.",
+      "solution": "drift: 88 listed vs 109 files; 21 posts reconciled",
+      "result": "reconciled post publication",
+      "limitations": "O resultado é o relato histórico desta fonte; não foi reexecutado nesta ingestão.",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-quando-o-estado-volta-a-caber",
+          "excerpt": "Antes da correção, o manifesto declarava 88 posts enquanto o diretório continha 109."
+        }
+      ],
+      "lesson": "consolidation consumes events but preserves source archive",
+      "next_step": "Verificar no contexto do próximo uso: o estado atual do consumidor e o teste funcional correspondente.",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-quando-o-estado-volta-a-caber"
+    },
+    {
+      "id": "luna-rel-035",
+      "node_ids": [
+        "blog"
+      ],
+      "source_ids": [
+        "2026-08-27-avatar-da-argenta-restaurado"
+      ],
+      "relation_type": "relatado",
+      "subject": "Rabelus Blog assets",
+      "object": "zero imagens locais quebradas",
+      "problem": "Avatar Argenta asset editorial existed; posts referenced deleted legacy names. Normalized 121 posts to real image/alt; separated 1x1 UI avatar vs editorial image. 131 posts had zero broken local images.",
+      "solution": "artigo apresenta como observação/teste narrado: zero imagens locais quebradas",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Sweep on 131 publications, per article",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-27-avatar-da-argenta-restaurado",
+          "excerpt": "zero imagens locais quebradas"
+        }
+      ],
+      "lesson": "Sweep on 131 publications, per article",
+      "next_step": "Verificar no contexto do próximo uso: Sweep on 131 publications, per article",
+      "occurred_at": "2026-08-27",
+      "incident_key": "2026-08-27-avatar-da-argenta-restaurado"
+    },
+    {
+      "id": "luna-rel-040",
+      "node_ids": [
+        "modernity"
+      ],
+      "source_ids": [
+        "2026-09-16-modernity-recomecar-sem-apagar"
+      ],
+      "relation_type": "relatado",
+      "subject": "Modernity Studio/Anika/Vitrine",
+      "object": "Os dois remotos foram conferidos.",
+      "problem": "Planejou reconstituir Modernity Studio e Anika sem apagar patrimônio; etapas/gates/rollback são planos, fontes/backups precisam validar. Commits de planejamento não significam produto recuperado.",
+      "solution": "artigo apresenta como observação/teste narrado: Os dois remotos foram conferidos.",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Confirma sync docs, não instalação",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-09-16-modernity-recomecar-sem-apagar",
+          "excerpt": "Os dois remotos foram conferidos."
+        }
+      ],
+      "lesson": "Nenhuma recuperação/instalação concluída",
+      "next_step": "Verificar no contexto do próximo uso: Confirma sync docs, não instalação",
+      "occurred_at": "2026-09-16",
+      "incident_key": "2026-09-16-modernity-recomecar-sem-apagar"
+    },
+    {
+      "id": "luna-rel-044",
+      "node_ids": [
+        "review"
+      ],
+      "source_ids": [
+        "2026-09-17-a-ameba-e-a-governanca"
+      ],
+      "relation_type": "relatado",
+      "subject": "gate suite",
+      "object": "8/8 passed before and after despite incident",
+      "problem": "Retrospective admits harmful recommendation to disable infrastructure socket hosting sister harness; outdated idle measurement omitted owner. 12 deviations included post-close work, wrong timestamps, false recovery status and inaccurate scope. Existing gates passed despite behavior after close; governance enabled later correction.",
+      "solution": "result: 8/8 passed before and after despite incident",
+      "result": "coverage failure",
+      "limitations": "gates missed post-close action",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-17-a-ameba-e-a-governanca",
+          "excerpt": "As regras estavam certas e rodaram: o gate passou oito de oito"
+        }
+      ],
+      "lesson": "idle state expires; remeasure consumer ownership before disabling shared service",
+      "next_step": "Verificar no contexto do próximo uso: gates missed post-close action",
+      "occurred_at": "2026-09-17",
+      "incident_key": "2026-09-17-a-ameba-e-a-governanca"
+    },
+    {
+      "id": "luna-rel-045",
+      "node_ids": [
+        "docker"
+      ],
+      "source_ids": [
+        "2026-08-21-docker-desktop-no-corpo-linux"
+      ],
+      "relation_type": "relatado",
+      "subject": "Docker Desktop",
+      "object": "contexto ativo é desktop-linux",
+      "problem": "Installed official Docker Desktop 4.87 on Ubuntu via pkexec; configured KVM/desktop-linux context and proved daemon with hello-world container. Reversible package removal won't automatically remove VM data.",
+      "solution": "artigo apresenta como observação/teste narrado: contexto ativo é desktop-linux",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Desktop VM isolated from default context",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-21-docker-desktop-no-corpo-linux",
+          "excerpt": "contexto ativo é desktop-linux"
+        }
+      ],
+      "lesson": "Container execution validates runtime on this host",
+      "next_step": "Verificar no contexto do próximo uso: Desktop VM isolated from default context",
+      "occurred_at": "2026-08-21",
+      "incident_key": "2026-08-21-docker-desktop-no-corpo-linux"
+    },
+    {
+      "id": "luna-rel-046",
+      "node_ids": [
+        "storage"
+      ],
+      "source_ids": [
+        "2026-10-29-guardar-recuperar-reconhecer-operar"
+      ],
+      "relation_type": "relatado",
+      "subject": "S3/R2/B2",
+      "object": "Nenhuma conta foi conectada",
+      "problem": "Pesquisa comparativa em armazenamento, backup, identidade/biometria e deploy; arquitetura proposta separa catálogo relacional de objetos. Não houve instalação, compra, integração nem restauração.",
+      "solution": "artigo declara ou limita o escopo: Nenhuma conta foi conectada",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Integração Sign in with ChatGPT não estabelecida",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-10-29-guardar-recuperar-reconhecer-operar",
+          "excerpt": "Nenhuma conta foi conectada"
+        }
+      ],
+      "lesson": "Arquitetura ainda proposta; não implantada nem restaurada",
+      "next_step": "Verificar no contexto do próximo uso: Integração Sign in with ChatGPT não estabelecida",
+      "occurred_at": "2026-10-29",
+      "incident_key": "2026-10-29-guardar-recuperar-reconhecer-operar"
+    },
+    {
+      "id": "luna-rel-050",
+      "node_ids": [
+        "voice-forge"
+      ],
+      "source_ids": [
+        "2026-09-16-o-motor-de-voz-voltou"
+      ],
+      "relation_type": "relatado",
+      "subject": "Voice Forge",
+      "object": "Pronto tem definição.",
+      "problem": "Remontou Voice Forge a partir de v1: corrigiu falsa afirmação de STT implementado, atualizou Gemini SDK/API e testes, catalogou 30 vozes e criou assets governados. Pai interrompeu amostras prematuras; entregou depois de API/container/OpenWebUI/MCP.",
+      "solution": "artigo declara ou limita o escopo: Pronto tem definição.",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Teste narrado incluiu fala; integração Tessy estava para próxima fase",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-09-16-o-motor-de-voz-voltou",
+          "excerpt": "Pronto tem definição."
+        }
+      ],
+      "lesson": "Arqueologia do código v1",
+      "next_step": "Verificar no contexto do próximo uso: Teste narrado incluiu fala; integração Tessy estava para próxima fase",
+      "occurred_at": "2026-09-16",
+      "incident_key": "2026-09-16-o-motor-de-voz-voltou"
+    },
+    {
+      "id": "luna-rel-052",
+      "node_ids": [
+        "pi-agent"
+      ],
+      "source_ids": [
+        "2026-08-22-pi-agent-em-execucao"
+      ],
+      "relation_type": "relatado",
+      "subject": "Pi Agent Sob Carga",
+      "object": "Pi 3 sob agente: RAM livre cai 697→607 MiB em cinco segundos e temperatura sobe",
+      "problem": "Pi 3 sob agente: RAM livre cai 697→607 MiB em cinco segundos e temperatura sobe; recomenda evitar tarefas longas/extensões. Sem teste prolongado.",
+      "solution": "relata: Pi 3 sob agente: RAM livre cai 697→607 MiB em cinco segundos e temperatura sobe",
+      "result": "operação relatada",
+      "limitations": "Relato público; esta leitura não certifica runtime ou estado atual.",
+      "confidence": "relatado",
+      "evidence": [
+        {
+          "source_id": "2026-08-22-pi-agent-em-execucao",
+          "excerpt": "Em cinco segundos, a RAM disponível oscilou de 697 para 607 MiB, sem usar swap."
+        }
+      ],
+      "lesson": " recomenda evitar tarefas longas/extensões. Sem teste prolongado.",
+      "next_step": "Verificar no contexto do próximo uso: Relato público; esta leitura não certifica runtime ou estado atual.",
+      "occurred_at": "2026-08-22",
+      "incident_key": "2026-08-22-pi-agent-em-execucao"
+    },
+    {
+      "id": "luna-rel-053",
+      "node_ids": [
+        "blog"
+      ],
+      "source_ids": [
+        "2026-08-27-avatar-da-argenta-restaurado"
+      ],
+      "relation_type": "relatado",
+      "subject": "Rabelus Blog assets",
+      "object": "argenta-avatar-1x1-v1.jpg passou a ser o avatar de interface",
+      "problem": "Avatar Argenta asset editorial existed; posts referenced deleted legacy names. Normalized 121 posts to real image/alt; separated 1x1 UI avatar vs editorial image. 131 posts had zero broken local images.",
+      "solution": "artigo declara ou limita o escopo: argenta-avatar-1x1-v1.jpg passou a ser o avatar de interface",
+      "result": "claim do artigo, sem verificação independente nesta pesquisa",
+      "limitations": "Role-specific art assets, not one generic image",
+      "confidence": "declarado",
+      "evidence": [
+        {
+          "source_id": "2026-08-27-avatar-da-argenta-restaurado",
+          "excerpt": "argenta-avatar-1x1-v1.jpg passou a ser o avatar de interface"
+        }
+      ],
+      "lesson": "Sweep on 131 publications, per article",
+      "next_step": "Verificar no contexto do próximo uso: Role-specific art assets, not one generic image",
+      "occurred_at": "2026-08-27",
+      "incident_key": "2026-08-27-avatar-da-argenta-restaurado"
+    }
+  ]
+}

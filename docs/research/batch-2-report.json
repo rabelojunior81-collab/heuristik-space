@@ -548,8 +548,8 @@
         {
           "subject": "Omarchy",
           "relation": "artigo declara ou limita o escopo",
-          "object": "A Dependência Tem Dono",
-          "evidence_excerpt": "A Dependência Tem Dono",
+          "object": "O upstream do plugin ainda não publicou o porte/rebuild; o bloqueio Hyprland/plugin permanece separado da atualização do Docker Desktop.",
+          "evidence_excerpt": "O PR #7 (\"Build against Hyprland 0.57\") está aberto desde a madrugada, e o rebuild automático do Omarchy (#1788, 0.2.2-3) está aberto com os checks vermelhos e o auto-merge armado.",
           "confidence": "declarado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Docker pós-reboot foi verificado conforme relato; plugin ficou bloqueado"
@@ -1036,8 +1036,8 @@
         {
           "subject": "Rabelus Buddy",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "O agente pensou bem por quatro minutos, e a tela não disse nada.",
-          "evidence_excerpt": "O agente pensou bem por quatro minutos, e a tela não disse nada.",
+          "object": "Uma resposta levou quatro minutos sem atualização visível, segundo o relato.",
+          "evidence_excerpt": "As respostas vieram boas, mas uma delas levou quatro minutos com a tela parada, e depois tudo apareceu de uma vez.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Sessão descrita pelo autor; streaming varia por provedor"
@@ -1779,8 +1779,8 @@
         {
           "subject": "RQM",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": " lacunas confirmadas ou prováveis.",
-          "evidence_excerpt": " lacunas confirmadas ou prováveis.",
+          "object": "As 24 lacunas incluem graus diferentes de confirmação; não equivalem a 24 falhas reproduzidas.",
+          "evidence_excerpt": "A análise distingue falhas confirmadas de riscos prováveis.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Graus distintos; não são 24 falhas reproduzidas"
@@ -1788,8 +1788,8 @@
         {
           "subject": "RQM",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "sua implementação permanece futura.",
-          "evidence_excerpt": "sua implementação permanece futura.",
+          "object": "As mudanças atuais são preparação; barreiras, reparos e adoção permanecem futuras e sujeitas a gates.",
+          "evidence_excerpt": "As mudanças atuais são análise e preparação. As barreiras técnicas, os reparos e a adoção permanecem no ciclo futuro, com aprovação e gates próprios.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Proposta não equivale a adoção"
@@ -2038,8 +2038,8 @@
         {
           "subject": "RQP",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "Duas Tessys Numeraram a Mesma História",
-          "evidence_excerpt": "Duas Tessys Numeraram a Mesma História",
+          "object": "Duas linhagens legítimas acumularam numerações diferentes após uma linha não empurrada.",
+          "evidence_excerpt": "As duas linhagens eram legítimas. Nenhuma estava errada sobre o que fazia. As duas estavam erradas sobre ser a única.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Causa da duplicação de sessões narrada"
@@ -2047,8 +2047,8 @@
         {
           "subject": "RQP",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "Duas Tessys Numeraram a Mesma História",
-          "evidence_excerpt": "Duas Tessys Numeraram a Mesma História",
+          "object": "Pedidos de ajuda/versão executaram programas em vez de apenas informar.",
+          "evidence_excerpt": "Duas vezes, um pedido de \"ajuda\" ou \"versão\" executou o programa de verdade.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Comandos help/version ativaram apps/relay; corrigir pressuposto"
@@ -2056,8 +2056,8 @@
         {
           "subject": "RQP",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "Duas Tessys Numeraram a Mesma História",
-          "evidence_excerpt": "Duas Tessys Numeraram a Mesma História",
+          "object": "Adendo posterior fechou três de quatro pendências; troca definitiva da chave e prova do reboot ficaram pendentes.",
+          "evidence_excerpt": "Três dos quatro itens acima fecharam. A sincronização foi curada com prova: um comando novo só move a linha de base quando o conteúdo do espelho existe no histórico do mestre.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Adendo subsequente no artigo atualiza status; rever cronologia"
@@ -3372,8 +3372,8 @@
         {
           "subject": "Quantum Bus sync",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "A Identidade que Destravou o Sync",
-          "evidence_excerpt": "A Identidade que Destravou o Sync",
+          "object": "O sync avançou após corrigir a identidade, mas fetch permaneceu bloqueado por token GH inválido; reautenticação ficou operator-owned.",
+          "evidence_excerpt": "A causa, comprovada pelo gh auth status, é o token do GitHub CLI em /home/aidlson/.config/gh/hosts.yml — inválido. Reautenticação é operator-owned: o segredo não passa por mim, nem por log, nem por evento.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "gh auth status, reauth não feita pelo agente"
@@ -3462,8 +3462,8 @@
         {
           "subject": "Codex CLI/Claude Code/OpenCode/Kimi Code/AGY",
           "relation": "artigo declara ou limita o escopo",
-          "object": "sem executar nenhuma atualização",
-          "evidence_excerpt": "sem executar nenhuma atualização",
+          "object": "A auditoria identificou versões-alvo, mas não executou atualização.",
+          "evidence_excerpt": "A existência do alvo não executa a mudança por si só.",
           "confidence": "declarado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Consulta de versões apenas"
@@ -3950,8 +3950,8 @@
         {
           "subject": "ZCode",
           "relation": "artigo declara ou limita o escopo",
-          "object": "provider não é harness",
-          "evidence_excerpt": "provider não é harness",
+          "object": "A identidade operacional do harness ZCode não pode ser inferida apenas do provider/modelo.",
+          "evidence_excerpt": "Uma sessão ZCode carregava o modelo correto, mas foi inicialmente tratada como OpenCode e depois como Codex.",
           "confidence": "declarado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Modelo correto não determina identidade"
@@ -4159,8 +4159,8 @@
         {
           "subject": "Ubuntu Full-Linux",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "27 pacotes APT e três snaps",
-          "evidence_excerpt": "27 pacotes APT e três snaps",
+          "object": "O lote atualizou 27 pacotes APT e três snaps sem remoção, conforme detalhamento do artigo.",
+          "evidence_excerpt": "O APT atualizou 27 pacotes sem remoção: OpenSSL/libssl, Chrome 152.0.7977.64-1, ChatGPT 26.820.71523, Claude Desktop 1.37937.3, snapd e componentes Ubuntu. O Snap atualizou Firefox para a rev. 8803, GNOME base para 164 e Mesa para 1839.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Updates completed, specific packages held"
@@ -4217,8 +4217,8 @@
         {
           "subject": "Quantum Bus update skills",
           "relation": "artigo declara ou limita o escopo",
-          "object": "A Auditoria que Vira Rotina",
-          "evidence_excerpt": "A Auditoria que Vira Rotina",
+          "object": "O cronjob está proposto em modo observacional, sem ações de atualização ou publicação.",
+          "evidence_excerpt": "O cronjob proposto também começa observando: gera JSONL/Markdown, alerta sobre drift e não instala, reinicia, publica ou ativa nada.",
           "confidence": "declarado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Cron not active; no authorization automatic"
@@ -4475,8 +4475,8 @@
         {
           "subject": "Argenta Pi dashboard",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "O Dashboard Ganha um Ícone Próprio",
-          "evidence_excerpt": "O Dashboard Ganha um Ícone Próprio",
+          "object": "O ícone combina fênix âmbar, placa verde/ciano e moldura olive para a identidade Argenta Pi.",
+          "evidence_excerpt": "A correção acrescentou um símbolo vetorial angular: fênix âmbar para o genoma Argenta, placa verde/ciano para o Raspberry Pi e molduras olive alinhadas ao visual do Rabelus Lab.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Technical/browser status not user acceptance"
@@ -4484,8 +4484,8 @@
         {
           "subject": "Argenta Pi dashboard",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "O Dashboard Ganha um Ícone Próprio",
-          "evidence_excerpt": "O Dashboard Ganha um Ícone Próprio",
+          "object": "O post recomenda reabrir o app e, se o ícone antigo persistir, remover e fixar novamente o atalho para atualizar cache.",
+          "evidence_excerpt": "Se o dock continuar mostrando a imagem antiga, basta fechar e reabrir o app; persistindo o cache, remover e fixar novamente a mesma página atualiza o atalho.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Cache state resolved using clean tab"
@@ -5825,8 +5825,8 @@
         {
           "subject": "Claude Code/OpenCode/native CLI packages",
           "relation": "artigo apresenta como observação/teste narrado",
-          "object": "O Binário que Mentia",
-          "evidence_excerpt": "O Binário que Mentia",
+          "object": "O executável nomeado .exe era um stub de shell de 500 bytes, não um binário Windows válido.",
+          "evidence_excerpt": "O arquivo tinha 500 bytes e era um script de shell — o stub que o pacote deixa no lugar do binário nativo quando ele nunca chega.",
           "confidence": "relatado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Stub indicated postinstall/platform package missing"
@@ -5834,8 +5834,8 @@
         {
           "subject": "Claude Code/OpenCode/native CLI packages",
           "relation": "artigo declara ou limita o escopo",
-          "object": "O Binário que Mentia",
-          "evidence_excerpt": "O Binário que Mentia",
+          "object": "A comparação do binário publicado com o instalado revelou hashes/conteúdos distintos e versões informadas diferentes.",
+          "evidence_excerpt": "Binários diferentes. O baixado limpo respondia 1.18.19 ao --version; o instalado, 1.18.15.",
           "confidence": "declarado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Binary hash/version exposed mismatch"
@@ -5843,8 +5843,8 @@
         {
           "subject": "Claude Code/OpenCode/native CLI packages",
           "relation": "artigo declara ou limita o escopo",
-          "object": "O Binário que Mentia",
-          "evidence_excerpt": "O Binário que Mentia",
+          "object": "Os processos OpenCode serviam endereço HTTPS na tailnet e eram iniciados por script de Startup; encerrá-los teria removido acesso remoto.",
+          "evidence_excerpt": "Lançados no boot por um script na pasta Startup, escrito por outra instância da Argenta em julho, e que sustentam um endereço HTTPS na tailnet do Pai.",
           "confidence": "declarado",
           "status": "claim do artigo, sem verificação independente nesta pesquisa",
           "limitation": "Processes served tailnet URLs and were preserved"

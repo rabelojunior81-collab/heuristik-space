@@ -1,0 +1,33 @@
+# Operação, atualização e recuperação
+
+## Executar
+
+Prévia: `python -m http.server 8780 --bind 127.0.0.1` na raiz. Python e Node são ferramentas de desenvolvimento/verificação; o visitante do Pages precisa de navegador com JavaScript.
+
+Runtime adicional: `docker compose up -d --build`. Endereço: `http://127.0.0.1:4173/`. Use `docker compose ps` para estado/saúde e `docker compose logs --tail 80 web` para diagnóstico. `docker compose stop web` interrompe por decisão humana; `docker compose start web` retoma. Não parar ou recriar serviços de outro projeto.
+
+`unless-stopped` recupera saída do processo e volta com o daemon, respeitando parada manual. Healthcheck em `/healthz` indica saúde; não reinicia sozinho um processo congelado. Host e Docker precisam estar ativos. Este projeto não configura inicialização do Docker no logon ou antes do login. GitHub Pages é independente do computador local.
+
+## Imagem e persistência
+
+NGINX unprivileged Alpine, com digest imutável no Dockerfile conferido diretamente no registry em 04/11/2026. Sem pacotes adicionais. UID 101, raiz somente leitura, tmpfs de 16 MiB, capabilities removidas, no-new-privileges, limites de 128 MiB/0,5 CPU/64 PIDs e logs limitados. Porta publicada somente em loopback.
+
+Sem volumes: o conhecimento é público, estático e versionado dentro da imagem. Recriar o contêiner não apaga esses arquivos. Não há banco pessoal mutável no runtime.
+
+Fontes primárias: [imagem mantida](https://github.com/nginx/docker-nginx-unprivileged), [reinício Docker](https://docs.docker.com/engine/containers/start-containers-automatically/), [Compose](https://docs.docker.com/reference/compose-file/services/) e [build](https://docs.docker.com/build/building/best-practices/). A proposta inicial do leitor continha outra referência de imagem; o executor substituiu pela referência resolvida no registry e preservou o intake como tentativa.
+
+Atualizar: consultar release/tag estável, resolver digest, revisar diff, registrar versões, construir e testar. Guardar imagem anterior antes de trocar. Rollback por revisão Git anterior mais rebuild/recriação controlada, ou imagem anterior registrada. Não fazer prune global.
+
+## Ingerir uma edição
+
+1. Abrir run com intenção, versão e contrato. Conferir CNAME vigente do Blog e autorização do corte. Fonte nova exige leitura integral/revisão; contrato não é derivado da saída.
+2. `python scripts/inspect_blog.py --blog ../lars-rabelus/blog` cria recibo novo de manifesto/HTTP/TLS/hash/diferenças. É snapshot, não monitoramento permanente.
+3. Consolidar relatórios/relações. `python scripts/build_data.py --blog ../lars-rabelus/blog --output .runtime/candidate-N/data` recusa diretório existente e não escreve na base servida.
+4. `python scripts/validate.py --data .runtime/candidate-N/data --out docs/runs/RUN/admission.json`. FAIL bloqueia promoção.
+5. Conferir semântica/controles negativos. `python scripts/promote.py --candidate .runtime/candidate-N/data --run docs/runs/RUN --blog-survey docs/runs/SURVEY/blog-status.json` exige vistoria PASS da mesma origem/corte e deste ciclo diário. Base anterior fica preservada em `.runtime`.
+6. QA real em 375/390/1440, testes, review consultivo e tratamento dos achados. Atualizar estado/changelog e sincronizar caminhos próprios.
+7. Workflow valida, empacota e publica o mesmo SHA. Conferir Pages/HTTPS/bytes/interface e emitir recibo. Aceite humano é separado.
+
+## Falha ou interrupção
+
+Cada tentativa tem run próprio. Se existir `.runtime/promotion-pending.json`, conferir intenção, estágio, backup e base antes de recuperação explícita. Não apagar a barreira para tentar novamente. DNS/TLS não autorizam desligar HTTPS nem mudar domínio por inferência. Reverter somente delta próprio, preservando histórico e posses alheias.
